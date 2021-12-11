@@ -6,12 +6,12 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 17:45:37 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/11/13 18:06:56 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/11/19 17:22:42 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <cctype>
 #include <iostream>
-using namespace std;
 
 int main(int argc, char **argv)
 {
@@ -36,7 +36,7 @@ int main(int argc, char **argv)
         }
     }
     else
-        cout << "* LOUD AND UMBEARABLE FEEDBACK NOISE *";
+        std::cout << "* LOUD AND UMBEARABLE FEEDBACK NOISE *";
     putchar('\n');
     return (0);
 }
