@@ -6,37 +6,25 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 17:45:37 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/11/13 18:06:56 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/12/20 21:02:26 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-using namespace std;
 
-int main(int argc, char **argv)
+int main(int ac, char **av)
 {
-    int i;
-    int j;
-
-    i = 1;
-    if (argc > 1)
-    {
-        while (argv[i])
-        {
-            j = 0;
-            while (argv[i][j])
-            {
-                if (argv[i][j] >= 97 && argv[i][j] <= 122)
-                    putchar(argv[i][j] - 32);
-                else
-                    putchar(argv[i][j]);
-                j++;
-            }
-            i++;
-        }
-    }
+    if (ac == 1)
+        std::cout << "* LOUD AND UMBEARABLE FEEDBACK NOISE *";
     else
-        cout << "* LOUD AND UMBEARABLE FEEDBACK NOISE *";
-    putchar('\n');
-    return (0);
+    {
+        for (int i = 1; i < ac; i++)
+        {
+            int j = 0;
+            while(av[i][j])
+                std::cout << char(toupper(av[i][j++]));
+        }
+    }   
+    std::cout << std::endl;
+    return (0); 
 }
