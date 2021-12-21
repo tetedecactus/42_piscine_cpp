@@ -6,10 +6,11 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 17:45:37 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/12/20 21:02:26 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/12/20 21:54:21 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <cctype>
 #include <iostream>
 
 int main(int ac, char **av)
