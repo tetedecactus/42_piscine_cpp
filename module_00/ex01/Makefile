@@ -4,7 +4,8 @@ CC = clang++
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = main.cpp phonebook.cpp \
+SRC = 	main.cpp \
+		# phonebook.cpp \
 
 HEADER = phonebook.hpp \
 

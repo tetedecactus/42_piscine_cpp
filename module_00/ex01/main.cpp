@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 21:12:31 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/03/11 09:54:47 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/04/01 17:48:48 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,23 @@
 
 int main ()
 {
-  std::string first_name;
-  std::string last_name;
-  std::string nickname;
-  std::string phone_number;
-  std::string darkest_secret;
+  phoneboook::contact new_contact;
+  std::cout << "Please, enter your first name: ";
+  std::getline(std::cin, new_contact.first_name);
+  std::cout << "Please, enter your last name: ";
+  std::getline(std::cin, new_contact.last_name);
+  std::cout << "Please, enter your nickname: ";
+  std::getline(std::cin, new_contact.nickname);
+  std::cout << "Please, enter your phone number: ";
+  std::getline(std::cin, new_contact.phone_number);
+  std::cout << "Please, enter your darkest secret: ";
+  std::getline(std::cin, new_contact.darkest_secret);
 
-  std::cout << "Please, enter your full name: ";
-  std::getline (std::cin,first_name);
-  std::cout << "Hello, " << first_name << "!\n";
+  std::cout << "Hello, " << new_contact.first_name << "!\n";
+  std::cout << "Hello, " << new_contact.last_name << "!\n";
+  std::cout << "Hello, " << new_contact.nickname << "!\n";
+  std::cout << "Hello, " << new_contact.phone_number << "!\n";
+  std::cout << "Hello, " << new_contact.darkest_secret << "!\n";
 
   return 0;
 }
