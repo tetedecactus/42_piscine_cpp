@@ -16,6 +16,8 @@
 #include <iostream>
 #include <string>
 
+
+//Class phonebook conteint un array de class Contact!!
 namespace phoneboook
 {
     class contact
