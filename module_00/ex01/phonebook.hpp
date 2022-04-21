@@ -16,48 +16,24 @@
 #include <iostream>
 #include <string>
 
-
 //Class phonebook conteint un array de class Contact!!
-namespace phoneboook
+class phonebook
 {
-    class contact
-    {
-        private:
+private:
+    /* data */
+public:
+class 
+    phonebook(/* args */);
+    ~phonebook();
+};
 
-        public:
-            std::string first_name;
-            std::string last_name;
-            std::string nickname;
-            std::string phone_number;
-            std::string darkest_secret;
-    //     contact();
-    //     // contact(std::string add);
-    //     // contact(std::string search);
-    //     // contact(std::string exit);
-    //     ~contact();
-    };
-    // contact::contact()
-    // {
-    // }
-
-    // contact::contact(std::string add)
-    // {
-    // }
-
-    // contact::contact(std::string search)
-    // {
-    // }
-    
-    // contact::contact(std::string exit)
-    // {
-    // }
-
-    // contact::~contact()
-    // {
-    // }
+phonebook::phonebook(/* args */)
+{
 }
 
-
+phonebook::~phonebook()
+{
+}
 
 
 #endif
