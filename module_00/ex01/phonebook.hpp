@@ -21,8 +21,8 @@
 class phonebook
 {
     private:
-        /* data */
     public:
+        std::string cmd;
         phonebook(/* args */);
         ~phonebook();
     
