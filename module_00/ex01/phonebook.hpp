@@ -15,16 +15,17 @@
 
 #include <iostream>
 #include <string>
+#include "contact.hpp"
 
 //Class phonebook conteint un array de class Contact!!
 class phonebook
 {
-private:
-    /* data */
-public:
-class 
-    phonebook(/* args */);
-    ~phonebook();
+    private:
+        /* data */
+    public:
+        phonebook(/* args */);
+        ~phonebook();
+    
 };
 
 phonebook::phonebook(/* args */)

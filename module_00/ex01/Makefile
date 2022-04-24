@@ -11,27 +11,32 @@ HEADER = phonebook.hpp \
 
 OBJ = $(SRC:.cpp=.o)
 
+YELLOW 	= \033[0;33m
+GREEN 	= \033[0;32m
+RED 	= \033[0;31m
+END 	= \033[0m
+
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@echo "\033[0;33m Compiling..."
+	@echo "$(YELLOW) Compiling...$(END)"
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-	@echo "\033[0m"
+	@echo "$(END)"
 
 .cpp.o:
-	@echo "\033[0;32m Generating obj..."
+	@echo "$(GREEN) Generating obj..."
 	$(CC) $(CFLAGS) -c $<
-	@echo "\033[0m"
+	@echo "$(END)"
 
 clean:
-	@echo "\033[0;31m Cleaning..."
+	@echo "$(RED) Cleaning..."
 	rm -f $(OBJ)
-	@echo "\033[0m"
+	@echo "c"
 
 fclean: clean
-	@echo "\033[0;31m Removing executable..."
+	@echo "$(RED) Removing executable..."
 	rm -f $(NAME)
-	@echo "\033[0m"
+	@echo "$(END)"
 
 re: fclean all
 

@@ -1,21 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/20 21:12:27 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/04/24 13:21:25 by olabrecq         ###   ########.fr       */
+/*   Created: 2022/04/24 13:11:52 by olabrecq          #+#    #+#             */
+/*   Updated: 2022/04/24 13:19:37 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
-phonebook::phonebook(/* args */)
+class contact
+{
+    private:
+        /* data */
+    public:
+        contact(/* args */);
+        ~contact();
+};
+
+contact::contact(/* args */)
 {
 }
 
-phonebook::~phonebook()
+contact::~contact()
 {
 }
+
+
+#endif
