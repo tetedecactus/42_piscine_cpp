@@ -23,6 +23,7 @@ class phonebook
     private:
     public:
         std::string cmd;
+        contact contact[8];
         phonebook(/* args */);
         ~phonebook();
     
