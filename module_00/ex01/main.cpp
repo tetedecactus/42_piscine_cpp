@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 21:12:31 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/04/24 13:17:47 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/04/24 13:52:45 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int main ()
 {
+
 	phoneboook::contact new_contact;
 	std::cout << "Please, enter your first name: ";
 	std::getline(std::cin, new_contact.first_name);
