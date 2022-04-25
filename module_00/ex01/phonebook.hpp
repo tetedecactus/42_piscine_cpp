@@ -21,8 +21,9 @@
 class phonebook
 {
     private:
-        /* data */
+        contact contact[8];
     public:
+        std::string cmd;
         phonebook(/* args */);
         ~phonebook();
     
