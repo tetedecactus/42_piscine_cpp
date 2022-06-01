@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 21:12:31 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/05/31 21:55:53 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/06/01 13:36:07 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,32 +31,37 @@ contact add_contact()
 	std::cout <<  "ENTER THE DARKEST_SECRET: ";
 	std::getline(std::cin ,new_contact.darkest_secret);
 	std::cout << "\n";
-
+	std::cout << "RETURN TO MAIN MENU" << std::endl;
+	
 	return (new_contact);
 }
 
-contact search_contact();
+contact search_contact()
+{
+	
+}
 
 int main ()
 {
 	// si le phonebook ce ferme quand il reouver cb de contact ya??
 	phonebook phonebook;
 	int i = 0;
-	std::cout << "\t\t📞--->PHONEBOOK<---📞\n" << std::endl;
-	std::cout << "*******************************************************\n" << std::endl;
-	std::cout << "PLEASE ENTER COMMAND\n" << std::endl;
-	std::cout << "ADD || SEARCH || EXIT" << std::endl;
-	
-	std::getline(std::cin, phonebook.cmd);
-    if (phonebook.cmd == "ADD")
-		phonebook.contact[i++] =  add_contact();
-	else if (phonebook.cmd == "SEARCH")
-		std::cout << "COMMAND IS: "<< phonebook.cmd <<"" << "\n";
-	else if (phonebook.cmd == "EXIT")
-		std::cout << "COMMAND IS: "<< phonebook.cmd <<"" << "\n";
-	else
-		std::cout << "Wrong command you dump ass" << std::endl;
+	while (true)
+	{
+		std::cout << "\t\t📞--->PHONEBOOK<---📞\n" << std::endl;
+		std::cout << "*******************************************************\n" << std::endl;
+		std::cout << "PLEASE ENTER COMMAND\n" << std::endl;
+		std::cout << "ADD || SEARCH || EXIT \n" << std::endl;
+		std::getline(std::cin, phonebook.cmd);
+		std::cout << std::endl;
+		if (phonebook.cmd == "ADD" || phonebook.cmd == "add")
+			phonebook.contact[i++] =  add_contact();
+		else if (phonebook.cmd == "SEARCH" || phonebook.cmd == "search")
+			std::cout << "COMMAND IS: "<< phonebook.cmd <<"" << "\n";
+		else if (phonebook.cmd == "EXIT" || phonebook.cmd == "exit")
+			break;
+		else
+			std::cout << "Wrong command you dump ass" << std::endl;
+	}
   return 0;
 }
-// Note
-// when endl or \n
