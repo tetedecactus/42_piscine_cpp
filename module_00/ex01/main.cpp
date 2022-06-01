@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 21:12:31 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/05/31 20:23:56 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/05/31 21:55:53 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,7 @@ int main ()
 	std::cout << "\t\t📞--->PHONEBOOK<---📞\n" << std::endl;
 	std::cout << "*******************************************************\n" << std::endl;
 	std::cout << "PLEASE ENTER COMMAND\n" << std::endl;
-	std::cout << "ADD" << std::endl;
-	std::cout << "SEARCH" << std::endl;
-	std::cout << "EXIT" << std::endl;
+	std::cout << "ADD || SEARCH || EXIT" << std::endl;
 	
 	std::getline(std::cin, phonebook.cmd);
     if (phonebook.cmd == "ADD")
