@@ -21,9 +21,9 @@
 class phonebook
 {
     private:
-        contact contact[8];
     public:
         std::string cmd;
+        contact contact[8];
         phonebook(/* args */);
         ~phonebook();
     
