@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 21:12:31 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/06/01 13:36:07 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/06/02 16:08:22 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,18 @@
 contact add_contact()
 {
 	contact new_contact;
+	static index = 0;
 	
+	index++;
+	if (index == 8)
+	{
+		
+		delete_8th_contact(new_contact);
+	}
+	else
+	{
+		new_contact.index = index;
+	}
 	std::cout <<  "ENTER THE FIRST NAME: ";
 	std::getline(std::cin ,new_contact.first_name);
 	std::cout << "\n";
@@ -36,9 +47,14 @@ contact add_contact()
 	return (new_contact);
 }
 
-contact search_contact()
+void	display_colonne(phonebook::contact contact)
 {
 	
+}
+
+contact search_contact()
+{
+	display_colonne
 }
 
 int main ()
