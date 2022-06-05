@@ -7,6 +7,7 @@ NAME = phonebook
 
 CC = clang++
 
+# add this flags forxxx evaluation: -std=c++98
 CFLAGS = -Wall -Wextra -Werror
 
 SRC = 	main.cpp \
