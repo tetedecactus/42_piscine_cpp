@@ -6,56 +6,57 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 21:12:31 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/06/02 16:08:22 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/06/04 11:54:25 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
-
+#include "Phonebook.hpp"
+using std::cout;
+// typedef std::cout cout;
 contact add_contact()
 {
-	contact new_contact;
-	static index = 0;
+	// contact new_contact;
+	// static index = 0;
 	
-	index++;
-	if (index == 8)
-	{
+	// index++;
+	// if (index == 8)
+	// {
 		
-		delete_8th_contact(new_contact);
-	}
-	else
-	{
+	// 	delete_8th_contact(new_contact);
+	// }
+	// else
+	// {
 		new_contact.index = index;
-	}
-	std::cout <<  "ENTER THE FIRST NAME: ";
+	// }
+	cout <<  "ENTER THE FIRST NAME: ";
 	std::getline(std::cin ,new_contact.first_name);
-	std::cout << "\n";
-	std::cout <<  "ENTER THE LAST NAME: ";
+	cout << "\n";
+	cout <<  "ENTER THE LAST NAME: ";
 	std::getline(std::cin ,new_contact.last_name);
-	std::cout << "\n";
-	std::cout <<  "ENTER THE NICKNAME: ";
+	cout << "\n";
+	cout <<  "ENTER THE NICKNAME: ";
 	std::getline(std::cin ,new_contact.nickname);
-	std::cout << "\n";
-	std::cout <<  "ENTER THE PHONE NUMBER: ";
+	cout << "\n";
+	cout <<  "ENTER THE PHONE NUMBER: ";
 	std::getline(std::cin ,new_contact.phone_nuber);
-	std::cout << "\n";
-	std::cout <<  "ENTER THE DARKEST_SECRET: ";
+	cout << "\n";
+	cout <<  "ENTER THE DARKEST_SECRET: ";
 	std::getline(std::cin ,new_contact.darkest_secret);
-	std::cout << "\n";
-	std::cout << "RETURN TO MAIN MENU" << std::endl;
+	cout << "\n";
+	cout << "RETURN TO MAIN MENU" << std::endl;
 	
 	return (new_contact);
 }
 
-void	display_colonne(phonebook::contact contact)
-{
+// void	display_colonne(phonebook::contact contact)
+// {
 	
-}
+// }
 
-contact search_contact()
-{
-	display_colonne
-}
+// contact search_contact()
+// {
+// 	display_colonne
+// }
 
 int main ()
 {
@@ -64,12 +65,12 @@ int main ()
 	int i = 0;
 	while (true)
 	{
-		std::cout << "\t\t📞--->PHONEBOOK<---📞\n" << std::endl;
-		std::cout << "*******************************************************\n" << std::endl;
-		std::cout << "PLEASE ENTER COMMAND\n" << std::endl;
-		std::cout << "ADD || SEARCH || EXIT \n" << std::endl;
+		cout << "\t\t📞--->PHONEBOOK<---📞\n" << std::endl;
+		cout << "*******************************************************\n" << std::endl;
+		cout << "PLEASE ENTER COMMAND\n" << std::endl;
+		cout << "ADD || SEARCH || EXIT \n" << std::endl;
 		std::getline(std::cin, phonebook.cmd);
-		std::cout << std::endl;
+		cout << std::endl;
 		if (phonebook.cmd == "ADD" || phonebook.cmd == "add")
 			phonebook.contact[i++] =  add_contact();
 		else if (phonebook.cmd == "SEARCH" || phonebook.cmd == "search")

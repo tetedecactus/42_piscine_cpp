@@ -1,41 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.hpp                                      :+:      :+:    :+:   */
+/*   contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/20 21:13:50 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/04/01 17:31:10 by olabrecq         ###   ########.fr       */
+/*   Created: 2022/04/24 13:11:55 by olabrecq          #+#    #+#             */
+/*   Updated: 2022/06/04 11:53:25 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#include "Phonebook.hpp"
 
-#include <iostream>
-#include <string>
-#include "contact.hpp"
-
-//Class phonebook conteint un array de class Contact!!
-class phonebook
-{
-    private:
-    public:
-        std::string cmd;
-        contact contact[8];
-        phonebook(/* args */);
-        ~phonebook();
-    
-};
-
-phonebook::phonebook(/* args */)
+contact::contact(/* args */)
 {
 }
 
-phonebook::~phonebook()
+contact::~contact()
 {
 }
-
-
-#endif
