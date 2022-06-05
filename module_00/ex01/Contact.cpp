@@ -1,16 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/20 21:12:31 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/06/04 21:18:24 by olabrecq         ###   ########.fr       */
+/*   Created: 2022/04/24 13:11:55 by olabrecq          #+#    #+#             */
+/*   Updated: 2022/06/04 21:35:51 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Phonebook.hpp"
+
+Contact::Contact(/* args */)
+{
+}
+
+Contact::~Contact()
+{
+}
 
 Contact add_contact()
 {
@@ -34,29 +42,3 @@ Contact add_contact()
 
 	return (new_contact);
 }
-
-Contact search_contact();
-
-int main ()
-{
-	// si le phonebook ce ferme quand il reouver cb de contact ya??
-	Phonebook phonebook;
-	int i = 0;
-	std::cout << "\t\t📞--->PHONEBOOK<---📞\n" << std::endl;
-	std::cout << "*******************************************************\n" << std::endl;
-	std::cout << "PLEASE ENTER COMMAND\n" << std::endl;
-	std::cout << "ADD || SEARCH || EXIT" << std::endl;
-	
-	std::getline(std::cin, phonebook.cmd);
-    if (phonebook.cmd == "ADD")
-		phonebook.contact[i++] =  contact[i].add_contact();
-	else if (phonebook.cmd == "SEARCH")
-		std::cout << "COMMAND IS: "<< phonebook.cmd <<"" << "\n";
-	else if (phonebook.cmd == "EXIT")
-		std::cout << "COMMAND IS: "<< phonebook.cmd <<"" << "\n";
-	else
-		std::cout << "Wrong command you dump ass" << std::endl;
-  return 0;
-}
-// Note
-// when endl or \nz
