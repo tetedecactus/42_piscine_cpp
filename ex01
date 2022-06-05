@@ -1,0 +1,107 @@
+NAME		=	cub3D
+
+SRC			=	srcs
+INC			=	includes
+OBJ			=	obj
+
+LIB			=	lib
+LIBFT		=	$(LIB)/libft
+MLX_LINUX	=	$(LIB)/mlx_linux
+MLX_MAC 	= 	$(LIB)/mlx_mac
+
+CC			=	clang
+CFLAGS		=	-Wall -Werror -Wextra -g
+
+YELLOW 	= \033[0;33m
+GREEN 	= \033[0;32m
+RED 	= \033[0;31m
+END 	= \033[0m
+
+RM			=	rm -rf
+MK			=	mkdir -p
+NM			=	norminette
+
+MAKE_DIR	= $(MAKE) -C
+
+CFILES		=	main.c \
+				get_next_line.c \
+				parsing_info.c \
+				parsing_map.c \
+				parsing_utils.c \
+				start_mlx.c \
+				keys_handle.c \
+				draw.c \
+				mlx_utils.c \
+				move_player.c \
+				rotate_player.c \
+				gab_file2.c \
+				draw_minimap.c \
+
+HFILES		=	cub.h \
+				struct.h \
+				def.h \
+				
+OFILES		=	$(CFILES:.c=.o)
+
+SRCS		=	$(addprefix $(SRC)/, $(CFILES))
+HEADERS		=	$(addprefix $(INC)/, $(HFILES))
+OBJS		=	$(addprefix $(OBJ)/, $(OFILES))
+
+VPATH		=	$(SRCS)
+
+FRAMEWORKS_MAC 		= -lft -lmlx -lm -framework OpenGL -framework AppKit
+FRAMEWORKS_LINUX 	= -lft -lmlx -lm -lXext -lbsd -lX11
+
+$(OBJ)/%.o:	$(SRC)/%.c
+			$(CC) $(CFLAGS) -I$(INC) -I$(LIB) -c $< -o $@
+
+all:		$(NAME)
+
+$(NAME):	$(OBJ) $(OBJS)
+		@echo "$(GREEN) Compiling..."
+		@$(MAKE_DIR) $(LIBFT)
+		$(CC) $(OBJS) -L$(LIBFT) -L$(MLX_MAC) $(FRAMEWORKS_MAC) -o $(NAME)
+		@echo "$(END)"
+		@echo "$(GREEN)  Kub3D Compiled\n $(END)"
+
+$(OBJ):
+			@$(MK) $(OBJ)
+
+linux:		$(OBJ) $(OBJS)
+			@echo "$(GREEN) Compiling..."
+			@$(MAKE_DIR) $(LIBFT)
+			@$(MAKE_DIR) $(MLX_LINUX)
+			$(CC) $(OBJS)  -L$(LIBFT) -L$(MLX_LINUX) $(FRAMEWORKS_LINUX) -o $(NAME)
+			@echo "$(GREEN) Kub3D Compiled\n $(END)"
+			
+clean:
+			@$(MAKE_DIR) $(LIBFT) clean
+			@$(MAKE_DIR) $(MLX_MAC) clean
+			@$(RM) $(OBJS)
+			@$(RM) $(OBJ)
+
+linux-clean:
+			@echo "$(RED) Cleaning..."
+			@$(MAKE_DIR) $(LIBFT) clean
+			@$(MAKE_DIR) $(MLX_LINUX) clean
+			@$(RM) $(OBJS)
+			@$(RM) $(OBJ)
+			@echo "$(END)"
+
+fclean:		clean
+			@echo "$(RED) Removing executable..."
+			@$(MAKE_DIR) $(LIBFT) fclean
+			@$(RM) $(NAME)
+			@echo "$(END)"
+
+re:			fclean all
+
+relinux:			fclean linux
+
+norm:
+			@$(NM) $(SRC) $(HEADERS)
+
+val: all
+	valgrind   --leak-check=full --track-origins=yes -s --trace-children=yes  ./$(NAME) map.cub
+
+.PHONY:		all debug clean fclean re linux bonus bclean

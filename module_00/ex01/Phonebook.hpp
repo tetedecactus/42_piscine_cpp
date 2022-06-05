@@ -17,25 +17,20 @@
 #include <string>
 #include "Contact.hpp"
 
-//Class phonebook conteint un array de class Contact!!
-class phonebook
+class Phonebook
 {
-    private:
-    public:
-        std::string cmd;
-        contact contact[8];
-        phonebook(/* args */);
-        ~phonebook();
+private:
+    Contact contact[8];
+public:
+    std::string cmd;
+    void addContact();
+    void searchContact();
+    // void findContact();
+
+	void displayMenu();
+    Phonebook();
+    ~Phonebook();
     
 };
-
-phonebook::phonebook(/* args */)
-{
-}
-
-phonebook::~phonebook()
-{
-}
-
 
 #endif
