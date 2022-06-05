@@ -15,19 +15,24 @@
 
 #include <iostream>
 #include <string>
+#include <time.h>
+#include <unistd.h>
 #include "Contact.hpp"
 
 class Phonebook
 {
 private:
     Contact contact[8];
+	int nbContact;
 public:
-    std::string cmd;
-    void addContact();
+    std::string input;
+    Contact addContact();
     void searchContact();
     // void findContact();
 
+	// void getContact(Contact newContact);
 	void displayMenu();
+	// void displayContact(int indexContact);
     Phonebook();
     ~Phonebook();
     
