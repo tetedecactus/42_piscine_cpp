@@ -17,14 +17,12 @@
 #include <string>
 #include "Contact.hpp"
 
-
-//Class phonebook conteint un array de class Contact!!
 class Phonebook
 {
 private:
-    std::string cmd;
     Contact contact[8];
 public:
+    std::string cmd;
     void add_contact();
     void search_contact();
     void find_contact();
@@ -32,7 +30,5 @@ public:
     ~Phonebook();
     
 };
-
-
 
 #endif

@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Jun  4 20:15:11 2022
+# Make data base, printed on Sat Jun  4 22:16:58 2022
 
 # Variables
 
@@ -273,15 +273,14 @@ VSCODE_PID = 2502
 
 # Directories
 
-# . (device 2053, inode 1209693): 5 files, no impossibilities.
+# . (device 2053, inode 1209693): 6 files, no impossibilities.
 
-# 5 files, no impossibilities in 1 directories.
+# 6 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
 # No implicit rules.
 
- 
 # Files
 
 # Not a target:
@@ -294,6 +293,7 @@ all:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
+ 
 #  File does not exist.
 #  File has been updated.
 #  Failed to be updated.
@@ -326,12 +326,12 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 13 / storage = 113 B / avg = 8 B
-# current buf: size = 8162 B / used = 113 B / count = 13 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 14 / storage = 118 B / avg = 8 B
+# current buf: size = 8162 B / used = 118 B / count = 14 / avg = 8 B
 
-# strcache performance: lookups = 16 / hit rate = 18%
+# strcache performance: lookups = 17 / hit rate = 17%
 # hash-table stats:
-# Load=13/8192=0%, Rehash=0, Collisions=1/16=6%
-# Finished Make data base on Sat Jun  4 20:15:11 2022
+# Load=14/8192=0%, Rehash=0, Collisions=1/17=6%
+# Finished Make data base on Sat Jun  4 22:16:58 2022
 
  

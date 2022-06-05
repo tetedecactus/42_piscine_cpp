@@ -1,3 +1,8 @@
+YELLOW 	= \033[0;33m
+GREEN 	= \033[0;32m
+RED 	= \033[0;31m
+END 	= \033[0m
+
 NAME = phonebook
 
 CC = clang++
@@ -10,11 +15,6 @@ SRC = 	main.cpp \
 HEADER = phonebook.hpp \
 
 OBJ = $(SRC:.cpp=.o)
-
-YELLOW 	= \033[0;33m
-GREEN 	= \033[0;32m
-RED 	= \033[0;31m
-END 	= \033[0m
 
 all: $(NAME)
 
