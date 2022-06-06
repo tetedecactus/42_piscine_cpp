@@ -26,7 +26,7 @@ private:
 	int nbContact;
 public:
     std::string input;
-    Contact addContact();
+    void addContact();
     void searchContact();
     // void findContact();
 

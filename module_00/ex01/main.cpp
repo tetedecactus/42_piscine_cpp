@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 21:12:31 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/06/05 18:45:49 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/06/05 20:11:32 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,12 @@ int main ()
 		else if (phonebook.input == "EXIT")
 			break;
 		else
-			std::cout << "Wrong command you dump ass" << std::endl;
+		{
+			std::cout << "\033[0;31mWrong command you dump ass" << std::endl;
+			sleep(2);
+			std::cout << "\033[0;31mRETURNING TO MAIN MENU . . .\n\033[0m" << std::endl;
+			sleep(3);
+		}
 	}
 	
   return 0;

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.hpp                                        :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 13:11:52 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/06/05 18:34:48 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/06/05 20:28:47 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ public:
 	std::string infoInput;
 	// Setter function
 	void setIndexContact();
-	void setFirstName();
-	void setLastName();
+	bool setFirstName();
+	bool setLastName();
 	void setNickName();
-	void setPhoneNumber();
+	bool setPhoneNumber();
 	void setDarkestSecret();
 	// Getter function
 	int getIndexContact() {return indexContact;}

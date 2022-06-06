@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.cpp                                        :+:      :+:    :+:   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 13:11:55 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/06/05 18:38:47 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/06/05 20:29:00 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,46 +31,37 @@ Contact::~Contact() {
 }
 
 void Contact::setIndexContact() {
-	
-	indexContact = 1;
+	static int i = 1;
+	indexContact = i;
+    i++;
 }
 
-void Contact::setFirstName() {
-	
+bool Contact::setFirstName() {
 	std::string input;
-	
 	std::getline(std::cin, input);
 	firstName = input;
 }
 
-void Contact::setLastName() {
-	
+bool Contact::setLastName() {
 	std::string input;
-	
 	std::getline(std::cin, input);
 	lastName = input;
 }
 
 void Contact::setNickName() {
-	
 	std::string input;
-	
 	std::getline(std::cin, input);
 	nickName = input;
 }
 
-void Contact::setPhoneNumber() {
-	
+bool Contact::setPhoneNumber() {
 	std::string input;
-	
 	std::getline(std::cin, input);
 	phoneNumber = input;
 }
 
 void Contact::setDarkestSecret() {
-	
 	std::string input;
-	
 	std::getline(std::cin, input);
 	darkestSecret = input;
 }
