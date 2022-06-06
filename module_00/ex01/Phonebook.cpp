@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Phonebook.cpp                                      :+:      :+:    :+:   */
+/*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 21:12:27 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/06/05 20:36:42 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/06/06 15:54:48 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,6 @@ Phonebook::~Phonebook() {
 	std::cout  << "Destructor Phonebook called" << std::endl;
 }
 
-void Phonebook::displayMenu() {
-	
-	std::cout << "\033[0;36m\t\t      MAIN MENU\n\n\033[0m" << std::endl;
-	std::cout << "\033[0;36m\t\t📞--->PHONEBOOK<---📞\n\033[0m" << std::endl;
-	std::cout << "\033[0;36m*=========================================================*\n\033[0m" << std::endl;
-	std::cout << "\033[0;36mPLEASE ENTER COMMAND\n\033[0m" << std::endl;
-	std::cout << "\033[0;32mADD 	-> To add a new contact\033[0m" << std::endl;
-	std::cout << "\033[0;33mSEARCH	-> To search a contact\033[0m" << std::endl;
-	std::cout << "\033[0;31mEXIT 	-> To quit your phonebook (delete all contact)\n\033[0m" << std::endl;
-	std::cout << "\033[0;36m*=========================================================*\n\033[0m" << std::endl;
-}
 
 // void Phonebook::displayContact(int indexContact) {
 	
@@ -43,60 +32,117 @@ void Phonebook::displayMenu() {
 // addContact is my setContact[] 
 void Phonebook::addContact() {
 	
-	// Contact contact->
-    
-	contact->setIndexContact();
-	std::cout << "\033[0;36m\t\t📞--->NEW CUNTACT<---📞\n\033" << std::endl;
-	std::cout << "\033[0;36m*=========================================================*\n\033[0m" << std::endl;
-	std::cout << "\033[0;36mPLEASE ENTER CUNTACT INFORMATION\n\033" << std::endl;
-    
-    
-	std::cout << "\033[0;32m\tCUNTACT NUMBER#" << contact->getIndexContact() << std::endl;
-    
-	std::cout << "\033[0;35mNEW CUNTACT FIRST NAME:\033[0;32m" << std::endl;
-		contact->setFirstName();
-	// 	contact->setInfo("firstName");
-    
-	std::cout << "\033[0;35mNEW CUNTACT LAST NAME:\033[0;32m" << std::endl;
-		contact->setLastName();
-	// 	contact->setInfo("lastName");
-    
-	std::cout << "\033[0;35mNEW CUNTACT NICKNAME:\033[0;32m" << std::endl;
-		contact->setNickName();
-	// 	contact->setInfo("nickName");
-    
-	std::cout << "\033[0;35mNEW CUNTACT PHONE NUMBER:\033[0;32m" << std::endl;
-		contact->setPhoneNumber();
-	// 	contact->setInfo("phoneNumber");
-    
-	std::cout << "\033[0;35mNEW CUNTACT DARKEST SECRET:\033[0;32m" << std::endl;
-		contact->setDarkestSecret();
-	// 	contact->setInfo("darkestSecret");
-    
-
-    
+    int i = 0;
+	nbContact++;
+	// nbContact.setNbContact(i);
+	std::cout << BLUE << "\t\t📞--->NEW CUNTACT<---📞\n" << RESET << std::endl;
+	std::cout << BLUE << "*=========================================================*\n" << RESET << std::endl;
+	std::cout << BLUE << "PLEASE ENTER CUNTACT INFORMATION\n"<< RESET << std::endl;
+	std::cout << GREEN << "\tCUNTACT NUMBER#" << contact->getIndexContact() << std::endl;
+	
+    //First name
+	std::cout << PINK << "NEW CUNTACT FIRST NAME:" << GREEN << std::endl;
+	std::getline(std::cin, input);
+	if (stringIsAlpha(input) == true && input.empty() == false)
+		contact[i].setFirstName(input);
+	else
+	{
+		std::cout << RED << "WRONG INPUT : MUST BE ONLY [A-Z]" << RESET << std::endl;
+		std::cout << RED << "RETURNING TO MAIN MENU . . .\n" << RESET << std::endl;
+		sleep(3);	
+		return ;
+	}
+	// Last name
+	std::cout << PINK << "NEW CUNTACT LAST NAME:" << GREEN << std::endl;
+	std::getline(std::cin, input);
+	if (stringIsAlpha(input) == true && input.empty() == false)// doit virifier que le input est pas null
+		contact[i].setLastName(input);
+	else
+	{
+		std::cout << RED << "WRONG INPUT : MUST BE ONLY [A-Z]" << RESET << std::endl;
+		std::cout << RED << "RETURNING TO MAIN MENU . . .\n" << RESET << std::endl;
+		sleep(3);	
+		return ;
+	}
+	// Nick name
+	std::cout << PINK << "NEW CUNTACT NICKNAME:" << GREEN << std::endl;
+	std::getline(std::cin, input);
+	if (stringIsAlpha(input) == true && input.empty() == false)
+		contact[i].setNickName(input);
+	else
+	{
+		std::cout << RED << "WRONG INPUT : MUST BE ONLY [A-Z]" << RESET << std::endl;
+		std::cout << RED << "RETURNING TO MAIN MENU . . .\n" << RESET << std::endl;
+		sleep(3);	
+		return ;
+	}
+	// Phone number
+	std::cout << PINK << "NEW CUNTACT PHONE NUMBER:" << GREEN << std::endl;
+	std::getline(std::cin, input);
+	if (stringIsDigit(input) == true && input.empty() == false)
+		contact[i].setPhoneNumber(input);
+	else
+	{
+		std::cout << RED << "WRONG INPUT : MUST BE ONLY [0-9]" << RESET << std::endl;
+		std::cout << RED << "RETURNING TO MAIN MENU . . .\n" << RESET << std::endl;
+		sleep(3);	
+		return ;
+	}
+	// Darkest secret
+	std::cout << PINK << "NEW CUNTACT DARKEST SECRET:" << GREEN << std::endl;
+	std::getline(std::cin, input);
+	contact[i].setDarkestSecret(input);
+    //---------------------------------------------------------
     std::cout << "\033[0;35mNEW CONTACT INFO:\n" << std::endl;
-    std::cout << "\033[0;35mFIRST NAME:\n" << contact->getFirstName() << std::endl;
-    std::cout << "\033[0;35mLAST NAME:\n" << contact->getLastName() << std::endl;
-    std::cout << "\033[0;35NICKNAME:\n" << contact->getNickName() << std::endl;
-    std::cout << "\033[0;35mPHONENUMBER:\n" << contact->getPhoneNumber() << std::endl;
-    std::cout << "\033[0;35mDARKEST SECRET:\n" << contact->getDarkestSecret() << std::endl;
-    
-	std::cout << "\033[0;36m*=========================================================*\n\033[0m" << std::endl;
+    std::cout << "\033[0;35mFIRST NAME:\n" << contact[i].getFirstName() << std::endl;
+    std::cout << "\033[0;35mLAST NAME:\n" << contact[i].getLastName() << std::endl;
+    std::cout << "\033[0;35NICKNAME:\n" << contact[i].getNickName() << std::endl;
+    std::cout << "\033[0;35mPHONENUMBER:\n" << contact[i].getPhoneNumber() << std::endl;
+    std::cout << "\033[0;35mDARKEST SECRET:\n" << contact[i].getDarkestSecret() << std::endl;
+	//---------------------------------------------------------
+    i++;
+	std::cout << BLUE << "*=========================================================*\n" << RESET << std::endl;
+	std::cout << GREEN << "NEW CUNTACT ADDED" << RESET << std::endl;
+	std::cout << GREEN << "RETURNING TO MAIN MENU . . .\n" << RESET << std::endl;
+	sleep(3);
 }
 
-
+// Getter de contact[]
 void Phonebook::searchContact() {
 	
-	if (this->nbContact == 0)
+	if (nbContact == 0)
 	{
-		std::cout << "\033[0;31mYou need to add some contact before searching one you stupid fucking cunt\n\033[0m" << std::endl;
+		std::cout << RED << "You need to add some contact before searching one you stupid fucking cunt\n" << RESET << std::endl;
 		sleep(3);	
+		std::cout << RED << "RETURNING TO MAIN MENU . . .\n" << RESET << std::endl;
 	}
-	std::cout << "\033[0;31mRETURNING TO MAIN MENU . . .\n\033[0m" << std::endl;
+	std::cout << YELLOW << "|----------|----------|----------|----------|" << RESET <<std::endl;
+	std::cout << YELLOW << "|     INDEX|FISRT NAME| LAST NAME|  NICKNAME|" << RESET <<std::endl;
+
+	//BESOIN DE WORK SUR UN DISPLAY CONTACT QUI A DU SENSE
+	std::cout << YELLOW << nbContact << contact[0].getFirstName() << contact[0].getLastName() << contact[0].getNickName() << std::endl;
+	std::cout << GREEN << "RETURNING TO MAIN MENU . . .\n" << RESET << std::endl;
 	sleep(3);	
 }
 
 // void Phonebook::findContact() {
 	
 // }
+
+bool Phonebook::stringIsAlpha(std::string& input) {
+
+	for (int i = 0; i < (int)input.size(); i++) {
+		if (isalpha(input[i]) == 0)
+			return false;
+	}
+	return true;
+}
+
+bool Phonebook::stringIsDigit(std::string& input) {
+	
+	for (int i = 0; i < (int)input.size(); i++) {
+		if (isdigit(input[i]) == 0)
+			return false;
+	}
+	return true;
+}

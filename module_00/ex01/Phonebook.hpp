@@ -18,18 +18,25 @@
 #include <time.h>
 #include <unistd.h>
 #include "Contact.hpp"
+#include "color.hpp"
 
 class Phonebook
 {
 private:
+
     Contact contact[8];
 	int nbContact;
+
+	bool stringIsAlpha(std::string& input);
+	bool stringIsDigit(std::string& input);
 public:
+
     std::string input;
-    void addContact();
+    void addContact();// setter de contact[] & nbContact
     void searchContact();
     // void findContact();
-
+	// void setNbContact(int i);
+	// int getNbContact() {return nbContact;}
 	// void getContact(Contact newContact);
 	void displayMenu();
 	// void displayContact(int indexContact);

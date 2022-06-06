@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.cpp                                        :+:      :+:    :+:   */
+/*   color.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/24 13:11:55 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/06/06 12:26:55 by olabrecq         ###   ########.fr       */
+/*   Created: 2022/06/06 11:15:56 by olabrecq          #+#    #+#             */
+/*   Updated: 2022/06/06 12:31:31 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Phonebook.hpp"
-
-Contact::Contact() {
-	
-	std::cout << "Constructor Contact called" << std::endl;
-	indexContact = 0;
-	std::cout << "index = " << indexContact << std::endl;
-	firstName = "";
-	lastName = "";
-	nickName = "";
-	phoneNumber = "";
-	darkestSecret = "";
-	
-}
-
-Contact::~Contact() {
-	
-	std::cout  << "Destructor Contact called" << std::endl;
-}
+#ifndef COLOR_HPP
+# define COLOR_HPP
 
 
+# define BLUE "\033[0;36m"
+# define PINK "\033[0;35m"
+# define GREEN "\033[0;32m"
+# define YELLOW "\033[0;33m"
+# define RED "\033[0;31m"
+# define RESET "\033[0m"
+
+#endif
