@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 21:12:27 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/06/07 12:05:59 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/06/07 12:47:52 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,13 @@ Phonebook::~Phonebook() {
 void Phonebook::addContact() {
 	
 	Contact newContactTmp;
-    static int i = 0;
-	
+    int i = 0;
+	if (nbContact == 8) {
+		while (i < nbContact - 1) {
+			contact[i] = contact[i + 1];
+			i++;
+		}
+	}
 	std::cout << BLUE << "\t\t📞--->NEW CUNTACT<---📞\n" << RESET << std::endl;
 	std::cout << BLUE << "*=========================================================*\n" << RESET << std::endl;
 	std::cout << BLUE << "PLEASE ENTER CUNTACT INFORMATION\n"<< RESET << std::endl;
@@ -84,9 +89,9 @@ void Phonebook::addContact() {
 	std::cout << PINK << "NEW CUNTACT DARKEST SECRET:" << GREEN << std::endl;
 	std::getline(std::cin, input);
 	newContactTmp.setDarkestSecret(input);
-	contact[i] = newContactTmp;
-    i++;
-	nbContact++;
+	if (nbContact != 3)
+		nbContact++;
+	contact[nbContact - 1] = newContactTmp;
 	std::cout << BLUE << "*=========================================================*\n" << RESET << std::endl;
 	std::cout << GREEN << "NEW CUNTACT ADDED" << RESET << std::endl;
 	std::cout << GREEN << "RETURNING TO MAIN MENU . . .\n" << RESET << std::endl;
@@ -103,14 +108,20 @@ void Phonebook::searchContact() {
 		std::cout << RED << "RETURNING TO MAIN MENU . . .\n" << RESET << std::endl; sleep(3); return ;
     }
     std::cout << BLUE << "*=========================================================*\n" << RESET << std::endl;
-    std::cout << PINK << "WITCH CONTACT YOU WANT TO SEE?" << BLUE << std::endl;
+    std::cout << PINK << "WHICH CONTACT YOU WANT TO SEE?" << BLUE << std::endl;
 	std::getline(std::cin, input);
-    if (stringIsAlpha(input) == false && std::stoi(input) <= 8)
-        displayContact(std::stoi(input));
-    else {
-		std::cout << RED << "You piece of shit need to add a valid digit index you stupid fuck\n" << RESET << std::endl; sleep(3);
+	if (nbContact < std::stoi(input)) {
+		std::cout << RED << "You piece of shit dont have enought contact to search this index\n" << RESET << std::endl; sleep(3);
 		std::cout << RED << "RETURNING TO MAIN MENU . . .\n" << RESET << std::endl; sleep(3); return ;
-    }
+	}
+	else {
+		if (stringIsAlpha(input) == false && std::stoi(input) <= 8)
+			displayContact(std::stoi(input));
+		else {
+			std::cout << RED << "You piece of shit need to add a valid digit index you stupid fuck\n" << RESET << std::endl; sleep(3);
+			std::cout << RED << "RETURNING TO MAIN MENU . . .\n" << RESET << std::endl; sleep(3); return ;
+		}
+	}
     std::cout << BLUE << "*=========================================================*\n" << RESET << std::endl;
     std::cout << GREEN << "RETURNING TO MAIN MENU . . .\n" << RESET << std::endl;
     sleep(3);
