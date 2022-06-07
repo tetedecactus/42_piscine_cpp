@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 21:12:27 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/06/06 21:45:40 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/06/06 23:00:31 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,6 @@ Phonebook::~Phonebook() {
 
 	std::cout  << "Destructor Phonebook called" << std::endl;
 }
-
-
-// void Phonebook::displayContact(int indexContact) {
-	
-// }
 
 // addContact is my setContact[] 
 void Phonebook::addContact() {
@@ -109,20 +104,24 @@ void Phonebook::addContact() {
 // Getter de contact[]
 void Phonebook::searchContact() {
 	
-	if (nbContact == 0)
-	{
-		std::cout << RED << "You need to add some contact before searching one you stupid fucking cunt\n" << RESET << std::endl;
-		sleep(3);	
-		std::cout << RED << "RETURNING TO MAIN MENU . . .\n" << RESET << std::endl;
-	}
-    displaySearchMenu();
-	// std::cout << YELLOW << "|----------|----------|----------|----------|" << RESET <<std::endl;
-	// std::cout << YELLOW << "|     INDEX|FISRT NAME| LAST NAME|  NICKNAME|" << RESET <<std::endl;
-
-	// //BESOIN DE WORK SUR UN DISPLAY CONTACT QUI A DU SENSE
-	// std::cout << YELLOW << nbContact << contact[0].getFirstName() << contact[0].getLastName() << contact[0].getNickName() << std::endl;
-	// std::cout << GREEN << "RETURNING TO MAIN MENU . . .\n" << RESET << std::endl;
-	// sleep(3);	
+	if (nbContact > 0)
+        displaySearchMenu();
+    else {
+		std::cout << RED << "You need to add some contact before searching one you stupid fucking cunt\n" << RESET << std::endl; sleep(3);
+		std::cout << RED << "RETURNING TO MAIN MENU . . .\n" << RESET << std::endl; sleep(3); return ;
+    }
+    std::cout << BLUE << "*=========================================================*\n" << RESET << std::endl;
+    std::cout << PINK << "WITCH CONTACT YOU WANT TO SEE?" << BLUE << std::endl;
+	std::getline(std::cin, input);
+    if (std::stoi(input) <= 8)//BUG SI REPOND 'a'
+        displayContact(std::stoi(input));
+    else {
+		std::cout << RED << "You piece of shit need to add a valid digit index you stupid fuck\n" << RESET << std::endl; sleep(3);
+		std::cout << RED << "RETURNING TO MAIN MENU . . .\n" << RESET << std::endl; sleep(3); return ;
+    }
+    std::cout << BLUE << "*=========================================================*\n" << RESET << std::endl;
+    std::cout << GREEN << "RETURNING TO MAIN MENU . . .\n" << RESET << std::endl;
+    sleep(3);
 }
 
 // void Phonebook::findContact() {

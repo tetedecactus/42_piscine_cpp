@@ -31,7 +31,7 @@ private:
 	bool stringIsAlpha(std::string& input);
 	bool stringIsDigit(std::string& input);
 public:
-
+    int intPut;
     std::string input;
     void addContact();// setter de contact[] & nbContact
     void searchContact();
@@ -41,7 +41,7 @@ public:
 	// void getContact(Contact newContact);
 	void displayMenu();
     void displaySearchMenu();
-	// void displayContact(int indexContact);
+	void displayContact(int indexContact);
     Phonebook();
     ~Phonebook();
     
