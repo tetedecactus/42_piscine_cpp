@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 21:12:27 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/06/06 15:54:48 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/06/06 15:58:09 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,12 @@ void Phonebook::searchContact() {
 	std::cout << YELLOW << "|     INDEX|FISRT NAME| LAST NAME|  NICKNAME|" << RESET <<std::endl;
 
 	//BESOIN DE WORK SUR UN DISPLAY CONTACT QUI A DU SENSE
-	std::cout << YELLOW << nbContact << contact[0].getFirstName() << contact[0].getLastName() << contact[0].getNickName() << std::endl;
+	std::cout 	<< YELLOW 
+				<< "| " << nbContact << " " << "|"
+				<< contact[0].getFirstName()
+				<< contact[0].getLastName()
+				<< contact[0].getNickName() << std::endl;
+
 	std::cout << GREEN << "RETURNING TO MAIN MENU . . .\n" << RESET << std::endl;
 	sleep(3);	
 }
