@@ -6,11 +6,17 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 21:12:31 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/06/06 23:04:51 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/06/06 23:15:45 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Phonebook.hpp"
+
+
+//  A FAIRE : GERER LA 	CREATION DE CONTACT MEME SI YA ERREUR INPUT
+//			: STD::SATOI(INPUT) SI ON MET 'A' SEGFAULT
+//			: AFFICHAGE DES CONTACT PAR RAPOORT A LINDEX
+//			: GERER LA DELETATION DU 9IEME CONTACT ETC..
 
 int main ()
 {
@@ -19,20 +25,17 @@ int main ()
 	while (1)
 	{
 		phonebook.displayMenu();
-		
 		std::getline(std::cin, phonebook.input);
 		if (phonebook.input == "ADD")
 			phonebook.addContact();
-		else if (phonebook.input == "SEARCH")
+		if (phonebook.input == "SEARCH")
 			phonebook.searchContact();
-		else if (phonebook.input == "EXIT")
+		if (phonebook.input == "EXIT")
 			break;
 		else
 		{
-			std::cout << RED << "WRONG INPUT YOU DUMP ASS" << std::endl;
-			sleep(2);
-			std::cout << RED << "RETURNING TO MAIN MENU . . .\n" << RESET << std::endl;
-			sleep(3);
+			std::cout << RED << "WRONG INPUT YOU DUMP ASS" << std::endl; sleep(2);
+			std::cout << RED << "RETURNING TO MAIN MENU . . .\n" << RESET << std::endl; sleep(3);
 		}
 	}
 	

@@ -35,10 +35,6 @@ public:
     std::string input;
     void addContact();// setter de contact[] & nbContact
     void searchContact();
-    // void findContact();
-	// void setNbContact(int i);
-	// int getNbContact() {return nbContact;}
-	// void getContact(Contact newContact);
 	void displayMenu();
     void displaySearchMenu();
 	void displayContact(int indexContact);

@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 21:12:27 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/06/06 23:00:31 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/06/06 23:10:40 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,11 @@
 
 Phonebook::Phonebook() {
 
-	std::cout << "Constructor Phonebook called" << std::endl;
 	input = "";
 	nbContact = 0;
 }
 
 Phonebook::~Phonebook() {
-
-	std::cout  << "Destructor Phonebook called" << std::endl;
 }
 
 // addContact is my setContact[] 
@@ -123,10 +120,6 @@ void Phonebook::searchContact() {
     std::cout << GREEN << "RETURNING TO MAIN MENU . . .\n" << RESET << std::endl;
     sleep(3);
 }
-
-// void Phonebook::findContact() {
-	
-// }
 
 bool Phonebook::stringIsAlpha(std::string& input) {
 
