@@ -14,6 +14,7 @@
 # define PHONEBOOK_HPP
 
 #include <iostream>
+#include <iomanip>
 #include <string>
 #include <time.h>
 #include <unistd.h>
@@ -39,6 +40,7 @@ public:
 	// int getNbContact() {return nbContact;}
 	// void getContact(Contact newContact);
 	void displayMenu();
+    void displaySearchMenu();
 	// void displayContact(int indexContact);
     Phonebook();
     ~Phonebook();

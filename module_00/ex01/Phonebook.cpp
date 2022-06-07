@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   Phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 21:12:27 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/06/06 15:54:48 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/06/06 21:45:40 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,12 @@ Phonebook::~Phonebook() {
 // addContact is my setContact[] 
 void Phonebook::addContact() {
 	
-    int i = 0;
-	nbContact++;
+    static int i = 0;
 	// nbContact.setNbContact(i);
 	std::cout << BLUE << "\t\t📞--->NEW CUNTACT<---📞\n" << RESET << std::endl;
 	std::cout << BLUE << "*=========================================================*\n" << RESET << std::endl;
 	std::cout << BLUE << "PLEASE ENTER CUNTACT INFORMATION\n"<< RESET << std::endl;
-	std::cout << GREEN << "\tCUNTACT NUMBER#" << contact->getIndexContact() << std::endl;
+	std::cout << GREEN << "\tCUNTACT NUMBER#" << ++nbContact << std::endl;
 	
     //First name
 	std::cout << PINK << "NEW CUNTACT FIRST NAME:" << GREEN << std::endl;
@@ -104,7 +103,7 @@ void Phonebook::addContact() {
 	std::cout << BLUE << "*=========================================================*\n" << RESET << std::endl;
 	std::cout << GREEN << "NEW CUNTACT ADDED" << RESET << std::endl;
 	std::cout << GREEN << "RETURNING TO MAIN MENU . . .\n" << RESET << std::endl;
-	sleep(3);
+	// sleep(3);
 }
 
 // Getter de contact[]
@@ -116,13 +115,14 @@ void Phonebook::searchContact() {
 		sleep(3);	
 		std::cout << RED << "RETURNING TO MAIN MENU . . .\n" << RESET << std::endl;
 	}
-	std::cout << YELLOW << "|----------|----------|----------|----------|" << RESET <<std::endl;
-	std::cout << YELLOW << "|     INDEX|FISRT NAME| LAST NAME|  NICKNAME|" << RESET <<std::endl;
+    displaySearchMenu();
+	// std::cout << YELLOW << "|----------|----------|----------|----------|" << RESET <<std::endl;
+	// std::cout << YELLOW << "|     INDEX|FISRT NAME| LAST NAME|  NICKNAME|" << RESET <<std::endl;
 
-	//BESOIN DE WORK SUR UN DISPLAY CONTACT QUI A DU SENSE
-	std::cout << YELLOW << nbContact << contact[0].getFirstName() << contact[0].getLastName() << contact[0].getNickName() << std::endl;
-	std::cout << GREEN << "RETURNING TO MAIN MENU . . .\n" << RESET << std::endl;
-	sleep(3);	
+	// //BESOIN DE WORK SUR UN DISPLAY CONTACT QUI A DU SENSE
+	// std::cout << YELLOW << nbContact << contact[0].getFirstName() << contact[0].getLastName() << contact[0].getNickName() << std::endl;
+	// std::cout << GREEN << "RETURNING TO MAIN MENU . . .\n" << RESET << std::endl;
+	// sleep(3);	
 }
 
 // void Phonebook::findContact() {
