@@ -14,6 +14,7 @@
 # define PHONEBOOK_HPP
 
 #include <iostream>
+#include <iomanip>
 #include <string>
 #include <time.h>
 #include <unistd.h>
@@ -30,16 +31,13 @@ private:
 	bool stringIsAlpha(std::string& input);
 	bool stringIsDigit(std::string& input);
 public:
-
+    int intPut;
     std::string input;
     void addContact();// setter de contact[] & nbContact
     void searchContact();
-    // void findContact();
-	// void setNbContact(int i);
-	// int getNbContact() {return nbContact;}
-	// void getContact(Contact newContact);
 	void displayMenu();
-	// void displayContact(int indexContact);
+    void displaySearchMenu();
+	void displayContact(int indexContact);
     Phonebook();
     ~Phonebook();
     
