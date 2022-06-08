@@ -1,6 +1,0 @@
-make --dry-run --keep-going --print-directory
-make: Entering directory '/home/olabrecq/projet42/pool_cpp'
-make: Leaving directory '/home/olabrecq/projet42/pool_cpp'
- 
-make: *** No targets specified and no makefile found.  Stop.
-
