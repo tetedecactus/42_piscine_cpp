@@ -1,28 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.cpp                                        :+:      :+:    :+:   */
+/*   ramdomChump.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/24 13:11:55 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/06/07 18:24:09 by olabrecq         ###   ########.fr       */
+/*   Created: 2022/06/07 19:09:22 by olabrecq          #+#    #+#             */
+/*   Updated: 2022/06/07 19:14:01 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Phonebook.hpp"
+#include "Zombie.hpp"
 
-Contact::Contact() {
-	
-	firstName = "";
-	lastName = "";
-	nickName = "";
-	phoneNumber = "";
-	darkestSecret = "";
+void Zombie::randomChump(std::string name) {
 	
 }
-
-Contact::~Contact() {
-}
-
-
