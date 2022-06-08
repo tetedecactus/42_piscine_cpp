@@ -6,17 +6,12 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 19:28:50 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/06/08 08:10:30 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/06/08 10:35:45 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-
-// A FAIRE - > SINFORMER SUR ZOMBIE* newZombie() --> (le pointeur)
-// DEMANDER CE QUE LE PROGRAMME EST SUPPOSER FAIRE CLAIRMENT
-// REGUARDER VIDEO INTRA 
-// LIRE SUR LE SUJET
 int main() {
 
 	std::string firstNameInput;
@@ -32,7 +27,7 @@ int main() {
 	std::cout << RED << "IMPORTANT, cette fonction cree un Zombie sur la STACK, il est declarer comme suis : " << YELLOW << "Zombie" << RED << " newZombie\n" << RESET << std::endl; 
 	
 	std::cout << BLUE << "Entre le nom du premier zombie " << std::endl;
-	std:getline(std::cin, firstNameInput); firstNameInput = "Pere-Noel"; sleep(2);
+	std::getline(std::cin, firstNameInput); firstNameInput = "Pere-Noel"; sleep(2);
 	std::cout << "Premier Zombie : " << PINK << firstNameInput << RESET << std::endl; sleep(2);
 	std::cout << RED << "WTF .. For real c'est zero original ton criss de nom" << RESET << std::endl; sleep(2);
 	std::cout << BLUE << "Entre ton deuxieme nom et essaie de faire mieu stp parce que la tu fais dur" << std::endl;
@@ -43,17 +38,13 @@ int main() {
 	std::cout << GREEN << "Check on va commencer.. sans commantaire..." << RESET << std::endl; sleep(2);
 	std::cout << RED << "IMPORTANT!!" << RESET << std::endl; sleep(2);
 	
-	std::cout << GREEN << "On cree le premier Zombie en apellant le constructeur -> : " << PINK << "Zombie fisrtZombie(\"Pere-Noel\")" << RESET << std::endl; sleep(3);
-	Zombie firstZombie("Pere-Noel");
-	std::cout << BLUE << "Bon fack la On va envoyer Pere-Noel a :" << RED << " Zombie* newZombie(\"Pere-Noel\")" << RESET << std::endl;
-	firstZombie.newZombie("Pere-Noel");
-	std::cout << BLUE << "Maintenant que Pere-Noel est vivant on l'envois dans la fonction " << PINK << " Zombie* newZombie(std::string name)" << RESET << std::endl;
-	
-	
-	// std::cout << GREEN << "Puis maintenant on cree le Deuxieme -> : " << PINK << "Zombie secondZombie(\"Celine Dion\")" << RESET << std::endl; sleep (2);
-	// Zombie secondZombie("Celine Dion");
-	
-	// std::cout 	CE QUE CEST SUPPOSER FAIRE !!! DEMANDER QUESTION RELIRE LA PDF
-	// std::cout << BLUE << " "
-	
+	std::cout << GREEN << "On cree le premier Zombie en apellant le constructeur & la fonction newZombie(sting name)  : " << PINK << "Zombie* fisrtZombie = newZombie(\"Pere-Noel\")" << RESET << std::endl; sleep(3);
+	Zombie* firstZombie = newZombie("Pere-Noel");
+	firstZombie->announce();
+	std::cout << BLUE << "Donc nous avons creer un Zombie allouer sur la HEAP que je peux utiliser partout." << RESET << std::endl; sleep(3);
+	std::cout << GREEN << "Maintenant on va creer un zombie sur la stack qui sera utilisable seulement dans le scope de sa fonction.." << RESET << std::endl; sleep(2);
+	std::cout << RED << "IMPORTANT!! le deuixieme zombie va prendre vie au debut de sa fonction et va mourir quand elle vas quitter celle-ci : " << PINK << "ramdomChump(\"Celine Dion\")" << RESET << std::endl; sleep(2);
+	randomChump("Celine Dion");
+	std::cout << BLUE << "Maintenant on peu quitter le programme et delete Pere-Noel qui est sur la stack avec : " << PINK << "delete firstZombie" << RESET << std::endl;
+	delete firstZombie;
 }

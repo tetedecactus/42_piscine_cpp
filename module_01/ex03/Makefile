@@ -3,19 +3,21 @@ GREEN 	= \033[0;32m
 RED 	= \033[0;31m
 END 	= \033[0m
 
-NAME = BraiiiiiiinnnzzzZ
+NAME = Unnecessary_violence
 
 CC = clang++
 
-# add this flags forxxx evaluation: -std=c++98
+# add this flags for evaluation: -std=c++98
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = 	main.cpp \
-		Zombie.cpp \
-		newZombie.cpp \
-		randomChump.cpp \
+		Weapon.cpp \
+		HumanA.cpp \
+		HumanB.cpp \
 
-HEADER = Zombie.hpp \
+HEADER = Weapon.hpp \
+		 HumanA.hpp \
+		 HumanB.hpp \
 
 OBJ = $(SRC:.cpp=.o)
 

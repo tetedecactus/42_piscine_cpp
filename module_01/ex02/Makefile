@@ -3,19 +3,14 @@ GREEN 	= \033[0;32m
 RED 	= \033[0;31m
 END 	= \033[0m
 
-NAME = BraiiiiiiinnnzzzZ
+NAME = ThisIsBrain
 
 CC = clang++
 
-# add this flags forxxx evaluation: -std=c++98
+# add this flags for evaluation: -std=c++98
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = 	main.cpp \
-		Zombie.cpp \
-		newZombie.cpp \
-		randomChump.cpp \
-
-HEADER = Zombie.hpp \
 
 OBJ = $(SRC:.cpp=.o)
 

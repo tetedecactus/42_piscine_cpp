@@ -1,17 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/07 19:09:33 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/06/08 10:57:30 by olabrecq         ###   ########.fr       */
+/*   Created: 2022/06/08 13:30:29 by olabrecq          #+#    #+#             */
+/*   Updated: 2022/06/08 13:30:30 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HUMANA_H
+# define HUMANA_H
 
-Zombie* newZombie(std::string name) { 
-	return new Zombie(name);
-}
+class HumanA
+{
+private:
+
+public:
+};
+
+#endif

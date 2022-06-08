@@ -8,13 +8,15 @@ NAME = phonebook
 CC = clang++
 
 # add this flags forxxx evaluation: -std=c++98
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = 	main.cpp \
 		Phonebook.cpp \
 		Contact.cpp \
 
-HEADER = phonebook.hpp \
+HEADER = Phonebook.hpp \
+		 Contact.hpp \
+
 
 OBJ = $(SRC:.cpp=.o)
 

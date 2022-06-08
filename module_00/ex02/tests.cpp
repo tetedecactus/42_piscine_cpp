@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 18:15:53 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/06/07 18:15:56 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/06/07 21:18:28 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 #include <functional>
 #include "Account.hpp"
 
-
+//ifstream??? idk poser des question
 int		main( void ) {
 
 	typedef std::vector<Account::t>							  accounts_t;

@@ -1,17 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ramdomChump.cpp                                    :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/07 19:09:22 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/06/07 19:14:01 by olabrecq         ###   ########.fr       */
+/*   Created: 2022/06/08 13:30:18 by olabrecq          #+#    #+#             */
+/*   Updated: 2022/06/08 13:30:19 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef WEAPON_H
+# define  WEAPON_H
 
-void Zombie::randomChump(std::string name) {
-	
-}
+#include <iostream>
+
+class Weapon
+{
+private:
+    std::string type;
+public:
+
+};
+
+#endif

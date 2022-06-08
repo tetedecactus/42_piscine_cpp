@@ -6,15 +6,14 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 18:46:54 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/06/08 10:02:50 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/06/08 11:23:46 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string zombieName) {
-	name = zombieName;
-	std::cout << YELLOW << name <<" :IM ALIVEEEE BITCHIIZZZZ" << RESET << std::endl;
+Zombie::Zombie() {
+    std::cout << YELLOW << "IM ALIVEEE BITCHIZZ PRAY FOR REDEMPTION!!!!!" << RESET << std::endl;
 }
 
 Zombie::~Zombie() {

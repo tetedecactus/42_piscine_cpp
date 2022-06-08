@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 18:38:37 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/06/08 09:21:01 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/06/08 11:23:33 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ class Zombie
 private:
 	std::string name;
 public:
+	void setZombieName(std::string& name) { this->name = name; }
+
 	void announce(void);//announce themselves as follows
-	Zombie(std::string name);
+	Zombie();
+    Zombie(std::string name);
 	~Zombie();
 };
 
-	void randomChump(std::string name); //It creates a zombie, name it, and the zombie announces itself.
-	Zombie* newZombie(std::string name);//It creates a zombie, name it, and return it so you can use it outside of the function scope.
+	Zombie* zombieHorde(int N, std::string name);
+	
 #endif
-
-// Now, what is the actual point of the exercise? You have to determine in what case
-// it’s better to allocate the zombies on the stack or heap.
