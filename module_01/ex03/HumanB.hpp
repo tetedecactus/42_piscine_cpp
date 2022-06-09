@@ -16,8 +16,13 @@
 class HumanB
 {
 private:
-
+    Weapon weapon;
+    std:: bNamel
 public:
+    HumanB(std::string name, Weapon weapon);
+    ~HumanB();
+    void attack();
+    void setWeapon(Weapon weapon);
 };
 
 #endif

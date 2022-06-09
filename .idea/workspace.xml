@@ -7,23 +7,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35475777-3752-4400-90ed-11a602647743" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_00/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_00/ex01/Contact.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_00/ex01/Contact.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/pool_cpp.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex01" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/module_00/ex01/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/module_00/ex01/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_00/ex01/phonebook" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_00/ex02/tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_00/ex02/tests.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/.vscode/settings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex00/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/module_01/ex00/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex00/Zombie.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_01/ex00/Zombie.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex00/Zombie.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_01/ex00/Zombie.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex00/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex00/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_01/ex00/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex00/newZombie.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_01/ex00/newZombie.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex00/ramdomChump.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_00/ex01/Phonebook.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_00/ex01/Phonebook.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_01/ex03/HumanA.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_01/ex03/HumanA.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_01/ex03/HumanA.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_01/ex03/HumanA.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_01/ex03/HumanB.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_01/ex03/HumanB.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_01/ex03/HumanB.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_01/ex03/HumanB.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_01/ex03/Weapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_01/ex03/Weapon.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_01/ex03/Weapon.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_01/ex03/Weapon.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_01/ex03/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_01/ex03/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,27 +36,76 @@
   <component name="HierarchyBrowserManager">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="true" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2AIfgKagJMyv1RxqzeoizMZybyp" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="cf.first.check.clang-format" value="false" />
-    <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="copyright" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "last_opened_file_path": "/home/olabrecq/projet42/pool_cpp",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "structure.view.defaults.are.configured": "true"
+  }
+}]]></component>
   <component name="RunManager">
     <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method v="2" />
     </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -89,6 +135,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

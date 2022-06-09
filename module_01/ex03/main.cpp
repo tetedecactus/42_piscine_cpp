@@ -10,3 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+//#include "Weapon.hpp"
+
+#include <iostream>
+// REGUARDER VIDEO "REFERENCE" SUR L'INTRA
+int main() {
+    std::cout << true << std::endl;
+//    {
+//        Weapon club = Weapon("crude spiked club");
+//        HumanA bob("Bob", club);
+//        bob.attack();
+//        club.setType("some other type of club");
+//        bob.attack();
+//    }
+//    {
+//        Weapon knife = Weapon("15cm hunting knife");
+//        HumanB jim("Jim");
+//        jim.setWeapon(club);
+//        jim.attack();
+//        knife.setType("some other big knife");
+//        jim.attack();
+//    }
+    return 0;
+}

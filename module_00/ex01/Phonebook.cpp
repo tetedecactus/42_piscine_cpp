@@ -40,7 +40,7 @@ void Phonebook::addContact() {
     //First name
 	std::cout << PINK << "NEW CUNTACT FIRST NAME:" << GREEN << std::endl;
 	std::getline(std::cin, input);
-	if (stringIsAlpha(input) == true && input.empty() == false)
+	if (stringIsAlpha(input) && !input.empty())
 		newContactTmp.setFirstName(input);
 	else
 	{
@@ -52,7 +52,7 @@ void Phonebook::addContact() {
 	// Last name
 	std::cout << PINK << "NEW CUNTACT LAST NAME:" << GREEN << std::endl;
 	std::getline(std::cin, input);
-	if (stringIsAlpha(input) == true && input.empty() == false)// doit virifier que le input est pas null
+	if (stringIsAlpha(input) && !input.empty())// doit virifier que le input est pas null
 		newContactTmp.setLastName(input);
 	else
 	{
@@ -64,7 +64,7 @@ void Phonebook::addContact() {
 	// Nick name
 	std::cout << PINK << "NEW CUNTACT NICKNAME:" << GREEN << std::endl;
 	std::getline(std::cin, input);
-	if (stringIsAlpha(input) == true && input.empty() == false)
+	if (stringIsAlpha(input) && !input.empty())
 		newContactTmp.setNickName(input);
 	else
 	{
@@ -76,7 +76,7 @@ void Phonebook::addContact() {
 	// Phone number
 	std::cout << PINK << "NEW CUNTACT PHONE NUMBER:" << GREEN << std::endl;
 	std::getline(std::cin, input);
-	if (stringIsDigit(input) == true && input.empty() == false)
+	if (stringIsDigit(input) && !input.empty())
 		newContactTmp.setPhoneNumber(input);
 	else
 	{
@@ -115,7 +115,7 @@ void Phonebook::searchContact() {
 		std::cout << RED << "RETURNING TO MAIN MENU . . .\n" << RESET << std::endl; sleep(3); return ;
 	}
 	else {
-		if (stringIsAlpha(input) == false && std::stoi(input) <= 8)
+		if (!stringIsAlpha(input) && std::stoi(input) <= 8)
 			displayContact(std::stoi(input));
 		else {
 			std::cout << RED << "You piece of shit need to add a valid digit index you stupid fuck\n" << RESET << std::endl; sleep(3);

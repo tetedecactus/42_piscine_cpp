@@ -10,3 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Weapon.hpp"
+HumanA::HumanA(std::string name, Weapon weapon) {
+
+}
+
+HumanA::~HumanA() {
+
+}
+
+void HumanA::attack() {
+    std::cout << aName << " attacks with their " << weapon.type << std::endl;
+}
