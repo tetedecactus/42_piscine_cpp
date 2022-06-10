@@ -13,16 +13,20 @@
 #ifndef HUMANB_H
 # define HUMANB_H
 
+#include "Weapon.hpp"
+
 class HumanB
 {
 private:
-    Weapon weapon;
-    std:: bNamel
+    std::string bName;
+    Weapon* bWeapon;
+
 public:
-    HumanB(std::string name, Weapon weapon);
-    ~HumanB();
-    void attack();
-    void setWeapon(Weapon weapon);
+    HumanB( std::string name );
+    ~HumanB( void );
+
+    void attack( void );
+    void setWeapon( Weapon& weapon ) { bWeapon = &weapon; }
 };
 
 #endif

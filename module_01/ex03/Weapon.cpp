@@ -12,10 +12,11 @@
 
 #include "Weapon.hpp"
 
-Weapon::Weapon() {
+Weapon::Weapon( std::string type ) {
     std::cout << "Weapon created" << std::endl;
+    this->type = type;
 }
 
-Weapon::~Weapon() {
+Weapon::~Weapon( void ) {
 
 }

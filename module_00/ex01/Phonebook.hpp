@@ -24,22 +24,23 @@
 class Phonebook
 {
 private:
-
     Contact contact[8];
 	int nbContact;
 
 	bool stringIsAlpha(std::string& input);
 	bool stringIsDigit(std::string& input);
+
 public:
-    int intPut;
     std::string input;
-    void addContact();// setter de contact[] & nbContact
-    void searchContact();
-	void displayMenu();
-    void displaySearchMenu();
+
+    void addContact( void );// setter de contact[] & nbContact
+    void searchContact( void );
+	void displayMenu( void );
+    void displaySearchMenu( void );
 	void displayContact(int indexContact);
-    Phonebook();
-    ~Phonebook();
+
+    Phonebook( void );
+    ~Phonebook( void );
     
 };
 

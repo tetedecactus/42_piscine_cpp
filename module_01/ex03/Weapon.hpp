@@ -15,19 +15,18 @@
 
 #include <iostream>
 #include <string>
-#include "HumanA.hpp"
-#include "HumanB.hpp"
 
 class Weapon
 {
 private:
     std::string type;
 public:
-    Weapon();
-    ~Weapon();
+    Weapon( std::string type );
+    ~Weapon( void );
 
-    void setType(std::string newType) { this->type = newType ;}
-    void getType() { return const$ type ;}
+    void setType( std::string newType ) { this->type = newType ;}
+    std::string const & getType( void ) const { return this->type; }
+
 };
 
 #endif

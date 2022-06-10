@@ -89,7 +89,7 @@ void Phonebook::addContact() {
 	std::cout << PINK << "NEW CUNTACT DARKEST SECRET:" << GREEN << std::endl;
 	std::getline(std::cin, input);
 	newContactTmp.setDarkestSecret(input);
-	if (nbContact != 3)
+	if (nbContact != 8)
 		nbContact++;
 	contact[nbContact - 1] = newContactTmp;
 	std::cout << BLUE << "*=========================================================*\n" << RESET << std::endl;

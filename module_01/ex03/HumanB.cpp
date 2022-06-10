@@ -11,19 +11,22 @@
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
+#include "HumanB.hpp"
 
-HumanB::HumanB(std::string name, weapon weapon) {
+// HumainB  a un Weapon par pointeur et n'est pas toujours armee
+HumanB::HumanB( std::string name ) {
+    bName = name;
+    bWeapon = NULL;
+}
+
+HumanB::~HumanB( void ) {
 
 }
 
-HumanB::~HumanB() {
-
+void HumanB::attack( void ) {
+    std::cout << bName << " attacks with their " << bWeapon->getType() << std::endl;
 }
 
-void HumanB::attack() {
-    std::cout << bName << " attacks with their " << weapon.type << std::endl;
-}
-
-void HumanB::setWeapon(Weapon weapon) {
-    this->weapon = weapon;
-}
+//void HumanB::setWeapon( Weapon weapon ) {
+//    this->weapon = weapon;
+//}

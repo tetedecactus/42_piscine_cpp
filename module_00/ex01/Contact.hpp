@@ -25,21 +25,21 @@ public:
 
 	std::string infoInput;
 	// Constructor & ~Destructor
-	Contact();
-	~Contact();
+	Contact( void );
+	~Contact( void );
 	
 	// Setter function
-	void setFirstName(std::string& infoInput) {firstName = infoInput;}
-	void setLastName(std::string& infoInput) {lastName = infoInput;}
-	void setNickName(std::string& infoInput) {nickName = infoInput;}
-	void setPhoneNumber(std::string& infoInput) {phoneNumber = infoInput;}
-	void setDarkestSecret(std::string& infoInput) {darkestSecret = infoInput;}
+	void setFirstName( std::string& infoInput ) { firstName = infoInput; }
+	void setLastName( std::string& infoInput ) { lastName = infoInput; }
+	void setNickName( std::string& infoInput ) { nickName = infoInput; }
+	void setPhoneNumber( std::string& infoInput ) { phoneNumber = infoInput; }
+	void setDarkestSecret( std::string& infoInput ) { darkestSecret = infoInput; }
 	// Getter function
-	std::string getFirstName() {return firstName;}
-	std::string getLastName() {return lastName;}
-	std::string getNickName() {return nickName;}
-	std::string getPhoneNumber() {return phoneNumber;}
-	std::string getDarkestSecret() {return darkestSecret;}
+	std::string getFirstName() { return firstName; }
+	std::string getLastName() { return lastName; }
+	std::string getNickName() { return nickName; }
+	std::string getPhoneNumber() { return phoneNumber; }
+	std::string getDarkestSecret() { return darkestSecret; }
 };
 
 #endif
