@@ -52,7 +52,7 @@ void Phonebook::addContact() {
 	// Last name
 	std::cout << PINK << "NEW CONTACT LAST NAME:" << GREEN << std::endl;
 	std::getline(std::cin, input);
-	if (stringIsAlpha(input) && !input.empty())// doit verifier que le input est pas null
+	if (stringIsAlpha(input) && !input.empty())
 		newContactTmp.setLastName(input);
 	else
 	{
@@ -61,7 +61,7 @@ void Phonebook::addContact() {
 		sleep(3);	
 		return ;
 	}
-	// Nick name
+	// Nickname
 	std::cout << PINK << "NEW CONTACT NICKNAME:" << GREEN << std::endl;
 	std::getline(std::cin, input);
 	if (stringIsAlpha(input) && !input.empty())

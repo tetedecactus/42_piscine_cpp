@@ -13,7 +13,6 @@
 #include "Weapon.hpp"
 #include "HumanB.hpp"
 
-// HumainB  a un Weapon par pointeur et n'est pas toujours armee
 HumanB::HumanB( std::string name ) {
     bName = name;
     bWeapon = NULL;
