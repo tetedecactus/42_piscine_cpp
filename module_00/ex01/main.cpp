@@ -67,11 +67,11 @@ void Phonebook::displaySearchMenu() {
 		if (contact[i].getLastName().length() <= 10)
 			std::cout << YELLOW << "|" << std::setw(10) << contact[i].getLastName();
 		else
-			std::cout << YELLOW << "|" << std::setw(10) << contact[i].getLastName().substr(0, 9) << ".";
+			std::cout << YELLOW << std::setw(10) << contact[i].getLastName().substr(0, 9) << ".";
 		if (contact[i].getNickName().length() <= 10)
 			std::cout << YELLOW << "|" << std::setw(10) << contact[i].getNickName() << "|" << RESET << std::endl;
 		else
-			std::cout << YELLOW << "|" << std::setw(10) << contact[i].getNickName().substr(0, 9) << "." << RESET << std::endl;
+			std::cout << YELLOW << std::setw(10) << contact[i].getNickName().substr(0, 9) << "." << RESET << std::endl;
 		std::cout << YELLOW << "|----------|----------|----------|----------|" << RESET <<std::endl;
 	}
 }
