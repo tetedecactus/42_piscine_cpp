@@ -115,7 +115,7 @@ void Phonebook::searchContact() {
 		std::cout << RED << "RETURNING TO MAIN MENU . . .\n" << RESET << std::endl; sleep(3); return ;
 	}
 	else {
-		if (!stringIsAlpha(input) && std::stoi(input) <= 8)
+		if (!stringIsAlpha(input) && !input.empty() && std::stoi(input) <= 8)//need another if condition
 			displayContact(std::stoi(input));
 		else {
 			std::cout << RED << "You piece of shit need to add a valid digit index you stupid fuck\n" << RESET << std::endl; sleep(3);

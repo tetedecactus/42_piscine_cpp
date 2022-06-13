@@ -7,24 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="35475777-3752-4400-90ed-11a602647743" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/fileColors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/fileColors.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_00/ex00/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/module_00/ex00/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_00/ex01/Contact.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_00/ex01/Contact.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_00/ex01/Contact.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_00/ex01/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/module_00/ex01/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/module_00/ex01/Phonebook.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_00/ex01/Phonebook.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_00/ex01/Phonebook.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_00/ex01/Phonebook.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_00/ex01/Phonebook.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_00/ex01/main.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_00/ex01/phonebook" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex03/HumanA.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_01/ex03/HumanA.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex03/HumanA.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_01/ex03/HumanA.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex03/HumanB.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_01/ex03/HumanB.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex03/HumanB.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_01/ex03/HumanB.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex03/Weapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_01/ex03/Weapon.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex03/Weapon.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_01/ex03/Weapon.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_01/ex03/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/module_01/ex03/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +71,9 @@
       <workItem from="1654798687620" duration="722000" />
       <workItem from="1654801008905" duration="1538000" />
       <workItem from="1654871220263" duration="3747000" />
-      <workItem from="1654884020778" duration="1000" />
+      <workItem from="1654884020778" duration="163000" />
+      <workItem from="1654956411878" duration="1633000" />
+      <workItem from="1655128077536" duration="2000" />
     </task>
     <servers />
   </component>
