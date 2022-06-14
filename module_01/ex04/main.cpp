@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 19:28:50 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/06/13 14:41:57 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/06/13 20:13:08 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,25 +29,38 @@
 //<filename>.replace, replacing every occurrence of s1 with s2.
 
 //
-int main(int ac, char** av) {
-
+// str.find() return a size_t of position, If no matches were found, the function returns string::npos.
+//str.remplace()
+//Psotion = position de find + len de s2
+int main(int ac, char** av) 
+{
     std::ifstream myFile;
-	printf(" ac = %d", ac);	
-    if (ac != 4) {
+	printf(" ac = %d\n", ac);	
+    if (ac != 4) 
+	{
         std::cout << RED << "Example of valid input: ./{PROG} {FileName} {String1} {String2}" << std::endl; 
 		return 1;
 	}
 	std::string fileName(av[1]);
 	std::cout << fileName << std::endl;
 	
-	if (fileName == "file.txt") {
-		std::cout << "INSIDE" << std::endl;
+	if (fileName == "file.txt") 
+	{
 		myFile.open(fileName, std::ios::in);
 		if (myFile.is_open()) {
-			std::string s1, s2, line; // Creating variable i need
-			while (std::getline(myFile, line)) {
-				std::cout << line << std::endl;
-				// Faire de string compare
+			std::cout << GREEN << "FILE OPEN" << RESET << std::endl;
+			std::string s1(av[2]), s2(av[3]), line; // Creating variable i need
+			while (std::getline(myFile, line)) 
+			{
+				std::size_t foundStr = line.find(s1);
+				while (foundStr != std::string::npos) 
+				{
+					line.replace(foundStr,s2.length(), s2);
+					std::cout << "line = " << line << std::endl;
+					foundStr = foundStr + s2.length();
+					foundStr = line.find(s1);
+				}
+				//ICI ecrire line dans un autre file
 			}
 			myFile.close();
 		}

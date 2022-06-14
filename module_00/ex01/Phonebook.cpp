@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   Phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 21:12:27 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/06/07 12:47:52 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/06/13 09:58:16 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,27 +110,10 @@ void Phonebook::searchContact() {
     std::cout << BLUE << "*=========================================================*\n" << RESET << std::endl;
     std::cout << PINK << "WHICH CONTACT YOU WANT TO SEE?" << BLUE << std::endl;
 	std::getline(std::cin, input);
-<<<<<<< HEAD
-	if (nbContact < std::stoi(input)) {
-		std::cout << RED << "You piece of shit dont have enought contact to search this index\n" << RESET << std::endl; sleep(3);
-		std::cout << RED << "RETURNING TO MAIN MENU . . .\n" << RESET << std::endl; sleep(3); return ;
-	}
-	else {
-		if (!stringIsAlpha(input) && !input.empty() && std::stoi(input) <= 8)//need another if condition
-			displayContact(std::stoi(input));
-		else {
-			std::cout << RED << "You piece of shit need to add a valid digit index you stupid fuck\n" << RESET << std::endl; sleep(3);
-			std::cout << RED << "RETURNING TO MAIN MENU . . .\n" << RESET << std::endl; sleep(3); return ;
-		}
-	}
-=======
     if (!stringIsAlpha(input)) {
         if (nbContact < std::stoi(input)) {
-            std::cout << RED << "You dont have enought contact to search this index\n" << RESET
-                      << std::endl;
-            sleep(3);
-            std::cout << RED << "RETURNING TO MAIN MENU . . .\n" << RESET << std::endl;
-            sleep(3);
+            std::cout << RED << "You dont have enought contact to search this index\n" << RESET << std::endl; sleep(3);
+            std::cout << RED << "RETURNING TO MAIN MENU . . .\n" << RESET << std::endl; sleep(3);
             return;
         } else if (std::stoi(input) <= 8) {
             displayContact(std::stoi(input));
@@ -144,7 +127,6 @@ void Phonebook::searchContact() {
         sleep(3);
         return;
     }
->>>>>>> 4788f9f0d30def26015429eb979579cf8d28ff5b
     std::cout << BLUE << "*=========================================================*\n" << RESET << std::endl;
     std::cout << GREEN << "RETURNING TO MAIN MENU . . .\n" << RESET << std::endl;
     sleep(3);
