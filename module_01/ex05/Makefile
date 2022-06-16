@@ -8,7 +8,7 @@ NAME = harl
 CC = clang++
 
 # add this flags for evaluation: -std=c++98
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -std=c++98
 
 SRC = 	main.cpp \
 		Harl.cpp \

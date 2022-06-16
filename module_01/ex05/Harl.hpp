@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 20:07:03 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/06/13 20:17:14 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/06/15 13:27:06 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ private:
 	void info( void );
 	void warning( void );
 	void error( void );
+	void keMerde( void );	
 public:
 	void complain( std::string level );
-	
 	Harl(/* args */);
 	~Harl();
 };

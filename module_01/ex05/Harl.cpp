@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 20:06:59 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/06/14 18:50:10 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/06/15 13:30:33 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,28 +36,42 @@ void Harl::error( void ) {
 	std::cout << BLUE << "This is unacceptable! I want to speak to the manager now." << RESET << std::endl;
 }
 
-void Harl::complain( std::string level) {
-	void Harl::*ptrFunction[](void) = {debug(), info(), warning(), error()};
+void Harl::keMerde( void ) {
+	std::cout << PINK << "Your input was indvalid, Please entre en un bon next time" << RESET << std::endl;
+}
 
-	switch ( level )
-	{
-	case "debug":
-		debug();
-		break;
+void Harl::complain( std::string level ) {
+	
+	void (Harl::*ptrFunction[])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error, &Harl::keMerde};
+	std::string choice[] = {"debug", "info", "warning", "error"};
+	int i;
+
+	i = 1;
+	while (level != choice[i] && i < 4)
+		i++;
+	(this->*ptrFunction[i])();	
+	// switch ( i )
+	// {
+	// case 1:
+	// 	debug();
+	// 	break;
 		
-	case "info":
-		info();
-		break;
+	// case 2:
+	// 	ptrFunction[1];
+	// 	break;
 
-	case "warning":
-		warning();
-	break;
+	// case 3:
+	// 	ptrFunction[2];
+	// break;
 
-	case "error":
-		error();
-		break;
-	default: std::cout << "Please add a valid level" << std::endl;
-		break;
-	}
+	// case 4:
+	// 	ptrFunction[3];
+	// 	break;
+	// case 5:
+	// 	std::cout << "Please add a valid level" << std::endl;
+	// 	break;
+	// default: std::cout << "Please add a valid level" << std::endl;
+	// 	break;
+	// }
 	
 }
