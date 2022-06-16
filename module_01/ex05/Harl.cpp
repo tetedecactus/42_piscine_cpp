@@ -37,7 +37,7 @@ void Harl::error( void ) {
 }
 
 void Harl::complain( std::string level) {
-	void Harl::*ptrFunction[](void) = {debug(), info(), warning(), error()};
+	void (*ptrFunction[])(void) = Harl::{debug(), Harl::info(), Hrl::warning(), Harl::error()};
 
 	switch ( level )
 	{
