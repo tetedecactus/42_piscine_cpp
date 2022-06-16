@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 19:28:50 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/06/14 17:45:24 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/06/15 10:45:17 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,8 @@ int main(int ac, char** av)
 				std::size_t foundStr = line.find(s1);
 				while (foundStr != std::string::npos)// check la meme ligne pour replacer toute les s1
 				{
-					line.replace(foundStr,s2.length(), s2);// NE PEUX PAS USE REPLACE --> append at position
+					line.erase(foundStr, s1.length());
+					line.insert(foundStr, s2);
 					foundStr = foundStr + s2.length();
 					foundStr = line.find(s1);
 				}
