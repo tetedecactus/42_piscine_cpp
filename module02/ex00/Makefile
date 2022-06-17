@@ -3,7 +3,7 @@ GREEN 	= \033[0;32m
 RED 	= \033[0;31m
 END 	= \033[0m
 
-NAME = BraiiiiiiinnnzzzZ
+NAME = fixe
 
 CC = clang++
 
@@ -39,6 +39,6 @@ fclean: clean
 	rm -f $(NAME)
 	@echo "$(END)"
 
-re: fclean allA
+re: fclean all
 
 .PHONY: all re clean fclean

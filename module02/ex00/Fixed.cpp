@@ -12,10 +12,21 @@
 
 #include "Fixed.hpp"
 
-Fixed::Fixed(/* args */)
-{
+Fixed::Fixed( void ) {
+	std::cout << GREEN << "Default Constructor Called" << RESET << std::endl;
 }
 
-Fixed::~Fixed()
-{
+Fixed::Fixed( int const n ) : fixe( n ) {
+	std::cout << YELLOW << "Parametruc Constructor Called" << RESET << std::endl;
+}
+
+Fixed::Fixed( Fixed const & src ) {
+	std::cout << BLUE << "Copy Constructor Called" << RESET << std::endl;
+	*this = src;
+
+	return;
+}
+
+Fixed::~Fixed( void ) {
+	std::cout << RED << "Destructor Called" << RESET << std::endl;
 }
