@@ -49,29 +49,29 @@ void Harl::complain( std::string level ) {
 	i = 0;
 	while (level != choice[i] && i < 4)
 		i++;
-	(this->*ptrFunction[i])();	
-	// switch ( i )
-	// {
-	// case 1:
-	// 	debug();
-	// 	break;
-		
-	// case 2:
-	// 	ptrFunction[1];
-	// 	break;
+	while (i < 4) 
+	{
+		switch ( i )
+		{
+		case 0:
+			(this->*ptrFunction[i])();
+			break;
+			
+		case 1:
+			(this->*ptrFunction[i])();
+			break;
 
-	// case 3:
-	// 	ptrFunction[2];
-	// break;
+		case 2:
+			(this->*ptrFunction[i])();
+		break;
 
-	// case 4:
-	// 	ptrFunction[3];
-	// 	break;
-	// case 5:
-	// 	std::cout << "Please add a valid level" << std::endl;
-	// 	break;
-	// default: std::cout << "Please add a valid level" << std::endl;
-	// 	break;
-	// }
+		case 3:
+			(this->*ptrFunction[i])();
+			break;
+		default: std::cout << "Please add a valid level" << std::endl;
+			break;
+		}
+		i++;
+	}
 	
 }
