@@ -36,7 +36,6 @@ public:
     ~Fixed( void ); // ◦ Un destructeur.
 
 	Fixed & operator=( Fixed const & rhs ); // ◦ Une surcharge de l’opérateur d’affectation.
-	int getFixe( void );
 	int getRawBits( void ) const ;// ◦ Une fonction membre int getRawBits( void ) const;
     // qui retourne la valeur du nombre à virgule fixe sans la convertir.
     
