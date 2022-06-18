@@ -14,14 +14,15 @@
 
 int main()
 {
-	Fixed instance1;
-	Fixed instance2( 42 );
-	Fixed instance3( instance1 );
+    Fixed a;
+    Fixed b( a );
+    Fixed c;
 
-	std::cout << instance1 << std::endl;
-	std::cout << instance2 << std::endl;
-	std::cout << instance3 << std::endl;
+    c = b;
 
-	instance3 = instance2;
-	std::cout << instance3 << std::endl;
+    std::cout << a.getRawBits() << std::endl;
+    std::cout << b.getRawBits() << std::endl;
+    std::cout << c.getRawBits() << std::endl;
+    
+    return 0;
 }
