@@ -39,13 +39,11 @@ public:
     ~Fixed( void ); // ◦ Un destructeur.
 
 	Fixed & operator=( Fixed const & rhs ); // ◦ Une surcharge de l’opérateur d’affectation.
-	int getRawBits( void ) const;// ◦ Une fonction membre int getRawBits( void ) const;
-    // qui retourne la valeur du nombre à virgule fixe sans la convertir.
     
-	void setRaWBits( int const raw ) { this->_fixe = raw; }// ◦ Une fonction membre void setRawBits( int const raw );
-    // qui initialise la valeur du nombre à virgule fixe avec celle passée en paramètre.
+	int getRawBits( void ) const;// ◦ Une fonction membre int getRawBits( void ) const; qui retourne la valeur du nombre à virgule fixe sans la convertir.
+	void setRaWBits( int const raw );// ◦ Une fonction membre void setRawBits( int const raw ); qui initialise la valeur du nombre à virgule fixe avec celle passée en paramètre.
     
 };
 
-std::ostream & operator<<( std::ostream & o, Fixed const & i );
+// std::ostream & operator<<( std::ostream & o, Fixed const & i ); // lire la dessu
 #endif
