@@ -34,7 +34,6 @@ private:
 public:
 
     Fixed( void );
-	// Fixed( int const n );
 	Fixed( Fixed const & src ); // Un constructeur de recopie.
     ~Fixed( void ); // ◦ Un destructeur.
 
