@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 19:28:50 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/06/08 10:35:45 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/06/18 16:51:23 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,10 @@ int main() {
 	std::cout << BLUE << "Entre le nom du premier zombie " << std::endl;
 	std::getline(std::cin, firstNameInput); firstNameInput = "Pere-Noel"; sleep(2);
 	std::cout << "Premier Zombie : " << PINK << firstNameInput << RESET << std::endl; sleep(2);
-	std::cout << RED << "WTF .. For real c'est zero original ton criss de nom" << RESET << std::endl; sleep(2);
-	std::cout << BLUE << "Entre ton deuxieme nom et essaie de faire mieu stp parce que la tu fais dur" << std::endl;
+	std::cout << BLUE << "Entre le nom du deuxieme zombie" << std::endl;
 	std::getline(std::cin, secondNameInput); secondNameInput = "Celine Dion"; sleep(2);
 	std::cout << "Deuxieme Zombie : " << PINK << secondNameInput << RESET << std::endl; sleep(2);
-	std::cout << RED << "Ok fuck it serieux avec tes osti d'nom d'vidange" << RESET << std::endl; sleep(2);
 	
-	std::cout << GREEN << "Check on va commencer.. sans commantaire..." << RESET << std::endl; sleep(2);
 	std::cout << RED << "IMPORTANT!!" << RESET << std::endl; sleep(2);
 	
 	std::cout << GREEN << "On cree le premier Zombie en apellant le constructeur & la fonction newZombie(sting name)  : " << PINK << "Zombie* fisrtZombie = newZombie(\"Pere-Noel\")" << RESET << std::endl; sleep(3);

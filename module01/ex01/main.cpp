@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 19:28:50 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/06/08 11:13:10 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/06/18 16:52:46 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main() {
     std::getline(std::cin, input);
     std::cout << GREEN << "Parfait On vas en creer 3." << RESET << std::endl;
     sleep(3);
-    std::cout << RED << "Comme dans l'EX00 tu nommais les zombies comme de la marde ceux-ci vont s'appeler : " << YELLOW << "Jesus fils de dieu" << RESET << std::endl;
+    std::cout << RED << "Les Zombies vont s'appeler : " << YELLOW << "Jesus fils de dieu" << RESET << std::endl;
     sleep(2);
     Zombie* firstHorde = zombieHorde(3, "Jesus fils de dieu");
     sleep(5);
