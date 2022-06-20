@@ -12,8 +12,10 @@
 
 #include "Fixed.hpp"
 
+// const int Fixed::_nBits( 8 );
+
 Fixed::Fixed( void ) {
-	setRaWBits( 0 ); 
+	setRaWBits( 0 );
 	std::cout << GREEN << "Default constructor called" << RESET << std::endl;
 }
 
@@ -44,3 +46,9 @@ int Fixed::getRawBits( void ) const {
 void Fixed::setRaWBits( int const raw ) {
 	this->_fixe = raw;
 }
+
+// std::ostream & operator<<( std::ostream & o, Fixed const & i ) {
+// 	o << PINK << "The value of _fixe is : " << i.getRawBits();
+
+// 	return o;
+// }

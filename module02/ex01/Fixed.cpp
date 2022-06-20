@@ -16,9 +16,13 @@ Fixed::Fixed( void )  : _fixe( 0 ) {
 	std::cout << GREEN << "Default Constructor Called" << RESET << std::endl;
 }
 
-// Fixed::Fixed( int const n ) : fixe( n ) {
-// 	std::cout << YELLOW << "Parametruc Constructor Called" << RESET << std::endl;
-// }
+Fixed::Fixed( int const n ) : fixe( n ) {
+	std::cout << YELLOW << "Int constructor Called" << RESET << std::endl;
+}
+
+Fixed::Fixed( float const n ) : fixe( n ) {
+	std::cout << YELLOW << "Float constructor Called" << RESET << std::endl;
+}
 
 Fixed::Fixed( Fixed const & src ) {
 	std::cout << BLUE << "Copy Constructor Called" << RESET << std::endl;
@@ -37,6 +41,14 @@ Fixed & Fixed::operator=( Fixed const & rhs ) {
 
 Fixed::~Fixed( void ) {
 	std::cout << RED << "Destructor Called" << RESET << std::endl;
+}
+
+int Fixed::toInt( void ) const {
+
+}
+
+float Fixed::toFloat( void ) const {
+
 }
 
 int Fixed::getRawBits( void ) const {

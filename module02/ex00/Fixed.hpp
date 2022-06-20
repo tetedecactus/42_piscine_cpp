@@ -29,7 +29,7 @@ class Fixed
 private:
 
     int _fixe; //pour stocker la valeur du nombre en virgule fixe
-    const static int constStatic; // pour stocker le nombre de bits de la partie fractionnaire, et dont la valeur sera toujours le littéral entier 8
+    const static int _nBits; // pour stocker le nombre de bits de la partie fractionnaire, et dont la valeur sera toujours le littéral entier 8 
     
 public:
 
@@ -38,11 +38,13 @@ public:
     ~Fixed( void ); // ◦ Un destructeur.
 
 	Fixed & operator=( Fixed const & rhs ); // ◦ Une surcharge de l’opérateur d’affectation.
-    
+	
 	int getRawBits( void ) const;// ◦ Une fonction membre int getRawBits( void ) const; qui retourne la valeur du nombre à virgule fixe sans la convertir.
 	void setRaWBits( int const raw );// ◦ Une fonction membre void setRawBits( int const raw ); qui initialise la valeur du nombre à virgule fixe avec celle passée en paramètre.
     
 };
 
-// std::ostream & operator<<( std::ostream & o, Fixed const & i ); // lire la dessu
+// const int Fixed::_nBits( 8 );
+// std::ostream & operator<<( std:: ostream & o, Fixed const & i);
+
 #endif

@@ -29,21 +29,30 @@ class Fixed
 private:
 
     int _fixe; //pour stocker la valeur du nombre en virgule fixe
-    const static int constStatic; // pour stocker le nombre de bits de la partie fractionnaire, et dont la valeur sera toujours le littéral entier 8
+
+	//ATTRIBUT DE CLASS(static)???? elles sont partager par toute les instances (zone memoir unique)
+	// cette zone memoir existe meme lorsque nous avons creer aucun instance de la classe
+	// peu y acceder : Fixed::_nBits
+    const static int _nBits; // pour stocker le nombre de bits de la partie fractionnaire, et dont la valeur sera toujours le littéral entier 8
     
 public:
 
     Fixed( void );
-	// Fixed( int const n );
+	Fixed( int const n );
+	Fixed( float const n);
 	Fixed( Fixed const & src ); // Un constructeur de recopie.
-    ~Fixed( void ); // ◦ Un destructeur.
+    ~Fixed( void ); // Un destructeur.
 
 	Fixed & operator=( Fixed const & rhs ); // ◦ Une surcharge de l’opérateur d’affectation.
     
-	int getRawBits( void ) const;// ◦ Une fonction membre int getRawBits( void ) const; qui retourne la valeur du nombre à virgule fixe sans la convertir.
-	void setRaWBits( int const raw );// ◦ Une fonction membre void setRawBits( int const raw ); qui initialise la valeur du nombre à virgule fixe avec celle passée en paramètre.
+	int getRawBits( void ) const;// qui retourne la valeur du nombre à virgule fixe sans la convertir.
+	void setRaWBits( int const raw );// qui initialise la valeur du nombre à virgule fixe avec celle passée en paramètre.
     
+	int toInt( void ) const;
+	float toFloat( void ) const;
 };
+// const int Fixed::_nBits( 8 );
+std::ostream & operator<<( std::ostream & o, Fixed const & i ); // lire la dessu
 
-// std::ostream & operator<<( std::ostream & o, Fixed const & i ); // lire la dessu
+
 #endif
