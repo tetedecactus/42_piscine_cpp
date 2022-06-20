@@ -16,6 +16,7 @@
 #include <iostream>
 #include <unistd.h>
 #include <string>
+#include <cmath>
 
 # define BLUE "\033[0;36m"
 # define PINK "\033[0;35m"

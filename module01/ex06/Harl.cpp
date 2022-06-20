@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 20:06:59 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/06/18 17:35:52 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/06/20 13:25:24 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,14 @@ void Harl::error( void ) {
 void Harl::complain( std::string level ) {
 	
 	void (Harl::*ptrFunction[])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-	std::string choice[] = {"debug", "info", "warning", "error", level};
+	std::string choice[] = {"DEBUG", "INFO", "WARNING", "ERROR", level};
 	int i;
 
 	i = 0;
 	while (level != choice[i] && i <= 4)
 		i++;
 	if (i == 4)
-		std::cout << PINK << "Your input was indvalid, Please entre en un bon next time" << RESET << std::endl;
+		std::cout << PINK << "Your input was invalid, Please entre en un bon next time" << RESET << std::endl;
 	while ( i < 4 )
 	{
 		switch ( i )
