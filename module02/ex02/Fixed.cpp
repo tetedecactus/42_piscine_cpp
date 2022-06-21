@@ -16,37 +16,57 @@
 const int Fixed::_nBits( 8 );
 
 //======== CONSTRUCTOR & DESTRUCTOR =============================
-Fixed::Fixed( void )  : _fixe( 0 ) { std::cout << GREEN << "Default Constructor Called" << RESET << std::endl; }
+Fixed::Fixed( std::string name )  : _fixe( 0 ), name(name) { std::cout << GREEN << name << ": Default Constructor Called" << RESET << std::endl; }
 
-Fixed::Fixed( int const n ) : _fixe( n << _nBits ) { std::cout << YELLOW << "Int constructor Called" << RESET << std::endl; }
+Fixed::Fixed( int const n, std::string name ) : _fixe( n << _nBits ), name(name) { std::cout << YELLOW << name << ": Int constructor Called" << RESET << std::endl; }
 
-Fixed::Fixed( float const n ) : _fixe(roundf(n * (float)(1 << _nBits))) { std::cout << YELLOW << "Float constructor Called" << RESET << std::endl; }
+Fixed::Fixed( float const n, std::string name ) : _fixe(roundf(n * (float)(1 << _nBits))), name(name) { std::cout << YELLOW << name << ": Float constructor Called" << RESET << std::endl; }
 
-Fixed::Fixed( Fixed const & src ) {
-	std::cout << BLUE << "Copy Constructor Called" << RESET << std::endl;
+Fixed::Fixed( Fixed const & src, std::string name ) : name(name) {
+	std::cout << BLUE << name << ": Copy Constructor Called" << RESET << std::endl;
 	*this = src;
 	return ;
 }
 
-Fixed::~Fixed( void ) { std::cout << RED << "Destructor Called" << RESET << std::endl; }
+Fixed::~Fixed( void ) { std::cout << RED << name << ": Destructor Called" << RESET << std::endl; }
 
 //====== OPERATOR ======================================
 
 Fixed & Fixed::operator=( Fixed const & rhs ) {
 
-	std::cout << YELLOW << "Copy assignement operator Called" << RESET << std::endl;
+	std::cout << YELLOW << rhs.name << ": Copy assignement operator Called" << RESET << std::endl;
 	if (this != &rhs)
 		this->_fixe = rhs.getRawBits();
 
 	return *this;
 }
 
+Fixed Fixed::operator+( Fixed const & rhs ) {
+	Fixed fixi("fixi + ");
+	fixi._fixe = this->getRawBits() + rhs.getRawBits();// est-ce que je peu remplace getRAW par _fixe ????
+	return fixi;
+}
 
+Fixed Fixed::operator-( Fixed const & rhs ) {
+	Fixed fixi("fixi - ");
+	fixi._fixe = this->getRawBits() - rhs.getRawBits();// est-ce que je peu remplace getRAW par _fixe ????
+	return fixi;
+}
 
+Fixed Fixed::operator*( Fixed const & rhs ) {
+	Fixed fixi("fixi * ");
+	fixi._fixe = this->getRawBits() * rhs.getRawBits();// est-ce que je peu remplace getRAW par _fixe ????
+	return fixi;
+}
 
+Fixed Fixed::operator/( Fixed const & rhs ) {
+	Fixed fixi("fixi / ");
+	fixi._fixe = this->getRawBits() / rhs.getRawBits();// est-ce que je peu remplace getRAW par _fixe ????
+	return fixi;
+}
 
 std::ostream & operator<<( std::ostream & o, Fixed const & i ) {
-	o << PINK << "The value of _fixe is : " << RESET << i.toFloat();
+	o << PINK << i.getName() <<": The value of _fixe is : " << RESET << i.toFloat();
 
 	return o;
 }
