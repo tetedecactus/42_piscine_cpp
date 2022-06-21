@@ -41,9 +41,29 @@ Fixed & Fixed::operator=( Fixed const & rhs ) {
 	return *this;
 }
 
+bool Fixed::operator<( Fixed const & rhs ) {
+	retrun *this < rhs ? *this : rhs;
+}
 
+bool Fixed::operator>( Fixed const & rhs ) {
+	
+}
 
+bool Fixed::operator<=( Fixed const & rhs ) {
+	
+}
 
+bool Fixed::operator>=( Fixed const & rhs ) {
+	
+}
+
+bool Fixed::operator==( Fixed const & rhs ) {
+	
+}
+
+bool Fixed::operator!=( Fixed const & rhs ) {
+	
+}
 
 
 
