@@ -42,12 +42,12 @@ public:
 
 	Fixed & operator=( Fixed const & rhs );
 	
-	bool   operator>( Fixed const & rhs );
-	bool   operator<( Fixed const & rhs );
-	bool   operator>=( Fixed const & rhs ); 
-	bool   operator<=( Fixed const & rhs );
-	bool   operator==( Fixed const & rhs );
-	bool   operator!=( Fixed const & rhs );
+	bool   operator>( Fixed const & rhs ) { return this->getRawBits() > rhs.getRawBits() ? true : false; }
+	bool   operator<( Fixed const & rhs ) { return this->getRawBits() < rhs.getRawBits() ? true : false; }
+	bool   operator>=( Fixed const & rhs ) { return this->getRawBits() >= rhs.getRawBits() ? true : false; } 
+	bool   operator<=( Fixed const & rhs ) { return this->getRawBits() <= rhs.getRawBits() ? true : false; }
+	bool   operator==( Fixed const & rhs ) { return this->getRawBits() == rhs.getRawBits() ? true : false; }
+	bool   operator!=( Fixed const & rhs ) { return this->getRawBits() != rhs.getRawBits() ? true : false; }
     
 	int getRawBits( void ) const 		{ return _fixe; }
 	void setRaWBits( int const raw )	{ this->_fixe = raw; }
