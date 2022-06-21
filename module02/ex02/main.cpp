@@ -15,15 +15,23 @@
 int main()
 {
     Fixed a;
-    Fixed b( a );//call constructeur de recopie
-    Fixed c;
+	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
 
-    c = b;//call aperator for mise a jour
-    
-    std::cout << a.getRawBits() << std::endl;
-    std::cout << b.getRawBits() << std::endl;
-    std::cout << c.getRawBits() << std::endl;
-    
-    return 0;
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	std::cout << Fixed::max( a, b ) << std::endl;
+return 0;
 }
+// 0
+// 0.00390625
+// 0.00390625
+// 0.00390625
+// 0.0078125
+// 10.1016
+// 10.1016
+
 

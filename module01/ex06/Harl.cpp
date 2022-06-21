@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 20:06:59 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/06/15 13:30:33 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/06/20 13:25:24 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,18 @@ void Harl::error( void ) {
 	std::cout << BLUE << "This is unacceptable! I want to speak to the manager now." << RESET << std::endl;
 }
 
-void Harl::errMsg( void ) {
-	std::cout << PINK << "Your input was indvalid, Please entre en un bon next time" << RESET << std::endl;
-}
-
 void Harl::complain( std::string level ) {
 	
-	void (Harl::*ptrFunction[])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error, &Harl::errMsg};
-	std::string choice[] = {"debug", "info", "warning", "error", "else"};
+	void (Harl::*ptrFunction[])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	std::string choice[] = {"DEBUG", "INFO", "WARNING", "ERROR", level};
 	int i;
 
 	i = 0;
-	while (level != choice[i])
+	while (level != choice[i] && i <= 4)
 		i++;
-	while ( i <= 5 )
+	if (i == 4)
+		std::cout << PINK << "Your input was invalid, Please entre en un bon next time" << RESET << std::endl;
+	while ( i < 4 )
 	{
 		switch ( i )
 		{
@@ -65,11 +63,9 @@ void Harl::complain( std::string level ) {
 		std::cout << RED << "======={LEVEL WARNING}=======" << RESET << std::endl;
 			(this->*ptrFunction[i])();
 		break;
-		case 3:
+			case 3:
 		std::cout << BLUE << "======={LEVEL ERROR}=======" << RESET << std::endl;
 			(this->*ptrFunction[i])();
-			break;
-		default: std::cout << "Please add a valid level" << std::endl;
 			break;
 		}
 		i++;
