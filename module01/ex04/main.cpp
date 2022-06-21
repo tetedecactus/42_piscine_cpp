@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 19:28:50 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/06/19 22:55:54 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/06/20 09:57:28 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int main(int ac, char** av)
 	if (myFile.is_open() && myFile.peek() != std::ifstream::traits_type::eof())// check si file existe et n'est pas vide
 	{
 		myReplaceFile.open(replaceFileName, std::ios::out);// ouvre "[FileName].replace"
-		if (myReplaceFile.is_open()) 
+		if (myReplaceFile.is_open())
 		{
 			std::string s1(av[2]), s2(av[3]), line; // Creating variable i need
 			if (s1.empty() || s2.empty())
@@ -62,7 +62,7 @@ int main(int ac, char** av)
 				std::cout << RED << "Example of valid input: ./{PROG} {FileName} {String1} {String2}" << std::endl; 
 				return 1;
 			}
-			while (std::getline(myFile, line)) 
+			while (std::getline(myFile, line))
 			{
 				std::size_t foundStr = line.find(s1);
 				while (foundStr != std::string::npos)// check la meme ligne pour replacer toute les s1

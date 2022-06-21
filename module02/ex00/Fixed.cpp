@@ -12,7 +12,7 @@
 
 #include "Fixed.hpp"
 
-// const int Fixed::_nBits( 8 );
+const int Fixed::_nBits( 8 );
 
 Fixed::Fixed( void ) {
 	setRaWBits( 0 );
