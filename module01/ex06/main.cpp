@@ -20,8 +20,6 @@ int main()
 	std::cout << "Entre un level de copmlain de harl" << std::endl;
 	std::cout << RED << "| debug | info | warning | error |" << RESET << std::endl;
 	std::getline( std::cin, input );
-	std::cout << "input  = " << input << std::endl;
 	harl.complain( input );
+	return 0;
 }
-// ask about pointer to member fonction
-// https://stackoverflow.com/questions/2402579/function-pointer-to-member-function

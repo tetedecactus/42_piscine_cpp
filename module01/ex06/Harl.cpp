@@ -43,35 +43,36 @@ void Harl::errMsg( void ) {
 void Harl::complain( std::string level ) {
 	
 	void (Harl::*ptrFunction[])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error, &Harl::errMsg};
-	std::string choice[] = {"debug", "info", "warning", "error"};
+	std::string choice[] = {"debug", "info", "warning", "error", "else"};
 	int i;
 
 	i = 0;
-	while (level != choice[i] && i < 4)
+	while (level != choice[i])
 		i++;
-	(this->*ptrFunction[i])();	
-	// switch ( i )
-	// {
-	// case 1:
-	// 	debug();
-	// 	break;
-		
-	// case 2:
-	// 	ptrFunction[1];
-	// 	break;
-
-	// case 3:
-	// 	ptrFunction[2];
-	// break;
-
-	// case 4:
-	// 	ptrFunction[3];
-	// 	break;
-	// case 5:
-	// 	std::cout << "Please add a valid level" << std::endl;
-	// 	break;
-	// default: std::cout << "Please add a valid level" << std::endl;
-	// 	break;
-	// }
+	while ( i <= 5 )
+	{
+		switch ( i )
+		{
+		case 0:
+		std::cout << GREEN << "======={LEVEL DEBUG}=======" << RESET << std::endl;
+			(this->*ptrFunction[i])();
+			break;
+		case 1:
+		std::cout << YELLOW << "======={LEVEL INFO}=======" << RESET << std::endl;
+			(this->*ptrFunction[i])();
+			break;
+		case 2:
+		std::cout << RED << "======={LEVEL WARNING}=======" << RESET << std::endl;
+			(this->*ptrFunction[i])();
+		break;
+		case 3:
+		std::cout << BLUE << "======={LEVEL ERROR}=======" << RESET << std::endl;
+			(this->*ptrFunction[i])();
+			break;
+		default: std::cout << "Please add a valid level" << std::endl;
+			break;
+		}
+		i++;
+	}
 	
 }

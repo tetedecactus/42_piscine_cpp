@@ -41,6 +41,6 @@ fclean: clean
 	rm -f $(NAME)
 	@echo "$(END)"
 
-re: fclean all
+re: fclean allA
 
 .PHONY: all re clean fclean

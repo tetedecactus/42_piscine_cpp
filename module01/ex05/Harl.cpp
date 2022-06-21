@@ -49,6 +49,7 @@ void Harl::complain( std::string level ) {
 	i = 0;
 	while (level != choice[i] && i < 4)
 		i++;
+<<<<<<< HEAD:module_01/ex06/Harl.cpp
 	while (i < 4) 
 	{
 		switch ( i )
@@ -73,5 +74,8 @@ void Harl::complain( std::string level ) {
 		}
 		i++;
 	}
+=======
+	(this->*ptrFunction[i])();
+>>>>>>> 6ee667248cf16fd9eed055b30f08848829ea0f35:module01/ex05/Harl.cpp
 	
 }
