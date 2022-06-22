@@ -28,7 +28,6 @@ int main()
 	Fixed a("A");
 	Fixed const b(( Fixed( 5.05f, "C" ) * Fixed( 2, "D" )), "B" );
 
-	std::cout << a < b << ": " << std::endl;
 	std::cout << a << std::endl;
 	// std::cout << ++a << std::endl;
 	std::cout << a << std::endl;
