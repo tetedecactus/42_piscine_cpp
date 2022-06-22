@@ -55,7 +55,8 @@ Fixed Fixed::operator-( Fixed const & rhs ) {
 
 Fixed Fixed::operator*( Fixed const & rhs ) {
 	Fixed fixi("fixi * ");
-	fixi._fixe = this->toFloat() * rhs.toFloat();// est-ce que je peu remplace getRAW par _fixe ????
+	fixi._fixe = this->toInt() * rhs.toInt();
+	std::cout << this->name << ": fixe value = " << fixi._fixe << std::endl;// est-ce que je peu remplace getRAW par _fixe ????
 	return fixi;
 }
 
