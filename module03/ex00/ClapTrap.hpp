@@ -38,7 +38,7 @@ public:
     ClapTrap( ClapTrap const & src, std::string name );
     ~ClapTrap();
 
-    // ClapTrap & operator=( ClapTrap const & rhs ); // Pas certain???
+    // ClapTrap& operator=( ClapTrap const & rhs ); // Pas certain???
 
     void attack( const std::string& target );
     void takeDamage( unsigned int amount );
