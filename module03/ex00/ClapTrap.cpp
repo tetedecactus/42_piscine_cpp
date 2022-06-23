@@ -17,18 +17,18 @@ ClapTrap::ClapTrap( void ) {}
 
 ClapTrap::ClapTrap( std::string name ) : _name(name), hitPoint(10), energyPoint(10), attDamage(0)
 {
-    std::cout << GREEN << _name << ": Constructor called " << RESET << std::endl;
+    std::cout << GREEN << _name << RESET << ": Constructor called and have :" << energyPoint << " of ernergy point" << std::endl;
 }
 
 ClapTrap::ClapTrap( ClapTrap const & src, std::string name ) : _name(name), hitPoint(10), energyPoint(10), attDamage(0)
 {
     *this = src;
-    std::cout << YELLOW << this->_name << ": Copy constructor called" << RESET << std::endl;
+    std::cout << YELLOW << this->_name << RESET << ": Copy constructor called" << std::endl;
     return ;
 }
 ClapTrap::~ClapTrap()
 {
-    std::cout << RED << _name ": Destructor called " << RESET << std::endl;
+    std::cout << RED << _name << RESET << ": Destructor called " << std::endl;
 }
 
 // ClapTrap& ClapTrap::operator=( ClapTrap const & rhs ) {
@@ -37,13 +37,13 @@ ClapTrap::~ClapTrap()
 
 //==========================================================
 void ClapTrap::attack( const std::string& target ) {
-    std::cout << BLUE << this._name << ": Attack :" << target << "causing :" << this->hitPoint << " points of damage" << RESET << std::endl;
+    std::cout << BLUE << this->_name << RESET << ": Attack :" << target << " causing :" << this->hitPoint << " points of damage" << std::endl;
 }
 
 void ClapTrap::beRepaired( unsigned int amount ) {
-    std::cout << GREEN << this._name << ": Have been repair of : " << amount << " point of life" << RESET << std::endl;
+    std::cout << GREEN << this->_name << RESET << ": Have been repair of : " << amount << " point of life" << std::endl;
 }
 
 void ClapTrap::takeDamage( unsigned int amount ) {
-    std::cout  << YELLOW << this._name << ": Have take : " << amount << " of damage" << RESET << std::endl;
+    std::cout  << YELLOW << this->_name << RESET << ": Have take : " << amount << " of damage" << std::endl;
 }

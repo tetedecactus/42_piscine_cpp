@@ -43,6 +43,12 @@ public:
     void attack( const std::string& target );
     void takeDamage( unsigned int amount );
     void beRepaired( unsigned int amount );
+
+
+	std::string getName( void ) 	{ return this->_name; }
+	int getEnergyPoint( void ) 		{ return this->energyPoint; }
+	int getAttDamage( void ) 		{ return this->attDamage; }
+	int getHitPoint( void ) 		{ return this->hitPoint; }
 };
 
 

@@ -27,7 +27,13 @@ int main()
 
 	Fixed a("A");
 	Fixed const b(( Fixed( 5.05f, "C" ) * Fixed( 2, "D" )), "B" );
+	// Fixed b("B");
+	// Fixed C("C");
 
+	// a.setRaWBits( 5 );
+	// b.setRaWBits( 2 );
+	// C = a * b;
+	// std::cout << C << std::endl;
 	std::cout << a << std::endl;
 	// std::cout << ++a << std::endl;
 	std::cout << a << std::endl;
@@ -35,12 +41,13 @@ int main()
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
 	// std::cout << Fixed::max( a, b ) << std::endl;
-return 0;
+	return 0;
 }
 // 0
 // 0.00390625
 // 0.00390625
 // 0.00390625
+
 // 0.0078125
 // 10.1016
 // 10.1016

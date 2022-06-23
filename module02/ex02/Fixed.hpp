@@ -29,7 +29,7 @@ class Fixed
 {
 private:
 
-    int _fixe; 
+    int _fixe;
     const static int _nBits;
 	std::string name;
     
