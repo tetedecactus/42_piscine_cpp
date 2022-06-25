@@ -26,7 +26,7 @@ int main()
 	// std::cout << Fixed::max( a, b ) << std::endl;
 
 	Fixed a("A");
-	Fixed const b(( Fixed( 5.05f, "C" ) * Fixed( 2, "D" )), "B" );
+	Fixed const b(( Fixed( 5.05f, "C" )  Fixed( 2, "D" )), "B" );
 
 	std::cout << a << std::endl;
 	// std::cout << ++a << std::endl;
@@ -44,5 +44,3 @@ return 0;
 // 0.0078125
 // 10.1016
 // 10.1016
-
-
