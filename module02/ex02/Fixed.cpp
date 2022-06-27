@@ -43,28 +43,25 @@ Fixed & Fixed::operator=( Fixed const & rhs ) {
 
 Fixed Fixed::operator+( Fixed const & rhs ) {
 	Fixed fixi("fixi + ");
-	fixi._fixe = this->getRawBits() + rhs.getRawBits();// est-ce que je peu remplace getRAW par _fixe ????
+	fixi._fixe = this->getRawBits() + rhs.getRawBits();
 	return fixi;
 }
 
 Fixed Fixed::operator-( Fixed const & rhs ) {
 	Fixed fixi("fixi - ");
-	fixi._fixe = this->getRawBits() - rhs.getRawBits();// est-ce que je peu remplace getRAW par _fixe ????
+	fixi._fixe = this->getRawBits() - rhs.getRawBits();
 	return fixi;
 }
 
 Fixed Fixed::operator*( Fixed const & rhs ) {
 	Fixed fixi("fixi * ");
 	fixi._fixe = this->toFloat() * rhs.toFloat();
-	// value <<= _nBits;
-	// fixi.setRaWBits(value);
-	std::cout << this->name << ": fixe value = " << fixi._fixe << std::endl;// est-ce que je peu remplace getRAW par _fixe ????
 	return fixi;
 }
 
 Fixed Fixed::operator/( Fixed const & rhs ) {
 	Fixed fixi("fixi / ");
-	fixi._fixe = this->toInt() / rhs.toInt();// est-ce que je peu remplace getRAW par _fixe ????
+	fixi._fixe = this->toFloat() / rhs.toFloat();
 	return fixi;
 }
 
@@ -78,14 +75,14 @@ Fixed & Fixed::operator--( void ) {
 	return *this;
 }
 
-Fixed  Fixed::operator++( void ) {z
-	Fixed fixi("fixi ++ ");
+Fixed  Fixed::operator++( int ) {
+	Fixed fixi(*this);
 	fixi._fixe++;
 	return fixi;
 }
 
-Fixed  Fixed::operator--( void ) {
-	Fixed fixi("fixi -- ");
+Fixed  Fixed::operator--( int ) {
+	Fixed fixi(*this);
 	fixi._fixe--;
 	return fixi;
 }

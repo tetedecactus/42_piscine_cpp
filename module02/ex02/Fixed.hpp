@@ -43,26 +43,26 @@ public:
 
 	Fixed & operator=( Fixed const & rhs );
 
-	Fixed 	operator++( void );
-	Fixed 	operator--( void );
+	Fixed 	operator++(  int );// Notice int inside barcket which indicates postfix increment.
+	Fixed 	operator--(  int );//https://www.programiz.com/cpp-programming/increment-decrement-operator-overloading
 	Fixed & operator++( void );
 	Fixed & operator--( void );
 	Fixed 	operator+( Fixed const & rhs);
 	Fixed 	operator-( Fixed const & rhs);
 	Fixed 	operator*( Fixed const & rhs);
 	Fixed 	operator/( Fixed const & rhs);
+	
+	static Fixed const& max( Fixed const& f1, Fixed const& f2 ) { return f1 >= f2 ? f1 : f2; }
+	static Fixed const& min( Fixed const& f1, Fixed const& f2 ) { return f1 <= f2 ? f1 : f2; }
+	static Fixed& max( Fixed& f1, Fixed& f2 ) { return f1 >= f2 ? f1 : f2; }
+	static Fixed& min( Fixed& f1, Fixed& f2 ) { return f1 <= f2 ? f1 : f2; }
 
-    static Fixed& max( Fixed& f1, Fixed& f2 ) { return f1 >= f2 ? f1 : f2; };
-    static Fixed& min( Fixed& f1, Fixed& f2 ) { return f1 <= f2 ? f1 : f2; };
-	static Fixed const & min( Fixed const & f1, Fixed const & f2 ) { return f1 <= f2 ? f1 : f2; };
-	static Fixed const & max( Fixed const & f1, Fixed const & f2 ) { return f1 >= f2 ? f1 : f2; };
-
-	bool   operator>( Fixed const & rhs ) 	{ return this->getRawBits() > rhs.getRawBits() ? true : false; }
-	bool   operator<( Fixed const & rhs ) 	{ return this->getRawBits() < rhs.getRawBits() ? true : false; }
-	bool   operator>=( Fixed const & rhs ) 	{ return this->getRawBits() >= rhs.getRawBits() ? true : false; } 
-	bool   operator<=( Fixed const & rhs ) 	{ return this->getRawBits() <= rhs.getRawBits() ? true : false; }
-	bool   operator==( Fixed const & rhs ) 	{ return this->getRawBits() == rhs.getRawBits() ? true : false; }
-	bool   operator!=( Fixed const & rhs ) 	{ return this->getRawBits() != rhs.getRawBits() ? true : false; }
+	bool   operator>( Fixed const & rhs ) const	{ return this->getRawBits() > rhs.getRawBits() ? true : false; }
+	bool   operator<( Fixed const & rhs ) const	{ return this->getRawBits() < rhs.getRawBits() ? true : false; }
+	bool   operator>=( Fixed const & rhs ) const	{ return this->getRawBits() >= rhs.getRawBits() ? true : false; } 
+	bool   operator<=( Fixed const & rhs ) const	{ return this->getRawBits() <= rhs.getRawBits() ? true : false; }
+	bool   operator==( Fixed const & rhs ) const	{ return this->getRawBits() == rhs.getRawBits() ? true : false; }
+	bool   operator!=( Fixed const & rhs ) const	{ return this->getRawBits() != rhs.getRawBits() ? true : false; }
     
 	// static int min( )
 	int getRawBits( void ) const 			{ return _fixe; }
