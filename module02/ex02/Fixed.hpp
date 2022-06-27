@@ -35,10 +35,10 @@ private:
     
 public:
 
-    Fixed( std::string name );
-	Fixed( int const n, std::string name );
-	Fixed( float const n, std::string name );
-	Fixed( Fixed const & src, std::string name );
+    Fixed( void );
+	Fixed( int const n );
+	Fixed( float const n );
+	Fixed( Fixed const & src );
     ~Fixed( void );
 
 	Fixed & operator=( Fixed const & rhs );
@@ -71,9 +71,6 @@ public:
 	int toInt( void ) const 				{ return _fixe >> _nBits; }
 	float toFloat( void ) const 			{ return (float)_fixe / (1 << _nBits); }
 
-	void setName( std::string name ) { this->name = name; }
-	std::string getName( void ) const {  return this->name; }
-	
 };
 
 std::ostream & operator<<( std::ostream & o, Fixed const & i ); // lire la dessu
