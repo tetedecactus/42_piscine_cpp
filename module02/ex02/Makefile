@@ -8,7 +8,7 @@ NAME = fixe_three
 CC = clang++
 
 # add this flags forxxx evaluation: -std=c++98
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror 
 
 SRC = 	main.cpp \
 		Fixed.cpp \

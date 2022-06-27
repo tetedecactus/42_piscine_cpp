@@ -23,7 +23,7 @@ Fixed::Fixed( int const n, std::string name ) : _fixe( n << _nBits ), name(name)
 Fixed::Fixed( float const n, std::string name ) : _fixe(roundf(n * (float)(1 << _nBits))), name(name) { std::cout << YELLOW << name << ": Float constructor Called" << RESET << std::endl; }
 
 Fixed::Fixed( Fixed const & src, std::string name ) : name(name) {
-	std::cout << BLUE << name << ": Copy Constructor Called" << RESET << std::endl;
+	std::cout << BLUE << name << ": Copy Constructor Called with _fixe value of : "<< src._fixe << RESET << std::endl;
 	*this = src;
 	return ;
 }
@@ -55,7 +55,9 @@ Fixed Fixed::operator-( Fixed const & rhs ) {
 
 Fixed Fixed::operator*( Fixed const & rhs ) {
 	Fixed fixi("fixi * ");
-	fixi._fixe = this->toInt() * rhs.toInt();
+	fixi._fixe = this->toFloat() * rhs.toFloat();
+	// value <<= _nBits;
+	// fixi.setRaWBits(value);
 	std::cout << this->name << ": fixe value = " << fixi._fixe << std::endl;// est-ce que je peu remplace getRAW par _fixe ????
 	return fixi;
 }
@@ -63,6 +65,28 @@ Fixed Fixed::operator*( Fixed const & rhs ) {
 Fixed Fixed::operator/( Fixed const & rhs ) {
 	Fixed fixi("fixi / ");
 	fixi._fixe = this->toInt() / rhs.toInt();// est-ce que je peu remplace getRAW par _fixe ????
+	return fixi;
+}
+
+Fixed & Fixed::operator++( void ) {
+	++_fixe;
+	return *this;
+}
+
+Fixed & Fixed::operator--( void ) {
+	--_fixe;
+	return *this;
+}
+
+Fixed  Fixed::operator++( void ) {z
+	Fixed fixi("fixi ++ ");
+	fixi._fixe++;
+	return fixi;
+}
+
+Fixed  Fixed::operator--( void ) {
+	Fixed fixi("fixi -- ");
+	fixi._fixe--;
 	return fixi;
 }
 

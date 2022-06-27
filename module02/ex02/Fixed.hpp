@@ -29,7 +29,7 @@ class Fixed
 {
 private:
 
-    int _fixe; 
+    int _fixe;
     const static int _nBits;
 	std::string name;
     
@@ -43,10 +43,19 @@ public:
 
 	Fixed & operator=( Fixed const & rhs );
 
-	Fixed operator+( Fixed const & rhs);
-	Fixed operator-( Fixed const & rhs);
-	Fixed operator*( Fixed const & rhs);
-	Fixed operator/( Fixed const & rhs);
+	Fixed 	operator++( void );
+	Fixed 	operator--( void );
+	Fixed & operator++( void );
+	Fixed & operator--( void );
+	Fixed 	operator+( Fixed const & rhs);
+	Fixed 	operator-( Fixed const & rhs);
+	Fixed 	operator*( Fixed const & rhs);
+	Fixed 	operator/( Fixed const & rhs);
+
+    static Fixed& max( Fixed& f1, Fixed& f2 ) { return f1 >= f2 ? f1 : f2; };
+    static Fixed& min( Fixed& f1, Fixed& f2 ) { return f1 <= f2 ? f1 : f2; };
+	static Fixed const & min( Fixed const & f1, Fixed const & f2 ) { return f1 <= f2 ? f1 : f2; };
+	static Fixed const & max( Fixed const & f1, Fixed const & f2 ) { return f1 >= f2 ? f1 : f2; };
 
 	bool   operator>( Fixed const & rhs ) 	{ return this->getRawBits() > rhs.getRawBits() ? true : false; }
 	bool   operator<( Fixed const & rhs ) 	{ return this->getRawBits() < rhs.getRawBits() ? true : false; }
