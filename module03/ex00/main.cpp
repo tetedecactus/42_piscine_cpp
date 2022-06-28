@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 10:26:45 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/06/27 19:37:05 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/06/28 15:22:11 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ int main( int ac, char **av )
 		std::cout << "Ce Programme ne prend que son executable en parametre" << std::endl;
 		return 1;
 	}
-	ClapTrap firstPerso("Jaune-attend 1er du nom");
-	ClapTrap secondPerso("Not-Brayan 2e du nom");
+	ClapTrap firstPerso("Jaune-attend Clap-1er du nom");
+	ClapTrap secondPerso;
 
+	std::cout << RED << "Premier test : 1 attaque 2, 2 ce repair et both print leurs stats" << RESET << std::endl;
 	firstPerso.attack(secondPerso.getName());
 	secondPerso.takeDamage(firstPerso.getAttDamage());
 	secondPerso.beRepaired(firstPerso.getAttDamage());
-	std::cout << secondPerso.getName() << ": Energy Point = " << secondPerso.getEnergyPoint() << std::endl;
-	std::cout << firstPerso.getName() << ": Energie point = " << firstPerso.getEnergyPoint() << std::endl;
-	// Faire fonction get stats 
+	firstPerso.printStats();
+	secondPerso.printStats();
 	return 0;
 }
