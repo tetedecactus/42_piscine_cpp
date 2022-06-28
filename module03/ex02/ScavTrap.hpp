@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olabrecq <olabrecq@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/27 19:42:47 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/06/27 19:42:47 by olabrecq         ###   ########.fr       */
+/*   Created: 2022/06/27 19:40:56 by olabrecq          #+#    #+#             */
+/*   Updated: 2022/06/27 19:40:56 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#ifndef SCAVTRAP_H
+# define SCAVTRAP_H
 
-ScavTrap::ScavTrap( void )
+#include "ClapTrap.hpp"
+
+class ScavTrap : public ClapTrap
 {
-}
+private:
+    /* data */
+public:
+    ScavTrap( void );
+    ScavTrap( std::string name );
+    ScavTrap( ScavTrap const & src );
+    ~ScavTrap();
 
-ScavTrap::~ScavTrap()
-{
-}
+    void guardGate( void );
+};
 
-
-void ScavTrap::guardGate( void ) {
-    if (hitPoint > 0 && energyPoint > 0)
-        std::cout << RED << "IMP" << name << ": is now in Gate Keeper mode" << RESET << std::endl;
-}
+#endif

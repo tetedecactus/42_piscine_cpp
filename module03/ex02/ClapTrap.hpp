@@ -16,7 +16,7 @@
 #include <iostream>
 #include <unistd.h>
 #include <string>
-#include "ScavTrap.hpp"
+
 # define BLUE "\033[0;36m"
 # define PINK "\033[0;35m"
 # define GREEN "\033[0;32m"
@@ -53,8 +53,6 @@ public:
 	int getEnergyPoint( void ) 		{ return this->energyPoint; }
 	int getAttDamage( void ) 		{ return this->attDamage; }
 	int getHitPoint( void ) 		{ return this->hitPoint; }
-    
-    void printStats( void ) const;
 };
 
 #endif

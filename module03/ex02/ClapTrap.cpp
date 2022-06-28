@@ -13,9 +13,9 @@
 # include "ClapTrap.hpp"
 
 //========= CONSTRUCTOR & DESTRUCTOR=====================//
-ClapTrap::ClapTrap( void ) : name("Fitz"), hitPoint(10), energyPoint(10), attDamage(0) {}
+ClapTrap::ClapTrap( void ) : name("Fitz"), hitPoint(100), energyPoint(50), attDamage(20) {}
 
-ClapTrap::ClapTrap( std::string name ) : name(name), hitPoint(10), energyPoint(10), attDamage(0)
+ClapTrap::ClapTrap( std::string name ) : name(name), hitPoint(100), energyPoint(50), attDamage(20)
 {
     std::cout << GREEN << name << RESET << ": Constructor called and have :" << energyPoint << " of ernergy point" << std::endl;
 }
@@ -71,13 +71,4 @@ void ClapTrap::takeDamage( unsigned int amount ) {
     else
         hitPoint -= amount;
 
-}
-
-//=================== OTHER FUNCTION ===============
-
-void ClapTrap::printStats( void ) const {
-    std::cout << "Nom : " << this->name << std::endl;
-    std::cout << "Hit Point : " << this->hitPoint << std::endl;
-    std::cout << "Energy Point : " << this->energyPoint << std::endl;
-    std::cout << "Attack Damage : " << this->attDamage << std::endl;
 }
