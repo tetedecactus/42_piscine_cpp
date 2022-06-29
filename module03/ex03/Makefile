@@ -3,7 +3,7 @@ GREEN 	= \033[0;32m
 RED 	= \033[0;31m
 END 	= \033[0m
 
-NAME = FragTrap
+NAME = DiamondTrap
 
 CC = clang++
 
@@ -13,11 +13,13 @@ CFLAGS =  -Werror -Wextra -Wall -std=c++98
 SRC = 	main.cpp \
 		ClapTrap.cpp \
 		ScavTrap.cpp \
-		FragTrap.cpp \
+		FragTrap.cpp \.cpp \
+		DiamondTrap
 
 HEADER = ScavTrap.hpp \
 		 ClapTrap.hpp \
 		 FragTrap.hpp \
+		 DiamondTrap.hpp \
 
 OBJ = $(SRC:.cpp=.o)
 

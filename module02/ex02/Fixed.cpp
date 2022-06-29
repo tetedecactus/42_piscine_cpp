@@ -56,13 +56,15 @@ Fixed Fixed::operator-( Fixed const & rhs ) {
 
 Fixed Fixed::operator*( Fixed const & rhs ) {
 	Fixed fixi;
-	fixi.setRaWBits(toFloat() * rhs.toFloat());
+	long nb = getRawBits() * rhs.getRawBits();
+	fixi.setRaWBits(nb >> _nBits);
 	return fixi;
 }
 
 Fixed Fixed::operator/( Fixed const & rhs ) {
 	Fixed fixi;
-	fixi.setRaWBits(this->toFloat() / rhs.toFloat());
+	long nb = (getRawBits() << _nBits) / rhs.getRawBits();
+	fixi.setRaWBits(nb);
 	return fixi;
 }
 
@@ -75,15 +77,15 @@ Fixed & Fixed::operator--( void ) {
 	--_fixe;
 	return *this;
 }
-lFixed  Fixed::operator++( int ) {
+Fixed  Fixed::operator++( int ) {
 	Fixed fixi(*this);
-	fixi._fixe++;
+	_fixe++;
 	return fixi;
 }
 
 Fixed  Fixed::operator--( int ) {
 	Fixed fixi(*this);
-	fixi._fixe--;
+	_fixe--;
 	return fixi;
 }
 
