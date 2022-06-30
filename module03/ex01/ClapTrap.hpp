@@ -16,7 +16,7 @@
 #include <iostream>
 #include <unistd.h>
 #include <string>
-#include "ScavTrap.hpp"
+
 # define BLUE "\033[0;36m"
 # define PINK "\033[0;35m"
 # define GREEN "\033[0;32m"
@@ -24,10 +24,12 @@
 # define RED "\033[0;31m"
 # define RESET "\033[0m"
 
+// https://fr.wikipedia.org/wiki/Polymorphisme_(informatique)
 // https://cplusplus.com/doc/tutorial/inheritance/
 // https://cplusplus.com/doc/tutorial/polymorphism/
 // https://www.geeksforgeeks.org/inheritance-in-c/?ref=lbp
 // https://www.youtube.com/watch?v=V_kB7LXkIbc&list=PLeBlObWk0duSNURllEcqH1FN7Z4-L4DZf
+// https://stackoverflow.com/questions/2391679/why-do-we-need-virtual-functions-in-c
 
 class ClapTrap
 {
@@ -41,11 +43,12 @@ public:
     ClapTrap( void );
     ClapTrap( std::string name );
     ClapTrap( ClapTrap const & src );
-    ~ClapTrap();
+    // ~ClapTrap();
+    virtual ~ClapTrap();// Virtual destructors are useful when you might potentially delete an instance of a derived class through a pointer to base class:
 
     ClapTrap& operator=( ClapTrap const & rhs ); 
 
-    void attack( const std::string& target );
+    virtual void attack( const std::string& target );
     void takeDamage( unsigned int amount );
     void beRepaired( unsigned int amount );
 

@@ -20,13 +20,14 @@ int main()
 		Fixed a;
 		Fixed const b( (Fixed( 5.05f ) * Fixed( 2 )) );
 
-		std::cout << a << ": doit etre = 0" << std::endl;
-		std::cout << ++a << ": doit etre = 0.00390625" << std::endl;
-		std::cout << a << ": doit etre = 0.00390625" << std::endl;
-		std::cout << a++ << ": doit etre = 0.00390625" << std::endl;
-		std::cout << a << ": doit etre = 0.0078125" << std::endl;
-		std::cout << b << ": doit etre = 10.1016" << std::endl;
-		std::cout << Fixed::max( a, b ) << ": doit etre = 10.1016\n\n" << std::endl;
+		std::cout << a << std::endl;
+		std::cout << ++a << std::endl;
+		std::cout << a << std::endl;
+		std::cout << a++ << std::endl;
+		std::cout << a << std::endl;
+		std::cout << b << std::endl;
+		std::cout << Fixed::max( a, b ) << std::endl;
+
 	}
 
 	// ================= MAIN PERSONNEL DE TEST =========================

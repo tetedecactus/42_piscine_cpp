@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
-#include "ScavTrap.hpp"
+#include "DiamondTrap.hpp"
 
 
 //  Il s’appellera ScavTrap et héritera des constructeurs et du destructeur de
@@ -82,13 +81,43 @@ int main( int ac, char **av )
 	// 	delete firstPerso;
 	// 	delete secondPerso;
 	// }
+	// std::cout << BLUE << "==========================================================================" << RESET << std::endl;
+	
+	// {
+	// 	std::cout << RED << "Premier test : 1 attaque 2, 2 ce repair et both print leurs stats\n" << RESET << std::endl;
+
+	// 	FragTrap firstPerso("Charlotte cool a l'os");
+	// 	FragTrap secondPerso;
+
+	// 	firstPerso.attack(secondPerso.getName());
+	// 	secondPerso.takeDamage(firstPerso.getAttDamage());
+	// 	secondPerso.beRepaired(firstPerso.getAttDamage());
+	// 	firstPerso.printStats();
+	// 	secondPerso.printStats();
+	// }
+	// 	std::cout << std::endl;
+	// {
+	// 	std::cout << RED << "Deuxiemne test : 1 est maintenant un pointer de ClapTrap, et 2 pointer de FragTrap, 1 attaque 2, 2 ce repair et both print leurs stats\n" << RESET << std::endl;
+
+	// 	ClapTrap* firstPerso = new ScavTrap("Robert Frag Pointer");
+	// 	FragTrap* secondPerso = new FragTrap;
+
+	// 	firstPerso->attack(secondPerso->getName());
+	// 	secondPerso->takeDamage(firstPerso->getAttDamage());
+	// 	secondPerso->beRepaired(50);
+	// 	firstPerso->printStats();
+	// 	secondPerso->printStats();
+	// 	delete firstPerso;
+	// 	delete secondPerso;
+	// }
+
 	std::cout << BLUE << "==========================================================================" << RESET << std::endl;
 	
 	{
 		std::cout << RED << "Premier test : 1 attaque 2, 2 ce repair et both print leurs stats\n" << RESET << std::endl;
 
-		FragTrap firstPerso("Charlotte cool a l'os");
-		FragTrap secondPerso;
+		DiamondTrap firstPerso("Charlotte cool a l'os");
+		DiamondTrap secondPerso;
 
 		firstPerso.attack(secondPerso.getName());
 		secondPerso.takeDamage(firstPerso.getAttDamage());
@@ -98,16 +127,33 @@ int main( int ac, char **av )
 	}
 		std::cout << std::endl;
 	{
-		std::cout << RED << "Deuxiemne test : 1 est maintenant un pointer de ClapTrap, et 2 pointer de FragTrap, 1 attaque 2, 2 ce repair et both print leurs stats\n" << RESET << std::endl;
+		std::cout << RED << "Deuxiemne test : 1 est maintenant un pointer de ScavTrap, et 2 pointer de FragTrap, 1 attaque 2, 2 ce repair et both print leurs stats\n" << RESET << std::endl;
 
-		ClapTrap* firstPerso = new FragTrap("Robert Frag Pointer");
-		FragTrap* secondPerso = new FragTrap;
+		ScavTrap* firstPerso = new DiamondTrap("Robert Frag Pointer");
+		FragTrap* secondPerso = new DiamondTrap;
 
 		firstPerso->attack(secondPerso->getName());
 		secondPerso->takeDamage(firstPerso->getAttDamage());
 		secondPerso->beRepaired(50);
 		firstPerso->printStats();
 		secondPerso->printStats();
+		delete firstPerso;
+		delete secondPerso;
+	}
+	{
+		std::cout << RED << "Troisieme test : 1 est maintenant un pointer de ClapTrap, et 2 pointer de Diamond, 1 attaque 2, 2 ce repair et both print leurs stats\n" << RESET << std::endl;
+
+		ClapTrap* firstPerso = new DiamondTrap("Robert Frag Pointer");
+		DiamondTrap* secondPerso = new DiamondTrap;
+
+		firstPerso->attack(secondPerso->getName());
+		secondPerso->takeDamage(firstPerso->getAttDamage());
+		secondPerso->beRepaired(50);
+		firstPerso->printStats();
+		secondPerso->printStats();
+		secondPerso->guardGate();
+		secondPerso->highFivesGuys();
+		secondPerso->whoAmI();
 		delete firstPerso;
 		delete secondPerso;
 	}

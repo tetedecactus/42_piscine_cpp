@@ -23,9 +23,13 @@ public:
     ScavTrap( void );
     ScavTrap( std::string name );
     ScavTrap( ScavTrap const & src );
-    ~ScavTrap();
+    virtual ~ScavTrap();
 
-    void guardGate( void );
+    ScavTrap& operator=( ScavTrap const & rhs );
+
+    virtual void attack( const std::string& target );
+
+    void guardGate( void ) const;
 };
 
 #endif

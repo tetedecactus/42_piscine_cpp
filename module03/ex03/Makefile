@@ -3,21 +3,23 @@ GREEN 	= \033[0;32m
 RED 	= \033[0;31m
 END 	= \033[0m
 
-NAME = FragTrap
+NAME = DiamonTrap
 
 CC = clang++
 
 # add this flags forxxx evaluation: -std=c++98 -Wall -Wextra -Werror
-CFLAGS =  -Werror -Wextra -Wall -std=c++98
+CFLAGS =  -Werror -Wextra -Wall -std=c++98 -Wshadow  -Wno-shadow
 
 SRC = 	main.cpp \
 		ClapTrap.cpp \
 		ScavTrap.cpp \
 		FragTrap.cpp \
+		DiamonTrap.cpp \
 
 HEADER = ScavTrap.hpp \
 		 ClapTrap.hpp \
 		 FragTrap.hpp \
+		 DiamonTrap.hcpp \
 
 OBJ = $(SRC:.cpp=.o)
 

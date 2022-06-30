@@ -13,21 +13,23 @@
 # include "ClapTrap.hpp"
 
 //========= CONSTRUCTOR & DESTRUCTOR=====================//
-ClapTrap::ClapTrap( void ) : name("Fitz"), hitPoint(10), energyPoint(10), attDamage(0) {}
+ClapTrap::ClapTrap( void ) : name("Fitz Clap"), hitPoint(10), energyPoint(10), attDamage(0) {
+    std::cout << GREEN << name << RESET << ": ClapTrap Constructor called and have :" << energyPoint << " of ernergy point" << std::endl;
+}
 
 ClapTrap::ClapTrap( std::string name ) : name(name), hitPoint(10), energyPoint(10), attDamage(0)
 {
-    std::cout << GREEN << name << RESET << ": Constructor called and have :" << energyPoint << " of ernergy point" << std::endl;
+    std::cout << GREEN << name << RESET << ": ClapTrap Constructor called and have :" << energyPoint << " of ernergy point" << std::endl;
 }
 
 ClapTrap::ClapTrap( ClapTrap const & src )
 {
     *this = src;
-    std::cout << YELLOW << this->name << RESET << ": Copy constructor called" << std::endl;
+    std::cout << YELLOW << this->name << RESET << ": ClapTrap Copy constructor called" << std::endl;
     return ;// Le return pas necessaire (video intra42)
 }
 
-ClapTrap::~ClapTrap() { std::cout << RED << name << RESET << ": Destructor called " << std::endl; }
+ClapTrap::~ClapTrap() { std::cout << RED << name << RESET << ": ClapTrap Destructor called " << std::endl; }
 
 ClapTrap& ClapTrap::operator=( ClapTrap const & rhs ) {
 
@@ -44,7 +46,7 @@ void ClapTrap::attack( const std::string& target ) {
 
     if (energyPoint > 0 && hitPoint > 0)
     {
-        std::cout << BLUE << name << RESET << ": Attack :" << target << " causing :" << attDamage << " points of damage" << std::endl;
+        std::cout << BLUE << name << RESET << ": Clap Attack :" << target << " causing :" << attDamage << " points of damage" << std::endl;
         energyPoint--;
         return ;
     }
@@ -76,8 +78,8 @@ void ClapTrap::takeDamage( unsigned int amount ) {
 //=================== OTHER FUNCTION ===============
 
 void ClapTrap::printStats( void ) const {
-    std::cout << "Nom : " << this->name << std::endl;
+    std::cout << PINK << "Nom : " << this->name << std::endl;
     std::cout << "Hit Point : " << this->hitPoint << std::endl;
     std::cout << "Energy Point : " << this->energyPoint << std::endl;
-    std::cout << "Attack Damage : " << this->attDamage << std::endl;
+    std::cout << "Attack Damage : " << this->attDamage << RESET << std::endl;
 }

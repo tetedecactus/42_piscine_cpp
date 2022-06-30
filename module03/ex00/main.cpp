@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 10:26:45 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/06/27 19:37:05 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/06/28 15:22:11 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,31 @@ int main( int ac, char **av )
 		std::cout << "Ce Programme ne prend que son executable en parametre" << std::endl;
 		return 1;
 	}
-	ClapTrap firstPerso("Jaune-attend Clap-1er du nom");
-	ClapTrap secondPerso("Not-Brayan Clap-2e du nom");
+	{
+		std::cout << RED << "Premier test : 1 attaque 2, 2 ce repair et both print leurs stats\n" << RESET << std::endl;
 
-	std::cout << RED << "Premier test : 1 attaque 2, 2 ce repair et both print leurs stats" << RESET << std::endl;
-	firstPerso.attack(secondPerso.getName());
-	secondPerso.takeDamage(firstPerso.getAttDamage());
-	secondPerso.beRepaired(firstPerso.getAttDamage());
-	firstPerso.printStats();
-	secondPerso.printStats();
+		ClapTrap firstPerso("Jaune-attend Clap-1er du nom");
+		ClapTrap secondPerso;
+
+		firstPerso.attack(secondPerso.getName());
+		secondPerso.takeDamage(firstPerso.getAttDamage());
+		secondPerso.beRepaired(firstPerso.getAttDamage());
+		firstPerso.printStats();
+		secondPerso.printStats();
+	}
+		std::cout << std::endl;
+	{
+		std::cout << RED << "Deuxiemne test : 1 est maintenant un pointer de ClapTrap, il attaque 2, 2 ce repair et both print leurs stats\n" << RESET << std::endl;
+
+		ClapTrap* firstPerso = new ClapTrap("Pierre Pointer Clap");
+		ClapTrap secondPerso;
+
+		firstPerso->attack(secondPerso.getName());
+		secondPerso.takeDamage(firstPerso->getAttDamage());
+		secondPerso.beRepaired(50);
+		firstPerso->printStats();
+		secondPerso.printStats();
+		delete firstPerso;
+	}
 	return 0;
 }
