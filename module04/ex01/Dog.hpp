@@ -1,0 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: olabrecq <olabrecq@student.42quebec.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/28 21:49:54 by olabrecq          #+#    #+#             */
+/*   Updated: 2022/06/28 21:49:54 by olabrecq         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef DOG_H
+# define DOG_H
+
+#include "Animal.hpp"
+
+class Dog : public Animal
+{
+private:
+    /* data */
+public:
+    Dog( void );
+    Dog( Dog const & src );
+    virtual ~Dog();
+
+    Dog& operator=( Dog const & rhs );
+    
+    virtual std::string getType( void ) const { return type; }
+
+    virtual void makeSound( void ) const;
+
+protected:
+    std::string type;
+
+};
+
+#endif
