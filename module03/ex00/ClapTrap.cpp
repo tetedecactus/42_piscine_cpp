@@ -72,3 +72,12 @@ void ClapTrap::takeDamage( unsigned int amount ) {
         hitPoint -= amount;
 
 }
+
+//=================== OTHER FUNCTION ===============
+
+void ClapTrap::printStats( void ) const {
+    std::cout << "Nom : " << this->name << std::endl;
+    std::cout << "Hit Point : " << this->hitPoint << std::endl;
+    std::cout << "Energy Point : " << this->energyPoint << std::endl;
+    std::cout << "Attack Damage : " << this->attDamage << std::endl;
+}

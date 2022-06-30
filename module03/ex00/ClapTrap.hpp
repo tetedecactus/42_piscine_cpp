@@ -49,6 +49,8 @@ public:
 	int getEnergyPoint( void ) 		{ return this->energyPoint; }
 	int getAttDamage( void ) 		{ return this->attDamage; }
 	int getHitPoint( void ) 		{ return this->hitPoint; }
+
+    void printStats( void ) const;
 };
 
 
