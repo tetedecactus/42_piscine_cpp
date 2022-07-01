@@ -3,7 +3,7 @@ GREEN 	= \033[0;32m
 RED 	= \033[0;31m
 END 	= \033[0m
 
-NAME = Animal
+NAME = Animal_with_brain
 
 CC = clang++
 
@@ -14,10 +14,12 @@ SRC = 	main.cpp \
 		Animal.cpp \
 		Cat.cpp \
 		Dog.cpp \
+		Brain.cpp \
 
 HEADER = Animal.hpp \
 		 Cat.hpp \
 		 Dog.hpp \
+		 Brain.hpp \
 
 OBJ = $(SRC:.cpp=.o)
 

@@ -18,7 +18,7 @@
 class Cat : public Animal
 {
 private:
-    /* data */
+    Brain* catBrain;
 public:
     Cat( void );
     Cat( Cat const & src );
@@ -29,26 +29,6 @@ public:
     virtual std::string getType( void ) const { return type; }
 
     virtual void makeSound( void ) const;
-
-protected:
-    std::string type;
-
-};
-
-class WrongCat : public WrongAnimal
-{
-private:
-    /* data */
-public:
-    WrongCat( void );
-    WrongCat( WrongCat const & src );
-    virtual ~WrongCat();
-
-    WrongCat& operator=( WrongCat const & rhs );
-
-    virtual std::string getType( void ) const { return type; }
-    
-    void makeSound( void ) const;
 
 protected:
     std::string type;

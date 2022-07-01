@@ -13,16 +13,21 @@
 #ifndef BRAIN_H
 # define BRAIN_H
 
-#include "Dog.hpp"
-#include "Cat.hpp"
+#include <iostream>
+#include <unistd.h>
+#include <string>
 
-class Brain
+class Brain 
 {
 private:
     std::string ideas[100];
 public:
-    Brain(/* args */);
+    Brain( void );
+    Brain( Brain const & src );
     ~Brain();
+
+    Brain& operator=( Brain const & rhs );
+
 };
 
 #endif

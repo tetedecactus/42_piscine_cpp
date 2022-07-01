@@ -38,32 +38,3 @@ Animal & Animal::operator=( Animal const & rhs )
 void Animal::makeSound( void ) const {
     std::cout << "Futur meat( animal ) make noise" << std::endl;
 }
-
-//=============== Wrong Animal ======================
-
-WrongAnimal::WrongAnimal( void ) : type("WrongAnimal")
-{
-    std::cout << "WrongAnimal Constructor Called" << std::endl; 
-}
-
-WrongAnimal::WrongAnimal( WrongAnimal const & src )
-{
-    *this = src;
-    std::cout << "WrongAnimal Copy Constructor Called" << std::endl;
-    return ;
-}
-
-WrongAnimal::~WrongAnimal()
-{
-    std::cout << "WrongAnimal Destructor Called" << std::endl;
-}
-
-WrongAnimal & WrongAnimal::operator=( WrongAnimal const & rhs )
-{
-    type = rhs.type;
-    return *this;
-}
-
-void WrongAnimal::makeSound( void ) const {
-    std::cout << "WRONGGGG ANIMAL NOISE !" << std::endl;
-}

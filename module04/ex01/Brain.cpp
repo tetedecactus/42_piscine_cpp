@@ -12,10 +12,24 @@
 
 #include "Brain.hpp"
 
-Brain::Brain(/* args */)
+Brain::Brain( void )
 {
+    std::cout << "Brain constructor called" << std::endl;
+}
+
+Brain::Brain( Brain const & src )
+{
+    *this = src;
+    std::cout << "Brain Copy Constructor called" << std::endl;
 }
 
 Brain::~Brain()
 {
+    std::cout << "Brain Destructor called" << std::endl;
+}
+
+Brain& Brain::operator=( Brain const & rhs )
+{
+    *ideas = *rhs.ideas;
+    return *this;
 }

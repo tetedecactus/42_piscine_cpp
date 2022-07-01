@@ -14,6 +14,7 @@
 
 Dog::Dog( void ) : Animal(), type("Dog")
 {
+    dogBrain = new Brain;
     std::cout << "Dog Constructor Called" << std::endl; 
 }
 
@@ -26,11 +27,13 @@ Dog::Dog( Dog const & src ) : Animal()
 
 Dog::~Dog()
 {
+    delete dogBrain;
     std::cout << "Dog Destructor Called" << std::endl;
 }
 
 Dog & Dog::operator=( Dog const & rhs )
 {
+    dogBrain = rhs.dogBrain;
     type = rhs.type;
     return *this;
 }

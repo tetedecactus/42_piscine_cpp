@@ -15,31 +15,16 @@
 
 int main()
 {
-    {
-        const Animal* meta = new Animal();
-        const Animal* j = new Dog();
-        const Animal* i = new Cat();
-        std::cout << j->getType() << " " << std::endl;
-        std::cout << i->getType() << " " << std::endl;
-        i->makeSound(); //will output the cat sound!
-        j->makeSound();
-        meta->makeSound();
-        
-        delete meta;
-        delete j;
-        delete i;
-    }
-    const WrongAnimal* meta = new WrongAnimal();
-    const Animal* j = new Dog();
-    const WrongAnimal* i = new WrongCat();
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
-    i->makeSound(); //will output the cat sound!
-    j->makeSound();
-    meta->makeSound();
-    
-    delete meta;
-    delete j;
-    delete i;
+    Animal* listAnimals[100];
+
+    for ( int i = 0; i < 50; i++ )
+        listAnimals[i] = new Cat();
+    for ( int j = 49; j < 100; j++ )
+        listAnimals[j] = new Dog();
+    for ( int i = 0; i < 100; i++ )
+        listAnimals[i]->makeSound();
+    for ( int i = 0; i < 100; i++ )
+        delete listAnimals[i];
+
     return 0;
 }

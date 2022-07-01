@@ -16,6 +16,7 @@
 #include <iostream>
 #include <unistd.h>
 #include <string>
+#include "Brain.hpp"
 
 class Animal
 {
@@ -31,26 +32,6 @@ public:
     virtual std::string getType( void ) const { return this->type; }
 
     virtual void makeSound( void ) const;
-
-protected:
-    std::string type;
-
-};
-
-class WrongAnimal
-{
-private:
-    /* data */
-public:
-    WrongAnimal( void );
-    WrongAnimal( WrongAnimal const & src );
-    virtual ~WrongAnimal();
-
-    WrongAnimal& operator=( WrongAnimal const & rhs );
-    
-    virtual std::string getType( void ) const { return type; }
-
-    void makeSound( void ) const;
 
 protected:
     std::string type;
