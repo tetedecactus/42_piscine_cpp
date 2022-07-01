@@ -16,7 +16,7 @@
 #include "Dog.hpp"
 #include "Cat.hpp"
 
-class Brain : public Cat, public Dog
+class Brain
 {
 private:
     std::string ideas[100];
@@ -24,14 +24,5 @@ public:
     Brain(/* args */);
     ~Brain();
 };
-
-Brain::Brain(/* args */)
-{
-}
-
-Brain::~Brain()
-{
-}
-
 
 #endif
