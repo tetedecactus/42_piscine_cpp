@@ -37,24 +37,24 @@ protected:
 
 };
 
-class WrongAnimal
-{
-private:
-    /* data */
-public:
-    WrongAnimal( void );
-    WrongAnimal( WrongAnimal const & src );
-    virtual ~WrongAnimal();
+// class WrongAnimal
+// {
+// private:
+//     /* data */
+// public:
+//     WrongAnimal( void );
+//     WrongAnimal( WrongAnimal const & src );
+//     virtual ~WrongAnimal();
 
-    WrongAnimal& operator=( WrongAnimal const & rhs );
+//     WrongAnimal& operator=( WrongAnimal const & rhs );
     
-    virtual std::string getType( void ) const { return type; }
+//     virtual std::string getType( void ) const { return type; }
 
-    void makeSound( void ) const;
+//     void makeSound( void ) const;
 
-protected:
-    std::string type;
+// protected:
+//     std::string type;
 
-};
+// };
 
 #endif

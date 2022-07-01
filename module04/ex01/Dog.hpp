@@ -18,7 +18,7 @@
 class Dog : public Animal
 {
 private:
-    /* data */
+    Brain* dogBrain;
 public:
     Dog( void );
     Dog( Dog const & src );

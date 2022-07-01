@@ -18,7 +18,7 @@
 class Cat : public Animal
 {
 private:
-    /* data */
+    Brain* catBrain;
 public:
     Cat( void );
     Cat( Cat const & src );
@@ -35,24 +35,24 @@ protected:
 
 };
 
-class WrongCat : public WrongAnimal
-{
-private:
-    /* data */
-public:
-    WrongCat( void );
-    WrongCat( WrongCat const & src );
-    virtual ~WrongCat();
+// class WrongCat : public WrongAnimal
+// {
+// private:
+//     /* data */
+// public:
+//     WrongCat( void );
+//     WrongCat( WrongCat const & src );
+//     virtual ~WrongCat();
 
-    WrongCat& operator=( WrongCat const & rhs );
+//     WrongCat& operator=( WrongCat const & rhs );
 
-    virtual std::string getType( void ) const { return type; }
+//     virtual std::string getType( void ) const { return type; }
     
-    void makeSound( void ) const;
+//     void makeSound( void ) const;
 
-protected:
-    std::string type;
+// protected:
+//     std::string type;
 
-};
+// };
 
 #endif
