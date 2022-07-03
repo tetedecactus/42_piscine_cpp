@@ -18,7 +18,7 @@ int main()
     Animal* listAnimals[100];
 
     for ( int i = 0; i < 50; i++ )
-        listAnimals[i] = new Cat();
+        listAnimals[i] = new Cat();// Doit init avec() pour un copie profonde
     for ( int j = 49; j < 100; j++ )
         listAnimals[j] = new Dog();
     for ( int i = 0; i < 100; i++ )
