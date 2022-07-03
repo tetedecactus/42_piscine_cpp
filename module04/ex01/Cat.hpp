@@ -29,6 +29,7 @@ public:
     virtual std::string getType( void ) const { return type; }
 
     virtual void makeSound( void ) const;
+	Brain getBrain( void ) { return *catBrain; }
 
 protected:
     std::string type;

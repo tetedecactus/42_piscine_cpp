@@ -24,9 +24,12 @@ private:
 public:
     Brain( void );
     Brain( Brain const & src );
-    ~Brain();
+    virtual ~Brain();
 
     Brain& operator=( Brain const & rhs );
+
+	void setIdeas( void );
+	std::string getIdeas( int index );
 
 };
 

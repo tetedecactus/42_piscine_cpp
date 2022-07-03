@@ -33,7 +33,7 @@ Cat::~Cat()
 
 Cat & Cat::operator=( Cat const & rhs )
 {
-    catBrain = rhs.catBrain;
+    catBrain = new Brain(*rhs.catBrain); // copie profonde
     type = rhs.type;
     return *this;
 }

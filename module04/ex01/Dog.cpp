@@ -33,7 +33,7 @@ Dog::~Dog()
 
 Dog & Dog::operator=( Dog const & rhs )
 {
-    dogBrain = rhs.dogBrain;
+    dogBrain = new Brain(*rhs.dogBrain);
     type = rhs.type;
     return *this;
 }

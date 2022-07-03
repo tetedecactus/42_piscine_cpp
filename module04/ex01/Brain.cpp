@@ -14,6 +14,7 @@
 
 Brain::Brain( void )
 {
+	setIdeas();
     std::cout << "Brain constructor called" << std::endl;
 }
 
@@ -30,6 +31,20 @@ Brain::~Brain()
 
 Brain& Brain::operator=( Brain const & rhs )
 {
-    *ideas = *rhs.ideas;
+    for ( int i = 0; i < 100; i++ )
+		ideas[i] = rhs.ideas[i];
     return *this;
+}
+
+void Brain::setIdeas( void ) {
+	for ( int i = 0; i < 100; i++ )
+		ideas[i] = "J'ai faim";
+}
+
+std::string Brain::getIdeas( int index ) {
+	if (index <= 100) {
+		return (ideas[index]);
+	}
+	else 
+		return ("Index invalid");
 }
