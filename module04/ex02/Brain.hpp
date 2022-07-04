@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.cpp                                          :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olabrecq <olabrecq@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,41 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
+#ifndef BRAIN_H
+# define BRAIN_H
 
-Brain::Brain( void )
+#include <iostream>
+#include <unistd.h>
+#include <string>
+
+class Brain 
 {
-	setIdeas();
-    std::cout << "Brain constructor called" << std::endl;
-}
+private:
+    std::string ideas[100];
+public:
+    Brain( void );
+    Brain( Brain const & src );
+    virtual ~Brain();
 
-Brain::Brain( Brain const & src )
-{
-    *this = src;
-    std::cout << "Brain Copy Constructor called" << std::endl;
-}
+    Brain& operator=( Brain const & rhs );
 
-Brain::~Brain()
-{
-    std::cout << "Brain Destructor called" << std::endl;
-}
+	void setIdeas( void );
+	std::string getIdeas( int index );
 
-Brain& Brain::operator=( Brain const & rhs )
-{
-    for ( int i = 0; i < 100; i++ )
-		ideas[i] = rhs.ideas[i];
-    return *this;
-}
+};
 
-void Brain::setIdeas( void ) {
-	for ( int i = 0; i < 100; i++ )
-		ideas[i] = "J'ai faim";
-}
-
-std::string Brain::getIdeas( int index ) {
-	if (index < 100 && index >= 0) {
-		return (this->ideas[index]);
-	}
-	else 
-		return ("Index invalid");
-}
+#endif

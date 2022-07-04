@@ -83,3 +83,9 @@ void ClapTrap::printStats( void ) const {
     std::cout << "Energy Point : " << this->energyPoint << std::endl;
     std::cout << "Attack Damage : " << this->attDamage << RESET << std::endl;
 }
+
+// ================= Getter fucntion =====================
+std::string ClapTrap::getName( void ) const { return this->name; }
+int ClapTrap::getEnergyPoint( void ) const { return this->energyPoint; }
+int ClapTrap::getAttDamage( void ) const { return this->attDamage; }
+int ClapTrap::getHitPoint( void ) const { return this->hitPoint; }

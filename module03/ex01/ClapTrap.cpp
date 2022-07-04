@@ -75,6 +75,12 @@ void ClapTrap::takeDamage( unsigned int amount ) {
 
 }
 
+// ================= Getter fucntion =====================
+std::string ClapTrap::getName( void ) const { return this->name; }
+int ClapTrap::getEnergyPoint( void ) const { return this->energyPoint; }
+int ClapTrap::getAttDamage( void ) const { return this->attDamage; }
+int ClapTrap::getHitPoint( void ) const { return this->hitPoint; }
+
 //=================== OTHER FUNCTION ===============
 
 void ClapTrap::printStats( void ) const {

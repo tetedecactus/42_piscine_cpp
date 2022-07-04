@@ -52,10 +52,10 @@ public:
     void takeDamage( unsigned int amount );
     void beRepaired( unsigned int amount );
 
-	std::string getName( void ) 	{ return this->name; }
-	int getEnergyPoint( void ) 		{ return this->energyPoint; }
-	int getAttDamage( void ) 		{ return this->attDamage; }
-	int getHitPoint( void ) 		{ return this->hitPoint; }
+	std::string getName( void ) const;
+	int getEnergyPoint( void ) const;
+	int getAttDamage( void ) const;
+	int getHitPoint( void ) const;
     
     void printStats( void ) const;
 };

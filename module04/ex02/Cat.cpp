@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.cpp                                          :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olabrecq <olabrecq@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,41 +10,34 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
+#include "Cat.hpp"
 
-Brain::Brain( void )
+Cat::Cat( void ) : Animal(), type("Cat")
 {
-	setIdeas();
-    std::cout << "Brain constructor called" << std::endl;
+    catBrain = new Brain;
+    std::cout << "Cat Constructor Called" << std::endl; 
 }
 
-Brain::Brain( Brain const & src )
+Cat::Cat( Cat const & src ) : Animal()
 {
     *this = src;
-    std::cout << "Brain Copy Constructor called" << std::endl;
+    std::cout << "Cat Copy Constructor Called" << std::endl;
+    return ;
 }
 
-Brain::~Brain()
+Cat::~Cat()
 {
-    std::cout << "Brain Destructor called" << std::endl;
+    delete catBrain;
+    std::cout << "Cat Destructor Called" << std::endl;
 }
 
-Brain& Brain::operator=( Brain const & rhs )
+Cat & Cat::operator=( Cat const & rhs )
 {
-    for ( int i = 0; i < 100; i++ )
-		ideas[i] = rhs.ideas[i];
+    catBrain = new Brain(*rhs.catBrain); // copie profonde
+    type = rhs.type;
     return *this;
 }
 
-void Brain::setIdeas( void ) {
-	for ( int i = 0; i < 100; i++ )
-		ideas[i] = "J'ai faim";
-}
-
-std::string Brain::getIdeas( int index ) {
-	if (index < 100 && index >= 0) {
-		return (this->ideas[index]);
-	}
-	else 
-		return ("Index invalid");
+void Cat::makeSound( void ) const {
+    std::cout << "MIAWWWOUUUUU!!!!" << std::endl;
 }

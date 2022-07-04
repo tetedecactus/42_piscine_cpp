@@ -7,7 +7,7 @@ NAME = DiamonTrap
 
 CC = clang++
 
-# add this flags forxxx evaluation: -std=c++98 -Wall -Wextra -Werror
+# add this flags for evaluation: -std=c++98 -Wall -Wextra -Werror
 CFLAGS =  -Werror -Wextra -Wall -std=c++98 -Wshadow  -Wno-shadow
 
 SRC = 	main.cpp \

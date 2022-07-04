@@ -15,14 +15,17 @@
 //=================== CONSTRUCTOR & DESTRUCTOR =========================
 DiamondTrap::DiamondTrap( void ) : ClapTrap() {
     name = "DIDIDIAMOND";
+	ClapTrap::name = "DIDIDIAMOND_clap_name";
     hitPoint = FragTrap::hitPoint;
     energyPoint = ScavTrap::energyPoint;
     attDamage = FragTrap::attDamage;
     std::cout << GREEN << name << RESET << ": Constructor DiamondTrap called and have :" << energyPoint << " of ernergy point" << std::endl;
 }
 
-DiamondTrap::DiamondTrap( std::string name ) : ClapTrap(name + "_clap_name") {
-    name = name;
+DiamondTrap::DiamondTrap( std::string name ) : ClapTrap(name + "_clap_name"), name(name) {
+
+	// ClapTrap::name =  name +"_clap_name";
+    // name = name;
     hitPoint = FragTrap::hitPoint;
     energyPoint = ScavTrap::energyPoint;
     attDamage = FragTrap::attDamage;

@@ -41,6 +41,7 @@ Fixed & Fixed::operator=( Fixed const & rhs ) {
 	return *this;
 }
 
+// ========== OPERATOR +,-,*,/ ==========================
 Fixed Fixed::operator+( Fixed const & rhs ) {
 	Fixed fixi;
 	// fixi._fixe = getRawBits() + rhs.getRawBits();
@@ -68,6 +69,7 @@ Fixed Fixed::operator/( Fixed const & rhs ) {
 	return fixi;
 }
 
+// ============== OPERATOR ++,-- ===============
 Fixed & Fixed::operator++( void ) {
 	++_fixe;
 	return *this;
@@ -89,6 +91,31 @@ Fixed  Fixed::operator--( int ) {
 	return fixi;
 }
 
+// =============== OPERATOR >,<,>=,<=,!=, ==, ==========================================
+bool   Fixed::operator>( Fixed const & rhs ) const	{ return this->getRawBits() > rhs.getRawBits() ? true : false; }
+bool   Fixed::operator<( Fixed const & rhs ) const	{ return this->getRawBits() < rhs.getRawBits() ? true : false; }
+bool   Fixed::operator>=( Fixed const & rhs ) const	{ return this->getRawBits() >= rhs.getRawBits() ? true : false; } 
+bool   Fixed::operator<=( Fixed const & rhs ) const	{ return this->getRawBits() <= rhs.getRawBits() ? true : false; }
+bool   Fixed::operator==( Fixed const & rhs ) const	{ return this->getRawBits() == rhs.getRawBits() ? true : false; }
+bool   Fixed::operator!=( Fixed const & rhs ) const	{ return this->getRawBits() != rhs.getRawBits() ? true : false; }
+
+// ================= OPERATOR min,max, ================================================
+Fixed const& Fixed::max( Fixed const& f1, Fixed const& f2 ) { return f1 >= f2 ? f1 : f2; }
+Fixed const& Fixed::min( Fixed const& f1, Fixed const& f2 ) { return f1 <= f2 ? f1 : f2; }
+
+Fixed& Fixed::max( Fixed& f1, Fixed& f2 ) { return f1 >= f2 ? f1 : f2; }
+Fixed& Fixed::min( Fixed& f1, Fixed& f2 ) { return f1 <= f2 ? f1 : f2; }
+
+// ================= set & get rawbits ===============
+int Fixed::getRawBits( void ) const { return _fixe; }
+void Fixed::setRaWBits( int const raw )	{ this->_fixe = raw; }
+
+// ================= to Int & to Float =================
+int Fixed::toInt( void ) const { return _fixe >> _nBits; }
+float Fixed::toFloat( void ) const { return (float)_fixe / (1 << _nBits); }
+
+
+// ================== OPERATOR << =====================
 std::ostream & operator<<( std::ostream & o, Fixed const & i ) {
 	o << PINK <<": The value of _fixe is : " << RESET << i.toFloat();
 

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                         :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olabrecq <olabrecq@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,26 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_H
-# define CAT_H
+#ifndef ANIMAL_H
+# define ANIMAL_H
 
-#include "Animal.hpp"
+#include <iostream>
+#include <unistd.h>
+#include <string>
+#include "Brain.hpp"
 
-class Cat : public Animal
+class Animal
 {
 private:
-    Brain* catBrain;
+    /* data */
 public:
-    Cat( void );
-    Cat( Cat const & src );
-    virtual ~Cat();
+    Animal( void );
+    Animal( Animal const & src );
+    virtual ~Animal();
 
-    Cat& operator=( Cat const & rhs );
-    
-    virtual std::string getType( void ) const { return type; }
+    Animal& operator=( Animal const & rhs );
+
+    virtual std::string getType( void ) const { return this->type; }
 
     virtual void makeSound( void ) const;
-	Brain* getBrain( void ) { return catBrain; }
 
 protected:
     std::string type;

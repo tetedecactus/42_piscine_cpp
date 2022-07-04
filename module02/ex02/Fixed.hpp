@@ -52,24 +52,24 @@ public:
 	Fixed 	operator*( Fixed const & rhs);
 	Fixed 	operator/( Fixed const & rhs);
 	
-	static Fixed const& max( Fixed const& f1, Fixed const& f2 ) { return f1 >= f2 ? f1 : f2; }
-	static Fixed const& min( Fixed const& f1, Fixed const& f2 ) { return f1 <= f2 ? f1 : f2; }
-	static Fixed& max( Fixed& f1, Fixed& f2 ) { return f1 >= f2 ? f1 : f2; }
-	static Fixed& min( Fixed& f1, Fixed& f2 ) { return f1 <= f2 ? f1 : f2; }
+	static Fixed const& max( Fixed const& f1, Fixed const& f2 );
+	static Fixed const& min( Fixed const& f1, Fixed const& f2 );
+	static Fixed& max( Fixed& f1, Fixed& f2 );
+	static Fixed& min( Fixed& f1, Fixed& f2 );
 
-	bool   operator>( Fixed const & rhs ) const	{ return this->getRawBits() > rhs.getRawBits() ? true : false; }
-	bool   operator<( Fixed const & rhs ) const	{ return this->getRawBits() < rhs.getRawBits() ? true : false; }
-	bool   operator>=( Fixed const & rhs ) const	{ return this->getRawBits() >= rhs.getRawBits() ? true : false; } 
-	bool   operator<=( Fixed const & rhs ) const	{ return this->getRawBits() <= rhs.getRawBits() ? true : false; }
-	bool   operator==( Fixed const & rhs ) const	{ return this->getRawBits() == rhs.getRawBits() ? true : false; }
-	bool   operator!=( Fixed const & rhs ) const	{ return this->getRawBits() != rhs.getRawBits() ? true : false; }
+	bool   operator>( Fixed const & rhs ) const;
+	bool   operator<( Fixed const & rhs ) const;
+	bool   operator>=( Fixed const & rhs ) const; 
+	bool   operator<=( Fixed const & rhs ) const;
+	bool   operator==( Fixed const & rhs ) const;
+	bool   operator!=( Fixed const & rhs ) const;
     
 	// static int min( )
-	int getRawBits( void ) const 			{ return _fixe; }
-	void setRaWBits( int const raw )		{ this->_fixe = raw; }
+	int getRawBits( void ) const;
+	void setRaWBits( int const raw );
     
-	int toInt( void ) const 				{ return _fixe >> _nBits; }
-	float toFloat( void ) const 			{ return (float)_fixe / (1 << _nBits); }
+	int toInt( void ) const;
+	float toFloat( void ) const;
 
 };
 

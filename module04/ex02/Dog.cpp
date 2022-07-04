@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.cpp                                          :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olabrecq <olabrecq@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,41 +10,34 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
+#include "Dog.hpp"
 
-Brain::Brain( void )
+Dog::Dog( void ) : Animal(), type("Dog")
 {
-	setIdeas();
-    std::cout << "Brain constructor called" << std::endl;
+    dogBrain = new Brain;
+    std::cout << "Dog Constructor Called" << std::endl; 
 }
 
-Brain::Brain( Brain const & src )
+Dog::Dog( Dog const & src ) : Animal()
 {
     *this = src;
-    std::cout << "Brain Copy Constructor called" << std::endl;
+    std::cout << "Dog Copy Constructor Called" << std::endl;
+    return ;
 }
 
-Brain::~Brain()
+Dog::~Dog()
 {
-    std::cout << "Brain Destructor called" << std::endl;
+    delete dogBrain;
+    std::cout << "Dog Destructor Called" << std::endl;
 }
 
-Brain& Brain::operator=( Brain const & rhs )
+Dog & Dog::operator=( Dog const & rhs )
 {
-    for ( int i = 0; i < 100; i++ )
-		ideas[i] = rhs.ideas[i];
+    dogBrain = new Brain(*rhs.dogBrain);
+    type = rhs.type;
     return *this;
 }
 
-void Brain::setIdeas( void ) {
-	for ( int i = 0; i < 100; i++ )
-		ideas[i] = "J'ai faim";
-}
-
-std::string Brain::getIdeas( int index ) {
-	if (index < 100 && index >= 0) {
-		return (this->ideas[index]);
-	}
-	else 
-		return ("Index invalid");
+void Dog::makeSound( void ) const {
+    std::cout << "WRAFFF WAFFF WOOF Where my dogg at !!!!" << std::endl;
 }

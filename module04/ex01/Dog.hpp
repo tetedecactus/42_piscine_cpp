@@ -29,7 +29,7 @@ public:
     virtual std::string getType( void ) const { return type; }
 
     virtual void makeSound( void ) const;
-	Brain getBrain( void ) { return *dogBrain; }
+	Brain* getBrain( void ) const { return dogBrain; }
 
 
 protected:

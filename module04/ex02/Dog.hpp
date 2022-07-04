@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                         :+:      :+:    :+:   */
+/*   Dog.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olabrecq <olabrecq@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,26 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_H
-# define CAT_H
+#ifndef DOG_H
+# define DOG_H
 
 #include "Animal.hpp"
 
-class Cat : public Animal
+class Dog : public Animal
 {
 private:
-    Brain* catBrain;
+    Brain* dogBrain;
 public:
-    Cat( void );
-    Cat( Cat const & src );
-    virtual ~Cat();
+    Dog( void );
+    Dog( Dog const & src );
+    virtual ~Dog();
 
-    Cat& operator=( Cat const & rhs );
+    Dog& operator=( Dog const & rhs );
     
     virtual std::string getType( void ) const { return type; }
 
     virtual void makeSound( void ) const;
-	Brain* getBrain( void ) { return catBrain; }
+	Brain* getBrain( void ) { return dogBrain; }
+
 
 protected:
     std::string type;
