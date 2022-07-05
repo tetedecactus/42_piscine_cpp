@@ -3,7 +3,7 @@ GREEN 	= \033[0;32m
 RED 	= \033[0;31m
 END 	= \033[0m
 
-NAME = DiamonTrap
+NAME = DiamondTrap
 
 CC = clang++
 
@@ -14,12 +14,12 @@ SRC = 	main.cpp \
 		ClapTrap.cpp \
 		ScavTrap.cpp \
 		FragTrap.cpp \
-		DiamonTrap.cpp \
+		DiamondTrap.cpp \
 
 HEADER = ScavTrap.hpp \
 		 ClapTrap.hpp \
 		 FragTrap.hpp \
-		 DiamonTrap.hcpp \
+		 DiamondTrap.hpp \
 
 OBJ = $(SRC:.cpp=.o)
 
