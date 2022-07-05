@@ -29,7 +29,7 @@ public:
     virtual void attack( const std::string& target );
 
     DiamondTrap& operator=( DiamondTrap const & rhs );
-    
+
     void whoAmI( void ) const;
 };
 

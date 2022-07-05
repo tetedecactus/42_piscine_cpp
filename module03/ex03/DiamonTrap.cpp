@@ -16,9 +16,10 @@
 DiamondTrap::DiamondTrap( void ) : ClapTrap() {
     name = "DIDIDIAMOND";
 	ClapTrap::name = "DIDIDIAMOND_clap_name";
-    hitPoint = FragTrap::hitPoint;
-    energyPoint = ScavTrap::energyPoint;
-    attDamage = FragTrap::attDamage;
+    hitPoint = FragTrap::hitPoint; // 100
+    energyPoint = ScavTrap::energyPoint; // 50
+	FragTrap::setAttDamage();
+    attDamage = FragTrap::getAttDamage(); // 30
     std::cout << GREEN << name << RESET << ": Constructor DiamondTrap called and have :" << energyPoint << " of ernergy point" << std::endl;
 }
 

@@ -65,3 +65,4 @@ void ScavTrap::guardGate( void ) const {
     if (hitPoint > 0 && energyPoint > 0)
         std::cout << RED << "IMP " << name << ": is now in Gate Keeper mode" << RESET << std::endl;
 }
+
