@@ -29,6 +29,10 @@ public:
 
     void highFivesGuys( void ) const;
 
+	void setAttDamage( void );
+	virtual int getAttDamage( void) const;
+
+    virtual void printStats( void ) const;
 };
 
 #endif

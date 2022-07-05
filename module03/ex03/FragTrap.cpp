@@ -64,3 +64,14 @@ void FragTrap::highFivesGuys( void ) const {
         std::cout << YELLOW << name << ":  Do a HighFivesGuys" << RESET << std::endl;
     return;
 }
+
+// =============== Setter Getter
+void FragTrap::setAttDamage( void ) { this->attDamage = 30; }
+int FragTrap::getAttDamage( void ) const { return this->attDamage; }
+
+void FragTrap::printStats( void ) const {
+    std::cout << PINK << "Nom : " << this->name << std::endl;
+    std::cout << "Hit Point : " << this->hitPoint << std::endl;
+    std::cout << "Energy Point : " << this->energyPoint << std::endl;
+    std::cout << "Attack Damage : " << this->attDamage << RESET << std::endl;
+}
