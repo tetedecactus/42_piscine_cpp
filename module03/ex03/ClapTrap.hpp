@@ -54,7 +54,7 @@ public:
 	virtual int getAttDamage( void ) const;
 	virtual int getHitPoint( void ) const;
     
-    void printStats( void ) const;
+    virtual void printStats( void ) const;
 };
 
 #endif

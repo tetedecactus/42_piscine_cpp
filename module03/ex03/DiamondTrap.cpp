@@ -23,10 +23,10 @@ DiamondTrap::DiamondTrap( void ) : ClapTrap() {
     std::cout << GREEN << name << RESET << ": Constructor DiamondTrap called and have :" << energyPoint << " of ernergy point" << std::endl;
 }
 
-DiamondTrap::DiamondTrap( std::string name ) : ClapTrap(name + "_clap_name"), name(name) {
+DiamondTrap::DiamondTrap( std::string name ) : ClapTrap() {
 
-	// ClapTrap::name =  name +"_clap_name";
-    // name = name;
+	ClapTrap::name =  _name +"_clap_name";
+    _name = name;
     hitPoint = FragTrap::hitPoint;
     energyPoint = ScavTrap::energyPoint;
     attDamage = FragTrap::attDamage;
@@ -46,7 +46,7 @@ DiamondTrap::~DiamondTrap() { std::cout << RED << name << RESET << ": Destructor
 
 DiamondTrap& DiamondTrap::operator=( DiamondTrap const & rhs ) {
 
-    this->name = rhs.name;
+    this->_name = rhs.name;
     this->hitPoint = rhs.hitPoint;
     this->energyPoint = rhs.energyPoint;
     this->attDamage = rhs.attDamage;
@@ -62,5 +62,12 @@ void DiamondTrap::attack( const std::string& target ) {
 //================= WHOAMI ============================
 
 void DiamondTrap::whoAmI( void ) const {
-    std::cout << "I am : " << RED << name << RESET << std::endl;
+    std::cout << "I am : " << RED << _name << RESET << std::endl;
+}
+
+void DiamondTrap::printStats( void ) const {
+    std::cout << PINK << "Nom : " << this->name << std::endl;
+    std::cout << "Hit Point : " << this->hitPoint << std::endl;
+    std::cout << "Energy Point : " << this->energyPoint << std::endl;
+    std::cout << "Attack Damage : " << this->attDamage << RESET << std::endl;
 }

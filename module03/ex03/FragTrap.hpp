@@ -31,6 +31,8 @@ public:
 
 	void setAttDamage( void );
 	virtual int getAttDamage( void) const;
+
+    virtual void printStats( void ) const;
 };
 
 #endif

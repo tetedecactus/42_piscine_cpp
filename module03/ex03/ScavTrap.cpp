@@ -66,3 +66,9 @@ void ScavTrap::guardGate( void ) const {
         std::cout << RED << "IMP " << name << ": is now in Gate Keeper mode" << RESET << std::endl;
 }
 
+void ScavTrap::printStats( void ) const {
+    std::cout << PINK << "Nom : " << this->name << std::endl;
+    std::cout << "Hit Point : " << this->hitPoint << std::endl;
+    std::cout << "Energy Point : " << this->energyPoint << std::endl;
+    std::cout << "Attack Damage : " << this->attDamage << RESET << std::endl;
+}

@@ -53,34 +53,34 @@
 	// std::cout << BLUE << "==========================================================================" << RESET << std::endl;
 	// //=================== TEST 2 ===============================
 	
-	// {
-	// 	std::cout << RED << "Premier test : 1 attaque 2, 2 ce repair et both print leurs stats\n" << RESET << std::endl;
+// 	{
+// 		std::cout << RED << "Premier test : 1 attaque 2, 2 ce repair et both print leurs stats\n" << RESET << std::endl;
 
-	// 	ScavTrap firstPerso("Jean Scav");
-	// 	ScavTrap secondPerso;
+// 		ScavTrap firstPerso("Jean Scav");
+// 		ScavTrap secondPerso;
 
-	// 	firstPerso.attack(secondPerso.getName());
-	// 	secondPerso.takeDamage(firstPerso.getAttDamage());
-	// 	secondPerso.beRepaired(firstPerso.getAttDamage());
-	// 	firstPerso.printStats();
-	// 	secondPerso.printStats();
-	// }
-	// 	std::cout << std::endl;
-	// {
-	// 	std::cout << RED << "Deuxiemne test : 1 est maintenant un pointer de ClapTrap, il attaque 2, 2 ce repair et both print leurs stats\n" << RESET << std::endl;
+// 		firstPerso.attack(secondPerso.getName());
+// 		secondPerso.takeDamage(firstPerso.getAttDamage());
+// 		secondPerso.beRepaired(firstPerso.getAttDamage());
+// 		firstPerso.printStats();
+// 		secondPerso.printStats();
+// 	}
+// 		std::cout << std::endl;
+// 	{
+// 		std::cout << RED << "Deuxiemne test : 1 est maintenant un pointer de ClapTrap, il attaque 2, 2 ce repair et both print leurs stats\n" << RESET << std::endl;
 
-	// 	ClapTrap* firstPerso = new ScavTrap("Etienne Scav Pointer");
-	// 	ScavTrap* secondPerso = new ScavTrap;
+// 		ClapTrap* firstPerso = new ScavTrap("Etienne Scav Pointer");
+// 		ScavTrap* secondPerso = new ScavTrap;
 
-	// 	firstPerso->attack(secondPerso->getName());
-	// 	secondPerso->takeDamage(firstPerso->getAttDamage());
-	// 	secondPerso->beRepaired(50);
-	// 	firstPerso->printStats();
-	// 	secondPerso->printStats();
-	// 	delete firstPerso;
-	// 	delete secondPerso;
-	// }
-	// std::cout << BLUE << "==========================================================================" << RESET << std::endl;
+// 		firstPerso->attack(secondPerso->getName());
+// 		secondPerso->takeDamage(firstPerso->getAttDamage());
+// 		secondPerso->beRepaired(50);
+// 		firstPerso->printStats();
+// 		secondPerso->printStats();
+// 		delete firstPerso;
+// 		delete secondPerso;
+// 	}
+// 	std::cout << BLUE << "==========================================================================" << RESET << std::endl;
 	
 	// {
 	// 	std::cout << RED << "Premier test : 1 attaque 2, 2 ce repair et both print leurs stats\n" << RESET << std::endl;
@@ -165,9 +165,40 @@
 	// 	secondPerso->whoAmI();
 	// 	secondPerso->getName();
 		
-	// 	delete firstPerso;
-	// 	delete secondPerso;
-	// }
+// 		delete firstPerso;
+// 		delete secondPerso;
+// 	}
+
+// 	return 0;
+// }
+// int main() {
+
+// 	std::cout << GREEN << "Dans cette Ex je vais creer 3 objet de type DiamondTrap" << std::endl;
+// 	std::cout <<  		  "1er objet va etre ScavTrap Pointer de DiamondTrap" << std::endl;
+// 	std::cout <<			"2ieme va etre FragTrap Pointer de DiamondTrap" << std::endl;
+// 	std::cout <<			"3ieme va etre DamondTrap Pointer de DiamonTrap" << std::endl;
+// 	std::cout << RED << "IMPORTANT le but ici est de demontrer que DiamondTrap est bien child des classes ScavTrap & FragTrap" << RESET << std::endl;
+
+// 	std::cout << BLUE << "======================================================================" << RESET << std::endl;
+// 	ScavTrap* perso1 = new DiamondTrap;
+// 	std::cout << BLUE << "======================================================================" << RESET << std::endl;
+// 	FragTrap* perso2 = new DiamondTrap;
+// 	std::cout << BLUE << "======================================================================" << RESET << std::endl;
+// 	DiamondTrap* perso3 = new DiamondTrap;
+// 	std::cout << BLUE << "======================================================================" << RESET << std::endl;
+
+	
+
+
+
+// 	std::cout << BLUE << "======================================================================" << RESET << std::endl;
+// 	delete perso1;
+// 	std::cout << BLUE << "======================================================================" << RESET << std::endl;
+// 	delete perso2;
+// 	std::cout << BLUE << "======================================================================" << RESET << std::endl;
+// 	delete perso3;
+// 	std::cout << BLUE << "======================================================================" << RESET << std::endl;
+
 
 // 	return 0;
 // }
@@ -255,13 +286,13 @@ int main () {
 		DiamondTrap* perso3 = new DiamondTrap("Eric Ticuire Lapointe");
 		std::cout << BLUE << "======================================================================" << RESET << std::endl;
 
-		std::cout << RED << "Test avec Perso1 (ScvaTrap* -> DiamondTrap)" << RESET << std::endl;
+		std::cout << RED << "Test avec Perso1 (ScvaTrap* -> ScavTrap)" << RESET << std::endl;
 		perso1->guardGate();
 		perso1->printStats();
 		std::cout << BLUE << "======================================================================" << RESET << std::endl;
 
 		// ========================== TEST 2 =======================================
-		std::cout << RED << "Test avec Perso2 (FragTrap* -> DiamondTrap)" << RESET << std::endl;
+		std::cout << RED << "Test avec Perso2 (FragTrap* -> FragTrap)" << RESET << std::endl;
 		perso2->highFivesGuys();
 		perso2->printStats();
 		std::cout << BLUE << "======================================================================" << RESET << std::endl;

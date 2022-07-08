@@ -30,6 +30,8 @@ public:
     virtual void attack( const std::string& target );
 
     void guardGate( void ) const;
+
+    virtual void printStats( void ) const;
 };
 
 #endif

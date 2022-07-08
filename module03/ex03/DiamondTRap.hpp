@@ -19,7 +19,7 @@
 class DiamondTrap : public FragTrap, public ScavTrap
 {
 private:
-    std::string name;
+    std::string _name;
 public:
     DiamondTrap( void );
     DiamondTrap( std::string name );
@@ -31,7 +31,10 @@ public:
     DiamondTrap& operator=( DiamondTrap const & rhs );
 
     void whoAmI( void ) const;
+
+    virtual void printStats( void ) const;
 };
 
 #endif
 //https://stackoverflow.com/questions/34228048/error-message-non-static-member-found-in-multiple-base-class-subobjects-of-type
+// https://www.youtube.com/watch?v=biZEd8pF4OU
