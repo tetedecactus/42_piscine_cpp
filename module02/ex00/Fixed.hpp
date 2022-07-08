@@ -45,6 +45,6 @@ public:
 };
 
 // const int Fixed::_nBits( 8 );
-// std::ostream & operator<<( std:: ostream & o, Fixed const & i);
+std::ostream & operator<<( std:: ostream & o, Fixed const & i);
 
 #endif
