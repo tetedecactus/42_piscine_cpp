@@ -39,6 +39,7 @@ void Animal::makeSound( void ) const {
     std::cout << "Futur meat( animal ) make noise" << std::endl;
 }
 
+std::string Animal::getType( void ) const { return this->type; }
 //=============== Wrong Animal ======================
 
 WrongAnimal::WrongAnimal( void ) : type("WrongAnimal")
@@ -67,3 +68,5 @@ WrongAnimal & WrongAnimal::operator=( WrongAnimal const & rhs )
 void WrongAnimal::makeSound( void ) const {
     std::cout << "WRONGGGG ANIMAL NOISE !" << std::endl;
 }
+
+std::string WrongAnimal::getType( void ) const { return this->type; }

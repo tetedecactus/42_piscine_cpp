@@ -26,7 +26,7 @@ public:
 
     Cat& operator=( Cat const & rhs );
     
-    virtual std::string getType( void ) const { return type; }
+    virtual std::string getType( void ) const;
 
     virtual void makeSound( void ) const;
 
@@ -46,7 +46,7 @@ public:
 
     WrongCat& operator=( WrongCat const & rhs );
 
-    virtual std::string getType( void ) const { return type; }
+    virtual std::string getType( void ) const;
     
     void makeSound( void ) const;
 

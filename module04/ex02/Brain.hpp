@@ -29,7 +29,7 @@ public:
     Brain& operator=( Brain const & rhs );
 
 	void setIdeas( void );
-	std::string getIdeas( int index );
+	std::string getIdeas( int index ) const;
 
 };
 

@@ -38,3 +38,5 @@ Dog & Dog::operator=( Dog const & rhs )
 void Dog::makeSound( void ) const {
     std::cout << "WRAFFF WAFFF WOOF Where my dogg at !!!!" << std::endl;
 }
+
+std::string Dog::getType( void ) const { return type; }

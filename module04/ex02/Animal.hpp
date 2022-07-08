@@ -29,9 +29,9 @@ public:
 
     Animal& operator=( Animal const & rhs );
 
-    virtual std::string getType( void ) const { return this->type; }
+    virtual std::string getType( void ) const;
 
-    virtual void makeSound( void ) const;
+    virtual void makeSound( void ) const = 0;
 
 protected:
     std::string type;

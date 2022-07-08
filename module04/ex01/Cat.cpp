@@ -41,3 +41,6 @@ Cat & Cat::operator=( Cat const & rhs )
 void Cat::makeSound( void ) const {
     std::cout << "MIAWWWOUUUUU!!!!" << std::endl;
 }
+
+std::string Cat::getType( void ) const { return type; }
+Brain* Cat::getBrain( void ) const{ return catBrain; }

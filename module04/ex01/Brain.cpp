@@ -41,7 +41,7 @@ void Brain::setIdeas( void ) {
 		ideas[i] = "J'ai faim";
 }
 
-std::string Brain::getIdeas( int index ) {
+std::string Brain::getIdeas( int index ) const {
 	if (index < 100 && index >= 0) {
 		return (this->ideas[index]);
 	}

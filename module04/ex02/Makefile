@@ -3,7 +3,7 @@ GREEN 	= \033[0;32m
 RED 	= \033[0;31m
 END 	= \033[0m
 
-NAME = Animal_with_brain
+NAME = Animal_Abstrait
 
 CC = clang++
 

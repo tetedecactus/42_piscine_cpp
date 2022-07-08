@@ -26,10 +26,10 @@ public:
 
     Cat& operator=( Cat const & rhs );
     
-    virtual std::string getType( void ) const { return type; }
+    virtual std::string getType( void ) const;
 
     virtual void makeSound( void ) const;
-	Brain* getBrain( void ) { return catBrain; }
+	Brain* getBrain( void ) const;
 
 protected:
     std::string type;

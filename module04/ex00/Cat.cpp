@@ -39,6 +39,8 @@ void Cat::makeSound( void ) const {
     std::cout << "MIAWWWOUUUUU!!!!" << std::endl;
 }
 
+std::string Cat::getType( void ) const { return type; }
+
 //============= WrongCat =========================
 
 WrongCat::WrongCat( void ) : WrongAnimal(), type("WrongCat")
@@ -67,3 +69,5 @@ WrongCat & WrongCat::operator=( WrongCat const & rhs )
 void WrongCat::makeSound( void ) const {
     std::cout << "WRONGGGG ANIMAL NOISE !" << std::endl;
 }
+
+std::string WrongCat::getType( void ) const { return type; }

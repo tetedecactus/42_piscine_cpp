@@ -38,3 +38,5 @@ Animal & Animal::operator=( Animal const & rhs )
 void Animal::makeSound( void ) const {
     std::cout << "Futur meat( animal ) make noise" << std::endl;
 }
+
+std::string Animal::getType( void ) const { return this->type; }
