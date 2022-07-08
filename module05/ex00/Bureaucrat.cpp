@@ -6,15 +6,13 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:59:29 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/08 16:15:02 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/07/08 16:33:33 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat( void ) {
-	setName("DefaultName");
-	setGrade(150);
+Bureaucrat::Bureaucrat( void ) : _name("DefaultName"), _grade(150) {
 	std::cout << BLUE << "Default Const Called" << RESET << std::endl;
 }
 
@@ -37,9 +35,6 @@ Bureaucrat::~Bureaucrat( void ) {
 // }
 
 // ============ Setter & Getter ==============
-void Bureaucrat::setName( std::string const name ) {
-	_name = name;
-}
 
 void Bureaucrat::setGrade( unsigned int grade ) {
 	_grade = grade;
