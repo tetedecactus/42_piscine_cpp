@@ -14,28 +14,28 @@
 
 //=================== CONSTRUCTOR & DESTRUCTOR =========================
 FragTrap::FragTrap( void ) : ClapTrap() {
-    name = "George Frag";
+    // name = "George Frag";
     hitPoint = 100;
     energyPoint = 100;
     attDamage = 30;
-    std::cout << GREEN << name << RESET << ": Constructor FragTrap called and have :" << energyPoint << " of ernergy point" << std::endl;
+    std::cout << YELLOW << "FragTrap " + name << RESET << ": Constructor FragTrap called and have :" << energyPoint << " of ernergy point" << std::endl;
 }
 
 FragTrap::FragTrap( std::string name ) : ClapTrap(name) {
     hitPoint = 100;
     energyPoint = 100;
     attDamage = 30;
-    std::cout << GREEN << name << RESET << ": Constructor FragTrap called and have :" << energyPoint << " of ernergy point" << std::endl;
+    std::cout << YELLOW << "FragTrap " + name << RESET << ": Constructor FragTrap called and have :" << energyPoint << " of ernergy point" << std::endl;
 }
 
 FragTrap::FragTrap( FragTrap const & src ) 
 {
     *this = src;
-    std::cout << YELLOW << this->name << RESET << ": Copy constructor FragTrap called" << std::endl;
+    std::cout << YELLOW << "FragTrap " + this->name << RESET << ": Copy constructor FragTrap called" << std::endl;
     return ;
 }
 
-FragTrap::~FragTrap() { std::cout << RED << name << RESET << ": Destructor FragTrap called " << std::endl; }
+FragTrap::~FragTrap() { std::cout << YELLOW << "FragTrap " + name << RESET << ": Destructor FragTrap called " << std::endl; }
 
 //==================== ASSIGNEMENT OPERATOR ================================
 
@@ -69,9 +69,9 @@ void FragTrap::highFivesGuys( void ) const {
 void FragTrap::setAttDamage( void ) { this->attDamage = 30; }
 int FragTrap::getAttDamage( void ) const { return this->attDamage; }
 
-void FragTrap::printStats( void ) const {
-    std::cout << PINK << "Nom : " << this->name << std::endl;
-    std::cout << "Hit Point : " << this->hitPoint << std::endl;
-    std::cout << "Energy Point : " << this->energyPoint << std::endl;
-    std::cout << "Attack Damage : " << this->attDamage << RESET << std::endl;
-}
+// void FragTrap::printStats( void ) const {
+//     std::cout << PINK << "Nom : " << this->name << std::endl;
+//     std::cout << "Hit Point : " << this->hitPoint << std::endl;
+//     std::cout << "Energy Point : " << this->energyPoint << std::endl;
+//     std::cout << "Attack Damage : " << this->attDamage << RESET << std::endl;
+// }

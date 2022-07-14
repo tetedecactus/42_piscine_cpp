@@ -32,7 +32,7 @@ public:
 
     void whoAmI( void ) const;
 
-    virtual void printStats( void ) const;
+    // virtual void printStats( void ) const;
 };
 
 #endif

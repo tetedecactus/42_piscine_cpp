@@ -14,33 +14,31 @@
 
 //=================== CONSTRUCTOR & DESTRUCTOR =========================
 DiamondTrap::DiamondTrap( void ) : ClapTrap() {
-    name = "DIDIDIAMOND";
-	ClapTrap::name = "DIDIDIAMOND_clap_name";
+    _name = "Dianne-diamond";
     hitPoint = FragTrap::hitPoint; // 100
     energyPoint = ScavTrap::energyPoint; // 50
 	FragTrap::setAttDamage();
     attDamage = FragTrap::getAttDamage(); // 30
-    std::cout << GREEN << name << RESET << ": Constructor DiamondTrap called and have :" << energyPoint << " of ernergy point" << std::endl;
+    std::cout << GREEN << "DiamondTrap " + _name << RESET << ": Constructor DiamondTrap called and have :" << energyPoint << " of ernergy point" << std::endl;
 }
 
-DiamondTrap::DiamondTrap( std::string name ) : ClapTrap() {
+DiamondTrap::DiamondTrap( std::string name ) : ClapTrap(name + "_clap_name") {
 
-	ClapTrap::name =  _name +"_clap_name";
     _name = name;
     hitPoint = FragTrap::hitPoint;
     energyPoint = ScavTrap::energyPoint;
     attDamage = FragTrap::attDamage;
-    std::cout << GREEN << name << RESET << ": Constructor DiamondTrap called and have :" << energyPoint << " of ernergy point" << std::endl;
+    std::cout << GREEN << "DiamondTrap " + _name << RESET << ": Constructor DiamondTrap called and have :" << energyPoint << " of ernergy point" << std::endl;
 }
 
 DiamondTrap::DiamondTrap( DiamondTrap const & src ) : ClapTrap(src)
 {
     *this = src;
-    std::cout << YELLOW << this->name << RESET << ": Copy constructor DiamondTrap called" << std::endl;
+    std::cout << GREEN << "DiamondTrap " + this->_name << RESET << ": Copy constructor DiamondTrap called" << std::endl;
     return ;
 }
 
-DiamondTrap::~DiamondTrap() { std::cout << RED << name << RESET << ": Destructor DiamondTrap called " << std::endl; }
+DiamondTrap::~DiamondTrap() { std::cout << GREEN<< "DiamondTrap " + _name << RESET << ": Destructor DiamondTrap called " << std::endl; }
 
 //==================== ASSIGNEMENT OPERATOR ================================
 
@@ -62,12 +60,12 @@ void DiamondTrap::attack( const std::string& target ) {
 //================= WHOAMI ============================
 
 void DiamondTrap::whoAmI( void ) const {
-    std::cout << "I am : " << RED << _name << RESET << std::endl;
+    std::cout << "I am : " << RED << "DiamondTrap " + _name << RESET << std::endl;
 }
 
-void DiamondTrap::printStats( void ) const {
-    std::cout << PINK << "Nom : " << this->name << std::endl;
-    std::cout << "Hit Point : " << this->hitPoint << std::endl;
-    std::cout << "Energy Point : " << this->energyPoint << std::endl;
-    std::cout << "Attack Damage : " << this->attDamage << RESET << std::endl;
-}
+// void DiamondTrap::printStats( void ) const {
+//     std::cout << PINK << "Nom : " << this->_name << std::endl;
+//     std::cout << "Hit Point : " << this->hitPoint << std::endl;
+//     std::cout << "Energy Point : " << this->energyPoint << std::endl;
+//     std::cout << "Attack Damage : " << this->attDamage << RESET << std::endl;
+// }
