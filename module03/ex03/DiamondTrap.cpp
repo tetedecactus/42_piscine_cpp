@@ -14,7 +14,7 @@
 
 //=================== CONSTRUCTOR & DESTRUCTOR =========================
 DiamondTrap::DiamondTrap( void ) : ClapTrap() {
-    name = "DIDIDIAMOND";
+    _diamondName = "DIDIDIAMOND";
 	ClapTrap::name = "DIDIDIAMOND_clap_name";
     hitPoint = FragTrap::hitPoint; // 100
     energyPoint = ScavTrap::energyPoint; // 50
@@ -25,8 +25,8 @@ DiamondTrap::DiamondTrap( void ) : ClapTrap() {
 
 DiamondTrap::DiamondTrap( std::string name ) : ClapTrap() {
 
-	ClapTrap::name =  _name +"_clap_name";
-    _name = name;
+	ClapTrap::name =  _diamondName +"_clap_name";
+    _diamondName = name;
     hitPoint = FragTrap::hitPoint;
     energyPoint = ScavTrap::energyPoint;
     attDamage = FragTrap::attDamage;
@@ -46,7 +46,7 @@ DiamondTrap::~DiamondTrap() { std::cout << RED << name << RESET << ": Destructor
 
 DiamondTrap& DiamondTrap::operator=( DiamondTrap const & rhs ) {
 
-    this->_name = rhs.name;
+    this->_diamondName = rhs.name;
     this->hitPoint = rhs.hitPoint;
     this->energyPoint = rhs.energyPoint;
     this->attDamage = rhs.attDamage;
@@ -62,7 +62,7 @@ void DiamondTrap::attack( const std::string& target ) {
 //================= WHOAMI ============================
 
 void DiamondTrap::whoAmI( void ) const {
-    std::cout << "I am : " << RED << _name << RESET << std::endl;
+    std::cout << "I am : " << RED << _diamondName << RESET << std::endl;
 }
 
 void DiamondTrap::printStats( void ) const {
@@ -70,4 +70,14 @@ void DiamondTrap::printStats( void ) const {
     std::cout << "Hit Point : " << this->hitPoint << std::endl;
     std::cout << "Energy Point : " << this->energyPoint << std::endl;
     std::cout << "Attack Damage : " << this->attDamage << RESET << std::endl;
+}
+
+// ================= GETTER & SETTER =====================
+
+void DiamondTrap::setName( std::string name ) {
+	_diamondName = name;
+}
+
+std::string DiamondTrap::getName( void ) const {
+	return _diamondName;
 }

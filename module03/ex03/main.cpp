@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 10:26:45 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/07 14:04:25 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/07/13 15:55:59 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -268,50 +268,50 @@ int main () {
 	}
 	std::cout << std::endl;
 	std::cout << std::endl;
-	{
-		std::cout << RED << " TEST 2" << RESET << std::endl;
-		std::cout << GREEN << "Le but de ce test est de demontrer que DiamondTrap est bien distint de c'est 2 parent de FragTrap & ScavTrap" << RESET << std::endl;
-		std::cout << GREEN << "Je vais donc creer 3 object de type DiamondTrap\n";
-		std::cout << GREEN << "1ier Object va etre un Pointer de ScavTrap* -> new ScavTrap\n";
-		std::cout << GREEN << "2ieme Object va etre un Pointer de FragTrap* -> new FragTrap\n";
-		std::cout << GREEN << "3ieme Object va etre un Pointer de DiamondTrap* -> new DiamondTrap\n" << RESET << std::endl;
+	// {
+	// 	std::cout << RED << " TEST 2" << RESET << std::endl;
+	// 	std::cout << GREEN << "Le but de ce test est de demontrer que DiamondTrap est bien distint de c'est 2 parent de FragTrap & ScavTrap" << RESET << std::endl;
+	// 	std::cout << GREEN << "Je vais donc creer 3 object de type DiamondTrap\n";
+	// 	std::cout << GREEN << "1ier Object va etre un Pointer de ScavTrap* -> new ScavTrap\n";
+	// 	std::cout << GREEN << "2ieme Object va etre un Pointer de FragTrap* -> new FragTrap\n";
+	// 	std::cout << GREEN << "3ieme Object va etre un Pointer de DiamondTrap* -> new DiamondTrap\n" << RESET << std::endl;
 
 
 
-		std:: cout << BLUE << "======================================================================" << RESET << std::endl;
-		ScavTrap* perso1 = new ScavTrap;
-		std::cout << BLUE << "======================================================================" << RESET << std::endl;
-		FragTrap* perso2 = new FragTrap;
-		std::cout << BLUE << "======================================================================" << RESET << std::endl;
-		DiamondTrap* perso3 = new DiamondTrap("Eric Ticuire Lapointe");
-		std::cout << BLUE << "======================================================================" << RESET << std::endl;
+	// 	std:: cout << BLUE << "======================================================================" << RESET << std::endl;
+	// 	ScavTrap* perso1 = new ScavTrap;
+	// 	std::cout << BLUE << "======================================================================" << RESET << std::endl;
+	// 	FragTrap* perso2 = new FragTrap;
+	// 	std::cout << BLUE << "======================================================================" << RESET << std::endl;
+	// 	DiamondTrap* perso3 = new DiamondTrap("Eric Ticuire Lapointe");
+	// 	std::cout << BLUE << "======================================================================" << RESET << std::endl;
 
-		std::cout << RED << "Test avec Perso1 (ScvaTrap* -> ScavTrap)" << RESET << std::endl;
-		perso1->guardGate();
-		perso1->printStats();
-		std::cout << BLUE << "======================================================================" << RESET << std::endl;
+	// 	std::cout << RED << "Test avec Perso1 (ScvaTrap* -> ScavTrap)" << RESET << std::endl;
+	// 	perso1->guardGate();
+	// 	perso1->printStats();
+	// 	std::cout << BLUE << "======================================================================" << RESET << std::endl;
 
-		// ========================== TEST 2 =======================================
-		std::cout << RED << "Test avec Perso2 (FragTrap* -> FragTrap)" << RESET << std::endl;
-		perso2->highFivesGuys();
-		perso2->printStats();
-		std::cout << BLUE << "======================================================================" << RESET << std::endl;
+	// 	// ========================== TEST 2 =======================================
+	// 	std::cout << RED << "Test avec Perso2 (FragTrap* -> FragTrap)" << RESET << std::endl;
+	// 	perso2->highFivesGuys();
+	// 	perso2->printStats();
+	// 	std::cout << BLUE << "======================================================================" << RESET << std::endl;
 
 		
-		// ========================== TEST 3 =======================================
-		std::cout << RED << "Test avec Perso3 (DiamondTrap* -> DiamondTrap)" << RESET << std::endl;
-		perso3->highFivesGuys();
-		perso3->guardGate();
-		perso2->printStats();
-		std::cout << BLUE << "======================================================================" << RESET << std::endl;
+	// 	// ========================== TEST 3 =======================================
+	// 	std::cout << RED << "Test avec Perso3 (DiamondTrap* -> DiamondTrap)" << RESET << std::endl;
+	// 	perso3->highFivesGuys();
+	// 	perso3->guardGate();
+	// 	perso2->printStats();
+	// 	std::cout << BLUE << "======================================================================" << RESET << std::endl;
 		
 
-		std::cout << BLUE << "======================================================================" << RESET << std::endl;
-		delete perso1;
-		std::cout << BLUE << "======================================================================" << RESET << std::endl;
-		delete perso2;
-		std::cout << BLUE << "======================================================================" << RESET << std::endl;
-		delete perso3;
-		std::cout << BLUE << "======================================================================" << RESET << std::endl;
-	}
+	// 	std::cout << BLUE << "======================================================================" << RESET << std::endl;
+	// 	delete perso1;
+	// 	std::cout << BLUE << "======================================================================" << RESET << std::endl;
+	// 	delete perso2;
+	// 	std::cout << BLUE << "======================================================================" << RESET << std::endl;
+	// 	delete perso3;
+	// 	std::cout << BLUE << "======================================================================" << RESET << std::endl;
+	// }
 }
