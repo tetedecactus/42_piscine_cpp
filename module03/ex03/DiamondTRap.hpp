@@ -19,7 +19,7 @@
 class DiamondTrap : public FragTrap, public ScavTrap
 {
 private:
-    std::string _diamondName;
+    std::string _name;
 public:
     DiamondTrap( void );
     DiamondTrap( std::string name );
@@ -32,10 +32,7 @@ public:
 
     void whoAmI( void ) const;
 
-    virtual void printStats( void ) const;
-	
-	void setName( std::string name );
-	std::string getName( void ) const;
+    // virtual void printStats( void ) const;
 };
 
 #endif

@@ -13,19 +13,19 @@
 # include "ClapTrap.hpp"
 
 //========= CONSTRUCTOR & DESTRUCTOR=====================//
-ClapTrap::ClapTrap( void ) : name("Fitz"), hitPoint(10), energyPoint(10), attDamage(0) {
-    std::cout << GREEN << name << RESET << ": Clap Constructor called and have :" << energyPoint << " of ernergy point" << std::endl;
+ClapTrap::ClapTrap( void ) : name("Fitz-Clap"), hitPoint(10), energyPoint(10), attDamage(0) {
+    std::cout << RED << "ClapTrap " + name << RESET << ": Clap Constructor called and have :" << energyPoint << " of ernergy point" << std::endl;
 }
 
 ClapTrap::ClapTrap( std::string name ) : name(name), hitPoint(10), energyPoint(10), attDamage(0)
 {
-    std::cout << GREEN << name << RESET << ": Clap Constructor called and have :" << energyPoint << " of ernergy point" << std::endl;
+    std::cout << RED << "ClapTrap " + name << RESET << ": Clap Constructor called and have :" << energyPoint << " of ernergy point" << std::endl;
 }
 
 ClapTrap::ClapTrap( ClapTrap const & src )
 {
     *this = src;
-    std::cout << YELLOW << this->name << RESET << ": Clap Copy constructor called" << std::endl;
+    std::cout << RED << "ClapTrap " + this->name << RESET << ": Clap Copy constructor called" << std::endl;
     return ;// Le return pas necessaire (video intra42)
 }
 
@@ -46,28 +46,28 @@ void ClapTrap::attack( const std::string& target ) {
 
     if (energyPoint > 0 && hitPoint > 0)
     {
-        std::cout << BLUE << name << RESET << ": Clap Attack :" << target << " causing :" << attDamage << " points of damage" << std::endl;
+        std::cout << MAUVE << name << RESET << ": Clap Attack :" << target << " causing :" << attDamage << " points of damage" << std::endl;
         energyPoint--;
         return ;
     }
-    std::cout << RED << name << RESET << ": got 0 energy point left" << std::endl;
+    std::cout << MAUVE << name << RESET << ": got 0 energy point left" << std::endl;
 }
 
 void ClapTrap::beRepaired( unsigned int amount ) {
 
     if (energyPoint > 0 && hitPoint > 0)
     {
-        std::cout << GREEN << name << RESET << ": Have been repair of : " << amount << " point of life" << std::endl;
+        std::cout << MAUVE << name << RESET << ": Have been repair of : " << amount << " point of life" << std::endl;
         energyPoint--;
         hitPoint += amount;
         return ;
     }
-    std::cout << RED << name << RESET << ": got 0 energy point left" << std::endl;
+    std::cout << MAUVE << name << RESET << ": got 0 energy point left" << std::endl;
 }
 
 void ClapTrap::takeDamage( unsigned int amount ) {
 
-    std::cout  << YELLOW << name << RESET << ": Have take : " << amount << " of damage" << std::endl;
+    std::cout  << MAUVE << name << RESET << ": Have take : " << amount << " of damage" << std::endl;
     if (hitPoint - amount <= 0)
         hitPoint = 0;// Pourrais mettre err msg pour quit afther death
     else

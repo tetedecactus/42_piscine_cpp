@@ -14,28 +14,28 @@
 
 //=================== CONSTRUCTOR & DESTRUCTOR =========================
 ScavTrap::ScavTrap( void ) : ClapTrap() {
-    name = "Bob Scav";
+    // name = "Bob Scav";
     hitPoint = 100;
     energyPoint = 50;
     attDamage = 20;
-    std::cout << GREEN << name << RESET << ": Constructor ScavTrap called and have :" << energyPoint << " of ernergy point" << std::endl;
+    std::cout << BLUE << "ScavTrap " + name << RESET << ": Constructor ScavTrap called and have :" << energyPoint << " of ernergy point" << std::endl;
 }
 
 ScavTrap::ScavTrap( std::string name ) : ClapTrap(name) {
     hitPoint = 100;
     energyPoint = 50;
     attDamage = 20;
-    std::cout << GREEN << name << RESET << ": Constructor ScavTrap called and have :" << energyPoint << " of ernergy point" << std::endl;
+    std::cout << BLUE << "ScavTrap " + name << RESET << ": Constructor ScavTrap called and have :" << energyPoint << " of ernergy point" << std::endl;
 }
 
 ScavTrap::ScavTrap( ScavTrap const & src ) 
 {
     *this = src;
-    std::cout << YELLOW << this->name << RESET << ": Copy constructor ScavTrap called" << std::endl;
+    std::cout << BLUE << "ScavTrap " + this->name << RESET << ": Copy constructor ScavTrap called" << std::endl;
     return ;
 }
 
-ScavTrap::~ScavTrap() { std::cout << RED << name << RESET << ": Destructor ScavTrap called " << std::endl; }
+ScavTrap::~ScavTrap() { std::cout << BLUE << "ScavTrap " + name << RESET << ": Destructor ScavTrap called " << std::endl; }
 
 //==================== ASSIGNEMENT OPERATOR ================================
 
@@ -54,21 +54,21 @@ ScavTrap& ScavTrap::operator=( ScavTrap const & rhs ) {
 void ScavTrap::attack( const std::string& target ) {
     if (energyPoint > 0 && hitPoint > 0)
     {
-        std::cout << BLUE << name << RESET << ": Scav Attack :" << target << " causing :" << attDamage << " points of damage" << std::endl;
+        std::cout << BLUE << "ScavTrap " + name << RESET << ": Scav Attack :" << target << " causing :" << attDamage << " points of damage" << std::endl;
         energyPoint--;
         return ;
     }
-    std::cout << RED << name << RESET << ":  Scav got 0 energy point left" << std::endl;
+    std::cout << BLUE << "ScavTrap " + name << RESET << ":  Scav got 0 energy point left" << std::endl;
 }
 
 void ScavTrap::guardGate( void ) const {
     if (hitPoint > 0 && energyPoint > 0)
-        std::cout << RED << "IMP " << name << ": is now in Gate Keeper mode" << RESET << std::endl;
+        std::cout << BLUE << "IMP " << "ScavTrap " + name << ": is now in Gate Keeper mode" << RESET << std::endl;
 }
 
-void ScavTrap::printStats( void ) const {
-    std::cout << PINK << "Nom : " << this->name << std::endl;
-    std::cout << "Hit Point : " << this->hitPoint << std::endl;
-    std::cout << "Energy Point : " << this->energyPoint << std::endl;
-    std::cout << "Attack Damage : " << this->attDamage << RESET << std::endl;
-}
+// void ScavTrap::printStats( void ) const {
+//     std::cout << PINK << "Nom : " << this->name << std::endl;
+//     std::cout << "Hit Point : " << this->hitPoint << std::endl;
+//     std::cout << "Energy Point : " << this->energyPoint << std::endl;
+//     std::cout << "Attack Damage : " << this->attDamage << RESET << std::endl;
+// }

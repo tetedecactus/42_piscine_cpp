@@ -23,6 +23,7 @@
 # define YELLOW "\033[0;33m"
 # define RED "\033[0;31m"
 # define RESET "\033[0m"
+#define MAUVE "\033[1;35m"
 
 // https://cplusplus.com/doc/tutorial/inheritance/
 // https://cplusplus.com/doc/tutorial/polymorphism/
@@ -54,7 +55,7 @@ public:
 	virtual int getAttDamage( void ) const;
 	virtual int getHitPoint( void ) const;
     
-    virtual void printStats( void ) const;
+    void printStats( void ) const;
 };
 
 #endif
