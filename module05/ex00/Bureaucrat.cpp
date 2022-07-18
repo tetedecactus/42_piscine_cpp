@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:59:29 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/08 16:33:33 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/07/18 15:24:26 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,15 @@ Bureaucrat::Bureaucrat( void ) : _name("DefaultName"), _grade(150) {
 }
 
 Bureaucrat::Bureaucrat( std::string name, unsigned int grade ) : _name(name), _grade(grade) {
+	try
+	{
+		if (grade >)
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
 	std::cout << BLUE << "Default Const with Parameter Called" << RESET << std::endl;
 }
 
@@ -40,6 +49,12 @@ void Bureaucrat::setGrade( unsigned int grade ) {
 	_grade = grade;
 }
 
-std::string Bureaucrat::getName( void ) const {
-	return _name;
-}
+unsigned int Bureaucrat::getGrade( void ) { return _grade; }
+
+std::string Bureaucrat::getName( void ) const { return _name; }
+
+// =========== TooLow & TooHigh ===========
+
+Bureaucrat::GradeTooLowException
+
+Bureaucrat::GradeTooHighException
