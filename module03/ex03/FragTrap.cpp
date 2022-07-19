@@ -69,9 +69,10 @@ void FragTrap::highFivesGuys( void ) const {
 void FragTrap::setAttDamage( void ) { this->attDamage = 30; }
 int FragTrap::getAttDamage( void ) const { return this->attDamage; }
 
-// void FragTrap::printStats( void ) const {
-//     std::cout << PINK << "Nom : " << this->name << std::endl;
-//     std::cout << "Hit Point : " << this->hitPoint << std::endl;
-//     std::cout << "Energy Point : " << this->energyPoint << std::endl;
-//     std::cout << "Attack Damage : " << this->attDamage << RESET << std::endl;
-// }
+void printStats( FragTrap const & frag ) {
+    std::cout << YELLOW << "======== STATS ============" << RESET << std::endl;
+    std::cout << PINK << "Nom : " << frag.getName() << std::endl;
+    std::cout << "Hit Point : " << frag.getHitPoint() << std::endl;
+    std::cout << "Energy Point : " << frag.getEnergyPoint() << std::endl;
+    std::cout << "Attack Damage : " << frag.getAttDamage() << RESET << std::endl;
+}

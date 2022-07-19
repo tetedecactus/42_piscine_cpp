@@ -66,9 +66,10 @@ void ScavTrap::guardGate( void ) const {
         std::cout << BLUE << "IMP " << "ScavTrap " + name << ": is now in Gate Keeper mode" << RESET << std::endl;
 }
 
-// void ScavTrap::printStats( void ) const {
-//     std::cout << PINK << "Nom : " << this->name << std::endl;
-//     std::cout << "Hit Point : " << this->hitPoint << std::endl;
-//     std::cout << "Energy Point : " << this->energyPoint << std::endl;
-//     std::cout << "Attack Damage : " << this->attDamage << RESET << std::endl;
-// }
+void printStats( ScavTrap const & scav ) {
+    std::cout << YELLOW << "======== STATS ============" << RESET << std::endl;
+    std::cout << PINK << "Nom : " << scav.getName() << std::endl;
+    std::cout << "Hit Point : " << scav.getHitPoint() << std::endl;
+    std::cout << "Energy Point : " << scav.getEnergyPoint() << std::endl;
+    std::cout << "Attack Damage : " << scav.getAttDamage() << RESET << std::endl;
+}

@@ -31,7 +31,7 @@ public:
 
     void guardGate( void ) const;
 
-    // virtual void printStats( void ) const;
 };
+void printStats( ScavTrap const & scav );
 
 #endif

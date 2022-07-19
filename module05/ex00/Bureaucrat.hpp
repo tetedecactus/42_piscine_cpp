@@ -6,12 +6,11 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:45:46 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/18 15:01:58 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/07/19 14:18:10 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_H
-# define BUREAUCRAT_H
+#pragma once
 
 #include <iostream>
 #include <string>
@@ -40,8 +39,15 @@ class Bureaucrat
 		std::string getName( void ) const;
 		unsigned int getGrade(void);
 		
-		void GradeTooLowException( void );
-		void GradeTooHighException( void );
+		class GradeTooHighException : std::exception
+		{
+			
+		}
+		class GradeTooLowException : std::exception 
+		{
+			
+		}
+		
 		
 		void increment( void );
 		void decrement( void );
@@ -51,4 +57,6 @@ class Bureaucrat
 std::ostream & operator<<( std:: ostream & o, Bureaucrat const & i);
 
 
-#endif
+
+// https://stackoverflow.com/questions/40205581/throw-a-exception-with-nested-class-that-inherited-stdexception
+// https://cplusplus.com/reference/exception/nested_exception/

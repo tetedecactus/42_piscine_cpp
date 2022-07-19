@@ -54,7 +54,7 @@ public:
 	int getAttDamage( void ) const;
 	int getHitPoint( void ) const;
     
-    void printStats( void ) const;
 };
+void printStats( ClapTrap const & clap );
 
 #endif

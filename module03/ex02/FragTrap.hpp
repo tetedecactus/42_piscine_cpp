@@ -30,5 +30,6 @@ public:
     void highFivesGuys( void ) const;
 
 };
+void printStats( FragTrap const & frag );
 
 #endif

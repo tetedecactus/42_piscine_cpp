@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 10:26:45 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/04 13:21:11 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/07/19 13:47:06 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,9 @@ int main( int ac, char **av )
 		firstPerso.attack(secondPerso.getName());
 		secondPerso.takeDamage(firstPerso.getAttDamage());
 		secondPerso.beRepaired(firstPerso.getAttDamage());
-		firstPerso.printStats();
-		secondPerso.printStats();
+		
+		printStats(firstPerso);
+		printStats(secondPerso);
 	}
 		std::cout << std::endl;
 	{
@@ -42,8 +43,9 @@ int main( int ac, char **av )
 		firstPerso->attack(secondPerso.getName());
 		secondPerso.takeDamage(firstPerso->getAttDamage());
 		secondPerso.beRepaired(50);
-		firstPerso->printStats();
-		secondPerso.printStats();
+		
+		printStats(*firstPerso);
+		printStats(secondPerso);
 		delete firstPerso;
 	}
 	return 0;

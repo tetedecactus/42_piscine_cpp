@@ -22,12 +22,12 @@ DiamondTrap::DiamondTrap( void ) : ClapTrap() {
     std::cout << GREEN << "DiamondTrap " + _name << RESET << ": Constructor DiamondTrap called and have :" << energyPoint << " of ernergy point" << std::endl;
 }
 
-DiamondTrap::DiamondTrap( std::string name ) : ClapTrap(name + "_clap_name") {
+DiamondTrap::DiamondTrap( std::string name ) : ClapTrap(name + "_diamond_name") {
 
     _name = name;
     hitPoint = FragTrap::hitPoint;
     energyPoint = ScavTrap::energyPoint;
-    attDamage = FragTrap::attDamage;
+    FragTrap::setAttDamage();
     std::cout << GREEN << "DiamondTrap " + _name << RESET << ": Constructor DiamondTrap called and have :" << energyPoint << " of ernergy point" << std::endl;
 }
 
@@ -63,9 +63,10 @@ void DiamondTrap::whoAmI( void ) const {
     std::cout << "I am : " << RED << "DiamondTrap " + _name << RESET << std::endl;
 }
 
-// void DiamondTrap::printStats( void ) const {
-//     std::cout << PINK << "Nom : " << this->_name << std::endl;
-//     std::cout << "Hit Point : " << this->hitPoint << std::endl;
-//     std::cout << "Energy Point : " << this->energyPoint << std::endl;
-//     std::cout << "Attack Damage : " << this->attDamage << RESET << std::endl;
-// }
+void printStats( DiamondTrap const & diamond ) {
+    std::cout << YELLOW << "======== STATS ============" << RESET << std::endl;
+    std::cout << PINK << "Nom : " << diamond.getName() << std::endl;
+    std::cout << "Hit Point : " << diamond.getHitPoint() << std::endl;
+    std::cout << "Energy Point : " << diamond.getEnergyPoint() << std::endl;
+    std::cout << "Attack Damage : " << diamond.getAttDamage() << RESET << std::endl;
+}

@@ -65,3 +65,11 @@ void ScavTrap::guardGate( void ) {
     if (hitPoint > 0 && energyPoint > 0)
         std::cout << RED << "IMP " << name << " : is now in Gate Keeper mode" << RESET << std::endl;
 }
+
+void printStats( ScavTrap const & scav ) {
+    std::cout << YELLOW << "======== STATS ============" << RESET << std::endl;
+    std::cout << PINK << "Nom : " << scav.getName() << std::endl;
+    std::cout << "Hit Point : " << scav.getHitPoint() << std::endl;
+    std::cout << "Energy Point : " << scav.getEnergyPoint() << std::endl;
+    std::cout << "Attack Damage : " << scav.getAttDamage() << RESET << std::endl;
+}

@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 10:26:45 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/18 14:54:09 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/07/19 14:03:31 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,21 @@ int main(int argc, char **argv) {
 	std::cout << "====================================" << std::endl;
 	
 	std::cout << "========== CLAPTRAP STUFF ===========" << std::endl;
-	clappy->printStats();
 	clappy->attack(diddy->getName());
 	clappy->beRepaired(25);
 	clappy->takeDamage(25);
-	clappy->printStats();
+
+	printStats(*clappy);
 	
 	std::cout << "========== DIAMONDTRAP STUFF ===========" << std::endl;
-	diddy->printStats();
 	diddy->attack(clappy->getName());
 	diddy->beRepaired(25);
 	diddy->takeDamage(25);
-	diddy->printStats();
-	
-	std::cout << "DiamondTrap name : " + diddy->getName() << std::endl;
+	diddy->whoAmI();
+	diddy->guardGate();
+	diddy->highFivesGuys();
 
+	printStats(*diddy);
 
 
 	std::cout << "====================================" << std::endl;

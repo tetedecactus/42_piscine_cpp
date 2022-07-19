@@ -32,8 +32,8 @@ public:
 
     void whoAmI( void ) const;
 
-    // virtual void printStats( void ) const;
 };
+void printStats( DiamondTrap const & diamond );
 
 #endif
 //https://stackoverflow.com/questions/34228048/error-message-non-static-member-found-in-multiple-base-class-subobjects-of-type

@@ -82,9 +82,10 @@ int ClapTrap::getAttDamage( void ) const { return this->attDamage; }
 int ClapTrap::getHitPoint( void ) const { return this->hitPoint; }
 
 //=================== OTHER FUNCTION ===============
-void ClapTrap::printStats( void ) const {
-    std::cout << PINK << "Nom : " << this->name << std::endl;
-    std::cout << "Hit Point : " << this->hitPoint << std::endl;
-    std::cout << "Energy Point : " << this->energyPoint << std::endl;
-    std::cout << "Attack Damage : " << this->attDamage << RESET << std::endl;
+void printStats( ClapTrap const & clap ) {
+    std::cout << YELLOW << "======== STATS ============" << RESET << std::endl;
+    std::cout << PINK << "Nom : " << clap.getName() << std::endl;
+    std::cout << "Hit Point : " << clap.getHitPoint() << std::endl;
+    std::cout << "Energy Point : " << clap.getEnergyPoint() << std::endl;
+    std::cout << "Attack Damage : " << clap.getAttDamage() << RESET << std::endl;
 }

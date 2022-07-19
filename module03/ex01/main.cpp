@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olabrecq <olabrecq@student.42quebec.com    +#+  +:+       +#+        */
+/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 10:26:45 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/06/28 16:03:17 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/07/19 13:51:23 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,32 +25,7 @@ int main( int ac, char **av )
 		std::cout << "Ce Programme ne prend que son executable en parametre" << std::endl;
 		return 1;
 	}
-	// {
-	// 	std::cout << RED << "Premier test : 1 attaque 2, 2 ce repair et both print leurs stats\n" << RESET << std::endl;
 
-	// 	ClapTrap firstPerso("Jaune-attend Clap-1er du nom");
-	// 	ClapTrap secondPerso;
-
-	// 	firstPerso.attack(secondPerso.getName());
-	// 	secondPerso.takeDamage(firstPerso.getAttDamage());
-	// 	secondPerso.beRepaired(firstPerso.getAttDamage());
-	// 	firstPerso.printStats();
-	// 	secondPerso.printStats();
-	// }
-	// 	std::cout << std::endl;
-	// {
-	// 	std::cout << RED << "Deuxiemne test : 1 est maintenant un pointer de ClapTrap, il attaque 2, 2 ce repair et both print leurs stats\n" << RESET << std::endl;
-
-	// 	ClapTrap* firstPerso = new ClapTrap("Pierre Pointer Clap");
-	// 	ClapTrap secondPerso;
-
-	// 	firstPerso->attack(secondPerso.getName());
-	// 	secondPerso.takeDamage(firstPerso->getAttDamage());
-	// 	secondPerso.beRepaired(50);
-	// 	firstPerso->printStats();
-	// 	secondPerso.printStats();
-	// 	delete firstPerso;
-	// }
 	std::cout << BLUE << "==========================================================================" << RESET << std::endl;
 	//=================== TEST 2 ===============================
 	
@@ -63,8 +38,8 @@ int main( int ac, char **av )
 		firstPerso.attack(secondPerso.getName());
 		secondPerso.takeDamage(firstPerso.getAttDamage());
 		secondPerso.beRepaired(firstPerso.getAttDamage());
-		firstPerso.printStats();
-		secondPerso.printStats();
+		printStats(firstPerso);
+		printStats(secondPerso);
 	}
 		std::cout << std::endl;
 	{
@@ -76,8 +51,8 @@ int main( int ac, char **av )
 		firstPerso->attack(secondPerso->getName());
 		secondPerso->takeDamage(firstPerso->getAttDamage());
 		secondPerso->beRepaired(50);
-		firstPerso->printStats();
-		secondPerso->printStats();
+		printStats(*firstPerso);
+		printStats(*secondPerso);
 		delete firstPerso;
 		delete secondPerso;
 	}
