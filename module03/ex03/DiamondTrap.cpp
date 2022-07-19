@@ -22,7 +22,7 @@ DiamondTrap::DiamondTrap( void ) : ClapTrap() {
     std::cout << GREEN << "DiamondTrap " + _name << RESET << ": Constructor DiamondTrap called and have :" << energyPoint << " of ernergy point" << std::endl;
 }
 
-DiamondTrap::DiamondTrap( std::string name ) : ClapTrap(name + "_diamond_name") {
+DiamondTrap::DiamondTrap( std::string name ) : ClapTrap(name + "_clap_name") {
 
     _name = name;
     hitPoint = FragTrap::hitPoint;
