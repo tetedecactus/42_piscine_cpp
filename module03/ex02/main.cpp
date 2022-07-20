@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 10:26:45 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/19 13:58:21 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/07/19 21:20:39 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int main( int ac, char **av )
 		firstPerso.attack(secondPerso.getName());
 		secondPerso.takeDamage(firstPerso.getAttDamage());
 		secondPerso.beRepaired(firstPerso.getAttDamage());
+		firstPerso.highFivesGuys();
 		printStats(firstPerso);
 		printStats(secondPerso);
 	}
@@ -54,6 +55,7 @@ int main( int ac, char **av )
 		firstPerso->attack(secondPerso->getName());
 		secondPerso->takeDamage(firstPerso->getAttDamage());
 		secondPerso->beRepaired(50);
+		secondPerso->highFivesGuys();
 		printStats(*firstPerso);
 		printStats(*secondPerso);
 		delete firstPerso;

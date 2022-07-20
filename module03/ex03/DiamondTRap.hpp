@@ -19,7 +19,7 @@
 class DiamondTrap : public FragTrap, public ScavTrap
 {
 private:
-    std::string _name;
+    std::string name;
 public:
     DiamondTrap( void );
     DiamondTrap( std::string name );
@@ -29,6 +29,8 @@ public:
     virtual void attack( const std::string& target );
 
     DiamondTrap& operator=( DiamondTrap const & rhs );
+
+	virtual std::string getName( void ) const;
 
     void whoAmI( void ) const;
 
