@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:59:29 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/20 14:44:33 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/07/20 15:39:56 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,11 @@ Bureaucrat::Bureaucrat( void ) : _name("Pierre Default Bureaucrat Name"), _grade
 }
 
 Bureaucrat::Bureaucrat( std::string name, unsigned int grade ) : _name(name), _grade(grade) {
-	std::cout << BLUE << "Default Const with Parameter Called" << RESET << std::endl;
-	checkGrade(_grade);
+	if ( _grade > 150 )
+		throw Bureaucrat::GradeTooLowException();
+	if ( _grade < 1 )
+		throw Bureaucrat::GradeTooHighException(); 
+	std::cout << BLUE << "Default Const with Parameter Called for : " + _name << RESET << std::endl;
 }
 
 Bureaucrat::Bureaucrat( Bureaucrat const & src ) {
@@ -57,23 +60,36 @@ std::string Bureaucrat::getName( void ) const { return _name; }
 
 
 // ==================== EXCEPTION ==========================================================
+
  const char* Bureaucrat::GradeTooHighException::what() const throw() { return "Grade too High"; }
 
  const char* Bureaucrat::GradeTooLowException::what() const throw() { return "Grade too Low"; }
 
 // ==============================================================================================
 
-std::ostream& operator<<( std::ostream& s, const Bureaucrat& rhs )
+// ========================================= OPERATOR << =====================================================
+
+std::ostream& operator<<( std::ostream& o, Bureaucrat const & rhs )
 {
-	s << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() ; return s;
+	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() ; return o;
 }
+// ==============================================================================================
 
 
 
-void Bureaucrat::checkGrade( unsigned int grade ) const {
-	if ( grade > 150 )
-		throw Bureaucrat::GradeTooLowException();
-	if ( grade < 1 )
-		throw Bureaucrat::GradeTooHighException();  
+
+
+
+
+
+// ======================================== GRRADE FUNCTION ======================================================
+
+
+// void Bureaucrat::upGrade( void ) {
 	
-}
+// }
+
+// void Bureaucrat::upGrade( void ) {
+// 	while ( _grade > 150 )
+
+// ==============================================================================================
