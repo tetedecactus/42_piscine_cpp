@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:45:46 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/19 14:18:10 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/07/20 13:49:42 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 #include <iostream>
 #include <string>
+#include <exception>
 
 # define BLUE "\033[0;36m"
 # define PINK "\033[0;35m"
@@ -37,26 +38,27 @@ class Bureaucrat
 		
 		void setGrade( unsigned int grade );
 		std::string getName( void ) const;
-		unsigned int getGrade(void);
+		unsigned int getGrade( void ) const;
 		
-		class GradeTooHighException : std::exception
+		class GradeTooHighException : public std::exception
 		{
-			
-		}
-		class GradeTooLowException : std::exception 
+			virtual const char* what() const throw();
+		};
+		class GradeTooLowException : public std::exception 
 		{
-			
-		}
+			virtual const char* what() const throw();
+		};
 		
-		
-		void increment( void );
-		void decrement( void );
+		void checkGrade( unsigned int grade ) const;
+		void upGrade( void );
+		void downgrade( void );
 	
 };
 
 std::ostream & operator<<( std:: ostream & o, Bureaucrat const & i);
 
 
-
+// https://cplusplus.com/doc/tutorial/exceptions/
+// https://cplusplus.com/reference/exception/exception/
 // https://stackoverflow.com/questions/40205581/throw-a-exception-with-nested-class-that-inherited-stdexception
 // https://cplusplus.com/reference/exception/nested_exception/
