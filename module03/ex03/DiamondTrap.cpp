@@ -14,32 +14,32 @@
 
 //=================== CONSTRUCTOR & DESTRUCTOR =========================
 DiamondTrap::DiamondTrap( void ) : ClapTrap() {
-    name = "Dianne";
+    this->name = "Dianne";
     ClapTrap::name = name + "_clap_name";
     hitPoint = FragTrap::hitPoint; // 100
     energyPoint = ScavTrap::energyPoint; // 50
 	FragTrap::setAttDamage();
     attDamage = FragTrap::getAttDamage(); // 30
-    std::cout << GREEN << "DiamondTrap " + name << RESET << ": Constructor DiamondTrap called and have :" << energyPoint << " of ernergy point" << std::endl;
+    std::cout << GREEN << "DiamondTrap " + this->getName() << RESET << ": Constructor DiamondTrap called and have :" << energyPoint << " of ernergy point" << std::endl;
 }
 
-DiamondTrap::DiamondTrap( std::string name ) : ClapTrap(name + "_clap_name") {
+DiamondTrap::DiamondTrap( std::string Name ) : ClapTrap(Name + "_clap_name") {
 
-    name = name;
+    this->name = Name;
     hitPoint = FragTrap::hitPoint;
     energyPoint = ScavTrap::energyPoint;
     FragTrap::setAttDamage();
-    std::cout << GREEN << "DiamondTrap " + name << RESET << ": Constructor DiamondTrap called and have :" << energyPoint << " of ernergy point" << std::endl;
+    std::cout << GREEN << "DiamondTrap " + this->getName() << RESET << ": Constructor DiamondTrap called and have :" << energyPoint << " of ernergy point" << std::endl;
 }
 
 DiamondTrap::DiamondTrap( DiamondTrap const & src ) : ClapTrap(src)
 {
     *this = src;
-    std::cout << GREEN << "DiamondTrap " + this->name << RESET << ": Copy constructor DiamondTrap called" << std::endl;
+    std::cout << GREEN << "DiamondTrap " + this->getName() << RESET << ": Copy constructor DiamondTrap called" << std::endl;
     return ;
 }
 
-DiamondTrap::~DiamondTrap() { std::cout << GREEN<< "DiamondTrap " + name << RESET << ": Destructor DiamondTrap called " << std::endl; }
+DiamondTrap::~DiamondTrap() { std::cout << GREEN<< "DiamondTrap " + this->name << RESET << ": Destructor DiamondTrap called " << std::endl; }
 
 //==================== ASSIGNEMENT OPERATOR ================================
 
@@ -61,7 +61,7 @@ void DiamondTrap::attack( const std::string& target ) {
 //================= WHOAMI ============================
 
 void DiamondTrap::whoAmI( void ) const {
-    std::cout << "I am : " << RED << "DiamondTrap " + name << RESET << std::endl;
+    std::cout << "I am : " << RED << "DiamondTrap " << this->name << " & sous-objet name : " <<ClapTrap::name << RESET << std::endl;
 }
 
 void printStats( DiamondTrap const & diamond ) {
@@ -71,5 +71,3 @@ void printStats( DiamondTrap const & diamond ) {
     std::cout << "Energy Point : " << diamond.getEnergyPoint() << std::endl;
     std::cout << "Attack Damage : " << diamond.getAttDamage() << RESET << std::endl;
 }
-
-std::string DiamondTrap::getName( void ) const { return name; }

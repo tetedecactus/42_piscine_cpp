@@ -50,10 +50,10 @@ public:
     void takeDamage( unsigned int amount );
     void beRepaired( unsigned int amount );
 
-	virtual std::string getName( void ) const;
-	virtual int getEnergyPoint( void ) const;
-	virtual int getAttDamage( void ) const;
-	virtual int getHitPoint( void ) const;
+	std::string getName( void ) const;
+	int getEnergyPoint( void ) const;
+	int getAttDamage( void ) const;
+	int getHitPoint( void ) const;
     
 };
 void printStats( ClapTrap const & clap );

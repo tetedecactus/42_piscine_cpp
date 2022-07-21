@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 10:26:45 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/19 21:15:55 by marvin           ###   ########.fr       */
+/*   Updated: 2022/07/21 12:12:38 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main(int argc, char **argv) {
 	std::cout << "====================================" << std::endl;
 	ClapTrap* clappy = new ClapTrap("Robert");
 	std::cout << "====================================" << std::endl;
-	DiamondTrap* diddy = new DiamondTrap;
+	DiamondTrap* diddy = new DiamondTrap("ti-cuire");
 	std::cout << "====================================" << std::endl;
 	
 	std::cout << "========== CLAPTRAP STUFF ===========" << std::endl;

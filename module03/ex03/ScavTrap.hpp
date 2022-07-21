@@ -31,6 +31,7 @@ public:
 
     void guardGate( void ) const;
 
+
 };
 void printStats( ScavTrap const & scav );
 

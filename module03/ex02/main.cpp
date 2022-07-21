@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 10:26:45 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/19 21:20:39 by marvin           ###   ########.fr       */
+/*   Updated: 2022/07/21 12:11:19 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int main( int ac, char **av )
 		printStats(*firstPerso);
 		printStats(*secondPerso);
 		delete firstPerso;
+		std::cout << BLUE << "==========================================================================" << RESET << std::endl;
 		delete secondPerso;
 	}
 

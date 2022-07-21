@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:45:46 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/21 10:49:25 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/07/21 14:48:49 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ class Bureaucrat
 		
 		void upGrade( int nb );
 		void downGrade( int nb );
-	
+
+		void signForm()
 };
 
 std::ostream & operator<<( std:: ostream & o, Bureaucrat const & i);

@@ -30,7 +30,6 @@ public:
 
     DiamondTrap& operator=( DiamondTrap const & rhs );
 
-	virtual std::string getName( void ) const;
 
     void whoAmI( void ) const;
 

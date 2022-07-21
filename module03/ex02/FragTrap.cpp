@@ -35,7 +35,7 @@ FragTrap::FragTrap( FragTrap const & src )
     return ;
 }
 
-FragTrap::~FragTrap() { std::cout << RED << name << RESET << ": Destructor FragTrap called " << std::endl; }
+FragTrap::~FragTrap() { std::cout << RED << this->getName() << RESET << ": Destructor FragTrap called " << std::endl; }
 
 //==================== ASSIGNEMENT OPERATOR ================================
 
@@ -65,6 +65,16 @@ void FragTrap::highFivesGuys( void ) const {
     return;
 }
 
+
+void FragTrap::attack( const std::string& target ) {
+    if (energyPoint > 0 && hitPoint > 0)
+    {
+        std::cout << BLUE << name << RESET << ": Frag Attack :" << target << " causing :" << attDamage << " points of damage" << std::endl;
+        energyPoint--;
+        return ;
+    }
+    std::cout << RED << name << RESET << ":  Frag got 0 energy point left" << std::endl;
+}
 
 void printStats( FragTrap const & frag ) {
     std::cout << YELLOW << "======== STATS ============" << RESET << std::endl;

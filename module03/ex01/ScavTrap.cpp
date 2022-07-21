@@ -35,7 +35,7 @@ ScavTrap::ScavTrap( ScavTrap const & src )
     return ;
 }
 
-ScavTrap::~ScavTrap() { std::cout << RED << name << RESET << ": Destructor ScavTrap called " << std::endl; }
+ScavTrap::~ScavTrap() { std::cout << RED << this->getName() << RESET << ": Destructor ScavTrap called " << std::endl; }
 
 //==================== ASSIGNEMENT OPERATOR ================================
 

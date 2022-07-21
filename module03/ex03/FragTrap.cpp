@@ -14,28 +14,27 @@
 
 //=================== CONSTRUCTOR & DESTRUCTOR =========================
 FragTrap::FragTrap( void ) : ClapTrap() {
-    // name = "George Frag";
     hitPoint = 100;
     energyPoint = 100;
     attDamage = 30;
-    std::cout << YELLOW << "FragTrap " + name << RESET << ": Constructor FragTrap called and have :" << energyPoint << " of ernergy point" << std::endl;
+    std::cout << YELLOW << "FragTrap " + this->getName() << RESET << ": Constructor FragTrap called and have :" << energyPoint << " of ernergy point" << std::endl;
 }
 
 FragTrap::FragTrap( std::string name ) : ClapTrap(name) {
     hitPoint = 100;
     energyPoint = 100;
     attDamage = 30;
-    std::cout << YELLOW << "FragTrap " + name << RESET << ": Constructor FragTrap called and have :" << energyPoint << " of ernergy point" << std::endl;
+    std::cout << YELLOW << "FragTrap " + this->getName() << RESET << ": Constructor FragTrap called and have :" << energyPoint << " of ernergy point" << std::endl;
 }
 
 FragTrap::FragTrap( FragTrap const & src ) 
 {
     *this = src;
-    std::cout << YELLOW << "FragTrap " + this->name << RESET << ": Copy constructor FragTrap called" << std::endl;
+    std::cout << YELLOW << "FragTrap " + this->getName() << RESET << ": Copy constructor FragTrap called" << std::endl;
     return ;
 }
 
-FragTrap::~FragTrap() { std::cout << YELLOW << "FragTrap " + name << RESET << ": Destructor FragTrap called " << std::endl; }
+FragTrap::~FragTrap() { std::cout << YELLOW << "FragTrap " + this->name << RESET << ": Destructor FragTrap called " << std::endl; }
 
 //==================== ASSIGNEMENT OPERATOR ================================
 
@@ -61,7 +60,7 @@ void FragTrap::highFivesGuys( void ) const {
             return ;
     } while (input != "y");
     if (input == "y")
-        std::cout << YELLOW << name << ":  Do a HighFivesGuys" << RESET << std::endl;
+        std::cout << YELLOW << this->getName() << ":  Do a HighFivesGuys" << RESET << std::endl;
     return;
 }
 
@@ -76,3 +75,4 @@ void printStats( FragTrap const & frag ) {
     std::cout << "Energy Point : " << frag.getEnergyPoint() << std::endl;
     std::cout << "Attack Damage : " << frag.getAttDamage() << RESET << std::endl;
 }
+
