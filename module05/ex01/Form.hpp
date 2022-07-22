@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 14:15:59 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/21 14:48:15 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/07/22 17:51:31 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ class Form
 		
 		void beSigned( Bureaucrat& signataire );
 
+		void checkGrade( int gradeToSign, int gradeToExec ) const;
+
 		class GradeTooHighException : public std::exception
 		{
 			virtual const char* what() const throw();
@@ -40,6 +42,16 @@ class Form
 		{
 			virtual const char* what() const throw();
 		};
+
+		void setIsSigned( bool newIsSigned );
+		void setGradeToSigned( usnigned int newtGradeToSigned );
+		void setGradeToExec( usnigned int newtGradeToExec );
+		
+		std::string getName( void ) const;
+		bool getIsSigned( void ) const;
+		unsigned int getGradeToSigned( void ) const;
+		unsigned int getGradeToExec( void ) const;
+		
 };
 std::ostream & operator<<( std:: ostream & o, Form const & i);
 

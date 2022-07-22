@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:45:46 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/21 10:49:25 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/07/22 17:46:03 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ class Bureaucrat
 		void setGrade( unsigned int grade );
 		std::string getName( void ) const;
 		unsigned int getGrade( void ) const;
+
 		
 		class GradeTooHighException : public std::exception
 		{

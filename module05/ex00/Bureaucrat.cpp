@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:59:29 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/21 10:44:30 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/07/22 17:46:11 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ Bureaucrat& Bureaucrat::operator=( Bureaucrat const & rhs) {
 
 
 // ========================= Setter & Getter ===========================================
-
 void Bureaucrat::setGrade( unsigned int grade ) { _grade = grade; }
 
 unsigned int Bureaucrat::getGrade( void ) const { return _grade; }
@@ -81,16 +80,48 @@ std::ostream& operator<<( std::ostream& o, Bureaucrat const & rhs )
 
 
 
+// FUCKTOP SHIT I DONT UNDERSTAND WET
+
+// void Bureaucrat::downGrade( int nb ) {
+// 	if ( _grade += nb > 150 ) {
+// 		throw Bureaucrat::GradeTooLowException();
+// 	}
+// 	else {
+// 		setGrade(_grade + nb);
+// 	}
+// }
+
+// void Bureaucrat::downGrade( int nb ) {
+// 	if ( _grade += nb <= 150 ) {
+// 		setGrade(_grade + nb);
+// 	}
+// 	else {
+// 		throw Bureaucrat::GradeTooLowException();
+// 	}
+// }
 
 // ======================================== GRRADE FUNCTION ======================================================
 
+void Bureaucrat::downGrade( int nb ) {
+	int newGrade;
+	newGrade = _grade + nb;
+	if ( newGrade <= 150 ) {
+		setGrade( newGrade );
+	}
+	else {
+		throw Bureaucrat::GradeTooLowException();
+	}
+}
+
 
 void Bureaucrat::upGrade( int nb ) {
-	_grade -= nb;
+	int newGrade;
+	newGrade = _grade - nb;
+	if ( newGrade >= 1 ) {
+		setGrade( newGrade );
+	}
+	else {
+		throw Bureaucrat::GradeTooHighException();
+	}
 }
-
-void Bureaucrat::downGrade( int nb ) {
-	_grade += nb;
-}
-
 // ==============================================================================================

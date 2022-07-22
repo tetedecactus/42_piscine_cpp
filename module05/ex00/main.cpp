@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:45:28 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/21 10:49:18 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/07/22 17:47:00 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,13 @@ int main(int ac, char **av)
 		return 1;
 	}
 	
+	Bureaucrat senior("Pepe", 2);
+	Bureaucrat Junior;
+	
+	Junior = senior;
+
+	std::cout << "Junior name : " + Junior.getName() << std::endl;
+	
 	try
 	{
 		Bureaucrat senior =  Bureaucrat("Pepe", 0);
@@ -32,7 +39,7 @@ int main(int ac, char **av)
 	try
 	{
 		Bureaucrat senior =  Bureaucrat("Pepe", 1);
-		senior.downGrade(10);
+		senior.downGrade(149);
 		std::cout << BLUE << senior.getName() << " : Grade = " << senior.getGrade() << RESET << std::endl;
 
 	}
@@ -45,6 +52,17 @@ int main(int ac, char **av)
 	{
 		Bureaucrat senior =  Bureaucrat("Pepe", 100);
 		senior.upGrade(50);
+		std::cout << BLUE << senior.getName() << " : Grade = " << senior.getGrade() << RESET << std::endl;
+
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		Bureaucrat senior =  Bureaucrat("Pepe", 100);
+		senior.downGrade(51);
 		std::cout << BLUE << senior.getName() << " : Grade = " << senior.getGrade() << RESET << std::endl;
 
 	}
