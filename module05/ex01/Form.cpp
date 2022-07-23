@@ -6,12 +6,13 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 14:16:02 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/22 20:34:38 by marvin           ###   ########.fr       */
+/*   Updated: 2022/07/23 01:14:30 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
+// =========== Constructor | Destructor |  ETC ... =======================================
 Form::Form( void ) : _name("B-12")
 {
     _isSigned = false;
@@ -22,13 +23,13 @@ Form::Form( void ) : _name("B-12")
     <<" Default constructor called" << std::endl;
 }
 
-Form::Form( std::string formName, int gToSign, int gToExec ) : _name(formName)
+Form::Form( std::string formName, unsigned int gradeToSign, unsigned int gradeToExec ) : _name(formName)
 {
     _isSigned = false;
-    _gradeToSigned = gToSign;
-    _gradeToExec = gToExec;
+    _gradeToSigned = gradeToSign;
+    _gradeToExec = gradeToExec;
     
-    checkGrade( gToSign, gToExec );
+    checkGrade( gradeToSign, gradeToExec );
 
     std::cout << BLUE << "Form " + _name << RESET 
     <<" Default constructor with param called" << std::endl;
@@ -53,36 +54,25 @@ Form& Form::operator=( Form const & rhs ) {
 	return *this;
 }
 
-
-void Form::beSigned( Bureaucrat signataire ) {
-    if (signataire.getGrade() < _gradeToSigned )
-        std::cout << "grade fit pas" << std::endl;
-    
+// ============================================= BE SIGNED FORM =================================================
+void Form::beSigned( Bureaucrat const & employe ) {
+    if ( employe.getGrade() > _gradeToSigned )
+        throw Form::GradeTooLowException();
+    setIsSigned( true );
 }
 
 void Form::checkGrade( unsigned int gradeToSign, unsigned int gradeToExec ) const {
-    if ( this->_gradeToSigned < gradeToSign || this-> _gradeToExec < gradeToExec )
+    if ( _gradeToSigned < gradeToSign || _gradeToExec < gradeToExec )
         throw Form::GradeTooHighException();
-    if ( this->_gradeToSigned > gradeToSign || this-> _gradeToExec > gradeToExec )
+    if ( _gradeToSigned > gradeToSign || _gradeToExec > gradeToExec )
         throw Form::GradeTooLowException();
 }
 
-// void Form::checkGrade( int gradeToSign, int gradeToExec ) {
-//     if ( this->_gradeToSigned < gradeToSign )
-//         throw Form::GradeTooHighException(1);
-//     if (this-> _gradeToExec < gradeToExec )
-//         throw Form::GradeTooHighException(2);
-//     if ( this->_gradeToSigned > gradeToSign )
-//         throw Form::GradeTooLowException(1);
-//     if ( this-> _gradeToExec > gradeToExec )
-//         throw Form::GradeTooLowException(2);
-// }
-
+// ==================== EXCEPTION ==========================================================
 const char* Form::GradeTooHighException::what() const throw() { return "Grade too High"; }
-
 const char* Form::GradeTooLowException::what() const throw() { return "Grade too Low"; }
 
-
+// ========================= Setter & Getter ===========================================
 void Form::setIsSigned( bool newIsSigned ) { _isSigned = newIsSigned; }
 void Form::setGradeToSigned( unsigned int newGradeToSigned ) { _gradeToSigned = newGradeToSigned; }
 void Form::setGradeToExec( unsigned int newGradeToExec ) { _gradeToExec = newGradeToExec; }
@@ -91,3 +81,11 @@ std::string Form::getName( void ) const { return _name; }
 bool Form::getIsSigned( void) const { return _isSigned; }
 unsigned int Form::getGradeToSigned( void ) const { return _gradeToSigned; }
 unsigned int Form::getGradeToExec( void ) const { return _gradeToExec; }
+
+// ========================================= OPERATOR << =====================================================
+std::ostream& operator<<( std::ostream& o, Form const & f ) {
+    o << f.getName() << ", form, signing grade " << f.getGradeToSigned() << ", executing grade "
+       << f.getGradeToExec() << (f.getIsSigned() ? ", is signed" : ", is not signed");
+
+    return o;
+}

@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:45:46 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/22 20:12:46 by marvin           ###   ########.fr       */
+/*   Updated: 2022/07/23 00:43:42 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ class Bureaucrat
 		void upGrade( int nb );
 		void downGrade( int nb );
 
-		// void signForm( void ) const;
+		void signForm( void ) const;
 };
 
 std::ostream & operator<<( std:: ostream & o, Bureaucrat const & i);

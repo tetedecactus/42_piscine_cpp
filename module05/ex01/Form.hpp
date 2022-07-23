@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 14:15:59 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/22 20:29:51 by marvin           ###   ########.fr       */
+/*   Updated: 2022/07/23 01:09:04 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ class Form
 		unsigned int _gradeToExec;
 	public:
 		Form( void );
-		Form( std::string formName, int gradeToSigned, int gradeToexec );
+		Form( std::string formName, unsigned int gradeToSigned, unsigned int gradeToexec );
 		Form( Form const & src );
 		~Form( void );
 		Form& operator=( Form const & rhs );
 		
-		void beSigned( Bureaucrat signataire );
+		void beSigned( Bureaucrat const & employe );
 
 		void checkGrade( unsigned int gradeToSign, unsigned int gradeToExec ) const;
 
