@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 14:16:02 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/23 01:14:30 by marvin           ###   ########.fr       */
+/*   Updated: 2022/07/23 01:35:03 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ void Form::beSigned( Bureaucrat const & employe ) {
 }
 
 void Form::checkGrade( unsigned int gradeToSign, unsigned int gradeToExec ) const {
-    if ( _gradeToSigned < gradeToSign || _gradeToExec < gradeToExec )
+    if ( gradeToSign < 1 || gradeToExec < 1 )
         throw Form::GradeTooHighException();
-    if ( _gradeToSigned > gradeToSign || _gradeToExec > gradeToExec )
+    if ( gradeToSign > 150 || gradeToExec > 150 )
         throw Form::GradeTooLowException();
 }
 
