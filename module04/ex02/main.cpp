@@ -56,17 +56,7 @@ int main()
 	std::cout << BLUE << "===============================================================" << RESET << std::endl;
 	}
 
-	// std::cout << RED << "TEST : 3 -> TYPE ANIMAL" << RESET << std::endl;
-	// {
-	// Animal *animal =  new Dog();
-	// std::cout << BLUE << "===============================================================" << RESET << std::endl;
-	// Animal ani;
-	// std::cout << BLUE << "===============================================================" << RESET << std::endl;
-
-	// ani.makeSound();
-	// animal->makeSound();
-	// delete animal;
-	// std::cout << BLUE << "===============================================================" << RESET << std::endl;
-	// }
+	// Animal *cheval = new Animal();
+	
     return 0;
 }

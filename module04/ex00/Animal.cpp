@@ -40,6 +40,8 @@ void Animal::makeSound( void ) const {
 }
 
 std::string Animal::getType( void ) const { return this->type; }
+
+
 //=============== Wrong Animal ======================
 
 WrongAnimal::WrongAnimal( void ) : type("WrongAnimal")
