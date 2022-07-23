@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:45:28 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/21 10:49:18 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/07/22 20:31:25 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Form.hpp"
 #include "Bureaucrat.hpp"
 
 int main(int ac, char **av) 
@@ -20,36 +21,7 @@ int main(int ac, char **av)
 		return 1;
 	}
 	
-	try
-	{
-		Bureaucrat senior =  Bureaucrat("Pepe", 0);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	
-	try
-	{
-		Bureaucrat senior =  Bureaucrat("Pepe", 1);
-		senior.downGrade(10);
-		std::cout << BLUE << senior.getName() << " : Grade = " << senior.getGrade() << RESET << std::endl;
-
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	
-	try
-	{
-		Bureaucrat senior =  Bureaucrat("Pepe", 100);
-		senior.upGrade(50);
-		std::cout << BLUE << senior.getName() << " : Grade = " << senior.getGrade() << RESET << std::endl;
-
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+	Bureaucrat junior("olivier", 1);
+	Form form("b-99", 5, 1);
+	form.beSigned(junior);
 }

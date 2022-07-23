@@ -12,8 +12,10 @@ CFLAGS =  -Werror -Wextra -Wall -std=c++98
 
 SRC = 	main.cpp \
 		Bureaucrat.cpp \
+		Form.cpp \
 
 HEADER = Bureaucrat.hpp \
+		 Form.hpp \
 
 OBJ = $(SRC:.cpp=.o)
 

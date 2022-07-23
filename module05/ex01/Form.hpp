@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 14:15:59 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/22 17:51:31 by marvin           ###   ########.fr       */
+/*   Updated: 2022/07/22 20:29:51 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include "Bureaucrat.hpp"
 
-
+class Bureaucrat;
 
 class Form
 {
@@ -25,14 +25,14 @@ class Form
 		unsigned int _gradeToExec;
 	public:
 		Form( void );
-		Form( std::string name, int gradeToSigned, int gradeToexec );
+		Form( std::string formName, int gradeToSigned, int gradeToexec );
 		Form( Form const & src );
 		~Form( void );
 		Form& operator=( Form const & rhs );
 		
-		void beSigned( Bureaucrat& signataire );
+		void beSigned( Bureaucrat signataire );
 
-		void checkGrade( int gradeToSign, int gradeToExec ) const;
+		void checkGrade( unsigned int gradeToSign, unsigned int gradeToExec ) const;
 
 		class GradeTooHighException : public std::exception
 		{
@@ -44,8 +44,8 @@ class Form
 		};
 
 		void setIsSigned( bool newIsSigned );
-		void setGradeToSigned( usnigned int newtGradeToSigned );
-		void setGradeToExec( usnigned int newtGradeToExec );
+		void setGradeToSigned( unsigned int newtGradeToSigned );
+		void setGradeToExec( unsigned int newtGradeToExec );
 		
 		std::string getName( void ) const;
 		bool getIsSigned( void ) const;
