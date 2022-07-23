@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 14:16:02 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/23 01:35:03 by marvin           ###   ########.fr       */
+/*   Updated: 2022/07/23 01:38:06 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void Form::checkGrade( unsigned int gradeToSign, unsigned int gradeToExec ) cons
     if ( gradeToSign > 150 || gradeToExec > 150 )
         throw Form::GradeTooLowException();
 }
+/// checkser pour passe valu into exeception pas savoir si cest a cause de 1/2 ou de 2/2 de grade qui n'est pas bon
 
 // ==================== EXCEPTION ==========================================================
 const char* Form::GradeTooHighException::what() const throw() { return "Grade too High"; }
