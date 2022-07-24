@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 14:15:59 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/23 01:09:04 by marvin           ###   ########.fr       */
+/*   Updated: 2022/07/24 13:27:46 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Form
 		
 		void beSigned( Bureaucrat const & employe );
 
-		void checkGrade( unsigned int gradeToSign, unsigned int gradeToExec ) const;
+		void checkGrade( unsigned int gradeToSign, unsigned int gradeToExec ) const = 0;
 
 		class GradeTooHighException : public std::exception
 		{
