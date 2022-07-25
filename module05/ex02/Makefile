@@ -3,7 +3,7 @@ GREEN 	= \033[0;32m
 RED 	= \033[0;31m
 END 	= \033[0m
 
-NAME = ex01
+NAME = ex02
 
 CC = clang++
 
@@ -13,9 +13,15 @@ CFLAGS =  -Werror -Wextra -Wall -std=c++98
 SRC = 	main.cpp \
 		Bureaucrat.cpp \
 		Form.cpp \
+		PresidentialPardonForm.cpp \
+		RobotomyRequestForm.cpp \
+		ShrubberyCreationForm.cpp \
 
 HEADER = Bureaucrat.hpp \
 		 Form.hpp \
+		 PresidentialPardonForm.cpp \
+		 RobotomyRequestForm.cpp \
+		 ShrubberyCreationForm.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 
