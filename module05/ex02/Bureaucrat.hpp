@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:45:46 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/23 17:08:54 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/07/25 16:10:13 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include <iostream>
 #include <string>
 #include <exception>
+#include <iostream>
+#include <fstream>
 #include "Form.hpp"
 
 # define BLUE "\033[0;36m"
@@ -56,6 +58,8 @@ class Bureaucrat
 		void downGrade( int nb );
 
 		void signForm( Form& form );
+
+		void executeForm(Form const & form);
 };
 
 std::ostream & operator<<( std:: ostream & o, Bureaucrat const & i);

@@ -13,15 +13,15 @@ CFLAGS =  -Werror -Wextra -Wall -std=c++98
 SRC = 	main.cpp \
 		Bureaucrat.cpp \
 		Form.cpp \
-		PresidentialPardonForm.cpp \
-		RobotomyRequestForm.cpp \
 		ShrubberyCreationForm.cpp \
+		# PresidentialPardonForm.cpp \
+		RobotomyRequestForm.cpp \
 
 HEADER = Bureaucrat.hpp \
 		 Form.hpp \
-		 PresidentialPardonForm.cpp \
-		 RobotomyRequestForm.cpp \
 		 ShrubberyCreationForm.cpp \
+		#  PresidentialPardonForm.cpp \
+		 RobotomyRequestForm.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 

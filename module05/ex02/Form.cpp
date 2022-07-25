@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 14:16:02 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/24 13:27:26 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/07/25 15:05:31 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void Form::beSigned( Bureaucrat const & employe ) {
         throw Form::GradeTooLowException();
     setIsSigned( true );
 }
+
 
 void Form::checkGrade( unsigned int gradeToSign, unsigned int gradeToExec ) const {
     if ( gradeToSign < 1 || gradeToExec < 1 )
