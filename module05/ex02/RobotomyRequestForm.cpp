@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 18:40:16 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/25 20:53:56 by marvin           ###   ########.fr       */
+/*   Updated: 2022/07/25 21:06:08 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,10 @@ void RobotomyRequestForm::execute( Bureaucrat const & executor ) const {
 		std::cout << "DRrrrrrrrwwwwwRRRWWRWRATATATATTTTAAAA" << std::endl;
 		if (std::rand() % 2 == 0) {
 			std::cout << YELLOW << executor.getName() << RESET << " have been Robotizzz" << std::endl;
-			
 		}
-		else
+		else{
 			std::cout << RED << executor.getName() << RESET << " Failed to robotize" << std::endl;
-		
+		}
 	}
 	else
 		throw Form::GradeTooLowException();
