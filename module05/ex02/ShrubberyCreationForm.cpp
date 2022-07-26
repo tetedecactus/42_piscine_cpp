@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 18:40:18 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/25 17:12:30 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/07/25 20:16:51 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void ShrubberyCreationForm::makeAsciiTree(  Bureaucrat const & executor ) const{
 		treeFile.open(executor.getName() + "_shrubbery");
 		if (treeFile.fail())
 		{
-			std::cerr << "cannot create " << (executor.getName() + "_shrubbery") << " file" << std::endl;
+			std::cerr << "cannot create " << executor.getName() + "_shrubbery" << " file" << std::endl;
 			return;
 		}
 		treeFile << "	     _-_" << '\n'

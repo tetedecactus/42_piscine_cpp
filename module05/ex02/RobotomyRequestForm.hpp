@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 18:39:35 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/25 16:53:05 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/07/25 20:12:57 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,8 @@ public:
 	RobotomyRequestForm( RobotomyRequestForm const & src );
 	virtual ~RobotomyRequestForm( void );
 
-	virtual void execute( Bureaucrat const & executor ) const;
-
-	void makeAsciiTree(  Bureaucrat const & executor ) const;
-
 	RobotomyRequestForm& operator=( RobotomyRequestForm const & rhs );
+
+	virtual void execute( Bureaucrat const & executor ) const;
 };
 

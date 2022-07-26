@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 18:39:24 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/25 16:53:43 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/07/25 20:19:19 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+
+#include "Form.hpp"
 
 class PresidentialPardonForm : public Form
 {
