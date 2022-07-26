@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:45:28 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/25 20:53:06 by marvin           ###   ########.fr       */
+/*   Updated: 2022/07/25 20:33:13 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int main(int ac, char **av)
 	{
 		Form* newBuisson =  new ShrubberyCreationForm();
 		Bureaucrat senior("Goku", 1);
-		senior.signForm(*newBuisson);
-		senior.executeForm(*newBuisson);
+		newBuisson->beSigned(senior);
+		newBuisson->execute(senior);
 		delete newBuisson;
 	}
 	catch(const std::exception& e)
@@ -47,8 +47,8 @@ int main(int ac, char **av)
 	{
 		Form* newRobot =  new RobotomyRequestForm();
 		Bureaucrat senior("Goku", 34);
-		senior.signForm(*newRobot);
-		senior.executeForm(*newRobot);
+		newRobot->beSigned(senior);
+		newRobot->execute(senior);
 		delete newRobot;
 	}
 	catch(const std::exception& e)
@@ -62,8 +62,8 @@ int main(int ac, char **av)
 	{
 		Form* newRobot =  new PresidentialPardonForm();
 		Bureaucrat senior("Goku", 34);
-		senior.signForm(*newRobot);
-		senior.executeForm(*newRobot);
+		newRobot->beSigned(senior);
+		newRobot->execute(senior);
 		delete newRobot;
 	}
 	catch(const std::exception& e)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:59:29 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/25 20:47:59 by marvin           ###   ########.fr       */
+/*   Updated: 2022/07/23 17:57:24 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void Bureaucrat::upGrade( int nb ) {
 	" get up grade of : " << nb << " lvl by his boss" << std::endl;
 }
 
-// ============================================= SIGN & EXECUTE FORM =================================================
+// ============================================= SIGN FORM =================================================
 void Bureaucrat::signForm( Form& form ) {
 	
 	try
@@ -86,25 +86,6 @@ void Bureaucrat::signForm( Form& form ) {
 		std::cerr << e.what() << '\n';
 	}
 
-}
-
-
-void Bureaucrat::executeForm( Form const & form ) {
-	
-	try
-	{
-		form.execute(*this);
-		std::cout << YELLOW << _name << RESET <<
-		" : Execute the form : " << form.getName() << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cout << PINK << _name << RESET
-		<< " couldn't execute " << PINK << form.getName() << RESET 
-		<< " because : " ;
-		std::cerr << e.what() << '\n';
-	}
-	
 }
 
 // ========================================= OPERATOR << =====================================================

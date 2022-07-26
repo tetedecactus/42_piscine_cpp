@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
+/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/23 18:40:16 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/25 20:53:56 by marvin           ###   ########.fr       */
+/*   Created: 2022/07/23 18:40:12 by olabrecq          #+#    #+#             */
+/*   Updated: 2022/07/25 20:20:08 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RobotomyRequestForm.hpp"
-#include <cstdlib>
+#include "PresidentialPardonForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm( void ) : Form("formulaire de demande de robotomie", 72, 45)
+PresidentialPardonForm::PresidentialPardonForm( void ) : Form("(formulaire de pardon présidentiel)", 25, 5)
 {
 	std::cout << BLUE << "Robotomy Request Construction Called" << RESET << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm( std::string& target ) : Form("(formulaire de demande de robotomie", 72, 45)
+PresidentialPardonForm::PresidentialPardonForm( std::string& target ) : Form("(formulaire de pardon présidentiel)", 25, 5)
 {
 	std::cout << BLUE << "Robotomy Request Construction Called with target : " << RESET << target << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const & src ) { *this = src; }
+PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const & src ) { *this = src; }
 
-RobotomyRequestForm::~RobotomyRequestForm( void )
+PresidentialPardonForm::~PresidentialPardonForm( void )
 {
 	std::cout << RED << "Robotomy Destructor Called" << RESET << std::endl;
 }
 
-RobotomyRequestForm& RobotomyRequestForm::operator=( RobotomyRequestForm const & rhs )
+PresidentialPardonForm& PresidentialPardonForm::operator=( PresidentialPardonForm const & rhs )
 {
 	if (this == &rhs) 
 		return (*this);
@@ -38,17 +37,10 @@ RobotomyRequestForm& RobotomyRequestForm::operator=( RobotomyRequestForm const &
     return (*this);
 }
 
-void RobotomyRequestForm::execute( Bureaucrat const & executor ) const {
+void PresidentialPardonForm::execute( Bureaucrat const & executor ) const {
 	
 	if ( getIsSigned() == true && executor.getGrade() <= getGradeToExec() ) {
-		std::cout << "DRrrrrrrrwwwwwRRRWWRWRATATATATTTTAAAA" << std::endl;
-		if (std::rand() % 2 == 0) {
-			std::cout << YELLOW << executor.getName() << RESET << " have been Robotizzz" << std::endl;
-			
-		}
-		else
-			std::cout << RED << executor.getName() << RESET << " Failed to robotize" << std::endl;
-		
+		std::cout << YELLOW << executor.getName() << RESET << " Have been forgive by Zaphod Beeblebrox" << std::endl;
 	}
 	else
 		throw Form::GradeTooLowException();
