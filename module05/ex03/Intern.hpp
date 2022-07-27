@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 11:04:40 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/26 14:15:33 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/07/26 20:58:13 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,21 @@
 
 class Form;
 
-class Intren 
+class Intern 
 {
 private:
 	/* data */
 public:
-	Intren( void );
-	Intren( Intren const & src );
-	virtual ~Intren( void );
+	Intern( void );
+	Intern( Intern const & src );
+	virtual ~Intern( void );
 
-	Intren& operator=( Intren const & rhs );
+	Intern& operator=( Intern const & rhs );
 
-	Form* makeForm( std::string& formName, std::string& target );
+	Form* makeForm( const std::string formName, const std::string& target );
 
-	Form* makeShrubbery( std::string& target );
-	Form* makeRobotomy( std::string& target );
-	Form* mkaePresidentialRequest( std::string& target );
+	Form* makeShrubbery( const std::string& target );
+	Form* makeRobotomy( const std::string& target );
+	Form* makePresidentialRequest( const std::string& target );
 
 };

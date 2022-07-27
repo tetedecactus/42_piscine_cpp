@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 18:40:18 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/25 20:16:51 by marvin           ###   ########.fr       */
+/*   Updated: 2022/07/26 20:59:52 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ ShrubberyCreationForm::ShrubberyCreationForm( void ) : Form("formulaire de créa
 	std::cout << BLUE << "Shrubbery Creation Construction Called" << RESET << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( std::string& target ) : Form("formulaire de création d’arbustes", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm( const std::string& target ) : Form("formulaire de création d’arbustes", 145, 137)
 {
 	std::cout << BLUE << "Shrubbery Creation Construction Called with target : " << RESET << target << std::endl;
 }

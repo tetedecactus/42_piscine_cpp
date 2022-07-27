@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:45:46 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/25 20:45:49 by marvin           ###   ########.fr       */
+/*   Updated: 2022/07/26 19:02:06 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # define RESET "\033[0m"
 
 class Form;
+class Intern;
 
 class Bureaucrat
 {

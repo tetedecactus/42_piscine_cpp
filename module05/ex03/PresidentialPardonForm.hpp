@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 18:39:24 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/25 20:19:19 by marvin           ###   ########.fr       */
+/*   Updated: 2022/07/26 21:00:38 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ private:
 	/* data */
 public:
 	PresidentialPardonForm( void );
-	PresidentialPardonForm( std::string& target );
+	PresidentialPardonForm( const std::string& target );
 	PresidentialPardonForm( PresidentialPardonForm const & src );
 	virtual ~PresidentialPardonForm( void );
 

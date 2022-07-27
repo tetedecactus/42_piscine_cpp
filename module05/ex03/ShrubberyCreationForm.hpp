@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 18:39:10 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/25 16:12:04 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/07/26 20:59:42 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ private:
 	/* data */
 public:
 	ShrubberyCreationForm( void );
-	ShrubberyCreationForm( std::string& target );
+	ShrubberyCreationForm( const std::string& target );
 	ShrubberyCreationForm( ShrubberyCreationForm const & src );
 	virtual ~ShrubberyCreationForm( void );
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 18:40:12 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/26 14:03:55 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/07/26 21:00:44 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ PresidentialPardonForm::PresidentialPardonForm( void ) : Form("formulaire de par
 	std::cout << BLUE << "Robotomy Request Construction Called" << RESET << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm( std::string& target ) : Form("formulaire de pardon présidentiel", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm( const std::string& target ) : Form("formulaire de pardon présidentiel", 25, 5)
 {
 	std::cout << BLUE << "Robotomy Request Construction Called with target : " << RESET << target << std::endl;
 }

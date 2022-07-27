@@ -3,7 +3,7 @@ GREEN 	= \033[0;32m
 RED 	= \033[0;31m
 END 	= \033[0m
 
-NAME = ex02
+NAME = ex03
 
 CC = clang++
 
@@ -16,12 +16,14 @@ SRC = 	main.cpp \
 		ShrubberyCreationForm.cpp \
 		PresidentialPardonForm.cpp \
 		RobotomyRequestForm.cpp \
+		Intern.cpp \
 
 HEADER = Bureaucrat.hpp \
 		 Form.hpp \
 		 ShrubberyCreationForm.cpp \
 		 PresidentialPardonForm.cpp \
 		 RobotomyRequestForm.cpp \
+		 Intern.hpp \
 
 OBJ = $(SRC:.cpp=.o)
 
