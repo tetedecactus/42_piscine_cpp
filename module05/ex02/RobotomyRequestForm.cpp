@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 18:40:16 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/25 21:06:08 by marvin           ###   ########.fr       */
+/*   Updated: 2022/07/27 19:50:49 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ RobotomyRequestForm& RobotomyRequestForm::operator=( RobotomyRequestForm const &
 }
 
 void RobotomyRequestForm::execute( Bureaucrat const & executor ) const {
-	
+	std::srand(time(NULL));
 	if ( getIsSigned() == true && executor.getGrade() <= getGradeToExec() ) {
 		std::cout << "DRrrrrrrrwwwwwRRRWWRWRATATATATTTTAAAA" << std::endl;
 		if (std::rand() % 2 == 0) {
@@ -49,6 +49,10 @@ void RobotomyRequestForm::execute( Bureaucrat const & executor ) const {
 			std::cout << RED << executor.getName() << RESET << " Failed to robotize" << std::endl;
 		}
 	}
-	else
-		throw Form::GradeTooLowException();
+	else {
+		if (getIsSigned() == false)
+			throw Bureaucrat::FormNotSignedException();
+		else
+			throw Form::GradeTooLowException();
+	}
 }

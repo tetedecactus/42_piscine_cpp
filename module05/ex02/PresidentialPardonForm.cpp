@@ -3,30 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 18:40:12 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/25 20:20:08 by marvin           ###   ########.fr       */
+/*   Updated: 2022/07/27 19:50:59 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm( void ) : Form("(formulaire de pardon présidentiel)", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm( void ) : Form("formulaire de pardon présidentiel", 25, 5)
 {
-	std::cout << BLUE << "Robotomy Request Construction Called" << RESET << std::endl;
+	std::cout << BLUE << "Presidential Pardon Construction Called" << RESET << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm( std::string& target ) : Form("(formulaire de pardon présidentiel)", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm( std::string& target ) : Form("formulaire de pardon présidentiel", 25, 5)
 {
-	std::cout << BLUE << "Robotomy Request Construction Called with target : " << RESET << target << std::endl;
+	std::cout << BLUE << "Presidential Pardon Construction Called with target : " << RESET << target << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const & src ) { *this = src; }
 
 PresidentialPardonForm::~PresidentialPardonForm( void )
 {
-	std::cout << RED << "Robotomy Destructor Called" << RESET << std::endl;
+	std::cout << RED << "Presidential Pardon Destructor Called" << RESET << std::endl;
 }
 
 PresidentialPardonForm& PresidentialPardonForm::operator=( PresidentialPardonForm const & rhs )
@@ -42,6 +42,10 @@ void PresidentialPardonForm::execute( Bureaucrat const & executor ) const {
 	if ( getIsSigned() == true && executor.getGrade() <= getGradeToExec() ) {
 		std::cout << YELLOW << executor.getName() << RESET << " Have been forgive by Zaphod Beeblebrox" << std::endl;
 	}
-	else
-		throw Form::GradeTooLowException();
+	else {
+		if (getIsSigned() == false)
+			throw Bureaucrat::FormNotSignedException();
+		else
+			throw Form::GradeTooLowException();
+	}
 }

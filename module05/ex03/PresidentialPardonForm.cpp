@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 18:40:12 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/26 21:00:44 by marvin           ###   ########.fr       */
+/*   Updated: 2022/07/27 19:55:50 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,12 @@ PresidentialPardonForm& PresidentialPardonForm::operator=( PresidentialPardonFor
 void PresidentialPardonForm::execute( Bureaucrat const & executor ) const {
 	
 	if ( getIsSigned() == true && executor.getGrade() <= getGradeToExec() ) {
-		std::cout << YELLOW << executor.getName() << RESET << " Have been forgive by Zaphod Beeblebrox" << std::endl;
+		std::cout << YELLOW << executor.getName() << RESET << " : Have been forgive by Zaphod Beeblebrox" << std::endl;
 	}
-	else
-		throw Form::GradeTooLowException();
+	else {
+		if (getIsSigned() == false)
+			throw Bureaucrat::FormNotSignedException();
+		else
+			throw Form::GradeTooLowException();
+	}
 }

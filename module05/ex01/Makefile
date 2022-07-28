@@ -5,7 +5,7 @@ END 	= \033[0m
 
 NAME = ex01
 
-CC = clang++
+CC = c++
 
 # add this flags forxxx evaluation: -std=c++98 -Wall -Wextra -Werror
 CFLAGS =  -Werror -Wextra -Wall -std=c++98
@@ -21,7 +21,7 @@ OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(HEADER)
 	@echo "$(YELLOW) Compiling...$(END)"
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 	@echo "$(END)"

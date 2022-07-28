@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:45:46 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/25 20:45:49 by marvin           ###   ########.fr       */
+/*   Updated: 2022/07/27 19:48:33 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <iostream>
 #include <fstream>
 #include "Form.hpp"
+#include <cstdlib>
 
 # define BLUE "\033[0;36m"
 # define PINK "\033[0;35m"
@@ -53,7 +54,10 @@ class Bureaucrat
 		{
 			virtual const char* what() const throw();
 		};
-
+		class FormNotSignedException : public std::exception
+		{
+			virtual const char* what() const throw();
+		};
 		void upGrade( int nb );
 		void downGrade( int nb );
 

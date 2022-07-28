@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:45:28 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/26 21:12:00 by marvin           ###   ########.fr       */
+/*   Updated: 2022/07/27 19:58:09 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,87 @@
 	
 int	main(void)
 {
-	Intern	someRandomIntern;
-	Form*	rrf1;
-
-	rrf1 = someRandomIntern.makeForm("ShrubberyCreation", "David Smirnoff");
 	
-	Bureaucrat isa = Bureaucrat("Jean-Claude Van Dram", 1);
+	std::cout << PINK << "TEST 1" << RESET << std::endl;
+	try
+	{
+		Intern	someRandomIntern;
+		Form*	rrf1;
 
-	if (rrf1 == NULL)
-		return 1;
-	isa.signForm(*rrf1);
-	isa.executeForm(*rrf1);
-	delete rrf1;
+		rrf1 = someRandomIntern.makeForm("ShrubberyCreation", "David Smirnoff");
+		
+		Bureaucrat senior = Bureaucrat("Luffy", 1);
 
+		if (rrf1 == NULL)
+			return 1;
+		senior.signForm(*rrf1);
+		senior.executeForm(*rrf1);
+		delete rrf1;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << PINK << "TEST 2" << RESET << std::endl;
+	try
+	{
+		Intern	someRandomIntern;
+		Form*	rrf1;
 
+		rrf1 = someRandomIntern.makeForm("RobotomyRequest", "Pierre Palm Bay");
+		
+		Bureaucrat senior = Bureaucrat("Zoro", 1);
+
+		if (rrf1 == NULL)
+			return 1;
+		senior.signForm(*rrf1);
+		senior.executeForm(*rrf1);
+		delete rrf1;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << PINK << "TEST 3" << RESET << std::endl;
+	try
+	{
+		Intern	someRandomIntern;
+		Form*	rrf1;
+
+		rrf1 = someRandomIntern.makeForm("PresidentialPardon", "Cindy Coors Light");
+		
+		Bureaucrat senior = Bureaucrat("Sanji", 1);
+
+		if (rrf1 == NULL)
+			return 1;
+		senior.signForm(*rrf1);
+		senior.executeForm(*rrf1);
+		delete rrf1;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << PINK << "TEST 4" << RESET << std::endl;
+	try
+	{
+		Intern	someRandomIntern;
+		Form*	rrf1;
+
+		rrf1 = someRandomIntern.makeForm("Presidential Pardon", "Bruno Budweiser");
+		
+		Bureaucrat senior = Bureaucrat("Franky", 1);
+
+		if (rrf1 == NULL)
+			return 1;
+		senior.signForm(*rrf1);
+		senior.executeForm(*rrf1);
+		delete rrf1;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 	return 0;
 }
 	

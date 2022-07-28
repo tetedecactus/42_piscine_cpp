@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 18:40:18 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/25 20:16:51 by marvin           ###   ########.fr       */
+/*   Updated: 2022/07/27 19:50:19 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,12 @@ void ShrubberyCreationForm::execute( Bureaucrat const & executor ) const {
 	
 	if ( getIsSigned() == true && executor.getGrade() <= getGradeToExec() )
 		makeAsciiTree( executor );
-	else
-		throw Form::GradeTooLowException();
+	else {
+		if (getIsSigned() == false)
+			throw Bureaucrat::FormNotSignedException();
+		else
+			throw Form::GradeTooLowException();
+	}
 }
 
 

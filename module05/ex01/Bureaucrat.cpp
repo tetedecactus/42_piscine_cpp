@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:59:29 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/23 17:57:24 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/07/27 19:18:11 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Bureaucrat::Bureaucrat( std::string name, unsigned int grade ) : _name(name), _g
 		throw Bureaucrat::GradeTooLowException();
 	if ( _grade < 1 )
 		throw Bureaucrat::GradeTooHighException();
-	std::cout << BLUE << "Default Const with Parameter Called for : " + _name << RESET << std::endl;
+	std::cout << BLUE << "Default Const with Parameter Called for : " << RESET << _name << std::endl;
 }
 
 Bureaucrat::Bureaucrat( Bureaucrat const & src ) {

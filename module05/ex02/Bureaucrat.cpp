@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:59:29 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/25 20:47:59 by marvin           ###   ########.fr       */
+/*   Updated: 2022/07/27 19:48:07 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Bureaucrat::Bureaucrat( std::string name, unsigned int grade ) : _name(name), _g
 		throw Bureaucrat::GradeTooLowException();
 	if ( _grade < 1 )
 		throw Bureaucrat::GradeTooHighException();
-	std::cout << BLUE << "Default Const with Parameter Called for : " + _name << RESET << std::endl;
+	std::cout << BLUE << "Default Const with Parameter Called for : " << RESET << _name  << std::endl;
 }
 
 Bureaucrat::Bureaucrat( Bureaucrat const & src ) {
@@ -33,7 +33,7 @@ Bureaucrat::Bureaucrat( Bureaucrat const & src ) {
 }
 
 Bureaucrat::~Bureaucrat( void ) {
-	std::cout << RED << "Destructor Called for : " + _name << RESET << std::endl;
+	std::cout << RED << "Destructor Called for : " << RESET << _name << std::endl;
 }
 
 Bureaucrat& Bureaucrat::operator=( Bureaucrat const & rhs) {
@@ -49,7 +49,7 @@ std::string Bureaucrat::getName( void ) const { return _name; }
 // ==================== EXCEPTION ==========================================================
  const char* Bureaucrat::GradeTooHighException::what() const throw() { return "Grade of Bureaucrat is too High"; }
  const char* Bureaucrat::GradeTooLowException::what() const throw() { return "Grade of Bureaucrat is too Low"; }
-
+const char* Bureaucrat::FormNotSignedException::what() const throw() { return "Form unsigned can't be execute"; }
 // ======================================== UP & DOWN GRRADE FUNCTION ======================================================
 void Bureaucrat::downGrade( int nb ) {
 	if ( _grade + nb > 150 )

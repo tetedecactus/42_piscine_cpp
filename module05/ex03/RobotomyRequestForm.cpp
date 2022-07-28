@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 18:40:16 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/26 21:00:22 by marvin           ###   ########.fr       */
+/*   Updated: 2022/07/27 19:55:55 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ RobotomyRequestForm::RobotomyRequestForm( void ) : Form("formulaire de demande d
 	std::cout << BLUE << "Robotomy Request Construction Called" << RESET << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm( const std::string& target ) : Form("(formulaire de demande de robotomie", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm( const std::string& target ) : Form("formulaire de demande de robotomie", 72, 45)
 {
 	std::cout << BLUE << "Robotomy Request Construction Called with target : " << RESET << target << std::endl;
 }
@@ -39,17 +39,19 @@ RobotomyRequestForm& RobotomyRequestForm::operator=( RobotomyRequestForm const &
 }
 
 void RobotomyRequestForm::execute( Bureaucrat const & executor ) const {
-	
+	std::srand(time(NULL));
 	if ( getIsSigned() == true && executor.getGrade() <= getGradeToExec() ) {
 		std::cout << "DRrrrrrrrwwwwwRRRWWRWRATATATATTTTAAAA" << std::endl;
-		if (std::rand() % 2 == 0) {
+		if (std::rand() % 2  == 0) 
 			std::cout << YELLOW << executor.getName() << RESET << " have been Robotizzz" << std::endl;
-			
-		}
 		else
 			std::cout << RED << executor.getName() << RESET << " Failed to robotize" << std::endl;
 		
 	}
-	else
-		throw Form::GradeTooLowException();
+	else {
+		if (getIsSigned() == false)
+			throw Bureaucrat::FormNotSignedException();
+		else
+			throw Form::GradeTooLowException();
+	}
 }

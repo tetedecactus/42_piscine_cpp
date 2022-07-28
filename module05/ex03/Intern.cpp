@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 11:02:50 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/26 21:05:11 by marvin           ###   ########.fr       */
+/*   Updated: 2022/07/27 11:18:12 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 #include "PresidentialPardonForm.hpp"
 Intern::Intern( void ) 
 {
-	
+	std::cout << "Intern constructor called" << std::endl;
 }
 
 Intern::Intern( Intern const & src ) { *this = src; }
 
 Intern::~Intern( void )
 {
-	
+	std::cout << "Intern Destructor called" << std::endl;
 }
 
 Intern& Intern::operator=( Intern const & rhs )

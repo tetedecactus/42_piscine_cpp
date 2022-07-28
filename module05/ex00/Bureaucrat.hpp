@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:45:46 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/22 17:46:03 by marvin           ###   ########.fr       */
+/*   Updated: 2022/07/27 15:55:24 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ class Bureaucrat
 };
 
 std::ostream & operator<<( std:: ostream & o, Bureaucrat const & i);
-
 
 // https://cplusplus.com/doc/tutorial/exceptions/
 // https://cplusplus.com/reference/exception/exception/
