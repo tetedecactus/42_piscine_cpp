@@ -8,7 +8,7 @@ NAME = ex02
 CC = c++
 
 # add this flags forxxx evaluation: -std=c++98 -Wall -Wextra -Werror
-CFLAGS =  -Werror -Wextra -Wall -std=c++98 
+CFLAGS =  -Werror -Wextra -Wall -std=c++98
 
 SRC = 	main.cpp \
 		Bureaucrat.cpp \

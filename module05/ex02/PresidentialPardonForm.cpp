@@ -3,26 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 18:40:12 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/27 19:50:59 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/08/01 11:06:56 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm( void ) : Form("formulaire de pardon présidentiel", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm( void ) : Form("formulaire de pardon présidentiel", 25, 5), _target("the Rock")
 {
 	std::cout << BLUE << "Presidential Pardon Construction Called" << RESET << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm( std::string& target ) : Form("formulaire de pardon présidentiel", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm( const std::string& target ) : Form("formulaire de pardon présidentiel", 25, 5), _target(target)
 {
-	std::cout << BLUE << "Presidential Pardon Construction Called with target : " << RESET << target << std::endl;
+	std::cout << BLUE << "Presidential Pardon Construction Called with target : " << RESET << _target << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const & src ) { *this = src; }
+PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const & src ) : Form("formulaire de pardon présidentiel", 25, 5), _target(src._target) { *this = src; }
 
 PresidentialPardonForm::~PresidentialPardonForm( void )
 {
@@ -37,10 +37,12 @@ PresidentialPardonForm& PresidentialPardonForm::operator=( PresidentialPardonFor
     return (*this);
 }
 
+std::string PresidentialPardonForm::getTarget( void ) const { return _target; }
+
 void PresidentialPardonForm::execute( Bureaucrat const & executor ) const {
 	
 	if ( getIsSigned() == true && executor.getGrade() <= getGradeToExec() ) {
-		std::cout << YELLOW << executor.getName() << RESET << " Have been forgive by Zaphod Beeblebrox" << std::endl;
+		std::cout << YELLOW << getTarget() << RESET << " Have been forgive by Zaphod Beeblebrox" << std::endl;
 	}
 	else {
 		if (getIsSigned() == false)
