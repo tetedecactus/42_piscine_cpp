@@ -1,37 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Array.tpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/01 16:57:26 by marvin            #+#    #+#             */
-/*   Updated: 2022/08/01 16:57:26 by marvin           ###   ########.fr       */
+/*   Created: 2022/08/01 16:40:58 by marvin            #+#    #+#             */
+/*   Updated: 2022/08/01 16:40:58 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
 
-template < typename T >
-Array<T>::Array( void ) : _array(NULL), _len(0) {}
-
-template < typename T >
-Array<T>::Array( unsigned int len)
+int main()
 {
-    _array = new T[len];
-    _len = len;
-}
-
-template < typename T >
-Array<T>::~Array( void )
-{
-    delete[] _array;
-}
-
-template <typename T> 
-void Array<T>::print( T* _array)
-{
-    for (int i = 0; i < _len; i++)
-        cout << " " << *(_array + i);
-    cout << endl;
+    int arr[5] = { 1, 2, 3, 4, 5 };
+    Array<int> a( 5 );
+    a.print(arr);
+    return 0;
 }

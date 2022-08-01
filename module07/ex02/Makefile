@@ -11,7 +11,6 @@ CC = c++
 CFLAGS =  -Werror -Wextra -Wall 
 
 SRC = 	main.cpp \
-		Array.tpp\
 
 HEADER = Array.hpp \
 
