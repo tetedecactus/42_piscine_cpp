@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:45:28 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/27 19:22:31 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/08/01 11:40:12 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main(int ac, char **av)
 		std::cout << "This program take only his executable in parameter" << std::endl;
 		return 1;
 	}
-
+		
 	std::cout << PINK << "TEST 1" << RESET << std::endl;
 	try
 	{

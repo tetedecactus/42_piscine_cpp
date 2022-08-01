@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:59:29 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/23 01:05:50 by marvin           ###   ########.fr       */
+/*   Updated: 2022/08/01 11:41:10 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,6 @@ void Bureaucrat::upGrade( int nb ) {
 
 // ========================================= OPERATOR << =====================================================
 std::ostream& operator<<( std::ostream& o, Bureaucrat const & rhs ) {
-	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade(); 
+	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << std::endl; 
 	return o;
 }

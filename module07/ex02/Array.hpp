@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olabrecq <olabrecq@student.42quebec.com>   +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/01 12:12:15 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/08/01 12:12:15 by olabrecq         ###   ########.fr       */
+/*   Created: 2022/08/01 14:04:11 by marvin            #+#    #+#             */
+/*   Updated: 2022/08/01 14:04:11 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,19 @@
 # define RED "\033[0;31m"
 # define RESET "\033[0m"
 
-
 template < typename T >
-T const & min( T const & x, T const & y) { return ((x <= y) ? x : y); }
+class Array 
+{
+    private:
+        T* _array;
+        unsigned int _len;
+    public:
+        Array<T>( void );
+        Array<T>( unsigned int len );
+        Array<T>( Array<T> const & src );
+        ~Array<T>( void );
 
-template < typename T >
-T const & max( T const & x, T const & y) { return ((x >= y) ? x : y); }
-
-template < typename T >
-void swap( T& x, T& y) { 
-    T tmp = x;
-    x = y;
-    y = tmp; 
+        Array<T>& operator=( Array<T> const & rhs );
 }
+
+// https://stackoverflow.com/questions/70175085/is-it-a-good-practice-to-include-the-hpp-in-the-tpp-file

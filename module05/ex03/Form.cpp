@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 14:16:02 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/28 15:32:14 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/08/01 11:42:07 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ unsigned int Form::getGradeToExec( void ) const { return _gradeToExec; }
 // ========================================= OPERATOR << =====================================================
 std::ostream& operator<<( std::ostream& o, Form const & f ) {
     o << f.getName() << ", form, signing grade " << f.getGradeToSigned() << ", executing grade "
-       << f.getGradeToExec() << (f.getIsSigned() ? ", is signed" : ", is not signed");
+       << f.getGradeToExec() << (f.getIsSigned() ? ", is signed\n" : ", is not signed\n");
 
     return o;
 }

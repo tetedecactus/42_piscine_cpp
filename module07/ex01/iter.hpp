@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olabrecq <olabrecq@student.42quebec.com>   +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/01 12:12:15 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/08/01 12:12:15 by olabrecq         ###   ########.fr       */
+/*   Created: 2022/08/01 13:34:34 by marvin            #+#    #+#             */
+/*   Updated: 2022/08/01 13:34:34 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,13 @@
 # define RED "\033[0;31m"
 # define RESET "\033[0m"
 
-
 template < typename T >
-T const & min( T const & x, T const & y) { return ((x <= y) ? x : y); }
-
-template < typename T >
-T const & max( T const & x, T const & y) { return ((x >= y) ? x : y); }
-
-template < typename T >
-void swap( T& x, T& y) { 
-    T tmp = x;
-    x = y;
-    y = tmp; 
+void iter( T tab[], size_t len, void (*f)(const T&) ) {
+    for (size_t i = 0; i < len; i++) 
+    {
+        (*f)(tab[i]);
+    }
 }
+
+template < typename T >
+void printType(T& type) { std::cout << BLUE << type << RESET << std::endl; }
