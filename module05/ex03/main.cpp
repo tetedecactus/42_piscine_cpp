@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:45:28 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/27 19:58:09 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/07/28 10:51:57 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,10 +86,10 @@ int	main(void)
 	{
 		Intern	someRandomIntern;
 		Form*	rrf1;
+		Bureaucrat senior = Bureaucrat("Franky", 1);
 
 		rrf1 = someRandomIntern.makeForm("Presidential Pardon", "Bruno Budweiser");
 		
-		Bureaucrat senior = Bureaucrat("Franky", 1);
 
 		if (rrf1 == NULL)
 			return 1;

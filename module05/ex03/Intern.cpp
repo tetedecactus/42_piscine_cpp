@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 11:02:50 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/27 11:18:12 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/07/28 10:51:19 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+
 Intern::Intern( void ) 
 {
 	std::cout << "Intern constructor called" << std::endl;
@@ -36,33 +37,46 @@ Intern& Intern::operator=( Intern const & rhs )
     return (*this);
 }
 
+const char* Intern::WrongFormNameException::what() const throw() { return "Can't find the Form (Wrong Form Name)"; }
+
+
 Form* Intern::makeForm( const std::string formName, const std::string& target ) {
 
 	Form* (Intern::*ptrFunction[3])(const std::string& target) = {&Intern::makeShrubbery, &Intern::makeRobotomy, &Intern::makePresidentialRequest};
 	std::string choice[3] = {"ShrubberyCreation", "RobotomyRequest", "PresidentialPardon"};
-	int i;
-
-	i = 0;
-	while (formName != choice[i] && i <= 3)
-		i++;
-	if (i == 3)
-		std::cout << PINK << "Your target : "<< target << " was invalid, Please entre en un bon next time" << RESET << std::endl;
-	while ( i < 3 )
+	
+	try
 	{
-		switch ( i )
+		int i;
+
+		i = 0;
+		while (formName != choice[i] && i < 3) 
+			i++;
+		if (i == 3)
+			throw WrongFormNameException();
+		while ( i < 3 )
 		{
-		case 0:
-			return (this->*ptrFunction[i])(target);
-			break;
-		case 1:
-			return (this->*ptrFunction[i])(target);
-			break;
-		case 2:
-			return (this->*ptrFunction[i])(target);
-			break;
+			switch ( i )
+			{
+			case 0:
+				return (this->*ptrFunction[i])(target);
+				break;
+			case 1:
+				return (this->*ptrFunction[i])(target);
+				break;
+			case 2:
+				return (this->*ptrFunction[i])(target);
+				break;
+			}
+			i++;
 		}
-		i++;
 	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
+	
 	return (NULL);
 }
 

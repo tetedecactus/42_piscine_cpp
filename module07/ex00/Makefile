@@ -3,26 +3,18 @@ GREEN 	= \033[0;32m
 RED 	= \033[0;31m
 END 	= \033[0m
 
-NAME = ex02
+NAME = ex00
 
 CC = c++
 
 # add this flags forxxx evaluation: -std=c++98 -Wall -Wextra -Werror
-CFLAGS =  -Werror -Wextra -Wall -std=c++98 
+CFLAGS =  -Werror -Wextra -Wall -std=c++98
 
 SRC = 	main.cpp \
-		Bureaucrat.cpp \
-		Form.cpp \
-		ShrubberyCreationForm.cpp \
-		PresidentialPardonForm.cpp \
-		RobotomyRequestForm.cpp \
+		Data.cpp \
 
-HEADER = Bureaucrat.hpp \
-		 Form.hpp \
-		 ShrubberyCreationForm.cpp \
-		 PresidentialPardonForm.cpp \
-		 RobotomyRequestForm.cpp \
-
+HEADER = Animal.hpp \
+		 Data.hpp \
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)

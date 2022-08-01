@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 14:15:59 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/23 01:09:04 by marvin           ###   ########.fr       */
+/*   Updated: 2022/07/28 15:23:09 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class Form
 	private:
 		std::string const _name;
 		bool _isSigned;
-		unsigned int _gradeToSigned;
-		unsigned int _gradeToExec;
+		const unsigned int _gradeToSigned;
+		const unsigned int _gradeToExec;
 	public:
 		Form( void );
 		Form( std::string formName, unsigned int gradeToSigned, unsigned int gradeToexec );
@@ -44,8 +44,6 @@ class Form
 		};
 
 		void setIsSigned( bool newIsSigned );
-		void setGradeToSigned( unsigned int newtGradeToSigned );
-		void setGradeToExec( unsigned int newtGradeToExec );
 		
 		std::string getName( void ) const;
 		bool getIsSigned( void ) const;

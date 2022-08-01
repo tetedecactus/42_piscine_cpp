@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 16:06:41 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/27 16:16:16 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/07/28 12:18:58 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,7 @@ public:
 	~Data();
 };
 
-Data::Data(/* args */)
-{
-}
-
-Data::~Data()
-{
-}
-
-
+// https://en.cppreference.com/w/cpp/numeric/math/isnan
+// https://en.cppreference.com/w/cpp/numeric/math/isinf
+// https://en.cppreference.com/w/cpp/numeric/math/nan
 // https://stackoverflow.com/questions/5029840/convert-char-to-int-in-c-and-c

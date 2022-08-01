@@ -6,28 +6,24 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 14:16:02 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/27 19:48:42 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/07/28 15:26:42 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
 // =========== Constructor | Destructor |  ETC ... =======================================
-Form::Form( void ) : _name("B-12")
+Form::Form( void ) : _name("B-12"), _gradeToSigned(5), _gradeToExec(1)
 {
     _isSigned = false;
-    _gradeToSigned = 5;
-    _gradeToExec = 1;
 
     std::cout << BLUE << "Form " + _name << RESET
     <<" Default constructor called" << std::endl;
 }
 
-Form::Form( std::string formName, unsigned int gradeToSign, unsigned int gradeToExec ) : _name(formName)
+Form::Form( std::string formName, unsigned int gradeToSign, unsigned int gradeToExec ) : _name(formName), _gradeToSigned(gradeToSign), _gradeToExec(gradeToExec)
 {
     _isSigned = false;
-    _gradeToSigned = gradeToSign;
-    _gradeToExec = gradeToExec;
 
     checkGrade( gradeToSign, gradeToExec );
 
@@ -36,7 +32,7 @@ Form::Form( std::string formName, unsigned int gradeToSign, unsigned int gradeTo
 
 }
 
-Form::Form( Form const & src ) {
+Form::Form( Form const & src ) : _name(src._name), _gradeToSigned(src._gradeToSigned), _gradeToExec(src._gradeToExec) {
 	*this = src;
 	std::cout << BLUE << "Copy constructor called" << RESET << std::endl;
 }
@@ -49,8 +45,6 @@ Form::~Form( void )
 
 Form& Form::operator=( Form const & rhs ) {
     this->_isSigned = rhs.getIsSigned();
-    this->_gradeToSigned = rhs.getGradeToSigned();
-    this->_gradeToExec = rhs.getGradeToExec();
 	return *this;
 }
 
@@ -76,8 +70,6 @@ const char* Form::GradeTooLowException::what() const throw() { return "Grade of 
 
 // ========================= Setter & Getter ===========================================
 void Form::setIsSigned( bool newIsSigned ) { _isSigned = newIsSigned; }
-void Form::setGradeToSigned( unsigned int newGradeToSigned ) { _gradeToSigned = newGradeToSigned; }
-void Form::setGradeToExec( unsigned int newGradeToExec ) { _gradeToExec = newGradeToExec; }
 
 std::string Form::getName( void ) const { return _name; }
 bool Form::getIsSigned( void) const { return _isSigned; }
