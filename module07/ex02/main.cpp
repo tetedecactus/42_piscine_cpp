@@ -17,5 +17,12 @@ int main()
     int arr[5] = { 1, 2, 3, 4, 5 };
     Array<int> a( 5 );
     a.print(arr);
+
+    Array<int> b(a);
+    
+
+    b.print(arr);
+    
     return 0;
+
 }

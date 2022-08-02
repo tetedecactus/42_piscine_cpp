@@ -25,15 +25,30 @@ Array<T>::Array( unsigned int len)
 }
 
 template < typename T >
-Array<T>::~Array( void )
+Array<T>::Array( Array<T> const & src )
 {
-    delete[] _array;
+   *this = src;
 }
 
-template <typename T> 
+template < typename T >
+Array<T>::~Array( void )
+{
+    if ( _array == NULL )
+        delete[] _array;
+    // delete _array;
+}
+
+template < typename T > 
 void Array<T>::print( T* array)
 {
     for (unsigned int i = 0; i < _len; i++)
         std::cout << " " << *(array + i);
     std::cout << std::endl;
 }
+
+// template < typename T >
+// Array<T> & Array::operator=( Array<T> const & rhs )
+// {
+//     _array = rhs._array;
+//     _len = rhs._len;
+// }

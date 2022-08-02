@@ -32,13 +32,17 @@ class Array
     public:
         Array<T>( void );
         Array<T>( unsigned int len );
-        // Array<T>( Array<T> const & src );
+        Array<T>( Array<T> const & src );
         ~Array<T>( void );
 
-        // Array<T>& operator=( Array<T> const & rhs );
+        // Array<T> & operator=( Array<T> const & rhs );
 
         void print( T* array );
 };
+// std::ostream& operator<<( std::ostream & o, Array<T> const & src );
+
+
+
 // https://stackoverflow.com/questions/44774036/why-use-a-tpp-file-when-implementing-templated-functions-and-classes-defined-i
 // https://www.geeksforgeeks.org/templates-cpp/
 // https://stackoverflow.com/questions/70175085/is-it-a-good-practice-to-include-the-hpp-in-the-tpp-file
@@ -46,8 +50,8 @@ class Array
 //  Construction sans paramètres : crée un array vide. -x
 // • Construction avec un paramètre de type unsigned int n : crée un array de n
 // éléments initialisés par défaut. -x
+// Conseil : Essayez de compiler int * a = new int(); puis affichez *a. -x
 
-// Conseil : Essayez de compiler int * a = new int(); puis affichez *a. 
 
 // • Construction par recopie et surcharge de l’opérateur d’affectation. Dans les deux
 // cas, après une copie, toute modification de l’array original ou de sa copie ne doit
