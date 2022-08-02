@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Array.hpp"
+#pragma once
 
 template < typename T >
 Array<T>::Array( void ) : _array(NULL), _len(0) {}
@@ -29,7 +29,7 @@ Array<T>::~Array( void )
 }
 
 template <typename T> 
-void Array<T>::print( T* _array)
+void Array<T>::print( T* array)
 {
     for (int i = 0; i < _len; i++)
         cout << " " << *(_array + i);

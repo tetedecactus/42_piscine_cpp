@@ -14,6 +14,7 @@
 
 #include <iostream>
 #include <string>
+#include "Array.tpp"
 
 # define BLUE "\033[0;36m"
 # define PINK "\033[0;35m"
@@ -36,9 +37,9 @@ class Array
 
         // Array<T>& operator=( Array<T> const & rhs );
 
-        void print( T* _array );
+        void print( T* array );
 };
-
+// https://stackoverflow.com/questions/44774036/why-use-a-tpp-file-when-implementing-templated-functions-and-classes-defined-i
 // https://www.geeksforgeeks.org/templates-cpp/
 // https://stackoverflow.com/questions/70175085/is-it-a-good-practice-to-include-the-hpp-in-the-tpp-file
 
