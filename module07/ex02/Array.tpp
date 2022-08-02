@@ -12,6 +12,8 @@
 
 #pragma once
 
+#include "Array.hpp"
+
 template < typename T >
 Array<T>::Array( void ) : _array(NULL), _len(0) {}
 
@@ -31,7 +33,7 @@ Array<T>::~Array( void )
 template <typename T> 
 void Array<T>::print( T* array)
 {
-    for (int i = 0; i < _len; i++)
-        cout << " " << *(_array + i);
-    cout << endl;
+    for (unsigned int i = 0; i < _len; i++)
+        std::cout << " " << *(array + i);
+    std::cout << std::endl;
 }
