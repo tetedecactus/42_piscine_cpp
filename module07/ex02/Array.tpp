@@ -57,6 +57,15 @@ class Array
 				std::cout << " " << *(array + i);
 			std::cout << std::endl;
 		}
+
+		void setArray(T* array, unsigned int len)
+		{
+			for (unsigned int i = 0; i < len; i++)
+				_array[i] = array[i];
+			std::cout << std::endl;
+		}
+
+		T* getArray( void ) const { return _array; }
 };
 // std::ostream& operator<<( std::ostream & o, Array<T> const & src );
 
