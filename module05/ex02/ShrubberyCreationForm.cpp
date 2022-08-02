@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 18:40:18 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/08/01 10:31:38 by marvin           ###   ########.fr       */
+/*   Updated: 2022/08/02 13:25:22 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,19 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm( void ) : Form("formulaire de création d’arbustes", 145, 137), _target("The Buisson")
 {
-	std::cout << BLUE << "Shrubbery Creation Construction Called" << RESET << std::endl;
+	// std::cout << BLUE << "Shrubbery Creation Construction Called" << RESET << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm( const std::string& target ) : Form("formulaire de création d’arbustes", 145, 137), _target(target)
 {
-	std::cout << BLUE << "Shrubbery Creation Construction Called with target : " << RESET << _target << std::endl;
+	// std::cout << BLUE << "Shrubbery Creation Construction Called with target : " << RESET << _target << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm const & src ) : Form("formulaire de création d’arbustes", 145, 137), _target(src._target) { *this = src; }
 
 ShrubberyCreationForm::~ShrubberyCreationForm( void )
 {
-	std::cout << RED << "Shrubbery Destructor Called" << RESET << std::endl;
+	// std::cout << RED << "Shrubbery Destructor Called" << RESET << std::endl;
 }
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=( ShrubberyCreationForm const & rhs )

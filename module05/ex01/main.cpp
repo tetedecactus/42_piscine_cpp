@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:45:28 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/08/01 11:40:12 by marvin           ###   ########.fr       */
+/*   Updated: 2022/08/02 14:33:21 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,13 @@ int main(int ac, char **av)
 	try
 	{
 		Form form("b-99", 5, 1);
+		Form form_b = form;
 		Bureaucrat junior("olivier", 4);
 		junior.signForm(form);
 		junior.downGrade(2);
 		junior.signForm(form);
+		std::cout << form_b;
+		std::cout << form;
 	}
 	catch(const std::exception& e)
 	{
@@ -43,6 +46,8 @@ int main(int ac, char **av)
 		senior.signForm(form);
 		senior.upGrade(8);
 		senior.signForm(form);
+		std::cout << form;
+		
 	}
 	catch(const std::exception& e)
 	{
@@ -54,9 +59,12 @@ int main(int ac, char **av)
 	{
 		Form form ("PFK bari-bari", 1, 2);
 		Bureaucrat senior("Mario", 1);
+		std::cout << form;
 		senior.signForm(form);
 		senior.downGrade(150);
 		senior.signForm(form);
+		std::cout << form;
+
 	}
 	catch(const std::exception& e)
 	{
@@ -71,6 +79,8 @@ int main(int ac, char **av)
 		senior.signForm(form);
 		senior.upGrade(180);
 		senior.signForm(form);
+		std::cout << form;
+
 	}
 	catch(const std::exception& e)
 	{
@@ -85,6 +95,8 @@ int main(int ac, char **av)
 		senior.signForm(form);
 		senior.downGrade(100);
 		senior.signForm(form);
+		std::cout << form;
+
 	}
 	catch(const std::exception& e)
 	{

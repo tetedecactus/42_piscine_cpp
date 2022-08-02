@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 11:02:50 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/07/28 10:51:19 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/08/02 13:27:41 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@
 
 Intern::Intern( void ) 
 {
-	std::cout << "Intern constructor called" << std::endl;
+	// std::cout << "Intern constructor called" << std::endl;
 }
 
 Intern::Intern( Intern const & src ) { *this = src; }
 
 Intern::~Intern( void )
 {
-	std::cout << "Intern Destructor called" << std::endl;
+	// std::cout << "Intern Destructor called" << std::endl;
 }
 
 Intern& Intern::operator=( Intern const & rhs )
@@ -75,7 +75,6 @@ Form* Intern::makeForm( const std::string formName, const std::string& target ) 
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
 	
 	return (NULL);
 }

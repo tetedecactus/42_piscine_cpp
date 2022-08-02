@@ -23,25 +23,6 @@
 # define RED "\033[0;31m"
 # define RESET "\033[0m"
 
-template < typename T >
-class Array 
-{
-    private:
-        T* _array;
-        unsigned int _len;
-    public:
-        Array<T>( void );
-        Array<T>( unsigned int len );
-        Array<T>( Array<T> const & src );
-        ~Array<T>( void );
-
-        // Array<T> & operator=( Array<T> const & rhs );
-
-        void print( T* array );
-};
-// std::ostream& operator<<( std::ostream & o, Array<T> const & src );
-
-
 
 // https://stackoverflow.com/questions/44774036/why-use-a-tpp-file-when-implementing-templated-functions-and-classes-defined-i
 // https://www.geeksforgeeks.org/templates-cpp/

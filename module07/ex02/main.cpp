@@ -18,7 +18,9 @@ int main()
     Array<int> a( 5 );
     a.print(arr);
 
-    Array<int> b(a);
+    // Array<int> b(a);
+    Array<int> b;
+	b = a;
     
 
     b.print(arr);

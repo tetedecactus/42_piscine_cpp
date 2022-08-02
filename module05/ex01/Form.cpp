@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 14:16:02 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/08/01 11:39:37 by marvin           ###   ########.fr       */
+/*   Updated: 2022/08/02 13:23:14 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 Form::Form( void ) : _name("B-12"), _gradeToSigned(5), _gradeToExec(1)
 {
     _isSigned = false;
-    std::cout << BLUE << "Form " + _name << RESET
-    <<" Default constructor called" << std::endl;
+    // std::cout << BLUE << "Form " + _name << RESET
+    // <<" Default constructor called" << std::endl;
 }
 
 Form::Form( std::string formName, unsigned int gradeToSign, unsigned int gradeToExec ) : _name(formName), _gradeToSigned(gradeToSign), _gradeToExec(gradeToExec)
@@ -26,20 +26,20 @@ Form::Form( std::string formName, unsigned int gradeToSign, unsigned int gradeTo
 
     checkGrade( gradeToSign, gradeToExec );
 
-    std::cout << BLUE << "Form " + _name << RESET
-    <<" Default constructor with param called" << std::endl;
+    // std::cout << BLUE << "Form " + _name << RESET
+    // <<" Default constructor with param called" << std::endl;
 
 }
 
 Form::Form( Form const & src ) : _name(src._name), _gradeToSigned(src._gradeToSigned), _gradeToExec(src._gradeToExec) {
 	*this = src;
-	std::cout << BLUE << "Copy constructor called" << RESET << std::endl;
+	// std::cout << BLUE << "Copy constructor called" << RESET << std::endl;
 }
 
 Form::~Form( void )
 {
-    std::cout << RED << "Form " + _name << RESET
-    <<" Default Destructor called" << std::endl;
+    // std::cout << RED << "Form " + _name << RESET
+    // <<" Default Destructor called" << std::endl;
 }
 
 Form& Form::operator=( Form const & rhs ) {

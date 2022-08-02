@@ -15,40 +15,48 @@
 #include "Array.hpp"
 
 template < typename T >
-Array<T>::Array( void ) : _array(NULL), _len(0) {}
-
-template < typename T >
-Array<T>::Array( unsigned int len)
+class Array 
 {
-    _array = new T[len];
-    _len = len;
-}
+    private:
+        T* _array;
+        unsigned int _len;
+    public:
+        Array<T>( void ) : _array(NULL), _len(0) {}
 
-template < typename T >
-Array<T>::Array( Array<T> const & src )
-{
-   *this = src;
-}
+        Array<T>( unsigned int len )
+		{
+			_array = new T[len];
+			_len = len;
+		}
 
-template < typename T >
-Array<T>::~Array( void )
-{
-    if ( _array == NULL )
-        delete[] _array;
-    // delete _array;
-}
+        Array<T>( Array<T> const & src )
+		{
+			*this = src;
+			return ;
+		}
 
-template < typename T > 
-void Array<T>::print( T* array)
-{
-    for (unsigned int i = 0; i < _len; i++)
-        std::cout << " " << *(array + i);
-    std::cout << std::endl;
-}
+        ~Array<T>( void )
+		{
+			if ( _array != NULL )
+				delete[] _array;
+			// delete _array;
+		}
 
-// template < typename T >
-// Array<T> & Array::operator=( Array<T> const & rhs )
-// {
-//     _array = rhs._array;
-//     _len = rhs._len;
-// }
+        Array<T>& operator=( Array<T> const & rhs )
+		{
+			_len = rhs._len;
+			_array = new T[rhs._len];
+			for (unsigned int i = 0; i < rhs._len;i++)
+				_array[i] = rhs._array[i];
+			return *this;
+		}
+
+        void print( T* array )
+		{
+			for (unsigned int i = 0; i < _len; i++)
+				std::cout << " " << *(array + i);
+			std::cout << std::endl;
+		}
+};
+// std::ostream& operator<<( std::ostream & o, Array<T> const & src );
+

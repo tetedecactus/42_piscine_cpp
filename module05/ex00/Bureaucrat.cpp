@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 15:59:29 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/08/01 11:41:10 by marvin           ###   ########.fr       */
+/*   Updated: 2022/08/02 13:21:56 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // =========== Constructor | Destructor |  ETC ... =======================================
 Bureaucrat::Bureaucrat( void ) : _name("Pierre Default Bureaucrat Name"), _grade(150) {
-	std::cout << BLUE << "Default Const Called" << RESET << std::endl;
+	// std::cout << BLUE << "Default Const Called" << RESET << std::endl;
 }
 
 Bureaucrat::Bureaucrat( std::string name, unsigned int grade ) : _name(name), _grade(grade) {
@@ -22,16 +22,16 @@ Bureaucrat::Bureaucrat( std::string name, unsigned int grade ) : _name(name), _g
 		throw Bureaucrat::GradeTooLowException();
 	if ( _grade < 1 )
 		throw Bureaucrat::GradeTooHighException(); 
-	std::cout << BLUE << "Default Const with Parameter Called for : " + _name << RESET << std::endl;
+	// std::cout << BLUE << "Default Const with Parameter Called for : " + _name << RESET << std::endl;
 }
 
 Bureaucrat::Bureaucrat( Bureaucrat const & src ) {
 	*this = src;
-	std::cout << BLUE << "Copy constructor called" << RESET << std::endl;
+	// std::cout << BLUE << "Copy constructor called" << RESET << std::endl;
 }
 
 Bureaucrat::~Bureaucrat( void ) {
-	std::cout << RED << "Destructor Called for : " + _name << RESET << std::endl;
+	// std::cout << RED << "Destructor Called for : " + _name << RESET << std::endl;
 }
 
 Bureaucrat& Bureaucrat::operator=( Bureaucrat const & rhs) {
@@ -57,7 +57,7 @@ void Bureaucrat::downGrade( int nb ) {
 
 void Bureaucrat::upGrade( int nb ) {
 	if ( _grade - nb < 1 ) 
-		throw Bureaucrat::GradeTooLowException();
+		throw Bureaucrat::GradeTooHighException();
 	setGrade( _grade - nb );
 }
 
