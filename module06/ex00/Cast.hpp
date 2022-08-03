@@ -69,6 +69,8 @@ class Cast
 
 
 // : char, int, float ou double.
+// https://stackoverflow.com/questions/7416445/what-is-use-of-c-str-function
+// https://stackoverflow.com/questions/32676414/c-using-stdsscanf-and-stdstring
 // https://cplusplus.com/reference/string/string/c_str/
 // https://www.geeksforgeeks.org/static_cast-in-c-type-casting-operators/
 // https://en.cppreference.com/w/cpp/language/static_cast
