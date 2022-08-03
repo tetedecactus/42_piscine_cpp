@@ -44,10 +44,18 @@ int main()
     c.setArray(arrString, 3);
     c.print();
 
-    std::string msg = "Bon-matin";
-    c[3] = msg;
-    c.print();
-
+    // std::string msg = "Bon-matin";
+    // c[3] = msg;
+    // c.print();
+    try
+    {
+        a.operator[1] = 0;
+        a.print();
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
     
     return 0;
 
