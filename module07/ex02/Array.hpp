@@ -23,7 +23,7 @@
 # define RED "\033[0;31m"
 # define RESET "\033[0m"
 
-
+// https://cplusplus.com/reference/string/string/operator[]/
 // https://stackoverflow.com/questions/44774036/why-use-a-tpp-file-when-implementing-templated-functions-and-classes-defined-i
 // https://www.geeksforgeeks.org/templates-cpp/
 // https://stackoverflow.com/questions/70175085/is-it-a-good-practice-to-include-the-hpp-in-the-tpp-file

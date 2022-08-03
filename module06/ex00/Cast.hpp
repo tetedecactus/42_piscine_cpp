@@ -13,10 +13,19 @@
 
 #pragma once
 
+# define BLUE "\033[0;36m"
+# define PINK "\033[0;35m"
+# define GREEN "\033[0;32m"
+# define YELLOW "\033[0;33m"
+# define RED "\033[0;31m"
+# define RESET "\033[0m"
+
 #include <iostream>
 #include <cstdio>
+#include <cstring>// c_str
 #include <bits/stdc++.h>// INT_MIN //INT MAX -> WSL
 #include <limits>
+#include <exception>
 
 class Cast
 {
@@ -25,17 +34,42 @@ class Cast
 	public:
 		Cast( void );
 		Cast( std::string arg );
-		Cast::Cast( Cast const & src);
+		Cast( Cast const & src);
 		~Cast();
 		Cast& operator=( Cast const & rhs );
+		
+		// ==== GETTER | SETTER =========================
+		std::string getArg( void ) const;
+		void        setArg( std::string );
 
+		// ==== METHODS =================================
+		int chechArgs( void );
+		int checkPrecission( void );
+
+		void 	printChar( void );
+		void	printInt( void );
+		void 	printFloat( void );
+		void	printDouble( void );
+
+		// ==== EXCEPTION ===============================
+		class ImpossibleCast : public std::exception
+		{
+			virtual const char* what() const throw();
+		};
+
+		class UnPrintable : public std::exception
+		{
+			virtual const char* what() const throw();
+		};
 		
 };
 
+// C_stt
 
 
 
 // : char, int, float ou double.
+// https://cplusplus.com/reference/string/string/c_str/
 // https://www.geeksforgeeks.org/static_cast-in-c-type-casting-operators/
 // https://en.cppreference.com/w/cpp/language/static_cast
 // https://cplusplus.com/reference/memory/static_pointer_cast/
