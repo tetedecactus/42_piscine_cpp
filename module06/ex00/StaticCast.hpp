@@ -27,6 +27,7 @@ class Cast
 		
 		float 	_f;
 		bool 	_isF;
+		
 	public:
 		Cast(/* args */);
 		~Cast();
