@@ -24,7 +24,7 @@
 #include <iostream>
 #include <cstdio>
 #include <cstring>// c_str
-// #include <bits/stdc++.h>// INT_MIN //INT MAX -> WSL
+#include <bits/stdc++.h>// INT_MIN INT MAX -> WSL
 #include <limits>
 #include <exception>
 
@@ -46,7 +46,8 @@ class Cast
 		// ==== METHODS =================================
 		int checkArgs( void );
 		int checkPrecision( void );
-
+		int checkArgIsDigit( void );
+		
 		void 	printChar( void );
 		void	printInt( void );
 		void 	printFloat( void );
