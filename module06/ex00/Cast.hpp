@@ -64,11 +64,13 @@ class Cast
 		
 };
 
-// C_stt
+// C_stt0xAlidy
 
+// https://www.youtube.com/results?search_query=c_str()+function+c%2B%2B
+// https://www.youtube.com/watch?v=qt4_N68hpGE
+// https://www.youtube.com/watch?v=J-aSdLuMYFY
 
-
-// : char, int, float ou double.
+// : char, int, float ou double.)
 // https://stackoverflow.com/questions/7416445/what-is-use-of-c-str-function
 // https://stackoverflow.com/questions/32676414/c-using-stdsscanf-and-stdstring
 // https://cplusplus.com/reference/string/string/c_str/

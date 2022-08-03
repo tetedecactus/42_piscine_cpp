@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 16:06:36 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/08/03 00:11:04 by marvin           ###   ########.fr       */
+/*   Updated: 2022/08/03 10:55:07 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,14 @@
 
 int main ()
 {
-	std::string str ("Please split this sentence into tokens");
+	std::string string("Hello world!");
+	std::size_t pos1 = string.find_first_of('w');
 
-	char * cstr = new char [str.length()+1];
-	std::strcpy (cstr, str.c_str());
-	
-	std::cout << cstr << std::endl;
+	std::size_t pos2 = static_cast<std::size_t>(std::strchr(string.c_str(), 'w') - string.c_str());
 
-	// cstr now contains a c-string copy of str
-
-	// char * p = std::strtok (cstr," ");
-	// std::cout << cstr << std::endl;
-
-	// while (p!=0)
-	// {
-	// 	std::cout << p << '\n';
-	// 	p = std::strtok(NULL," ");
-	// }
-
-	delete[] cstr;
-	return 0;
+	if (pos1 == pos2) {
+		std::printf("Both ways give the same result.\n");
+	}
 }
 
 // int main( int ac, char **av )
