@@ -13,24 +13,23 @@
 
 #pragma once
 
+#include <iostream>
+#include <cstdio>
+#include <bits/stdc++.h>// INT_MIN //INT MAX -> WSL
+#include <limits>
+
 class Cast
 {
 	private:
-		char 	_c;
-		bool	_isC;
-
-		int 	_i;
-		bool 	_isI;
-
-		double 	_d;
-		bool 	_isD;
-		
-		float 	_f;
-		bool 	_isF;
-		
+		std::string _arg;
 	public:
-		Cast(/* args */);
+		Cast( void );
+		Cast( std::string arg );
+		Cast::Cast( Cast const & src);
 		~Cast();
+		Cast& operator=( Cast const & rhs );
+
+		
 };
 
 
@@ -40,6 +39,8 @@ class Cast
 // https://www.geeksforgeeks.org/static_cast-in-c-type-casting-operators/
 // https://en.cppreference.com/w/cpp/language/static_cast
 // https://cplusplus.com/reference/memory/static_pointer_cast/
+// https://www.programiz.com/cpp-programming/library-function/cstdio/sscanf
+
 
 // https://en.cppreference.com/w/cpp/numeric/math/isnan
 // https://en.cppreference.com/w/cpp/numeric/math/isinf

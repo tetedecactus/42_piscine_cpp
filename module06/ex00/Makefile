@@ -11,10 +11,10 @@ CC = c++
 CFLAGS =  -Werror -Wextra -Wall -std=c++98
 
 SRC = 	main.cpp \
-		Data.cpp \
+		# Cast.cpp \
 
-HEADER = Animal.hpp \
-		 Data.hpp \
+HEADER = Cast.hpp \
+
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)

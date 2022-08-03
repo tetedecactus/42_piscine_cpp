@@ -6,18 +6,16 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 16:06:36 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/08/02 21:18:45 by marvin           ###   ########.fr       */
+/*   Updated: 2022/08/02 23:06:23 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-
+#include "Cast.hpp"
 int main( )
 {
-	float a = 42.042f;
-
-	void* b = (void*)&a;
-
-	printf("a = %p, b = %p", &a, b);
+	
+	
+	sscanf()
+	
 	
 }
