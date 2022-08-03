@@ -20,10 +20,11 @@
 # define RED "\033[0;31m"
 # define RESET "\033[0m"
 
+#include <iomanip>  
 #include <iostream>
 #include <cstdio>
 #include <cstring>// c_str
-#include <bits/stdc++.h>// INT_MIN //INT MAX -> WSL
+// #include <bits/stdc++.h>// INT_MIN //INT MAX -> WSL
 #include <limits>
 #include <exception>
 
@@ -43,8 +44,8 @@ class Cast
 		void        setArg( std::string );
 
 		// ==== METHODS =================================
-		int chechArgs( void );
-		int checkPrecission( void );
+		int checkArgs( void );
+		int checkPrecision( void );
 
 		void 	printChar( void );
 		void	printInt( void );
@@ -64,8 +65,8 @@ class Cast
 		
 };
 
-// C_stt0xAlidy
-
+// https://cplusplus.com/reference/cstdio/sscanf/
+// https://cplusplus.com/reference/iomanip/setprecision/
 // https://www.youtube.com/results?search_query=c_str()+function+c%2B%2B
 // https://www.youtube.com/watch?v=qt4_N68hpGE
 // https://www.youtube.com/watch?v=J-aSdLuMYFY
