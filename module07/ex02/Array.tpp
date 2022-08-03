@@ -39,7 +39,6 @@ class Array
 		{
 			if ( _array != NULL )
 				delete[] _array;
-			// delete _array;
 		}
 
         Array<T>& operator=( Array<T> const & rhs )
@@ -51,19 +50,43 @@ class Array
 			return *this;
 		}
 
-        void print( T* array )
+        //============== OPERATOR[] ==============
+        Array<T>& operator[]( size_t pos )
+        {
+            if (pos > _len || pos < 0)
+                throw ElementNotFound();
+            return _array[ pos ];
+        }
+
+        //=============== EXCEPTION =============
+        class ElementNotFound : public std::exception
+        {
+            virtual const char* what() const throw() {return "Element number can't be found";};
+        };
+
+        //============== SIZE(getLen()) ======================
+        size_t size( void ) const
+        {
+            return getLen();
+        }
+
+        //==================== GETTER SETTER PRINTER =============
+        void print( void )
 		{
 			for (unsigned int i = 0; i < _len; i++)
-				std::cout << " " << *(array + i);
+				std::cout << " " << *(_array + i);
 			std::cout << std::endl;
 		}
 
-		void setArray(T* array, unsigned int len)
+		void setArray(T* array, size_t len)
 		{
-			for (unsigned int i = 0; i < len; i++)
+			for (size_t i = 0; i < len; i++)
 				_array[i] = array[i];
-			std::cout << std::endl;
 		}
+
+        void setLen( unsigned int len ) { _len = len; }
+
+        unsigned int getLen( void ) const { return _len; }
 
 		T* getArray( void ) const { return _array; }
 };
