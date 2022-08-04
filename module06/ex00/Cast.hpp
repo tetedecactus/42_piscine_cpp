@@ -24,7 +24,7 @@
 #include <iostream>
 #include <cstdio>
 #include <cstring>// c_str
-#include <bits/stdc++.h>// INT_MIN INT MAX -> WSL
+//#include <bits/stdc++.h>// INT_MIN INT MAX -> WSL
 #include <limits>
 #include <exception>
 

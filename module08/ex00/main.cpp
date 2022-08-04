@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ABC.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/03 21:30:47 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/08/04 12:37:42 by olabrecq         ###   ########.fr       */
+/*   Created: 2022/08/04 13:55:19 by olabrecq          #+#    #+#             */
+/*   Updated: 2022/08/04 15:44:17 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once 
-
-
-#include "Base.hpp"
-
-class A : public Base
+#include "easyfind.tpp"
+int main()
 {
-};
-
-class B : public Base
-{
-};
-
-class C : public Base
-{
-};
+  	std::vector<int> v (42, 3);
+	// int nb = 4;
+	easyfind(v, 3);
+	
+}

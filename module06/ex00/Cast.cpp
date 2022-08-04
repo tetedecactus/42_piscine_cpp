@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 16:06:45 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/08/03 21:45:01 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/08/04 13:36:10 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,14 @@ const char* Cast::ImpossibleCast::what() const throw() { return "Cast Impossible
 // ==== METHODS =================================
 
 int Cast::checkArgIsDigit( void ) {
+	int count = 0;
     for (size_t i = 0; i < _arg.size(); i++)
     {
-        if (i > 1  && isdigit(_arg[i]))
+		if (_arg[i] == '.')
+			count++;
+		if ((_arg[i] == 0 && _arg[0] == '-') || (_arg[i] == 0 && _arg[0] == '+'))
+			continue;
+        if ((i > 1  && !isdigit(_arg[i])) && (_arg[i] != '.' || count > 1))
             return -42;
     }
     return 0;
