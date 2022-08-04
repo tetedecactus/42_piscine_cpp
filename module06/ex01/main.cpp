@@ -3,26 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 20:46:23 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/08/03 21:14:10 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/08/03 22:08:51 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Data.hpp"
 
-uintptr_t	serialize(Data* ptr) {
-	uintptr_t value = reinterpret_cast<uintptr_t>(ptr);
-	
-	return value;
-}
+uintptr_t	serialize(Data* ptr) { return (reinterpret_cast<uintptr_t>(ptr)); }
 
-Data*	deserialize(uintptr_t raw) {
-	Data* value = reinterpret_cast<Data*>(raw);
-	
-	return value;
-}
+Data*	deserialize(uintptr_t raw) { return (reinterpret_cast<Data*>(raw)); }
 
 int main()
 {

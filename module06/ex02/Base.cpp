@@ -3,13 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   Base.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 21:37:41 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/08/03 21:38:01 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/08/03 22:11:50 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #incldue "Base.hpp"
 
 Base::~Base() {}
+
+Base* generate( void ) {
+    
+}
+
+void identify( Base* p ) {
+    
+}
+
+void identify( Base& p ) {
+    
+}
