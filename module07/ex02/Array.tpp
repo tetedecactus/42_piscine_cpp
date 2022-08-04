@@ -51,11 +51,12 @@ class Array
 		}
 
         //============== OPERATOR[] ==============
-        Array<T>& operator[]( size_t pos )
+        T& operator[]( size_t pos )
         {
             if (pos > _len || pos < 0)
                 throw ElementNotFound();
-            return _array[ pos ];
+			else
+				return _array[ pos ];
         }
 
         //=============== EXCEPTION =============

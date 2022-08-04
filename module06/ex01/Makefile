@@ -3,7 +3,7 @@ GREEN 	= \033[0;32m
 RED 	= \033[0;31m
 END 	= \033[0m
 
-NAME = ex00
+NAME = ex01
 
 CC = c++
 
@@ -11,9 +11,8 @@ CC = c++
 CFLAGS =  -Werror -Wextra -Wall -std=c++98
 
 SRC = 	main.cpp \
-		Cast.cpp \
 
-HEADER = Cast.hpp \
+HEADER = Data.hpp \
 
 OBJ = $(SRC:.cpp=.o)
 

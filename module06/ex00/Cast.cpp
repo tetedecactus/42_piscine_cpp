@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 16:06:45 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/08/03 16:32:11 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/08/03 19:47:46 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ int Cast::checkPrecision( void ) {
     return ((_arg.size() == nb || decimal == 1) ? 1 : decimal - 1);
 }
 
-
 void 	Cast::printChar( void ) {
 	int arg = checkArgs();
 	if ( arg == -1 && !(sscanf(_arg.c_str(), "%d", &arg)) )
@@ -72,6 +71,7 @@ void	Cast::printInt( void ) {
 	std::cout << PINK << " ' " << static_cast<int>(arg) << " ' " << RESET << std::endl;
 }
 
+
 void 	Cast::printFloat( void ) {
 	float arg = checkArgs();
 	if (arg == -1)
@@ -89,7 +89,7 @@ void 	Cast::printFloat( void ) {
 		else if (!(sscanf(_arg.c_str(), "%f", &arg)))
 			throw ImpossibleCast();
 	}
-	std::cout << std::fixed << std::setprecision(checkPrecision()) << static_cast<float>(arg);//
+	std::cout << std::fixed << std::setprecision(checkPrecision()) << static_cast<float>(arg);
 	std::cout << "f" << std::endl;
 }
 
