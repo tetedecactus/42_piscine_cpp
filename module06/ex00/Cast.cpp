@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 16:06:45 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/08/03 19:47:46 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/08/03 21:45:01 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,19 @@ const char* Cast::ImpossibleCast::what() const throw() { return "Cast Impossible
 
 // ==== METHODS =================================
 
+int Cast::checkArgIsDigit( void ) {
+    for (size_t i = 0; i < _arg.size(); i++)
+    {
+        if (i > 1  && isdigit(_arg[i]))
+            return -42;
+    }
+    return 0;
+}
+
 int Cast::checkArgs( void ) {
 	char arg;
-	
+	if (checkArgIsDigit() == -42)
+        return -2;
     if (!(sscanf(_arg.c_str(), "%c", &arg)) || _arg.size() > 1 || _arg == "0")
         return -1;
     return (static_cast<int>(arg));
@@ -55,20 +65,20 @@ int Cast::checkPrecision( void ) {
 
 void 	Cast::printChar( void ) {
 	int arg = checkArgs();
-	if ( arg == -1 && !(sscanf(_arg.c_str(), "%d", &arg)) )
+	if ( (arg == -1 && !(sscanf(_arg.c_str(), "%d", &arg))) || arg == -2 )
 		throw ImpossibleCast();
 	else if ( arg < 32 || arg > 126 )
 		throw UnPrintable();
-	std::cout << PINK << " ' " << static_cast<char>(arg) << " ' " << RESET << std::endl;
+	std::cout << static_cast<char>(arg) << std::endl;
 }
 
 void	Cast::printInt( void ) {
 	long arg = checkArgs();
-	if ( arg == -1 && !(sscanf(_arg.c_str(), "%ld", &arg)) )
+	if ( (arg == -1 && !(sscanf(_arg.c_str(), "%ld", &arg))) || (arg == -2 && _arg != "-2") )
 		throw ImpossibleCast();
 	else if ( arg < INT_MIN || arg > INT_MAX )
 		throw UnPrintable();
-	std::cout << PINK << " ' " << static_cast<int>(arg) << " ' " << RESET << std::endl;
+	std::cout << static_cast<int>(arg) << std::endl;
 }
 
 
@@ -89,7 +99,10 @@ void 	Cast::printFloat( void ) {
 		else if (!(sscanf(_arg.c_str(), "%f", &arg)))
 			throw ImpossibleCast();
 	}
-	std::cout << std::fixed << std::setprecision(checkPrecision()) << static_cast<float>(arg);
+    else if ((arg == -2 && _arg != "-2")) {
+        throw ImpossibleCast();
+    }
+	std::cout << std::fixed << std::setprecision(checkPrecision()) << static_cast<float>(arg);//
 	std::cout << "f" << std::endl;
 }
 
@@ -110,5 +123,8 @@ void	Cast::printDouble( void ) {
 		else if (!(sscanf(_arg.c_str(), "%lf", &arg)))
 			throw ImpossibleCast();
 	}
+    else if ((arg == -2 && _arg != "-2")) {
+        throw ImpossibleCast();
+    }
 	std::cout <<  std::fixed << std::setprecision(checkPrecision()) << static_cast<double>(arg) << std::endl;
 }
