@@ -31,4 +31,7 @@ void iter( T tab[], size_t len, void (*f)(const T&) ) {
 }
 
 template < typename T >
-void printType(T& type) { std::cout << BLUE << type << RESET << std::endl; }
+void printType(T& type) 
+{ 
+	std::cout << BLUE << type << RESET << std::endl; 
+}

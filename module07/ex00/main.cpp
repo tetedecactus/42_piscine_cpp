@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 12:31:25 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/08/01 13:11:07 by marvin           ###   ########.fr       */
+/*   Updated: 2022/08/05 15:06:36 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,15 @@ int main( void ) {
 	std::cout << "e = " << e << ", f = " << f << std::endl;
 	std::cout << "min( e, f ) = " << ::min( e, f ) << std::endl;
 	std::cout << "max( e, f ) = " << ::max( e, f ) << std::endl;
+
+	std::cout << PINK << "TEST 3 => FLOAT" << RESET << std::endl;
+	double u = 42.69777f;
+	double g = 69.42777f;
+	
+	::swap(u, g);
+	std::cout << "e = " << u << ", f = " << g << std::endl;
+	std::cout << "min( e, f ) = " << ::min( u, g ) << std::endl;
+	std::cout << "max( e, f ) = " << ::max( u, g ) << std::endl;
 
 	return 0;
 }

@@ -14,14 +14,5 @@
 
 int main()
 {
-    Span list(6);
-
-	list.addNumber(1);
-	list.addNumber(4);
-	list.addNumber(7);
-	list.addNumber(8);
-	list.addNumber(3);
-	list.addNumber(1);
-
-	list.printSpan();
+    
 }
