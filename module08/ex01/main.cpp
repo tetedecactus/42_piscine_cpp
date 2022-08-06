@@ -23,5 +23,9 @@ int main()
 	list.addNumber(3);
 	list.addNumber(1);
 
+	list.addNumber(1);
+	list.addNumber(1);
+
+
 	list.printSpan();
 }

@@ -18,8 +18,9 @@ Span::Span( void ) : V(0), _N(0)
 
 }
 
-Span::Span( unsigned int N ) :  V(N), _N(N)
+Span::Span( unsigned int N ) : _N(N)
 {
+	V.reserve(N);
 	std::cout << "V size = " << V.size() << std::endl;
 }
 
@@ -49,7 +50,7 @@ const char* Span::alreadyFull::what() const throw() { return "The Span array is 
 void Span::addNumber( unsigned int N ) {
 	if (V.size() > _N)
 		throw alreadyFull();
-	V.assign(1, N);
+	V.push_back( N );
 }
 
 // unsigned int Span::shortestSpan( void ) const {
