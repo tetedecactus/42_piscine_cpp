@@ -15,13 +15,12 @@
 
 Span::Span( void ) : V(0), _N(0)
 {
-
+	
 }
 
 Span::Span( unsigned int N ) : _N(N)
 {
 	V.reserve(N);
-	std::cout << "V size = " << V.size() << std::endl;
 }
 
 Span::Span( const Span& src )
@@ -44,22 +43,29 @@ Span& Span::operator=( const Span& rhs )
 
 // ======= EXCEPTION ==============
 const char* Span::alreadyFull::what() const throw() { return "The Span array is already full | element can't be added"; }
+const char* Span::NoDistancePossible::what() const throw() { return "No distance Possible ( Span got 1 or 0 element )"; }
 
 // ========= METHODS ===============
 
-void Span::addNumber( unsigned int N ) {
-	if (V.size() > _N)
+void Span::addNumber( int N ) {
+	if (V.size() >= _N)
 		throw alreadyFull();
 	V.push_back( N );
 }
 
-// unsigned int Span::shortestSpan( void ) const {
+unsigned int Span::shortestSpan( void ) const {
 
-// }
+	if ( V.size() <= 1 )
+		throw NoDistancePossible();
 
-// unsigned int Span::longestSpan( void ) const {
+	return ;
+}
 
-// }
+unsigned int Span::longestSpan( void ) const {
+	if ( V.size() <= 1 )
+		throw NoDistancePossible();
+	return (*max_element(V.begin(), V.end()) - *min_element(V.begin(), V.end()));
+}
 
 void Span::printSpan( void ) {
 	for (size_t i = 0; i < V.size(); i++)

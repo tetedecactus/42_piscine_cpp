@@ -15,6 +15,7 @@
 #include <iostream>
 #include <vector>
 #include <exception>
+#include <algorithm>
 
 class Span
 {
@@ -32,8 +33,12 @@ class Span
 		{
 			virtual const char* what() const throw();
 		};
+		class NoDistancePossible : public std::exception
+		{
+			virtual const char* what() const throw();
+		};
 
-		void addNumber( unsigned int N );
+		void addNumber( int N );
 		unsigned int shortestSpan( void ) const;
 		unsigned int longestSpan( void ) const;
 
@@ -45,3 +50,7 @@ class Span
 // https://en.cppreference.com/w/cpp/iterator/iterator
 // https://cplusplus.com/reference/algorithm/find/
 // https://users.cs.northwestern.edu/~riesbeck/programming/c++/stl-iterator-define.html
+// https://en.cppreference.com/w/cpp/algorithm/max_element
+// https://en.cppreference.com/w/cpp/algorithm/min_element
+// https://en.cppreference.com/w/cpp/utility/in_range
+// https://www.geeksforgeeks.org/iterators-c-stl/
