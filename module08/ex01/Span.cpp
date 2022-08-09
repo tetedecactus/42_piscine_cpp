@@ -34,7 +34,7 @@ Span::~Span( void )
 
 Span& Span::operator=( const Span& rhs )
 {
-	_V = rhs.V;
+	_V = rhs._V;
 	_N = rhs._N;
 
 	return *this;
@@ -42,7 +42,7 @@ Span& Span::operator=( const Span& rhs )
 
 
 // ======= EXCEPTION ==============
-const char* Span::alreadyFull::what() const throw() { return "The Span array is already full | element can't be added"; }
+const char* Span::AlreadyFull::what() const throw() { return "The Span array is already full | element can't be added"; }
 const char* Span::NoDistancePossible::what() const throw() { return "No distance Possible ( Span got 1 or 0 element )"; }
 const char* Span::RangeTooHigh::what() const throw() { return "Range is larger than the Span Array"; }
 
@@ -50,16 +50,18 @@ const char* Span::RangeTooHigh::what() const throw() { return "Range is larger t
 
 void Span::addNumber( int N ) {
 	if (_V.size() >= _N)
-		throw alreadyFull();
+		throw AlreadyFull();
 	_V.push_back( N );
 }
 
-void Span::addNumberRage( int FirstN, int secondN ) {
+void Span::addNumberRage( std::vector<int>::iterator FirstN, std::vector<int>::iterator secondN ) {
 	_V.begin() = FirstN;
 	_V.end() = secondN;
-	if (difference entre begin end  > range - > throw)
+	if (std::distance(, _V.end()) >= _N)// need to test with First N second
+		throw RangeTooHigh();
 	else
-		for(_Vbegin -> end, addnumber)
+		for(std::vector<int>::iterator it = _V.begin() ; it != _V.end(); ++it)
+			addNumber(*it);
 }
 
 unsigned int Span::shortestSpan( void ) const {

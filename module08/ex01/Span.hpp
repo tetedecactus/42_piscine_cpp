@@ -16,6 +16,7 @@
 #include <vector>
 #include <exception>
 #include <algorithm>
+#include <list>
 
 class Span
 {
@@ -29,7 +30,7 @@ class Span
         ~Span( void );
         Span& operator=( const Span& rhs );
 
-		class alreadyFull : public std::exception
+		class AlreadyFull : public std::exception
 		{
 			virtual const char* what() const throw();
 		};
@@ -40,10 +41,10 @@ class Span
 		class RangeTooHigh : public std::exception
 		{
 			virtual const char* what() const throw();
-		}
+		};
 
 		void addNumber( int N );
-		void addNumberRage( int firstN, int secondN );
+		void addNumberRage( std::vector<int>::iterator firstN, std::vector<int>::iterator secondN );
 		unsigned int shortestSpan( void ) const;
 		unsigned int longestSpan( void ) const;
 

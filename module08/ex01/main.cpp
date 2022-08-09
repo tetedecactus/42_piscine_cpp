@@ -16,12 +16,13 @@ int main()
 {
     Span list(6);
 
-	list.addNumber(1);
-	list.addNumber(4);
-	list.addNumber(7);
-	list.addNumber(100);
-	list.addNumber(3);
-	list.addNumber(1);
+	list.addNumberRage(0, 8);
+	// list.addNumber(1);
+	// list.addNumber(4);
+	// list.addNumber(7);
+	// list.addNumber(100);
+	// list.addNumber(3);
+	// list.addNumber(1);
 
 	try
 	{
