@@ -12,11 +12,11 @@
 
 #pragma once 
 
-#include <iostream>
 #include <vector>
-#include <exception>
+#include <iostream>
 #include <algorithm>
-#include <list>
+#include <limits.h>
+#include <stdint.h>
 
 class Span
 {
@@ -44,7 +44,7 @@ class Span
 		};
 
 		void addNumber( int N );
-		void addNumberRage( std::vector<int>::iterator firstN, std::vector<int>::iterator secondN );
+		void addNumberRange( std::vector<int>::iterator firstN, std::vector<int>::iterator secondN );
 		unsigned int shortestSpan( void ) const;
 		unsigned int longestSpan( void ) const;
 

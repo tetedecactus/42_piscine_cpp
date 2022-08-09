@@ -54,23 +54,21 @@ void Span::addNumber( int N ) {
 	_V.push_back( N );
 }
 
-void Span::addNumberRage( std::vector<int>::iterator FirstN, std::vector<int>::iterator secondN ) {
-	_V.begin() = FirstN;
-	_V.end() = secondN;
-	if (std::distance(, _V.end()) >= _N)// need to test with First N second
+void Span::addNumberRange( std::vector<int>::iterator FirstN, std::vector<int>::iterator secondN ) {
+	if (std::distance(FirstN, secondN) + _V.size() >= _N)
 		throw RangeTooHigh();
 	else
 		for(std::vector<int>::iterator it = _V.begin() ; it != _V.end(); ++it)
 			addNumber(*it);
 }
 
-unsigned int Span::shortestSpan( void ) const {
+// unsigned int Span::shortestSpan( void ) const {
 
-	if ( _V.size() <= 1 )
-		throw NoDistancePossible();
+// 	if ( _V.size() <= 1 )
+// 		throw NoDistancePossible();
 
-	return ;
-}
+// 	return ;
+// }
 
 unsigned int Span::longestSpan( void ) const {
 	if ( _V.size() <= 1 )
