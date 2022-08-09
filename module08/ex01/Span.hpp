@@ -30,23 +30,23 @@ class Span
         ~Span( void );
         Span& operator=( const Span& rhs );
 
-		class AlreadyFull : public std::exception
+		class AlreadyFullException : public std::exception
 		{
 			virtual const char* what() const throw();
 		};
-		class NoDistancePossible : public std::exception
+		class NoDistancePossibleException : public std::exception
 		{
 			virtual const char* what() const throw();
 		};
-		class RangeTooHigh : public std::exception
+		class RangeTooHighException : public std::exception
 		{
 			virtual const char* what() const throw();
 		};
 
 		void addNumber( int N );
 		void addNumberRange( std::vector<int>::iterator firstN, std::vector<int>::iterator secondN );
-		unsigned int shortestSpan( void ) const;
-		unsigned int longestSpan( void ) const;
+		unsigned int shortestSpan( void );
+		unsigned int longestSpan( void );
 
 		void printSpan( void );
 

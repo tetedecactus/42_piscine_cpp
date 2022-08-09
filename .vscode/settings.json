@@ -82,7 +82,8 @@
 		"xtr1common": "cpp",
 		"xutility": "cpp",
 		"filesystem": "cpp",
-		"*.tpp": "cpp"
+		"*.tpp": "cpp",
+		"span": "cpp"
 	},
 	"C_Cpp.errorSquiggles": "Disabled"
 }

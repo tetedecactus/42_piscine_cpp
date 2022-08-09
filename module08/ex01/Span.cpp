@@ -42,44 +42,52 @@ Span& Span::operator=( const Span& rhs )
 
 
 // ======= EXCEPTION ==============
-const char* Span::AlreadyFull::what() const throw() { return "The Span array is already full | element can't be added"; }
-const char* Span::NoDistancePossible::what() const throw() { return "No distance Possible ( Span got 1 or 0 element )"; }
-const char* Span::RangeTooHigh::what() const throw() { return "Range is larger than the Span Array"; }
+const char* Span::AlreadyFullException::what() const throw() { return "The Span array is already full | element can't be added"; }
+const char* Span::NoDistancePossibleException::what() const throw() { return "No distance Possible ( Span got 1 or 0 element )"; }
+const char* Span::RangeTooHighException::what() const throw() { return "Range is larger than the Span Array"; }
 
 // ========= METHODS ===============
 
 void Span::addNumber( int N ) {
 	if (_V.size() >= _N)
-		throw AlreadyFull();
+		throw AlreadyFullException();
 	_V.push_back( N );
 }
 
 void Span::addNumberRange( std::vector<int>::iterator FirstN, std::vector<int>::iterator secondN ) {
-	if (std::distance(FirstN, secondN) + _V.size() >= _N)
-		throw RangeTooHigh();
+	if (std::distance(FirstN, secondN) > _N)
+		throw RangeTooHighException();
 	else
-		for(std::vector<int>::iterator it = _V.begin() ; it != _V.end(); ++it)
+		for(std::vector<int>::iterator it = FirstN ; it != secondN; ++it)
 			addNumber(*it);
 }
 
-// unsigned int Span::shortestSpan( void ) const {
 
-// 	if ( _V.size() <= 1 )
-// 		throw NoDistancePossible();
+unsigned int Span::shortestSpan( void ) {
+	if (_V.size() <= 1)
+		throw NoDistancePossibleException();
+	std::vector<int>::iterator it1 = _V.begin();
+	std::vector<int>::iterator ite = _V.end();
+	int min = INT_MAX;
 
-// 	return ;
-// }
+	for(; it1 != ite; it1++)
+	{
+		for (std::vector<int>::iterator it2 = (it1 + 1); it2 != ite; it2++)
+			if (std::abs(*it1 - *it2) < min)
+				min = std::abs(*it1 - *it2);
+	}
+	return min;
+}
 
-unsigned int Span::longestSpan( void ) const {
+unsigned int Span::longestSpan( void ) {
 	if ( _V.size() <= 1 )
-		throw NoDistancePossible();
+		throw NoDistancePossibleException();
 	return (*max_element(_V.begin(), _V.end()) - *min_element(_V.begin(), _V.end()));
 }
 
 void Span::printSpan( void ) {
-	for (size_t i = 0; i < _V.size(); i++)
-	{
-		std::cout << "Vector[i] = " << _V[i] << std::endl;
-	}
-	
+	std::vector<int>::iterator it = _V.begin();
+	std::vector<int>::iterator ite = _V.end();
+		while(it != ite)
+			std::cout << *it++ << '\n';
 }

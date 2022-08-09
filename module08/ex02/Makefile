@@ -3,7 +3,7 @@ GREEN 	= \033[0;32m
 RED 	= \033[0;31m
 END 	= \033[0m
 
-NAME = ex01
+NAME = ex02
 
 CC = c++
 
@@ -11,9 +11,8 @@ CC = c++
 CFLAGS =  -Werror -Wextra -Wall -std=c++98
 
 SRC = 	main.cpp \
-		Span.cpp \
 
-HEADER = Span.hpp \
+HEADER = MutantStack.tpp \
 
 OBJ = $(SRC:.cpp=.o)
 

@@ -14,34 +14,98 @@
 
 int main()
 {
-    Span list(10);
+   {
+        Span sp = Span(5);
 
-	// list.addNumberRage(0, 8);
-	list.addNumber(1);
-	// list.addNumber(4);
-	// list.addNumber(7);
-	list.addNumber(100);
-	list.addNumber(3);
-	list.addNumber(1);
+        sp.addNumber(5);
+        sp.addNumber(3);
+        sp.addNumber(17);
+        sp.addNumber(9);
+        sp.addNumber(11);
 
-	std::vector<int> tab;
-	tab.push_back(2);
-	tab.push_back(9);
-	tab.push_back(4);
-	tab.push_back(5);
-	tab.push_back(7);
+        std::cout << "Shortest = " << sp.shortestSpan() << std::endl;
+        std::cout << "Longest = " << sp.longestSpan() << std::endl;
 
-	try
-	{
-		list.addNumberRange(tab.begin(), tab.end());
-		// list.addNumber(1);
-	}
-	catch(const std::exception& e)
-	{
+       try
+	   {
+            sp.addNumber(10);
+	   }
+	   catch(const std::exception& e)
+	   {
 		std::cerr << e.what() << '\n';
-	}	
-	// std::cout << "Distance = " << list.longestSpan() << std::endl;
+	   }
+	   
+    }
 
+    {
+        srand(static_cast<unsigned int>(time(NULL)));
 
-	list.printSpan();
+        std::vector<int> v;
+        for (std::size_t i = 0; i < 10000; ++i) {
+            v.push_back(rand());
+        }
+
+        Span s(10000);
+
+        s.addNumberRange(v.begin(), v.end());
+        std::cout << "Shortest = " << s.shortestSpan() << std::endl;
+        std::cout << "Longest = " << s.longestSpan() << std::endl;
+    }
+
+    {
+        Span s(10);
+
+        try 
+		{
+			std::cout << "test 1" << std::endl;
+            std::cout << "Shortest = " << s.shortestSpan() << std::endl;
+        } 
+		catch (const std::exception& e) 
+		{
+            std::cout << e.what() << "\n";
+        }
+
+        try 
+		{
+			std::cout << "test 2" << std::endl;
+            std::cout << "Longest = " << s.longestSpan() << std::endl;
+        } 
+		catch (const std::exception& e) 
+		{
+            std::cout << e.what() << "\n";
+        }
+
+        s.addNumber(5);
+
+        try 
+		{
+			std::cout << "test 3" << std::endl;
+            std::cout << "Shortest = " << s.shortestSpan() << std::endl;
+        } 
+		catch (const std::exception& e) 
+		{
+            std::cout << e.what() << "\n";
+        }
+
+        try 
+		{
+			std::cout << "test 4" << std::endl;
+            std::cout << "Longest = " << s.longestSpan() << std::endl;
+        } 
+		catch (const std::exception& e) 
+		{
+            std::cout << e.what() << "\n";
+        }
+
+        Span s2(s);
+        Span s3;
+
+        s3 = s2;
+
+        s3.addNumber(1);
+        s3.addNumber(8);
+
+        std::cout << "test 5" << std::endl;
+        std::cout << "Longest = " << s3.longestSpan() << std::endl;
+    }
 }
