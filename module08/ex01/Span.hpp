@@ -20,7 +20,7 @@
 class Span
 {
     private:
-		std::vector<int> V;
+		std::vector<int> _V;
         unsigned int _N;
     public:
         Span( void );
@@ -37,11 +37,15 @@ class Span
 		{
 			virtual const char* what() const throw();
 		};
+		class RangeTooHigh : public std::exception
+		{
+			virtual const char* what() const throw();
+		}
 
 		void addNumber( int N );
+		void addNumberRage( int firstN, int secondN );
 		unsigned int shortestSpan( void ) const;
 		unsigned int longestSpan( void ) const;
-
 
 		void printSpan( void );
 
