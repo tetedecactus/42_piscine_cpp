@@ -5,7 +5,7 @@ END 	= \033[0m
 
 NAME = btc
 
-CC = clang++disc
+CC = clang++
 
 # add this flags forxxx evaluation: -std=c++98 -Wall -Wextra -Werror
 CFLAGS =  -Werror -Wextra -Wall -std=c++98
