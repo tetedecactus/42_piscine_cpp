@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 20:06:59 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/06/20 14:20:27 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/08/17 13:44:13 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ void Harl::complain( std::string level ) {
 	i = 0;
 	while (level != choice[i] && i < 4)
 		i++;
-<<<<<<< HEAD:module_01/ex06/Harl.cpp
 	while (i < 4) 
 	{
 		switch ( i )
@@ -74,8 +73,5 @@ void Harl::complain( std::string level ) {
 		}
 		i++;
 	}
-=======
-	(this->*ptrFunction[i])();
->>>>>>> 6ee667248cf16fd9eed055b30f08848829ea0f35:module01/ex05/Harl.cpp
 	
 }
