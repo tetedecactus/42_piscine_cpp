@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 17:19:52 by olabrecq          #+#    #+#             */
-/*   Updated: 2023/10/03 17:29:42 by olabrecq         ###   ########.fr       */
+/*   Updated: 2023/10/04 14:05:54 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,18 @@
 int main(int argc, const char **argv)
 {
 	BitcoinExchange btc_data;
-	if( argc < 2 ) {
-		std::cout << " Error: File name not provided." << std::endl;
-	}
-	else if( argc > 2 ) {
-		std::cout << "Error: Too many args" <<std::endl;
-	}
-	else {
-		if( btc_data.isValidFile(argv[1]) == true) {
-			std::cout << "Valid file" <<std::endl;
-		}
-		else {
-			return printf("Error: Not a valid file");
-		}
-	}
+	btc_data.isValidArgs( argc );
+	btc_data.isValidFile( argv[1] );
+	
+	now = std::chrono::system_clock::now();
+    std::time_t time_now = std::chrono::system_clock::to_time_t(now);
+
+    // Convertissez le temps en une chaîne de caractères formatée
+    char buffer[80];
+    std::strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", std::localtime(&time_now));
+
+    // Affichez la date et l'heure actuelles
+    std::cout << "Date et heure actuelles : " << buffer << std::endl;
 	return (0);	
 }
 
@@ -37,8 +35,6 @@ int main(int argc, const char **argv)
 		// chek si la premier ligne de input file doit imperativement date | value ?
 		// faire split au |
 		// changer les value pour des float, string -> float
-		// stocker dans deque<std::string> & deque<float> date value
-		// OU
 		// stocker dans une map<std:string, float> 
 		// figure out quoi faire ensuite...
 		// check avant || apres l'affichage si la date est reel et 

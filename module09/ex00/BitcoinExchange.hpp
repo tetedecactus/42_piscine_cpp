@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 01:13:50 by olabrecq          #+#    #+#             */
-/*   Updated: 2023/10/03 17:33:10 by olabrecq         ###   ########.fr       */
+/*   Updated: 2023/10/04 14:04:14 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 #include	<iostream>
 #include	<fstream>
-#include	<deque>
+#include 	<cstring>
 #include	<map>
+#include 	<chrono>
+#include	<ctime>
 
 class   BitcoinExchange  {
 
@@ -30,7 +32,9 @@ class   BitcoinExchange  {
 		BitcoinExchange( void );
 		~BitcoinExchange( void );
 		
-		bool isValidFile( const char *fileName );
+		void isValidArgs( int argc );
+		void isValidFile( const std::string& fileName );
+	static bool isValidFirstLine( const std::string& firstLine );
 		void openInputFile( char *fileName );
 };
 

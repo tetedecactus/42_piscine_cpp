@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #ifndef ANIMAL_H
-# define ANIMAL_	H
+# define ANIMAL_H
 
 #include <iostream>
 #include <unistd.h>
