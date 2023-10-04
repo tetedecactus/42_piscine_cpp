@@ -30,7 +30,8 @@ class   BitcoinExchange  {
 		BitcoinExchange( void );
 		~BitcoinExchange( void );
 		
-		void openInputFile( char *fileName);
+		bool isValidFile( const char *fileName );
+		void openInputFile( char *fileName );
 };
 
 

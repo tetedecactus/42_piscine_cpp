@@ -14,27 +14,21 @@
 
 int main(int argc, const char **argv)
 {
-	// BitcoinExchange btc_data;
-	if ( argc < 2 ) {
+	BitcoinExchange btc_data;
+	if( argc < 2 ) {
 		std::cout << " Error: File name not provided." << std::endl;
 	}
+	else if( argc > 2 ) {
+		std::cout << "Error: Too many args" <<std::endl;
+	}
 	else {
-		std::ifstream inputFile;
-		
-		inputFile.open(argv[1]);
-
-		if(inputFile.is_open()) {
-			std::string line;
-			while(std::getline(inputFile, line)) {
-				std::cout << line << std::endl;
-			}
-			inputFile.close();
+		if( btc_data.isValidFile(argv[1]) == true) {
+			std::cout << "Valid file" <<std::endl;
 		}
 		else {
-			std::cout << "Error: Could not open file." << std::endl;
+			return printf("Error: Not a valid file");
 		}
 	}
-	
 	return (0);	
 }
 

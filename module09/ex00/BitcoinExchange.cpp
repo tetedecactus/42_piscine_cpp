@@ -25,18 +25,22 @@ void BitcoinExchange::openInputFile( char *fileName ) {
 	file.open(fileName);
 }
 
-// bool BitcoinExchange::isValidArg( int argc, char **argv ) {
-// 	(void)argv;
+bool BitcoinExchange::isValidFile( const char * fileName ) {
+	std::ifstream inputFile;
 
-// 	if (argc > 1) 
-// 		return false;
-// 	return true;
-// }
+	inputFile.open(fileName);
 
-// bool isValidArg( int argc, char **argv ) {
-// 	(void)argv;
+	if( inputFile.is_open() ) {
+		std::string line;
 
-// 	if (argc > 1) 
-// 		return false;
-// 	return true;
-// }
+		while( std::getline(inputFile, line) ) {
+			std::cout << line << std::endl;
+		}
+		inputFile.close();
+		return true;
+	}
+	else {
+		std::cout << "Error: Could not open file." <<std::endl;
+		return (false);
+	}
+}
