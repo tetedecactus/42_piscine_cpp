@@ -12,12 +12,31 @@
 
 #include "BitcoinExchange.hpp"
 
-
-void openInputFile( char *fileName ) {
-	ofstream file;
-	file.open(fileName)
+BitcoinExchange::BitcoinExchange( void ) {
+	return ;
 }
 
+BitcoinExchange::~BitcoinExchange( void ) {
+	return ;
+}
 
+void BitcoinExchange::openInputFile( char *fileName ) {
+	std::ofstream file;
+	file.open(fileName);
+}
 
+// bool BitcoinExchange::isValidArg( int argc, char **argv ) {
+// 	(void)argv;
 
+// 	if (argc > 1) 
+// 		return false;
+// 	return true;
+// }
+
+// bool isValidArg( int argc, char **argv ) {
+// 	(void)argv;
+
+// 	if (argc > 1) 
+// 		return false;
+// 	return true;
+// }

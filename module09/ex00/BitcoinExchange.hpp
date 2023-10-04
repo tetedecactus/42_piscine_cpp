@@ -12,26 +12,31 @@
 
 #pragma once
 
-#include  <iostream>
-#include <fstream>
+#include	<iostream>
+#include	<fstream>
+#include	<deque>
+#include	<map>
 
 class   BitcoinExchange  {
+
     private:
 	
-		float 	fValue;
-		std::string sDate;	
-		char *pFileName;
+		// float 	fValue;
+		// std::string sDate;	
+		// char *pFileName;
 		
     public:
 	
 		BitcoinExchange( void );
+		~BitcoinExchange( void );
 		
 		void openInputFile( char *fileName);
-		
-		
 };
 
 
 // https://www.w3schools.in/cplusplus/working-with-files
 // https://quickref.me/cpp.html
 // https://hackingcpp.com/cpp/cheat_sheets.html
+// https://en.cppreference.com/w/cpp/container/map
+
+// Container deque ou map

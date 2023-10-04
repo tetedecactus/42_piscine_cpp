@@ -83,7 +83,12 @@
 		"xutility": "cpp",
 		"filesystem": "cpp",
 		"*.tpp": "cpp",
-		"span": "cpp"
+		"span": "cpp",
+		"*.tcc": "cpp",
+		"memory_resource": "cpp",
+		"numeric": "cpp",
+		"random": "cpp",
+		"numbers": "cpp"
 	},
 	"C_Cpp.errorSquiggles": "Disabled"
 }
