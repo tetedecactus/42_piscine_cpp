@@ -8,7 +8,7 @@ NAME = btc
 CC = clang++
 
 # add this flags forxxx evaluation: -std=c++98 -Wall -Wextra -Werror
-CFLAGS =  -Werror -Wextra -Wall -std=c++98
+CFLAGS =  -Werror -Wextra -Wall 
 
 SRC = 	main.cpp \
 		BitcoinExchange.cpp \
