@@ -14,13 +14,13 @@
 
 int main(int argc, const char **argv)
 {
-	// BitcoinExchange go;
+	// BitcoinExchange btc_data;
 	if ( argc < 2 ) {
 		std::cout << " Error: File name not provided." << std::endl;
 	}
 	else {
 		std::ifstream inputFile;
-
+		
 		inputFile.open(argv[1]);
 
 		if(inputFile.is_open()) {
@@ -39,9 +39,22 @@ int main(int argc, const char **argv)
 }
 
 
-	// check input argv si c'est un input valid
-	// ouvre input valide
-	// analyse data si elle son valide
-	// extrere data valide
-	
-	// FAIRE LES FUCKING CHOSE A FAIRE BRO !!!!!!
+	// ---- a faire ----
+		// chek si la premier ligne de input file doit imperativement date | value ?
+		// faire split au |
+		// changer les value pour des float, string -> float
+		// stocker dans deque<std::string> & deque<float> date value
+		// OU
+		// stocker dans une map<std:string, float> 
+		// figure out quoi faire ensuite...
+		// check avant || apres l'affichage si la date est reel et 
+			// si le float est positif et pas trop gros
+		// check la data avec les date = ou < que la date de inputFile
+		// multiplier le prix de cette dans avec le float (nb de btc)
+		// output le fucking result style : date => value = price
+			// 2011-01-03 => 3 = 0.9
+		// ou output l'erreur de la line soit date, value or both
+		// fin
+
+
+	// FAIRE LES FUCKING CHOSE A FAIRE, SAC A PAPIER !!!!!!
