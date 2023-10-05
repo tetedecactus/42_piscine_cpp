@@ -18,15 +18,6 @@ int main(int argc, const char **argv)
 	btc_data.isValidArgs( argc );
 	btc_data.isValidFile( argv[1] );
 	
-	auto now = std::chrono::system_clock::now();
-    std::time_t time_now = std::chrono::system_clock::to_time_t(now);
-
-    // Convertissez le temps en une chaîne de caractères formatée
-    char buffer[80];
-    std::strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", std::localtime(&time_now));
-
-    // Affichez la date et l'heure actuelles
-    std::cout << "Date et heure actuelles : " << buffer << std::endl;
 
 	std::time_t time_ow;
     std::tm *time_info;

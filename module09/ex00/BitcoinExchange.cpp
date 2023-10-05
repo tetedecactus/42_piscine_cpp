@@ -12,15 +12,18 @@
 
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange::BitcoinExchange( void ) {
+BitcoinExchange::BitcoinExchange( void ) 
+{
 	return ;
 }
 
-BitcoinExchange::~BitcoinExchange( void ) {
+BitcoinExchange::~BitcoinExchange( void ) 
+{
 	return ;
 }
 
-void BitcoinExchange::openInputFile( char *fileName ) {
+void BitcoinExchange::openInputFile( char *fileName ) 
+{
 	std::ofstream file;
 	file.open(fileName);
 }
@@ -29,59 +32,110 @@ void BitcoinExchange::openInputFile( char *fileName ) {
 
 // ---- Parsing functions -----
 
-void BitcoinExchange::isValidArgs(int argc ) {
-	if ( argc < 2 ) {
-		std::cout << "Error: File name not provided." << std::endl;
-		exit(EXIT_FAILURE);
-	}
-	else if ( argc > 2) {
-		std::cout << "Error: Too many arguments." << std::endl;
-		exit(EXIT_FAILURE);
-	}
-	else {
-		EXIT_SUCCESS;
+void BitcoinExchange::isValidArgs(int argc ) 
+{
+	try	
+	{
+		if ( argc < 2 ) 
+			throw std::runtime_error ("Error: File name not provided.");
+		if ( argc > 2)
+			throw std::runtime_error("Error: Too many arguments.");
+	} 
+	catch( const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+		exit( EXIT_FAILURE );
 	}
 }
 
-void BitcoinExchange::isValidFile( const std::string& fileName ) {
-	// instance inputFile
+// void BitcoinExchange::isValidFile( const std::string& fileName ) {
+// 	// instance inputFile
+// 	std::ifstream inputFile;
+	
+// 	// open inputFile 
+// 	inputFile.open(fileName);
+
+// 	// Check open success
+// 	if( inputFile.is_open() ) {
+// 		std::string line;
+		
+// 		std::getline(inputFile, line);
+// 		if (BitcoinExchange::isValidFirstLine( line ) == true) {
+// 			while( std::getline(inputFile, line) ) {
+// 				std::cout << line << std::endl;
+// 			}
+// 		}
+// 		else {
+// 			std::cout << "Error: File format not valid." << std::endl;
+// 			exit(EXIT_FAILURE);
+// 		}
+// 		inputFile.close();
+// 		EXIT_SUCCESS;
+// 	}
+// 	else {
+// 		std::cout << "Error: Could not open file." <<std::endl;
+// 		exit(EXIT_FAILURE);
+// 	}
+// }
+
+void BitcoinExchange::isValidFile( const char* fileName ) {
 	std::ifstream inputFile;
 	
-	// open inputFile 
-	inputFile.open(fileName);
+	try {
+		inputFile.open( fileName );
 
-	// Check open success
-	if( inputFile.is_open() ) {
+		if ( !inputFile.is_open() )
+		{
+			throw std::runtime_error( "Error: Could not open the file." );
+		}
+
 		std::string line;
-		
-		std::getline(inputFile, line);
-		if (BitcoinExchange::isValidFirstLine( line ) == true) {
-			while( std::getline(inputFile, line) ) {
-				std::cout << line << std::endl;
-			}
+		std::getline( inputFile, line );
+
+		if( !BitcoinExchange::isValidFirstLine( line ) )
+		{
+			throw std::runtime_error( "Error: Not a valid file format." );
 		}
-		else {
-			std::cout << "Error: File format not valid." << std::endl;
-			exit(EXIT_FAILURE);
+
+		while ( std::getline( inputFile, line ) ) 
+		{
+			parseLine( line );
 		}
-		inputFile.close();
-		EXIT_SUCCESS;
+	} 
+	catch ( const std::exception& e ) 
+	{
+		std::cout << e.what() << std::endl;
 	}
-	else {
-		std::cout << "Error: Could not open file." <<std::endl;
-		exit(EXIT_FAILURE);
+	inputFile.close();
+}
+
+void BitcoinExchange::parseLine( const std::string& currentLine ) 
+{
+	if ( !BitcoinExchange::isValidLine( currentLine ) )
+	{
+		// throw std::runtime_error("Error: Not a valid line.");
+		//  check the error et print le message adapter
+		std::cout << "Error: Not a valid line." << std::endl;
+	}
+	else
+	{
+		// extract date et value et put dans map
+		std::cout << currentLine << std::endl;
 	}
 }
 
-bool BitcoinExchange::isValidFirstLine( const std::string& firstLine ) {
-	std::string str;
-	str = "date | value";
+bool BitcoinExchange::isValidFirstLine( const std::string& firstLine )
+{
+	return ( firstLine == "date | value" );
+}
 
-	if( str == firstLine ) {
-		return true;
-	}
-	else {
+bool BitcoinExchange::isValidLine( const std::string& currentLine )
+{
+	if( currentLine.size() < 13 )
 		return false;
-	}
+	if ( currentLine.at(11) != '|' ) 
+		return false;
+	else 
+		return true;
 }
 

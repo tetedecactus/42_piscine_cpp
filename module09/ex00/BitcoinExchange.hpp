@@ -16,7 +16,7 @@
 #include	<fstream>
 #include 	<cstring>
 #include	<map>
-#include 	<chrono>
+#include 	<cstdlib>
 #include	<ctime>
 
 class   BitcoinExchange  {
@@ -33,8 +33,12 @@ class   BitcoinExchange  {
 		~BitcoinExchange( void );
 		
 		void isValidArgs( int argc );
-		void isValidFile( const std::string& fileName );
-	static bool isValidFirstLine( const std::string& firstLine );
+		void isValidFile( const char* fileName );
+		// void isValidFile( const std::string& fileName );
+		static bool isValidLine( const std::string& currentLine );
+		static bool isValidFirstLine( const std::string& firstLine );
+		// parse current line of the input file
+		void parseLine( const std::string& currentLine );
 		void openInputFile( char *fileName );
 };
 
@@ -43,5 +47,6 @@ class   BitcoinExchange  {
 // https://quickref.me/cpp.html
 // https://hackingcpp.com/cpp/cheat_sheets.html
 // https://en.cppreference.com/w/cpp/container/map
+// https://stackoverflow.com/questions/32463297/c-regex-date-search
 
 // Container deque ou map
