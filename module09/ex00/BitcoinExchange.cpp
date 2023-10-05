@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 17:58:55 by olabrecq          #+#    #+#             */
-/*   Updated: 2023/10/05 15:53:02 by olabrecq         ###   ########.fr       */
+/*   Updated: 2023/10/05 17:43:33 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,6 @@ BitcoinExchange::~BitcoinExchange( void )
 {
 	return ;
 }
-
-void BitcoinExchange::openInputFile( char *fileName ) 
-{
-	std::ofstream file;
-	file.open(fileName);
-}
-
 
 
 // ---- Parsing functions -----
@@ -71,6 +64,7 @@ void BitcoinExchange::parseFile( const char* fileName )
 		while ( std::getline( inputFile, line ) ) 
 		{
 			parseLine( line );
+			BitcoinExchange::checkValidDate( line );
 		}
 	} 
 	catch ( const std::exception& e ) 
@@ -156,3 +150,17 @@ bool BitcoinExchange::checkSize( const std::string& currentLine )
 	return ( currentLine.size() < 13 );
 }
 
+bool BitcoinExchange::checkValidDate( const std::string& currentLine )
+{
+	std::string yearStr;
+	std::string monthStr;
+	std::string dayStr;
+
+	yearStr = currentLine.substr( 0, 4 );
+	std::cout << yearStr << std::endl;
+	monthStr = currentLine.substr( 5, 2 );
+	std::cout << monthStr << std::endl; 
+	dayStr = currentLine.substr( 8, 2);
+	std::cout << dayStr << std::endl;
+	return true;
+}
