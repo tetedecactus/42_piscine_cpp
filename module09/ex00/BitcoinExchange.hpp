@@ -35,10 +35,15 @@ class   BitcoinExchange  {
 		void isValidArgs( int argc );
 		void isValidFile( const char* fileName );
 		// void isValidFile( const std::string& fileName );
-		static bool isValidLine( const std::string& currentLine );
+		static int isValidLine( const std::string& currentLine );
 		static bool isValidFirstLine( const std::string& firstLine );
+
 		// parse current line of the input file
-		void parseLine( const std::string& currentLine );
+		void parseLine( const std::string& badLine );
+
+		// chek si trop large number, negatif ou si input pas bon (date)
+		void checkLineError( const std::string& currentLine, const int errorCode );
+
 		void openInputFile( char *fileName );
 };
 

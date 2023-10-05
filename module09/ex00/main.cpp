@@ -38,7 +38,6 @@ int main(int argc, const char **argv)
 
 
 	// ---- a faire ----
-		// chek si la premier ligne de input file doit imperativement date | value ?
 		// faire split au |
 		// changer les value pour des float, string -> float
 		// stocker dans une map<std:string, float> 

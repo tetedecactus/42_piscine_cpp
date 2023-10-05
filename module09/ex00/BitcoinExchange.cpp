@@ -113,7 +113,6 @@ void BitcoinExchange::parseLine( const std::string& currentLine )
 {
 	if ( !BitcoinExchange::isValidLine( currentLine ) )
 	{
-		// throw std::runtime_error("Error: Not a valid line.");
 		//  check the error et print le message adapter
 		std::cout << "Error: Not a valid line." << std::endl;
 	}
@@ -124,18 +123,24 @@ void BitcoinExchange::parseLine( const std::string& currentLine )
 	}
 }
 
+void BitcoinExchange::checkLineError( const std::string& badLine, const int errorCode )
+{
+	(void)badLine;
+	(void)errorCode;
+}
+
 bool BitcoinExchange::isValidFirstLine( const std::string& firstLine )
 {
 	return ( firstLine == "date | value" );
 }
 
-bool BitcoinExchange::isValidLine( const std::string& currentLine )
+int BitcoinExchange::isValidLine( const std::string& currentLine )
 {
-	if( currentLine.size() < 13 )
-		return false;
-	if ( currentLine.at(11) != '|' ) 
-		return false;
+	if( currentLine.size() < 13 || currentLine.at(11) != '|' )
+		return 2;
+	// if ( currentLine.at(11) != '|' ) 
+	// 	return false;
 	else 
-		return true;
+		return 1;
 }
 
