@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 01:13:50 by olabrecq          #+#    #+#             */
-/*   Updated: 2023/10/04 14:04:14 by olabrecq         ###   ########.fr       */
+/*   Updated: 2023/10/05 15:57:19 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,15 @@ class   BitcoinExchange  {
 		void parseLine( const std::string& currentLine );
 
 		// chek si trop large number, negatif ou si input pas bon (date)
-		std::string checkLineError( const std::string& badLine, const int errorCode );
-		void stackData( const std::string& currentLine );
 		void openInputFile( char *fileName );
+		void stackData( const std::string& currentLine );
 		static bool checkPipe( const std::string& currentLine );
 		static bool checkSize( const std::string& currentLine );
-		static bool checkIsDigit( const std::string& currentLine );
-		static bool checkNegatif( const std::string& currentLine );
 		static bool checkMaxInt( const std::string& currentLine );
+		static bool checkNegatif( const std::string& currentLine );
+		static bool checkIsDigit( const std::string& currentLine );
+		static bool checkValidDate( const std::string& currentLine );
+		std::string checkLineError( const std::string& badLine, const int errorCode );
 };
 
 
@@ -59,4 +60,4 @@ class   BitcoinExchange  {
 // https://en.cppreference.com/w/cpp/container/map
 // https://stackoverflow.com/questions/32463297/c-regex-date-search
 
-// Container deque ou map
+// Container map

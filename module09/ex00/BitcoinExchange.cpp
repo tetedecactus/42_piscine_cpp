@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 17:58:55 by olabrecq          #+#    #+#             */
-/*   Updated: 2023/10/04 13:49:53 by olabrecq         ###   ########.fr       */
+/*   Updated: 2023/10/05 15:53:02 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,36 +47,6 @@ void BitcoinExchange::isValidArgs(int argc )
 		exit( EXIT_FAILURE );
 	}
 }
-
-// void BitcoinExchange::isValidFile( const std::string& fileName ) {
-// 	// instance inputFile
-// 	std::ifstream inputFile;
-	
-// 	// open inputFile 
-// 	inputFile.open(fileName);
-
-// 	// Check open success
-// 	if( inputFile.is_open() ) {
-// 		std::string line;
-		
-// 		std::getline(inputFile, line);
-// 		if (BitcoinExchange::isValidFirstLine( line ) == true) {
-// 			while( std::getline(inputFile, line) ) {
-// 				std::cout << line << std::endl;
-// 			}
-// 		}
-// 		else {
-// 			std::cout << "Error: File format not valid." << std::endl;
-// 			exit(EXIT_FAILURE);
-// 		}
-// 		inputFile.close();
-// 		EXIT_SUCCESS;
-// 	}
-// 	else {
-// 		std::cout << "Error: Could not open file." <<std::endl;
-// 		exit(EXIT_FAILURE);
-// 	}
-// }
 
 void BitcoinExchange::parseFile( const char* fileName ) 
 {
