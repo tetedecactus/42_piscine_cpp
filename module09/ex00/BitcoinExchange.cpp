@@ -78,7 +78,8 @@ void BitcoinExchange::isValidArgs(int argc )
 // 	}
 // }
 
-void BitcoinExchange::isValidFile( const char* fileName ) {
+void BitcoinExchange::parseFile( const char* fileName ) 
+{
 	std::ifstream inputFile;
 	
 	try {
@@ -111,22 +112,63 @@ void BitcoinExchange::isValidFile( const char* fileName ) {
 
 void BitcoinExchange::parseLine( const std::string& currentLine ) 
 {
-	if ( !BitcoinExchange::isValidLine( currentLine ) )
+	try
 	{
-		//  check the error et print le message adapter
-		std::cout << "Error: Not a valid line." << std::endl;
+		int errorCode;
+		errorCode = BitcoinExchange::isValidLine( currentLine );
+		if ( errorCode != 1  )
+		{
+			std::string errorString;
+			errorString = checkLineError( currentLine, errorCode );
+			throw std::runtime_error( errorString );
+		}
+		
+		stackData( currentLine );
 	}
-	else
+	catch(const std::exception& e)
 	{
-		// extract date et value et put dans map
-		std::cout << currentLine << std::endl;
+		std::cerr << e.what() << '\n';
 	}
+
+	
 }
 
-void BitcoinExchange::checkLineError( const std::string& badLine, const int errorCode )
+void BitcoinExchange::stackData( const std::string& currentLine )
 {
-	(void)badLine;
-	(void)errorCode;
+	std::cout << currentLine << std::endl;
+}
+
+std::string BitcoinExchange::checkLineError( const std::string& badLine, const int errorCode )
+{
+	if ( errorCode == 2 )
+	{
+		return ( "Error: Bad input => " + badLine );
+	}
+	if ( errorCode == 3 )
+	{
+		return ( "Error: Not a positive number." );
+	}
+	return ( "" );
+}
+
+int BitcoinExchange::isValidLine( const std::string& currentLine )
+{
+	if( BitcoinExchange::checkSize( currentLine ) || BitcoinExchange::checkPipe( currentLine ) || BitcoinExchange::checkIsDigit( currentLine ) )
+		return ( 2 );
+	if ( BitcoinExchange::checkNegatif( currentLine ) )
+		return ( 3 );
+	else 
+		return ( 1 );
+}
+
+bool BitcoinExchange::checkNegatif( const std::string& currentLine )
+{
+	return ( currentLine.at( 13 ) == '-' );
+}
+
+bool BitcoinExchange::checkIsDigit( const std::string& currentLine )
+{
+	return ( !isdigit( currentLine.at( 13 ) ) && currentLine.at( 13 ) != '-' );
 }
 
 bool BitcoinExchange::isValidFirstLine( const std::string& firstLine )
@@ -134,13 +176,13 @@ bool BitcoinExchange::isValidFirstLine( const std::string& firstLine )
 	return ( firstLine == "date | value" );
 }
 
-int BitcoinExchange::isValidLine( const std::string& currentLine )
+bool BitcoinExchange::checkPipe( const std::string& currentLine )
 {
-	if( currentLine.size() < 13 || currentLine.at(11) != '|' )
-		return 2;
-	// if ( currentLine.at(11) != '|' ) 
-	// 	return false;
-	else 
-		return 1;
+	return ( currentLine.at( 11 ) != '|' );
+}
+
+bool BitcoinExchange::checkSize( const std::string& currentLine )
+{
+	return ( currentLine.size() < 13 );
 }
 

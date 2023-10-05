@@ -20,7 +20,7 @@
 #include	<ctime>
 
 class   BitcoinExchange  {
-
+ 
     private:
 	
 		// float 	fValue;
@@ -33,18 +33,23 @@ class   BitcoinExchange  {
 		~BitcoinExchange( void );
 		
 		void isValidArgs( int argc );
-		void isValidFile( const char* fileName );
+		void parseFile( const char* fileName );
 		// void isValidFile( const std::string& fileName );
 		static int isValidLine( const std::string& currentLine );
 		static bool isValidFirstLine( const std::string& firstLine );
 
 		// parse current line of the input file
-		void parseLine( const std::string& badLine );
+		void parseLine( const std::string& currentLine );
 
 		// chek si trop large number, negatif ou si input pas bon (date)
-		void checkLineError( const std::string& currentLine, const int errorCode );
-
+		std::string checkLineError( const std::string& badLine, const int errorCode );
+		void stackData( const std::string& currentLine );
 		void openInputFile( char *fileName );
+		static bool checkPipe( const std::string& currentLine );
+		static bool checkSize( const std::string& currentLine );
+		static bool checkIsDigit( const std::string& currentLine );
+		static bool checkNegatif( const std::string& currentLine );
+		static bool checkMaxInt( const std::string& currentLine );
 };
 
 

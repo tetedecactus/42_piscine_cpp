@@ -16,7 +16,7 @@ int main(int argc, const char **argv)
 {
 	BitcoinExchange btc_data;
 	btc_data.isValidArgs( argc );
-	btc_data.isValidFile( argv[1] );
+	btc_data.parseFile( argv[1] );
 	
 
 	std::time_t time_ow;
