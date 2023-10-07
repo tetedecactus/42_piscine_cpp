@@ -49,17 +49,13 @@ void BitcoinExchange::parseFile( const char* fileName )
 		inputFile.open( fileName );
 
 		if ( !inputFile.is_open() )
-		{
 			throw std::runtime_error( "Error: Could not open the file." );
-		}
 
 		std::string line;
 		std::getline( inputFile, line );
 
 		if( !BitcoinExchange::isValidFirstLine( line ) )
-		{
 			throw std::runtime_error( "Error: Not a valid file format." );
-		}
 
 		while ( std::getline( inputFile, line ) ) 
 		{
@@ -105,25 +101,28 @@ void BitcoinExchange::stackData( const std::string& currentLine )
 std::string BitcoinExchange::checkLineError( const std::string& badLine, const int errorCode )
 {
 	if ( errorCode == 2 )
-	{
 		return ( "Error: Bad input => " + badLine );
-	}
 	if ( errorCode == 3 )
-	{
 		return ( "Error: Not a positive number." + badLine );
-	}
 	return ( "" );
 }
 
-int BitcoinExchange::isValidLine( const std::string& currentLine )
+int BitcoinExchange::isValidLine(const std::string& currentLine) 
 {
-	if( BitcoinExchange::checkSize( currentLine ) || BitcoinExchange::checkPipe( currentLine ) || BitcoinExchange::checkIsDigit( currentLine ) || !BitcoinExchange::checkValidDate( currentLine ) )
-		return ( 2 );
-	if ( BitcoinExchange::checkNegatif( currentLine ) )
-		return ( 3 );
-	else 
-		return ( 1 );
+    if (BitcoinExchange::checkSize(currentLine))
+        return 2; // Taille incorrecte.
+    else if (BitcoinExchange::checkPipe(currentLine))
+        return 2; // Absence de caractères '|'.
+    else if (BitcoinExchange::checkIsDigit(currentLine))
+        return 2; // Caractères non numériques.
+    else if (!BitcoinExchange::checkValidDate(currentLine))
+        return 2; // Date invalide.
+    else if (BitcoinExchange::checkNegatif(currentLine))
+        return 3; // Valeur négative.
+    else
+        return 1; // Tout est valide.
 }
+
 
 bool BitcoinExchange::checkNegatif( const std::string& currentLine )
 {
@@ -175,12 +174,10 @@ bool BitcoinExchange::checkValidDate( const std::string& currentLine )
 	int monthInt = std::atoi(monthStr.c_str());
 	int dayInt = std::atoi(dayStr.c_str());
 
-    if (yearInt > todayYear || yearInt < 2008 || monthInt > 12 || dayInt > 31) {
+    if (yearInt > todayYear || yearInt < 2008 || monthInt > 12 || dayInt > 31)
         return false;
-    }
-
-    if (yearInt == todayYear && (monthInt > todayMonth || (monthInt == todayMonth && dayInt > todayDay))) {
-        return false;
-    }
+    if (yearInt == todayYear && (monthInt > todayMonth || (monthInt == todayMonth && dayInt > todayDay)))
+		return false;
+	
 	return true;
 }
