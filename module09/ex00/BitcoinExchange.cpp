@@ -110,14 +110,14 @@ std::string BitcoinExchange::checkLineError( const std::string& badLine, const i
 	}
 	if ( errorCode == 3 )
 	{
-		return ( "Error: Not a positive number." );
+		return ( "Error: Not a positive number." + badLine );
 	}
 	return ( "" );
 }
 
 int BitcoinExchange::isValidLine( const std::string& currentLine )
 {
-	if( BitcoinExchange::checkSize( currentLine ) || BitcoinExchange::checkPipe( currentLine ) || BitcoinExchange::checkIsDigit( currentLine ) )
+	if( BitcoinExchange::checkSize( currentLine ) || BitcoinExchange::checkPipe( currentLine ) || BitcoinExchange::checkIsDigit( currentLine ) || !BitcoinExchange::checkValidDate( currentLine ) )
 		return ( 2 );
 	if ( BitcoinExchange::checkNegatif( currentLine ) )
 		return ( 3 );
@@ -152,15 +152,35 @@ bool BitcoinExchange::checkSize( const std::string& currentLine )
 
 bool BitcoinExchange::checkValidDate( const std::string& currentLine )
 {
-	std::string yearStr;
-	std::string monthStr;
-	std::string dayStr;
+	std::string yearStr = currentLine.substr( 0, 4 );
+	std::string monthStr = currentLine.substr( 5, 2 );
+	std::string dayStr = currentLine.substr( 8, 2);
 
-	yearStr = currentLine.substr( 0, 4 );
-	std::cout << yearStr << std::endl;
-	monthStr = currentLine.substr( 5, 2 );
-	std::cout << monthStr << std::endl; 
-	dayStr = currentLine.substr( 8, 2);
-	std::cout << dayStr << std::endl;
+	std::time_t timeLive;
+	std::tm *timeInfo;
+
+	time(&timeLive);
+
+	timeInfo = std::localtime( &timeLive );
+
+	int todayYear;
+	int todayMonth;
+	int todayDay;
+
+	todayYear = timeInfo->tm_year + 1900;
+	todayMonth = timeInfo->tm_mon + 1;
+	todayDay = timeInfo->tm_mday;
+
+	int yearInt = std::atoi(yearStr.c_str());
+	int monthInt = std::atoi(monthStr.c_str());
+	int dayInt = std::atoi(dayStr.c_str());
+
+    if (yearInt > todayYear || yearInt < 2008 || monthInt > 12 || dayInt > 31) {
+        return false;
+    }
+
+    if (yearInt == todayYear && (monthInt > todayMonth || (monthInt == todayMonth && dayInt > todayDay))) {
+        return false;
+    }
 	return true;
 }
