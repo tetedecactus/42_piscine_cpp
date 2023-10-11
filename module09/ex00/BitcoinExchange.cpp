@@ -21,10 +21,7 @@ BitcoinExchange::~BitcoinExchange( void )
 {
 	return ;
 }
-
-
 // ---- Parsing functions -----
-
 void BitcoinExchange::isValidArgs(int argc ) 
 {
 	try	
@@ -89,8 +86,6 @@ void BitcoinExchange::parseLine( const std::string& currentLine )
 	{
 		std::cerr << e.what() << '\n';
 	}
-
-	
 }
 
 void BitcoinExchange::stackData( const std::string& currentLine )
