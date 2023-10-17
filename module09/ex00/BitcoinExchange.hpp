@@ -32,7 +32,7 @@ class   BitcoinExchange  {
 		BitcoinExchange( void );
 		~BitcoinExchange( void );
 		
-		void isValidArgs( int argc );
+		static bool isValidArgs( int argc );
 		void parseFile( const char* fileName );
 		// void isValidFile( const std::string& fileName );
 		static int isValidLine( const std::string& currentLine );

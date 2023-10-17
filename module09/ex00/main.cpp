@@ -12,11 +12,16 @@
 
 #include "BitcoinExchange.hpp"
 
-int main(int argc, const char **argv)
-{
-	BitcoinExchange btc_data;
-	btc_data.isValidArgs( argc );
-	btc_data.parseFile( argv[1] );
-	
-	return (0);	
+int main(int argc, const char **argv) {
+    try {
+        BitcoinExchange btc_data;
+
+        if (btc_data.isValidArgs(argc)) {
+            btc_data.parseFile(argv[1]);
+        }
+    } catch (const std::exception& e) {
+        std::cerr << e.what() << '\n';
+    }
+
+    return 0;
 }
