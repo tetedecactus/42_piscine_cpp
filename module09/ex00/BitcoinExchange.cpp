@@ -22,70 +22,56 @@ BitcoinExchange::~BitcoinExchange( void )
 	return ;
 }
 // ---- Parsing functions -----
-void BitcoinExchange::isValidArgs(int argc ) 
+bool BitcoinExchange::isValidArgs(int argc ) 
 {
-	try	
-	{
-		if ( argc < 2 ) 
-			throw std::runtime_error ("Error: File name not provided.");
-		if ( argc > 2)
-			throw std::runtime_error("Error: Too many arguments.");
-	} 
-	catch( const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-		exit( EXIT_FAILURE );
-	}
+	if ( argc < 2 ) 
+		throw std::runtime_error ("Error: File name not provided.");
+	if ( argc > 2) 
+		throw std::runtime_error("Error: Too many arguments.");
+	else 
+		return true;
 }
 
-void BitcoinExchange::parseFile( const char* fileName ) 
+void BitcoinExchange::parseFile(const char* fileName) 
 {
-	std::ifstream inputFile;
-	
-	try {
-		inputFile.open( fileName );
+    std::ifstream inputFile(fileName);
+    
+    if (!inputFile.is_open()) {
+        std::cerr << "Error: Could not open the file." << std::endl;
+        return;
+    }
+    
+    try {
+        std::string line;
+        std::getline(inputFile, line);
 
-		if ( !inputFile.is_open() )
-			throw std::runtime_error( "Error: Could not open the file." );
+        if (!isValidFirstLine(line)) 
+            throw std::runtime_error("Error: Not a valid file format.");
 
-		std::string line;
-		std::getline( inputFile, line );
-
-		if( !BitcoinExchange::isValidFirstLine( line ) )
-			throw std::runtime_error( "Error: Not a valid file format." );
-
-		while ( std::getline( inputFile, line ) ) 
-		{
-			parseLine( line );
-			BitcoinExchange::checkValidDate( line );
-		}
-	} 
-	catch ( const std::exception& e ) 
-	{
-		std::cout << e.what() << std::endl;
-	}
-	inputFile.close();
+        while (std::getline(inputFile, line)) {
+            try {
+                parseLine(line);
+                checkValidDate(line);
+            } catch (const std::exception& e) {
+                std::cerr << e.what() << '\n';
+            }
+        }
+    } catch (const std::exception& e) {
+        std::cerr << e.what() << std::endl;
+    }
+    inputFile.close();
 }
 
-void BitcoinExchange::parseLine( const std::string& currentLine ) 
-{
-	try
+void BitcoinExchange::parseLine(const std::string& currentLine) {
+	int errorCode = isValidLine(currentLine);
+    
+    if (errorCode != 1) 
 	{
-		int errorCode;
-		errorCode = BitcoinExchange::isValidLine( currentLine );
-		if ( errorCode != 1  )
-		{
-			std::string errorString;
-			errorString = checkLineError( currentLine, errorCode );
-			throw std::runtime_error( errorString );
-		}
-		
-		stackData( currentLine );
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+        std::string errorString = checkLineError(currentLine, errorCode);
+        throw std::runtime_error(errorString);
+    }
+
+    stackData(currentLine);
 }
 
 void BitcoinExchange::stackData( const std::string& currentLine )
