@@ -26,11 +26,9 @@ bool BitcoinExchange::isValidArgs(int argc )
 {
 	if ( argc < 2 ) {
 		throw std::runtime_error ("Error: File name not provided.");
-		return false;
 	}
 	if ( argc > 2) {
 		throw std::runtime_error("Error: Too many arguments.");
-		return false;
 	}
 
 	return true;
