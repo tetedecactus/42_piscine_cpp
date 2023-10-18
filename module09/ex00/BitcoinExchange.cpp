@@ -17,6 +17,7 @@ BitcoinExchange::BitcoinExchange( int argc, const char **argv )
 
 	if ( isValidArgs( argc ) )
     {
+        parseDB("data.csv");
         parseFile( argv[1] );
 
     }
@@ -59,8 +60,9 @@ void BitcoinExchange::parseDB( const char* dataBaseFile )
     std::getline(dbFile, dbLine);
 
     while (std::getline(dbFile, dbLine)) {
-        
+        stackData(dbLine, 1);
     }
+    dbFile.close();
 }
 
 void BitcoinExchange::parseFile(const char* fileName) 
@@ -100,12 +102,12 @@ void BitcoinExchange::parseLine(const std::string& currentLine) {
 	{
         std::string errorString = checkLineError(currentLine, errorCode);
         // throw std::runtime_error(errorString);
-        std::cout << errorString << std::endl;
-        stackData( errorString, errorCode );
+        // std::cout << errorString << std::endl;
+        // stackData( errorString, errorCode );
         return;
     }
 
-    stackData( currentLine, errorCode );
+    // stackData( currentLine, errorCode );
 }
 
 void BitcoinExchange::stackData( const std::string& currentLine, int errCode )
