@@ -91,8 +91,8 @@ void BitcoinExchange::parseLine(const std::string& currentLine) {
 
 void BitcoinExchange::stackData( const std::string& currentLine, int errCode )
 {
-    maLine(currentLine) = errCode;
-	std::cout << currentLine << std::endl;
+    maLine[currentLine] = errCode;
+	std::cout << maLine[currentLine] << std::endl;
 }
 
 std::string BitcoinExchange::checkLineError( const std::string& badLine, const int errorCode )
