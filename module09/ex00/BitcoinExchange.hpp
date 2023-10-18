@@ -27,9 +27,18 @@ class   BitcoinExchange  {
 		// float 	fValue;
 		// std::string sDate;	
 		// char *pFileName;
-		std::map< std::string, int > maLine;
-		
+		std::map< std::string, int > maLine;	
     public:
+
+		BitcoinExchange( int argc, const char **argv );
+		~BitcoinExchange( void );
+
+		void setMaLine( const std::map< std::string, int >& newMapLine );
+		const std::map< std::string, int>& getMaLine( void ) const;
+
+		static bool isValidArgs( int argc );
+		void parseFile( const char* fileName );
+		void parseLine (const std::string& currentLine );
 	// chek si trop large number, negatif ou si input pas bon (date)
 		void openInputFile( char *fileName );
 		void stackData( const std::string& currentLine, int errCode );
@@ -40,6 +49,8 @@ class   BitcoinExchange  {
 		static bool checkIsDigit( const std::string& currentLine );
 		static bool checkValidDate( const std::string& currentLine );
 		std::string checkLineError( const std::string& badLine, const int errorCode );
+		int isValidLine( const std::string& currentLine );
+		static bool isValidFirstLine( const std::string& firstLine );
 };
 
 // https://www.w3schools.in/cplusplus/working-with-files
