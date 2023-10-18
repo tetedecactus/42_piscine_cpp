@@ -18,6 +18,7 @@
 #include	<map>
 #include 	<cstdlib>
 #include	<ctime>
+#include	<string>
 
 class   BitcoinExchange  {
  
@@ -26,6 +27,7 @@ class   BitcoinExchange  {
 		// float 	fValue;
 		// std::string sDate;	
 		// char *pFileName;
+		std::map< std::string, int > maLine;
 		
     public:
 	
@@ -58,6 +60,5 @@ class   BitcoinExchange  {
 // https://quickref.me/cpp.html
 // https://hackingcpp.com/cpp/cheat_sheets.html
 // https://en.cppreference.com/w/cpp/container/map
-// https://stackoverflow.com/questions/32463297/c-regex-date-search
 
 // Container map
