@@ -47,6 +47,22 @@ bool BitcoinExchange::isValidArgs(int argc )
 		return true;
 }
 
+void BitcoinExchange::parseDB( const char* dataBaseFile )
+{
+    std::ifstream dbFile( dataBaseFile );
+
+    if (dbFile.is_open()) {
+        std::cerr << "Error: Could not open the data base." << std::endl;
+    }
+    
+    std::string dbLine;
+    std::getline(dbFile, dbLine);
+
+    while (std::getline(dbFile, dbLine)) {
+        
+    }
+}
+
 void BitcoinExchange::parseFile(const char* fileName) 
 {
     std::ifstream inputFile(fileName);

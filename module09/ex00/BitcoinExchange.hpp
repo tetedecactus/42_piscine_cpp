@@ -51,6 +51,9 @@ class   BitcoinExchange  {
 		std::string checkLineError( const std::string& badLine, const int errorCode );
 		int isValidLine( const std::string& currentLine );
 		static bool isValidFirstLine( const std::string& firstLine );
+
+		void parseDB( const char* dataBaseFile );
+
 };
 
 // https://www.w3schools.in/cplusplus/working-with-files
