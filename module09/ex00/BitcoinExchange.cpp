@@ -84,7 +84,9 @@ void BitcoinExchange::parseLine(const std::string& currentLine) {
 	{
         std::string errorString = checkLineError(currentLine, errorCode);
         // throw std::runtime_error(errorString);
+        std::cout << errorString << std::endl;
         stackData( errorString, errorCode );
+        return;
     }
 
     stackData( currentLine, errorCode );

@@ -30,23 +30,7 @@ class   BitcoinExchange  {
 		std::map< std::string, int > maLine;
 		
     public:
-	
-		BitcoinExchange( int argc, const char **argv );
-		~BitcoinExchange( void );
-		
-		void setMaLine( const std::map< std::string, int >& newMapLine );
-		const std::map< std::string, int>& getMaLine( void ) const;
-
-		static bool isValidArgs( int argc );
-		void parseFile( const char* fileName );
-		// void isValidFile( const std::string& fileName );
-		static int isValidLine( const std::string& currentLine );
-		static bool isValidFirstLine( const std::string& firstLine );
-
-		// parse current line of the input file
-		void parseLine( const std::string& currentLine );
-
-		// chek si trop large number, negatif ou si input pas bon (date)
+	// chek si trop large number, negatif ou si input pas bon (date)
 		void openInputFile( char *fileName );
 		void stackData( const std::string& currentLine, int errCode );
 		static bool checkPipe( const std::string& currentLine );
@@ -57,7 +41,6 @@ class   BitcoinExchange  {
 		static bool checkValidDate( const std::string& currentLine );
 		std::string checkLineError( const std::string& badLine, const int errorCode );
 };
-
 
 // https://www.w3schools.in/cplusplus/working-with-files
 // https://quickref.me/cpp.html
