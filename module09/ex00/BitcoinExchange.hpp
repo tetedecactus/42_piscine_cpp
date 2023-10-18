@@ -31,9 +31,12 @@ class   BitcoinExchange  {
 		
     public:
 	
-		BitcoinExchange( void );
+		BitcoinExchange( int argc, const char **argv );
 		~BitcoinExchange( void );
 		
+		void setMaLine( const std::map< std::string, int >& newMapLine );
+		const std::map< std::string, int>& getMaLine( void ) const;
+
 		static bool isValidArgs( int argc );
 		void parseFile( const char* fileName );
 		// void isValidFile( const std::string& fileName );
@@ -45,7 +48,7 @@ class   BitcoinExchange  {
 
 		// chek si trop large number, negatif ou si input pas bon (date)
 		void openInputFile( char *fileName );
-		void stackData( const std::string& currentLine );
+		void stackData( const std::string& currentLine, int errCode );
 		static bool checkPipe( const std::string& currentLine );
 		static bool checkSize( const std::string& currentLine );
 		static bool checkMaxInt( const std::string& currentLine );

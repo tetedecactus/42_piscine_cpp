@@ -16,12 +16,9 @@ int main(int argc, const char **argv)
 {
 	try
 	{
-		BitcoinExchange btc_data;
-
-		if (btc_data.isValidArgs( argc )) 
-		{
-			btc_data.parseFile( argv[1] );
-		}
+		BitcoinExchange btc_data(argc, argv);
+		
+		
 	}
 	catch(const std::exception& e)
 	{

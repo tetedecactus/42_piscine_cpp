@@ -12,15 +12,30 @@
 
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange::BitcoinExchange( void ) 
+BitcoinExchange::BitcoinExchange( int argc, const char **argv ) 
 {
-	return ;
+
+	if ( isValidArgs( argc ) )
+    {
+        parseFile( argv[1] );
+
+    }
+    
 }
 
 BitcoinExchange::~BitcoinExchange( void ) 
 {
 	return ;
 }
+
+const std::map< std::string, int >& BitcoinExchange::getMaLine( void ) const {
+    return maLine;
+}
+
+void BitcoinExchange::setMaLine( const std::map< std::string, int >&newMapLine ) {
+    maLine = newMapLine;
+}
+
 // ---- Parsing functions -----
 bool BitcoinExchange::isValidArgs(int argc ) 
 {
@@ -71,11 +86,12 @@ void BitcoinExchange::parseLine(const std::string& currentLine) {
         throw std::runtime_error(errorString);
     }
 
-    stackData(currentLine);
+    stackData( currentLine, errorCode );
 }
 
-void BitcoinExchange::stackData( const std::string& currentLine )
+void BitcoinExchange::stackData( const std::string& currentLine, int errCode )
 {
+    maLine(currentLine) = errCode;
 	std::cout << currentLine << std::endl;
 }
 
