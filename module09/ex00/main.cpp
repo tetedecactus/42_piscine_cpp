@@ -17,6 +17,12 @@ int main(int argc, const char **argv)
 	try
 	{
 		BitcoinExchange btc_data(argc, argv);
+		std::map<std::string, int> maMap = btc_data.getMaLine();
+		std::map<std::string, int>::iterator it;
+		for (it = maMap.begin(); it != maMap.end(); it++)
+		{
+			std::cout << "Cle: " << it->first << "Value: " << it->second << std::endl;
+		}
 		
 		
 	}
