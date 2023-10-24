@@ -12,34 +12,22 @@
 
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange::BitcoinExchange( int argc, const char **argv ) 
-{
+BitcoinExchange::BitcoinExchange( int argc, const char **argv ) {
 
 	if ( isValidArgs( argc ) )
     {
         parseDB("data.csv");
         parseFile( argv[1] );
-
     }
     
 }
 
-BitcoinExchange::~BitcoinExchange( void ) 
-{
+BitcoinExchange::~BitcoinExchange( void ) {
 	return ;
 }
 
-const std::map< std::string, int >& BitcoinExchange::getMaLine( void ) const {
-    return maLine;
-}
-
-void BitcoinExchange::setMaLine( const std::map< std::string, int >&newMapLine ) {
-    maLine = newMapLine;
-}
-
 // ---- Parsing functions -----
-bool BitcoinExchange::isValidArgs(int argc ) 
-{
+bool BitcoinExchange::isValidArgs(int argc ) {
 	if ( argc < 2 ) 
 		throw std::runtime_error ("Error: File name not provided.");
 	if ( argc > 2) 
@@ -48,8 +36,8 @@ bool BitcoinExchange::isValidArgs(int argc )
 		return true;
 }
 
-void BitcoinExchange::parseDB( const char* dataBaseFile )
-{
+
+void BitcoinExchange::parseDB( const char* dataBaseFile ) {
     std::ifstream dbFile( dataBaseFile );
 
     if (dbFile.is_open()) {
@@ -59,14 +47,44 @@ void BitcoinExchange::parseDB( const char* dataBaseFile )
     std::string dbLine;
     std::getline(dbFile, dbLine);
 
+    std::string sDate;
+    float fValue;
+
     while (std::getline(dbFile, dbLine)) {
-        stackData(dbLine, 1);
+        sDate =  extractDateData( dbLine );
+        fValue =  extractFloatData( dbLine );
+        stackData( sDate, fValue );
     }
     dbFile.close();
 }
 
-void BitcoinExchange::parseFile(const char* fileName) 
-{
+std::string BitcoinExchange::extractDateData( const std::string& dbLine ) {
+    size_t pos = dbLine.find(',');
+
+    if ( pos != std::string::npos ) {
+        std::string sDate = dbLine.substr(0, pos);
+
+        return sDate;
+    }
+    return NULL;
+}
+
+
+float BitcoinExchange::extractFloatData( const std::string& dbLine ) {
+    size_t pos = dbLine.find(',');
+
+    if ( pos != std::string::npos ) {
+        std::string fString = dbLine.substr(pos + 1);
+
+        float fValue;
+        std::istringstream(fString) >> fValue;
+
+        return fValue;
+    }
+    return -1;
+}
+
+void BitcoinExchange::parseFile(const char* fileName) {
     std::ifstream inputFile(fileName);
     
     if (!inputFile.is_open()) {
@@ -110,14 +128,12 @@ void BitcoinExchange::parseLine(const std::string& currentLine) {
     // stackData( currentLine, errorCode );
 }
 
-void BitcoinExchange::stackData( const std::string& currentLine, int errCode )
-{
+void BitcoinExchange::stackData( const std::string& currentLine, int errCode ) {
     maLine[currentLine] = errCode;
 	// std::cout << maLine[currentLine] << std::endl;
 }
 
-std::string BitcoinExchange::checkLineError( const std::string& badLine, const int errorCode )
-{
+std::string BitcoinExchange::checkLineError( const std::string& badLine, const int errorCode ) {
 	if ( errorCode == 2 )
 		return ( "Error: Bad input => " + badLine );
 	if ( errorCode == 3 )
@@ -125,8 +141,7 @@ std::string BitcoinExchange::checkLineError( const std::string& badLine, const i
 	return ( "" );
 }
 
-int BitcoinExchange::isValidLine(const std::string& currentLine) 
-{
+int BitcoinExchange::isValidLine(const std::string& currentLine) {
     if (BitcoinExchange::checkSize(currentLine))
         return 2; // Taille incorrecte.
     else if (BitcoinExchange::checkPipe(currentLine))
@@ -141,61 +156,67 @@ int BitcoinExchange::isValidLine(const std::string& currentLine)
         return 1; // Tout est valide.
 }
 
-
-bool BitcoinExchange::checkNegatif( const std::string& currentLine )
-{
-	return ( currentLine.at( 13 ) == '-' );
-}
-
-bool BitcoinExchange::checkIsDigit( const std::string& currentLine )
-{
-	return ( !isdigit( currentLine.at( 13 ) ) && currentLine.at( 13 ) != '-' );
-}
-
-bool BitcoinExchange::isValidFirstLine( const std::string& firstLine )
-{
-	return ( firstLine == "date | value" );
-}
-
-bool BitcoinExchange::checkPipe( const std::string& currentLine )
-{
-	return ( currentLine.at( 11 ) != '|' );
-}
-
-bool BitcoinExchange::checkSize( const std::string& currentLine )
-{
-	return ( currentLine.size() < 13 );
-}
-
-bool BitcoinExchange::checkValidDate( const std::string& currentLine )
-{
-	std::string yearStr = currentLine.substr( 0, 4 );
+bool BitcoinExchange::checkValidDate( const std::string& currentLine ) {
+    std::string yearStr = currentLine.substr( 0, 4 );
 	std::string monthStr = currentLine.substr( 5, 2 );
 	std::string dayStr = currentLine.substr( 8, 2);
-
+    
 	std::time_t timeLive;
 	std::tm *timeInfo;
-
+    
 	time(&timeLive);
-
+    
 	timeInfo = std::localtime( &timeLive );
-
+    
 	int todayYear;
 	int todayMonth;
 	int todayDay;
-
+    
 	todayYear = timeInfo->tm_year + 1900;
 	todayMonth = timeInfo->tm_mon + 1;
 	todayDay = timeInfo->tm_mday;
-
+    
 	int yearInt = std::atoi(yearStr.c_str());
 	int monthInt = std::atoi(monthStr.c_str());
 	int dayInt = std::atoi(dayStr.c_str());
 
     if (yearInt > todayYear || yearInt < 2008 || monthInt > 12 || dayInt > 31)
-        return false;
+    return false;
     if (yearInt == todayYear && (monthInt > todayMonth || (monthInt == todayMonth && dayInt > todayDay)))
-		return false;
+    return false;
 	
 	return true;
 }
+
+bool BitcoinExchange::checkNegatif( const std::string& currentLine ) {
+    return ( currentLine.at( 13 ) == '-' );
+}
+
+bool BitcoinExchange::checkIsDigit( const std::string& currentLine ) {
+    return ( !isdigit( currentLine.at( 13 ) ) && currentLine.at( 13 ) != '-' );
+}
+
+bool BitcoinExchange::isValidFirstLine( const std::string& firstLine ) {
+    return ( firstLine == "date | value" );
+}
+
+bool BitcoinExchange::checkPipe( const std::string& currentLine ) {
+    return ( currentLine.at( 11 ) != '|' );
+}
+
+bool BitcoinExchange::checkSize( const std::string& currentLine ) {
+    return ( currentLine.size() < 13 );
+}
+
+//  SETTERR
+
+const std::map< std::string, float >& BitcoinExchange::getMaLine( void ) const {
+    return maLine;
+}
+
+// GETTERRR
+
+void BitcoinExchange::setMaLine( const std::map< std::string, float >&newMapLine ) {
+    maLine = newMapLine;
+}
+
