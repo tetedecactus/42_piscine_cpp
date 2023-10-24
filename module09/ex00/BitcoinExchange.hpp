@@ -41,8 +41,8 @@ class   BitcoinExchange  {
 		static bool isValidArgs( int argc );
 		void parseFile( const char* fileName );
 		void parseLine (const std::string& currentLine );
-		void searchStackDate( std::string & sDate, float & fValue );
-		void searchClosestDate( std::string & sDate, float & fValue );
+		void searchStackDate( const std::string & sDate, float fValue );
+		void searchClosestDate( const std::string & sDate, float fValue );
 		float extractFloatData( const std::string& dbLine );
 		std::string extractDateData( const std::string& dvLine );
 	// chek si trop large number, negatif ou si input pas bon (date)

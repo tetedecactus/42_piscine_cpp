@@ -121,7 +121,7 @@ void BitcoinExchange::parseFile(const char* fileName) {
     inputFile.close();
 }
 
-void BitcoinExchange::searchStackDate(const std::string &sDate, float &fValue) {
+void BitcoinExchange::searchStackDate(const std::string &sDate, float fValue) {
     std::map<std::string, float>::iterator it;
     for (it = maLine.begin(); it != maLine.end(); ++it) {
         // Comparer sDate avec it->first (la clé, c'est-à-dire la date)
@@ -130,7 +130,7 @@ void BitcoinExchange::searchStackDate(const std::string &sDate, float &fValue) {
             std::cout << sDate << " " << std::fixed << std::setprecision(2) << fValue - it->second << std::endl;
             std::cout << "Found" << std::endl;
             return; // Sortir de la fonction dès que la date est trouvée
-        else if (it->first != sDate) {
+        if (it->first != sDate) {
             searchClosestDate(sDate, fValue);
         }
 
