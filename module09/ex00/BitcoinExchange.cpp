@@ -35,7 +35,6 @@ bool BitcoinExchange::isValidArgs(int argc ) {
 }
 
 
-
 void BitcoinExchange::parseDB( const char* dataBaseFile ) {
     std::ifstream dbFile( dataBaseFile );
 
@@ -158,12 +157,12 @@ void BitcoinExchange::searchClosestDate(const std::string& sDate, float fValue) 
     std::cout << "Date not found" << std::endl;
 }
 
+
 void BitcoinExchange::parseLine(const std::string& currentLine) {
 	int errorCode;
     errorCode = isValidLine(currentLine);
     
-    if (errorCode != 1) 
-	{
+    if (errorCode != 1) {
         std::string errorString = checkLineError(currentLine, errorCode);
         // throw std::runtime_error(errorString);
         // std::cout << errorString << std::endl;
