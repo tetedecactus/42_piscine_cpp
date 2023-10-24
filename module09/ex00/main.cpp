@@ -12,17 +12,16 @@
 
 #include "BitcoinExchange.hpp"
 
-int main(int argc, const char **argv)
-{
-	try
-	{
-		BitcoinExchange btc_data(argc, argv);
-		std::map<std::string, int> maMap = btc_data.getMaLine();
-		std::map<std::string, int>::iterator it;
-		for (it = maMap.begin(); it != maMap.end(); it++)
-		{
-			std::cout << "Cle: " << it->first << "Value: " << it->second << std::endl;
-		}
+int main(int argc, const char **argv) {
+	try {
+		BitcoinExchange btc_data(argc);
+		btc_data.parseFile(argv[1]);
+
+		// std::map<std::string, float> maMap = btc_data.getMaLine();
+		// std::map<std::string, float>::iterator it;
+		// for (it = maMap.begin(); it != maMap.end(); it++) {
+		// 	std::cout << "Cle: " << it->first << "Value: " << std::fixed << std::setprecision(2) << it->second << std::endl;
+		// }
 		
 		
 	}

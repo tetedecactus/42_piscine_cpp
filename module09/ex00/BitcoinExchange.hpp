@@ -19,7 +19,8 @@
 #include 	<cstdlib>
 #include	<ctime>
 #include	<string>
-#include 	<sstream>
+#include 	<sstream>	
+#include 	<iomanip>
 
 class   BitcoinExchange  {
  
@@ -31,7 +32,7 @@ class   BitcoinExchange  {
 		std::map< std::string, float > maLine;	
     public:
 
-		BitcoinExchange( int argc, const char **argv );
+		BitcoinExchange( int argc );
 		~BitcoinExchange( void );
 
 		void setMaLine( const std::map< std::string, float >& newMapLine );
@@ -40,12 +41,13 @@ class   BitcoinExchange  {
 		static bool isValidArgs( int argc );
 		void parseFile( const char* fileName );
 		void parseLine (const std::string& currentLine );
-
+		void searchStackDate( std::string & sDate, float & fValue );
+		void searchClosestDate( std::string & sDate, float & fValue );
 		float extractFloatData( const std::string& dbLine );
 		std::string extractDateData( const std::string& dvLine );
 	// chek si trop large number, negatif ou si input pas bon (date)
 		void openInputFile( char *fileName );
-		void stackData( const std::string& currentLine, int errCode );
+		void stackData( const std::string& sDate, float fValue );
 		static bool checkPipe( const std::string& currentLine );
 		static bool checkSize( const std::string& currentLine );
 		static bool checkMaxInt( const std::string& currentLine );

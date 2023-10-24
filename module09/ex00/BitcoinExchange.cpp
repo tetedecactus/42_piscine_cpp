@@ -12,20 +12,18 @@
 
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange::BitcoinExchange( int argc, const char **argv ) {
-
-	if ( isValidArgs( argc ) )
-    {
+BitcoinExchange::BitcoinExchange( int argc ) {
+	if ( isValidArgs( argc ) ) {
         parseDB("data.csv");
-        parseFile( argv[1] );
+        // parseFile(argv[1]);
     }
-    
+    return ;
 }
 
 BitcoinExchange::~BitcoinExchange( void ) {
 	return ;
 }
-
+                                         
 // ---- Parsing functions -----
 bool BitcoinExchange::isValidArgs(int argc ) {
 	if ( argc < 2 ) 
@@ -37,11 +35,13 @@ bool BitcoinExchange::isValidArgs(int argc ) {
 }
 
 
+
 void BitcoinExchange::parseDB( const char* dataBaseFile ) {
     std::ifstream dbFile( dataBaseFile );
 
-    if (dbFile.is_open()) {
+    if (!dbFile.is_open()) {
         std::cerr << "Error: Could not open the data base." << std::endl;
+        return;
     }
     
     std::string dbLine;
@@ -66,7 +66,7 @@ std::string BitcoinExchange::extractDateData( const std::string& dbLine ) {
 
         return sDate;
     }
-    return NULL;
+    return "";
 }
 
 
@@ -75,10 +75,12 @@ float BitcoinExchange::extractFloatData( const std::string& dbLine ) {
 
     if ( pos != std::string::npos ) {
         std::string fString = dbLine.substr(pos + 1);
+        
+        std::istringstream ss(fString);
+        float fValue = 0.0f;
 
-        float fValue;
-        std::istringstream(fString) >> fValue;
-
+        ss >> fValue;
+;
         return fValue;
     }
     return -1;
@@ -99,10 +101,16 @@ void BitcoinExchange::parseFile(const char* fileName) {
         if (!isValidFirstLine(line)) 
             throw std::runtime_error("Error: Not a valid file format.");
 
+        std::string sDate;
+        float fValue;
+
         while (std::getline(inputFile, line)) {
             try {
                 parseLine(line);
                 checkValidDate(line);
+                sDate = extractDateData(line);
+                fValue = extractFloatData(line);
+                searchStackDate(sDate, fValue);
             } catch (const std::exception& e) {
                 std::cerr << e.what() << '\n';
             }
@@ -113,8 +121,46 @@ void BitcoinExchange::parseFile(const char* fileName) {
     inputFile.close();
 }
 
+void BitcoinExchange::searchStackDate(const std::string &sDate, float &fValue) {
+    std::map<std::string, float>::iterator it;
+    for (it = maLine.begin(); it != maLine.end(); ++it) {
+        // Comparer sDate avec it->first (la clé, c'est-à-dire la date)
+        if (it->first == sDate) {
+            std::cout << it->first << " " << std::fixed << std::setprecision(2) << it->second << std::endl;
+            std::cout << sDate << " " << std::fixed << std::setprecision(2) << fValue - it->second << std::endl;
+            std::cout << "Found" << std::endl;
+            return; // Sortir de la fonction dès que la date est trouvée
+        else if (it->first != sDate) {
+            searchClosestDate(sDate, fValue);
+        }
+
+            break; // Sortir de la boucle dès que la date est dépassée
+        }
+    }
+
+    // Si la date n'est pas trouvée
+    std::cout << "Date not found" << std::endl;
+}
+
+void BitcoinExchange::searchClosestDate(const std::string& sDate, float fValue) {
+    std::map<std::string, float>::iterator it;
+    for (it = maLine.begin(); it != maLine.end(); ++it) {
+        // Comparer sDate avec it->first (la clé, c'est-à-dire la date)
+        if (it->first > sDate) {
+            std::cout << it->first << " " << std::fixed << std::setprecision(2) << it->second << std::endl;
+            std::cout << sDate << " " << std::fixed << std::setprecision(2) << fValue - it->second << std::endl;
+            std::cout << "Closest" << std::endl;
+            return; // Sortir de la fonction dès que la date est trouvée
+        }
+    }
+
+    // Si la date n'est pas trouvée
+    std::cout << "Date not found" << std::endl;
+}
+
 void BitcoinExchange::parseLine(const std::string& currentLine) {
-	int errorCode = isValidLine(currentLine);
+	int errorCode;
+    errorCode = isValidLine(currentLine);
     
     if (errorCode != 1) 
 	{
@@ -128,9 +174,9 @@ void BitcoinExchange::parseLine(const std::string& currentLine) {
     // stackData( currentLine, errorCode );
 }
 
-void BitcoinExchange::stackData( const std::string& currentLine, int errCode ) {
-    maLine[currentLine] = errCode;
-	// std::cout << maLine[currentLine] << std::endl;
+void BitcoinExchange::stackData( const std::string& sDate, float fValue ) {
+    maLine[sDate] = fValue;
+	// std::cout << maLine[currentLine] << std::endl;ma
 }
 
 std::string BitcoinExchange::checkLineError( const std::string& badLine, const int errorCode ) {
