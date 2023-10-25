@@ -97,6 +97,7 @@ void BitcoinExchange::searchStackDate(const std::string &sDate, float fValue) {
     for (it = maLine.begin(); it != maLine.end(); ++it) {
         // Comparer sDate avec it->first (la clé, c'est-à-dire la date)
         if (it->first == sDate) {
+            std::cout << "fValue: " << fValue << std::endl;
             // std::cout << it->first << " " << std::fixed << std::setprecision(2) << it->second << std::endl;
             // std::cout << sDate << " " << std::fixed << std::setprecision(2) << fValue - it->second << std::endl;
             // std::cout << "Found" << std::endl;
