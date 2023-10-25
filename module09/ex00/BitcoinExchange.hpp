@@ -39,18 +39,19 @@ class   BitcoinExchange  {
 		const std::map< std::string, float>& getMaLine( void ) const;
 
 		static bool isValidArgs( int argc );
-		void parseFile( const char* fileName );
-		void parseLine (const std::string& currentLine );
+		void parseInputFile( const char* fileName );
+		void calculDateValue( const std::string& sDate, float fValue );
+		bool parseLine (const std::string& currentLine );
 		void searchStackDate( const std::string & sDate, float fValue );
 		void searchClosestDate( const std::string & sDate, float fValue );
 		float extractFloatData( const std::string& dbLine );
 		std::string extractDateData( const std::string& dvLine );
+
 	// chek si trop large number, negatif ou si input pas bon (date)
-		void openInputFile( char *fileName );
 		void stackData( const std::string& sDate, float fValue );
 		static bool checkPipe( const std::string& currentLine );
 		static bool checkSize( const std::string& currentLine );
-		static bool checkMaxInt( const std::string& currentLine );
+		// static bool checkMaxInt( const std::string& currentLine );
 		static bool checkNegatif( const std::string& currentLine );
 		static bool checkIsDigit( const std::string& currentLine );
 		static bool checkValidDate( const std::string& currentLine );

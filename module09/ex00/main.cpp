@@ -15,14 +15,14 @@
 int main(int argc, const char **argv) {
 	try {
 		BitcoinExchange btc_data(argc);
-		btc_data.parseFile(argv[1]);
+		btc_data.parseInputFile(argv[1]);
+
 
 		// std::map<std::string, float> maMap = btc_data.getMaLine();
 		// std::map<std::string, float>::iterator it;
 		// for (it = maMap.begin(); it != maMap.end(); it++) {
 		// 	std::cout << "Cle: " << it->first << "Value: " << std::fixed << std::setprecision(2) << it->second << std::endl;
 		// }
-		
 		
 	}
 	catch(const std::exception& e)

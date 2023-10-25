@@ -57,35 +57,7 @@ void BitcoinExchange::parseDB( const char* dataBaseFile ) {
     dbFile.close();
 }
 
-std::string BitcoinExchange::extractDateData( const std::string& dbLine ) {
-    size_t pos = dbLine.find(',');
-
-    if ( pos != std::string::npos ) {
-        std::string sDate = dbLine.substr(0, pos);
-
-        return sDate;
-    }
-    return "";
-}
-
-
-float BitcoinExchange::extractFloatData( const std::string& dbLine ) {
-    size_t pos = dbLine.find(',');
-
-    if ( pos != std::string::npos ) {
-        std::string fString = dbLine.substr(pos + 1);
-        
-        std::istringstream ss(fString);
-        float fValue = 0.0f;
-
-        ss >> fValue;
-;
-        return fValue;
-    }
-    return -1;
-}
-
-void BitcoinExchange::parseFile(const char* fileName) {
+void BitcoinExchange::parseInputFile(const char* fileName) {
     std::ifstream inputFile(fileName);
     
     if (!inputFile.is_open()) {
@@ -105,11 +77,11 @@ void BitcoinExchange::parseFile(const char* fileName) {
 
         while (std::getline(inputFile, line)) {
             try {
-                parseLine(line);
-                checkValidDate(line);
-                sDate = extractDateData(line);
-                fValue = extractFloatData(line);
-                searchStackDate(sDate, fValue);
+                if (parseLine(line) == true) {
+                    sDate = extractDateData(line);
+                    fValue = extractFloatData(line);
+                    searchStackDate(sDate, fValue);
+                }
             } catch (const std::exception& e) {
                 std::cerr << e.what() << '\n';
             }
@@ -125,9 +97,11 @@ void BitcoinExchange::searchStackDate(const std::string &sDate, float fValue) {
     for (it = maLine.begin(); it != maLine.end(); ++it) {
         // Comparer sDate avec it->first (la clé, c'est-à-dire la date)
         if (it->first == sDate) {
-            std::cout << it->first << " " << std::fixed << std::setprecision(2) << it->second << std::endl;
-            std::cout << sDate << " " << std::fixed << std::setprecision(2) << fValue - it->second << std::endl;
-            std::cout << "Found" << std::endl;
+            // std::cout << it->first << " " << std::fixed << std::setprecision(2) << it->second << std::endl;
+            // std::cout << sDate << " " << std::fixed << std::setprecision(2) << fValue - it->second << std::endl;
+            // std::cout << "Found" << std::endl;
+            std::cout << it->first << " => " << fValue << " => " << std::fixed << std::setprecision(2) << it->second * fValue << std::endl;
+            // calculDateValue(sDate, fValue);
             return; // Sortir de la fonction dès que la date est trouvée
         if (it->first != sDate) {
             searchClosestDate(sDate, fValue);
@@ -138,40 +112,82 @@ void BitcoinExchange::searchStackDate(const std::string &sDate, float fValue) {
     }
 
     // Si la date n'est pas trouvée
-    std::cout << "Date not found" << std::endl;
+    std::cout << "Date not found Exact" << std::endl;
 }
 
 void BitcoinExchange::searchClosestDate(const std::string& sDate, float fValue) {
+    (void)fValue;
     std::map<std::string, float>::iterator it;
     for (it = maLine.begin(); it != maLine.end(); ++it) {
         // Comparer sDate avec it->first (la clé, c'est-à-dire la date)
         if (it->first > sDate) {
-            std::cout << it->first << " " << std::fixed << std::setprecision(2) << it->second << std::endl;
-            std::cout << sDate << " " << std::fixed << std::setprecision(2) << fValue - it->second << std::endl;
+            // std::cout << it->first << " " << std::fixed << std::setprecision(2) << it->second << std::endl;
+            // std::cout << sDate << " " << std::fixed << std::setprecision(2) << fValue - it->second << std::endl;
             std::cout << "Closest" << std::endl;
             return; // Sortir de la fonction dès que la date est trouvée
         }
     }
 
     // Si la date n'est pas trouvée
-    std::cout << "Date not found" << std::endl;
+    std::cout << "Date not found Closest" << std::endl;
 }
 
+// void BitcoinExchange::calculDateValue( const std::string& sDate, float fValue) {
 
-void BitcoinExchange::parseLine(const std::string& currentLine) {
+// }
+bool BitcoinExchange::parseLine(const std::string& currentLine) {
 	int errorCode;
     errorCode = isValidLine(currentLine);
     
     if (errorCode != 1) {
         std::string errorString = checkLineError(currentLine, errorCode);
-        // throw std::runtime_error(errorString);
-        // std::cout << errorString << std::endl;
-        // stackData( errorString, errorCode );
-        return;
+        throw std::runtime_error(errorString);
+        return false;
     }
-
-    // stackData( currentLine, errorCode );
+    return true;
 }
+
+std::string BitcoinExchange::extractDateData( const std::string& dbLine ) {
+    size_t pos = dbLine.find(',');
+
+    if ( pos != std::string::npos ) {
+        std::string sDate = dbLine.substr(0, pos);
+        return sDate;
+    }
+    // si trouve par ',' alors cherche par '|'
+    if ( pos == std::string::npos ) {
+        std::string sDate = dbLine.substr(0, 10);
+        return sDate;
+    }
+    return "";
+}
+
+
+float BitcoinExchange::extractFloatData( const std::string& dbLine ) {
+    size_t pos = dbLine.find(',');
+
+    if ( pos != std::string::npos ) {
+        std::string fString = dbLine.substr(pos + 1);
+        
+        std::istringstream ss(fString);
+        float fValue = 0.0f;
+
+        ss >> fValue;
+
+        return fValue;
+    }
+    if ( pos == std::string::npos ) {
+        std::string fString = dbLine.substr(11);
+        
+        std::istringstream ss(fString);
+        float fValue = 0.0f;
+
+        ss >> fValue;
+        return fValue;
+    }
+    return -1;
+}
+
 
 void BitcoinExchange::stackData( const std::string& sDate, float fValue ) {
     maLine[sDate] = fValue;
@@ -182,7 +198,7 @@ std::string BitcoinExchange::checkLineError( const std::string& badLine, const i
 	if ( errorCode == 2 )
 		return ( "Error: Bad input => " + badLine );
 	if ( errorCode == 3 )
-		return ( "Error: Not a positive number." + badLine );
+		return ( "Error: Not a positive number.");
 	return ( "" );
 }
 
@@ -226,9 +242,9 @@ bool BitcoinExchange::checkValidDate( const std::string& currentLine ) {
 	int dayInt = std::atoi(dayStr.c_str());
 
     if (yearInt > todayYear || yearInt < 2008 || monthInt > 12 || dayInt > 31)
-    return false;
+        return false;
     if (yearInt == todayYear && (monthInt > todayMonth || (monthInt == todayMonth && dayInt > todayDay)))
-    return false;
+         return false;
 	
 	return true;
 }
