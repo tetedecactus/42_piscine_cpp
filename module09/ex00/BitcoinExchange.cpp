@@ -80,6 +80,8 @@ void BitcoinExchange::parseInputFile(const char* fileName) {
                 if (parseLine(line) == true) {
                     sDate = extractDateData(line);
                     fValue = extractFloatData(line);
+                    std::cout << "sDate: " << sDate << std::endl;
+                    std::cout << "fValue: " << fValue << std::endl;
                     searchStackDate(sDate, fValue);
                 }
             } catch (const std::exception& e) {
@@ -98,8 +100,6 @@ void BitcoinExchange::searchStackDate(const std::string &sDate, float fValue) {
         // Comparer sDate avec it->first (la clé, c'est-à-dire la date)
         if (it->first == sDate) {
             std::cout << "fValue: " << fValue << std::endl;
-            // std::cout << it->first << " " << std::fixed << std::setprecision(2) << it->second << std::endl;
-            // std::cout << sDate << " " << std::fixed << std::setprecision(2) << fValue - it->second << std::endl;
             // std::cout << "Found" << std::endl;
             std::cout << it->first << " => " << fValue << " => " << std::fixed << std::setprecision(2) << it->second * fValue << std::endl;
             // calculDateValue(sDate, fValue);
@@ -119,6 +119,8 @@ void BitcoinExchange::searchStackDate(const std::string &sDate, float fValue) {
 void BitcoinExchange::searchClosestDate(const std::string& sDate, float fValue) {
     (void)fValue;
     std::map<std::string, float>::iterator it;
+    std::cout << "sDate: " << sDate << std::endl;
+    std::cout << "fValue: " << fValue << std::endl;
     for (it = maLine.begin(); it != maLine.end(); ++it) {
         // Comparer sDate avec it->first (la clé, c'est-à-dire la date)
         if (it->first > sDate) {
@@ -178,7 +180,8 @@ float BitcoinExchange::extractFloatData( const std::string& dbLine ) {
         return fValue;
     }
     if ( pos == std::string::npos ) {
-        std::string fString = dbLine.substr(11);
+        pos = dbLine.find('|');
+        std::string fString = dbLine.substr(pos + 1);
         
         std::istringstream ss(fString);
         float fValue = 0.0f;
