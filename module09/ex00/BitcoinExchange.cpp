@@ -80,8 +80,6 @@ void BitcoinExchange::parseInputFile(const char* fileName) {
                 if (parseLine(line) == true) {
                     sDate = extractDateData(line);
                     fValue = extractFloatData(line);
-                    std::cout << "sDate: " << sDate << std::endl;
-                    std::cout << "fValue: " << fValue << std::endl;
                     searchStackDate(sDate, fValue);
                 }
             } catch (const std::exception& e) {
@@ -99,10 +97,7 @@ void BitcoinExchange::searchStackDate(const std::string &sDate, float fValue) {
     for (it = maLine.begin(); it != maLine.end(); ++it) {
         // Comparer sDate avec it->first (la clé, c'est-à-dire la date)
         if (it->first == sDate) {
-            std::cout << "fValue: " << fValue << std::endl;
-            // std::cout << "Found" << std::endl;
             std::cout << it->first << " => " << fValue << " => " << std::fixed << std::setprecision(2) << it->second * fValue << std::endl;
-            // calculDateValue(sDate, fValue);
             return; // Sortir de la fonction dès que la date est trouvée
         if (it->first != sDate) {
             searchClosestDate(sDate, fValue);
@@ -113,14 +108,12 @@ void BitcoinExchange::searchStackDate(const std::string &sDate, float fValue) {
     }
 
     // Si la date n'est pas trouvée
-    std::cout << "Date not found Exact" << std::endl;
+    // std::cout << "Date not found Exact" << std::endl;
 }
 
 void BitcoinExchange::searchClosestDate(const std::string& sDate, float fValue) {
     (void)fValue;
     std::map<std::string, float>::iterator it;
-    std::cout << "sDate: " << sDate << std::endl;
-    std::cout << "fValue: " << fValue << std::endl;
     for (it = maLine.begin(); it != maLine.end(); ++it) {
         // Comparer sDate avec it->first (la clé, c'est-à-dire la date)
         if (it->first > sDate) {
@@ -132,12 +125,9 @@ void BitcoinExchange::searchClosestDate(const std::string& sDate, float fValue) 
     }
 
     // Si la date n'est pas trouvée
-    std::cout << "Date not found Closest" << std::endl;
+    // std::cout << "Date not found Closest" << std::endl;
 }
 
-// void BitcoinExchange::calculDateValue( const std::string& sDate, float fValue) {
-
-// }
 bool BitcoinExchange::parseLine(const std::string& currentLine) {
 	int errorCode;
     errorCode = isValidLine(currentLine);
@@ -203,7 +193,10 @@ std::string BitcoinExchange::checkLineError( const std::string& badLine, const i
 		return ( "Error: Bad input => " + badLine );
 	if ( errorCode == 3 )
 		return ( "Error: Not a positive number.");
-	return ( "" );
+    if ( errorCode == 4 )
+        return ( "Error: Too large number.");
+	
+    return ( "" );
 }
 
 int BitcoinExchange::isValidLine(const std::string& currentLine) {
@@ -217,6 +210,8 @@ int BitcoinExchange::isValidLine(const std::string& currentLine) {
         return 2; // Date invalide.
     else if (BitcoinExchange::checkNegatif(currentLine))
         return 3; // Valeur négative.
+    else if (BitcoinExchange::checkMaxInt(extractFloatData(currentLine)))
+        return 4; // Valeur trop grande.
     else
         return 1; // Tout est valide.
 }
@@ -271,6 +266,10 @@ bool BitcoinExchange::checkPipe( const std::string& currentLine ) {
 
 bool BitcoinExchange::checkSize( const std::string& currentLine ) {
     return ( currentLine.size() < 13 );
+}
+
+bool BitcoinExchange::checkMaxInt( float fValue ) {
+    return ( fValue > 2147483647.00);
 }
 
 //  SETTERR

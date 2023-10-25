@@ -26,46 +26,32 @@ class   BitcoinExchange  {
  
     private:
 	
-		// float 	fValue;
-		// std::string sDate;	
-		// char *pFileName;
 		std::map< std::string, float > maLine;	
     public:
 
 		BitcoinExchange( int argc );
 		~BitcoinExchange( void );
 
-		void setMaLine( const std::map< std::string, float >& newMapLine );
 		const std::map< std::string, float>& getMaLine( void ) const;
-
-		static bool isValidArgs( int argc );
-		void parseInputFile( const char* fileName );
-		void calculDateValue( const std::string& sDate, float fValue );
+		void setMaLine( const std::map< std::string, float >& newMapLine );
 		bool parseLine (const std::string& currentLine );
+		void parseInputFile( const char* fileName );
 		void searchStackDate( const std::string & sDate, float fValue );
 		void searchClosestDate( const std::string & sDate, float fValue );
-		float extractFloatData( const std::string& dbLine );
-		std::string extractDateData( const std::string& dvLine );
-
-	// chek si trop large number, negatif ou si input pas bon (date)
 		void stackData( const std::string& sDate, float fValue );
+		void parseDB( const char* dataBaseFile );
+		std::string checkLineError( const std::string& badLine, const int errorCode );
+		std::string extractDateData( const std::string& dvLine );
 		static bool checkPipe( const std::string& currentLine );
 		static bool checkSize( const std::string& currentLine );
-		// static bool checkMaxInt( const std::string& currentLine );
 		static bool checkNegatif( const std::string& currentLine );
 		static bool checkIsDigit( const std::string& currentLine );
+		static bool checkMaxInt( float fValue );
 		static bool checkValidDate( const std::string& currentLine );
-		std::string checkLineError( const std::string& badLine, const int errorCode );
-		int isValidLine( const std::string& currentLine );
 		static bool isValidFirstLine( const std::string& firstLine );
+		static bool isValidArgs( int argc );
+		float extractFloatData( const std::string& dbLine );
+		int isValidLine( const std::string& currentLine );
 
-		void parseDB( const char* dataBaseFile );
 
 };
-
-// https://www.w3schools.in/cplusplus/working-with-files
-// https://quickref.me/cpp.html
-// https://hackingcpp.com/cpp/cheat_sheets.html
-// https://en.cppreference.com/w/cpp/container/map
-
-// Container map
