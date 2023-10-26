@@ -95,38 +95,44 @@ void BitcoinExchange::parseInputFile(const char* fileName) {
 void BitcoinExchange::searchStackDate(const std::string &sDate, float fValue) {
     std::map<std::string, float>::iterator it;
     for (it = maLine.begin(); it != maLine.end(); ++it) {
+
         // Comparer sDate avec it->first (la clé, c'est-à-dire la date)
         if (it->first == sDate) {
+            
             std::cout << it->first << " => " << fValue << " => " << std::fixed << std::setprecision(2) << it->second * fValue << std::endl;
-            return; // Sortir de la fonction dès que la date est trouvée
-        if (it->first != sDate) {
-            searchClosestDate(sDate, fValue);
+            // return; // Sortir de la fonction dès que la date est trouvée
         }
 
-            break; // Sortir de la boucle dès que la date est dépassée
+        if (it->first != sDate) {
+            std::string sClosestDate = searchClosestDate(it->first, sDate, fValue);
         }
     }
 
-    // Si la date n'est pas trouvée
-    // std::cout << "Date not found Exact" << std::endl;
 }
 
-void BitcoinExchange::searchClosestDate(const std::string& sDate, float fValue) {
+std::string BitcoinExchange::searchClosestDate( const std::string& SMapDate, const std::string& sDate, float fValue) {
+    //search closet date by compare month and days,
     (void)fValue;
+    
+    std::string sYear = sDate.substr(0, 4);
+    std::string sMonth = sDate.substr(5, 2);
+    std::string sDays = sDate.substr(8, 2);
+
+    std::string sMapYear = SMapDate.substr(0, 4);
+    std::string sMapMonth = SMapDate.substr(5, 2);
+    std::string sMapDays = SMapDate.substr(8, 2);    
+
     std::map<std::string, float>::iterator it;
     for (it = maLine.begin(); it != maLine.end(); ++it) {
-        // Comparer sDate avec it->first (la clé, c'est-à-dire la date)
-        if (it->first > sDate) {
-            // std::cout << it->first << " " << std::fixed << std::setprecision(2) << it->second << std::endl;
-            // std::cout << sDate << " " << std::fixed << std::setprecision(2) << fValue - it->second << std::endl;
-            std::cout << "Closest" << std::endl;
-            return; // Sortir de la fonction dès que la date est trouvée
+        if (sYear == sMapYear && sMonth == sMapMonth && sMapDays < sDays) {
+            std::cout << it->first << " => " << it->second << std::endl;
+            std::cout << "it first: " << it->first << std::endl;
+            return it->first;
         }
     }
-
-    // Si la date n'est pas trouvée
-    // std::cout << "Date not found Closest" << std::endl;
+    return "";
 }
+
 
 bool BitcoinExchange::parseLine(const std::string& currentLine) {
 	int errorCode;

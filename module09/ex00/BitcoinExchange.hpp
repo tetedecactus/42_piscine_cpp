@@ -37,7 +37,7 @@ class   BitcoinExchange  {
 		bool parseLine (const std::string& currentLine );
 		void parseInputFile( const char* fileName );
 		void searchStackDate( const std::string & sDate, float fValue );
-		void searchClosestDate( const std::string & sDate, float fValue );
+		std::string searchClosestDate( const std::string& sMapDate, const std::string & sDate, float fValue );
 		void stackData( const std::string& sDate, float fValue );
 		void parseDB( const char* dataBaseFile );
 		std::string checkLineError( const std::string& badLine, const int errorCode );
