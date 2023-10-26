@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 10:29:19 by olabrecq          #+#    #+#             */
-/*   Updated: 2023/10/26 11:40:34 by olabrecq         ###   ########.fr       */
+/*   Updated: 2023/10/26 12:53:18 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,17 @@ std::stack<double> RPN::getOperands() const {
 double RPN::calculateRPN(const std::string& input) {
     for (size_t i = 0; i < input.length(); i++) {
         char c = input[i];
+        double op2;
+        double op1;
         
         
         if (isdigit(c)) {
             _operands.push(c - '0');
+            std::cout << c - '0' << std::endl;
         } else if (c == '+' || c == '-' || c == '*' || c == '/') {
-            double op2 = _operands.top();
+            op2 = _operands.top();
             _operands.pop();
-            double op1 = _operands.top();
+            op1 = _operands.top();
             _operands.pop();
 
             switch (c) {
@@ -90,6 +93,7 @@ double RPN::calculateRPN(const std::string& input) {
 
 bool RPN::checkInput(const std::string& input) {
     int count = 0;
+    
     for (size_t i = 0; i < input.length(); i++) {
         char c = input[i];
         if (isdigit(c))
