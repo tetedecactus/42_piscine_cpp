@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 10:29:19 by olabrecq          #+#    #+#             */
-/*   Updated: 2023/10/26 12:53:18 by olabrecq         ###   ########.fr       */
+/*   Updated: 2023/10/26 14:14:46 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ double RPN::calculateRPN(const std::string& input) {
         if (isdigit(c)) {
             _operands.push(c - '0');
             std::cout << c - '0' << std::endl;
-        } else if (c == '+' || c == '-' || c == '*' || c == '/') {
+        } else if ((c == '+' || c == '-' || c == '*' || c == '/') && !_operands.empty()) {
             op2 = _operands.top();
             _operands.pop();
             op1 = _operands.top();
@@ -68,15 +68,19 @@ double RPN::calculateRPN(const std::string& input) {
 
             switch (c) {
                 case '+':
+                    std::cout << op1 << " + " << op2 << " = " << op1 + op2 << std::endl;
                     _operands.push(op1 + op2);
                     break;
                 case '-':
+                    std::cout << op1 << " - " << op2 << " = " << op1 - op2 << std::endl;
                     _operands.push(op1 - op2);
                     break;
                 case '*':
+                    std::cout << op1 << " * " << op2 << " = " << op1 * op2 << std::endl;
                     _operands.push(op1 * op2);
                     break;
                 case '/':
+                    std::cout << op1 << " / " << op2 << " = " << op1 / op2 << std::endl;
                     _operands.push(op1 / op2);
                     break;
             }
@@ -95,8 +99,12 @@ bool RPN::checkInput(const std::string& input) {
     int count = 0;
     
     for (size_t i = 0; i < input.length(); i++) {
+        
+        
         char c = input[i];
-        if (isdigit(c))
+        if (isdigit(c) && isdigit(input[i + 1]))
+            throw std::runtime_error("Error: Invalid decimal number ( >= 10 )");
+        else if (isdigit(c))
             count++;
         else if (c == '+' || c == '-' || c == '*' || c == '/')
             count--;
