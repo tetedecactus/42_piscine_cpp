@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 10:29:19 by olabrecq          #+#    #+#             */
-/*   Updated: 2023/10/26 11:07:56 by olabrecq         ###   ########.fr       */
+/*   Updated: 2023/10/26 11:40:34 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@ RPN::RPN(int argc, char const *argv[])
 {
     if (argc != 2)
         throw std::runtime_error("Wrong number of arguments");
+    if (!checkInput(argv[1]))
+        throw std::runtime_error("Error: Invalid input");
+    _input = argv[1];
 }
 
 RPN::~RPN()
@@ -26,7 +29,7 @@ void RPN::setInput(std::string input) {
     _input = input;
 }
 
-void RPN::setResult(int result) {
+void RPN::setResult(double result) {
     _result = result;
 }
 
@@ -38,7 +41,7 @@ std::string RPN::getInput() const {
     return _input;
 }
 
-int RPN::getResult() const {
+double RPN::getResult() const {
     return _result;
 }
 
@@ -75,9 +78,28 @@ double RPN::calculateRPN(const std::string& input) {
                     break;
             }
         }
+        else if (c == ' ')
+            continue;
         else
             throw std::runtime_error("Error: Invalid character");
     }
 
-    return _operands.top();
+    setResult(_operands.top());
+    return getResult();
+}
+
+bool RPN::checkInput(const std::string& input) {
+    int count = 0;
+    for (size_t i = 0; i < input.length(); i++) {
+        char c = input[i];
+        if (isdigit(c))
+            count++;
+        else if (c == '+' || c == '-' || c == '*' || c == '/')
+            count--;
+        else if (c == ' ')
+            continue;
+        else
+            return false;
+    }
+    return count == 1;
 }

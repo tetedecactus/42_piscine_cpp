@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 10:29:47 by olabrecq          #+#    #+#             */
-/*   Updated: 2023/10/26 11:06:51 by olabrecq         ###   ########.fr       */
+/*   Updated: 2023/10/26 11:38:34 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class RPN
 {
 private:
     
-    int _result;
+    double _result;
     std::string _input;
     
     std::stack<double> _operands;
@@ -33,12 +33,13 @@ public:
     
     
     double calculateRPN(const std::string& input);
+    bool checkInput(const std::string& input);
     
     void setOperands(std::stack<double> operands);
-    void setResult(int result);
+    void setResult(double result);
     void setInput(std::string input);
 
-    int getResult() const;
+    double getResult() const;
     std::string getInput() const;
     std::stack<double> getOperands() const;
 
