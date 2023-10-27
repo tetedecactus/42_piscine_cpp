@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:05:35 by olabrecq          #+#    #+#             */
-/*   Updated: 2023/10/26 12:07:01 by olabrecq         ###   ########.fr       */
+/*   Updated: 2023/10/26 20:51:51 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 PmergeMe::PmergeMe(int argc, char const *argv[])
 {
-    if (checkInput(argc, argv))
+    if (checkInput(argc))
         throw std::invalid_argument("Invalid input");
-    stockVectorInput(argv);
-    stockListInput(argv);
+    paseInput(argv);
+    setVector(stockVectorInput(argv));
+    setList(stockListInput(argv));
 }
 
 PmergeMe::~PmergeMe()
@@ -32,7 +33,7 @@ std::string PmergeMe::getInput() const {
     return _input;
 }
 
-bool PmergeMe::checkInput(int argc, char const *argv[]) {
+bool PmergeMe::checkInput(int argc) {
     if (argc < 2 || argc > 3001)
         return false;
     else
@@ -40,16 +41,18 @@ bool PmergeMe::checkInput(int argc, char const *argv[]) {
 }
 
 void PmergeMe::paseInput(char const *argv[]) {
+    int i = 0;
     while (*argv) {
-        if (isdigit(*argv))
+        if (!std::isdigit(*argv[i]))
             throw std::invalid_argument("Invalid input");
+        i++;
     }
 }
 
 std::vector<int> PmergeMe::stockVectorInput(char const *argv[]) {
     std::vector<int> v;
     for (int i = 1; argv[i]; i++) {
-        v.push_back(std::stoi(argv[i]));
+        v.push_back(std::atoi(argv[i]));
     }
     return v;
 }
@@ -57,7 +60,7 @@ std::vector<int> PmergeMe::stockVectorInput(char const *argv[]) {
 std::list<int> PmergeMe::stockListInput(char const *argv[]) {
     std::list<int> l;
     for (int i = 1; argv[i]; i++) {
-        l.push_back(std::stoi(argv[i]));
+        l.push_back(std::atoi(argv[i]));
     }
     return l;
 }
@@ -67,9 +70,9 @@ void PmergeMe::vectorFordJohnsonSort(std::vector<int> &v) {
     int j = 0;
     int tmp = 0;
 
-    while (i < v.size()) {
+    while (i < static_cast<int>(v.size())) {
         j = i + 1;
-        while (j < v.size()) {
+        while (j < static_cast<int>(v.size())) {
             if (v[i] > v[j]) {
                 tmp = v[i];
                 v[i] = v[j];
@@ -82,14 +85,30 @@ void PmergeMe::vectorFordJohnsonSort(std::vector<int> &v) {
 }
 
 void PmergeMe::listFordJohnsonSort(std::list<int> &l) {
-    std::list<int> sortedList;
-    for (std::list<int>::iterator it = sortedList.begin(); it != sortedList.end(); ++it) {
+    // std::list<int> sortedList;
+    for (std::list<int>::iterator it = l.begin(); it != l.end(); ++it) {
         const int& value = *it;
-        std::list<int>::iterator insertPos = sortedList.begin();
-        while (insertPos != sortedList.end() && *insertPos < value) {
+        std::list<int>::iterator insertPos = l.begin();
+        while (insertPos != l.end() && *insertPos < value) {
             ++insertPos;
         }
-        sortedList.insert(insertPos, value);
+        l.insert(insertPos, value);
     }
-    l = sortedList; 
+}
+
+
+std::vector<int> PmergeMe::getVector() const {
+    return _v;
+}
+
+std::list<int> PmergeMe::getList() const {
+    return _l;
+}
+
+void PmergeMe::setVector(std::vector<int> v) {
+    _v = v;
+}
+
+void PmergeMe::setList(std::list<int> l) {
+    _l = l;
 }

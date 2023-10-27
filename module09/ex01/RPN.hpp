@@ -45,3 +45,5 @@ public:
 
 };
 
+// https://en.wikipedia.org/wiki/Reverse_Polish_notation
+// https://www.youtube.com/watch?v=qN8LPIcY6K4&t=304s
