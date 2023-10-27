@@ -14,11 +14,10 @@
 
 PmergeMe::PmergeMe(int argc, char const *argv[])
 {
-    if (argc != 2)
-        throw std::runtime_error("Wrong number of arguments");
-    if (!checkInput(argv[1]))
-        throw std::runtime_error("Error: Invalid input");
-    _input = argv[1];
+    if (checkInput(argc, argv))
+        throw std::invalid_argument("Invalid input");
+    stockVectorInput(argv);
+    stockListInput(argv);
 }
 
 PmergeMe::~PmergeMe()
@@ -33,35 +32,64 @@ std::string PmergeMe::getInput() const {
     return _input;
 }
 
-void PmergeMe::mergeMe(std::string input) {
-    std::string result;
-    std::string::iterator it = input.begin();
-    std::string::iterator ite = input.end();
-    std::string::iterator it2 = input.begin();
-    std::string::iterator ite2 = input.end();
-    std::string::iterator it3 = input.begin();
-    std::string::iterator ite3 = input.end();
-    std::string::iterator it4 = input.begin();
-    std::string::iterator ite4 = input.end();
-    std::string::iterator it5 = input.begin();
-    std::string::iterator ite5 = input.end();
-    std::string::iterator it6 = input.begin();
-    std::string::iterator ite6 = input.end();
-    std::string::iterator it7 = input.begin();
-    std::string::iterator ite7 = input.end();
-    std::string::iterator it8 = input.begin();
-    std::string::iterator ite8 = input.end();
-    std::string::iterator it9 = input.begin();
-    std::string::iterator ite9 = input.end();
-    std::string::iterator it10 = input.begin();
-    std::string::iterator ite10 = input.end();
-    std::string::iterator it11 = input.begin();
-    std::string::iterator ite11 = input.end();
-    std::string::iterator it12 = input.begin();
-    std::string::iterator ite12 = input.end();
-    std::string::iterator it13 = input.begin();
-    std::string::iterator ite13 = input.end();
-    std::string::iterator it14 = input.begin();
-
+bool PmergeMe::checkInput(int argc, char const *argv[]) {
+    if (argc < 2 || argc > 3001)
+        return false;
+    else
+        return true;
 }
 
+void PmergeMe::paseInput(char const *argv[]) {
+    while (*argv) {
+        if (isdigit(*argv))
+            throw std::invalid_argument("Invalid input");
+    }
+}
+
+std::vector<int> PmergeMe::stockVectorInput(char const *argv[]) {
+    std::vector<int> v;
+    for (int i = 1; argv[i]; i++) {
+        v.push_back(std::stoi(argv[i]));
+    }
+    return v;
+}
+
+std::list<int> PmergeMe::stockListInput(char const *argv[]) {
+    std::list<int> l;
+    for (int i = 1; argv[i]; i++) {
+        l.push_back(std::stoi(argv[i]));
+    }
+    return l;
+}
+
+void PmergeMe::vectorFordJohnsonSort(std::vector<int> &v) {
+    int i = 0;
+    int j = 0;
+    int tmp = 0;
+
+    while (i < v.size()) {
+        j = i + 1;
+        while (j < v.size()) {
+            if (v[i] > v[j]) {
+                tmp = v[i];
+                v[i] = v[j];
+                v[j] = tmp;
+            }
+            j++;
+        }
+        i++;
+    }
+}
+
+void PmergeMe::listFordJohnsonSort(std::list<int> &l) {
+    std::list<int> sortedList;
+    for (std::list<int>::iterator it = sortedList.begin(); it != sortedList.end(); ++it) {
+        const int& value = *it;
+        std::list<int>::iterator insertPos = sortedList.begin();
+        while (insertPos != sortedList.end() && *insertPos < value) {
+            ++insertPos;
+        }
+        sortedList.insert(insertPos, value);
+    }
+    l = sortedList; 
+}
