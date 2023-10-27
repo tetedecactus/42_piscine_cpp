@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 10:29:19 by olabrecq          #+#    #+#             */
-/*   Updated: 2023/10/26 14:14:46 by olabrecq         ###   ########.fr       */
+/*   Updated: 2023/10/26 22:23:00 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ RPN::RPN(int argc, char const *argv[])
 {
     if (argc != 2)
         throw std::runtime_error("Wrong number of arguments");
-    if (!checkInput(argv[1]))
+    if (checkInput(argv[1]) == false)
         throw std::runtime_error("Error: Invalid input");
     _input = argv[1];
 }
@@ -111,5 +111,5 @@ bool RPN::checkInput(const std::string& input) {
         else
             return false;
     }
-    return count == 1;
+    return true;
 }

@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:05:35 by olabrecq          #+#    #+#             */
-/*   Updated: 2023/10/26 20:51:51 by olabrecq         ###   ########.fr       */
+/*   Updated: 2023/10/26 22:04:17 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 PmergeMe::PmergeMe(int argc, char const *argv[])
 {
-    if (checkInput(argc))
-        throw std::invalid_argument("Invalid input");
+    if (!checkInput(argc))
+        throw std::invalid_argument("Error: Invalid input, must be between 0 and 3000 digits.");
     paseInput(argv);
     setVector(stockVectorInput(argv));
     setList(stockListInput(argv));
@@ -41,10 +41,12 @@ bool PmergeMe::checkInput(int argc) {
 }
 
 void PmergeMe::paseInput(char const *argv[]) {
+    argv++;
     int i = 0;
-    while (*argv) {
-        if (!std::isdigit(*argv[i]))
-            throw std::invalid_argument("Invalid input");
+    while (argv[i]) {
+        if (!std::isdigit(*argv[i])) {
+            throw std::invalid_argument("Error: Invalid input, must only be positive numbers.");
+        }
         i++;
     }
 }
@@ -85,7 +87,10 @@ void PmergeMe::vectorFordJohnsonSort(std::vector<int> &v) {
 }
 
 void PmergeMe::listFordJohnsonSort(std::list<int> &l) {
-    // std::list<int> sortedList;
+    for (std::list<int>::iterator it = l.begin(); it != l.end(); ++it) {
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl;
     for (std::list<int>::iterator it = l.begin(); it != l.end(); ++it) {
         const int& value = *it;
         std::list<int>::iterator insertPos = l.begin();
