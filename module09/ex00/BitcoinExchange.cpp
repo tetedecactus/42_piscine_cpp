@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 17:58:55 by olabrecq          #+#    #+#             */
-/*   Updated: 2023/10/26 22:32:04 by olabrecq         ###   ########.fr       */
+/*   Updated: 2023/10/27 20:39:39 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,26 +110,58 @@ void BitcoinExchange::searchStackDate(const std::string &sDate, float fValue) {
 
 }
 
+
 std::string BitcoinExchange::searchClosestDate( const std::string& SMapDate, const std::string& sDate, float fValue) {
     //search closet date by compare month and days,
     (void)fValue;
     
+    std::string outputYear;
+    std::string outputMonth;
+    std::string outputDays;
+    
+    // std::map<std::string, float>::iterator it;
+    // for (it = maLine.begin(); it != maLine.end(); ++it) {
+        
+    outputYear =  searchClosestYear(SMapDate, sDate);
+    outputMonth = searchClosestMonth(SMapDate, sDate);
+    outputDays = searchClosestDay(SMapDate, sDate);
+        
+            
+        
+        // if (sYear == sMapYear && sMonth == sMapMonth && sMapDays < sDays) {
+        //     std::cout << it->first << " => " << it->second << std::endl;
+        //     std::cout << "it first: " << it->first << std::endl;
+        //     return it->first;
+        // }
+    // }
+    return "";
+}
+
+
+std::string BitcoinExchange::searchClosestYear( const std::string& sMapDate, const std::string& sDate) {
     std::string sYear = sDate.substr(0, 4);
+    std::string sMapYear = sMapDate.substr(0, 4);
+    
+    if (sYear == sMapYear)
+        return sMapYear;
+    return "";
+}
+
+std::string BitcoinExchange::searchClosestMonth( const std::string& sMapDate, const std::string& sDate) {
     std::string sMonth = sDate.substr(5, 2);
+    std::string sMapMonth = sMapDate.substr(5, 2);
+    
+    if (sMonth == sMapMonth)
+        return sMapMonth;
+    return "";
+}
+
+std::string BitcoinExchange::searchClosestDay(const std::string& sMapDate, const std::string& sDate) {
     std::string sDays = sDate.substr(8, 2);
-
-    std::string sMapYear = SMapDate.substr(0, 4);
-    std::string sMapMonth = SMapDate.substr(5, 2);
-    std::string sMapDays = SMapDate.substr(8, 2);    
-
-    std::map<std::string, float>::iterator it;
-    for (it = maLine.begin(); it != maLine.end(); ++it) {
-        if (sYear == sMapYear && sMonth == sMapMonth && sMapDays < sDays) {
-            std::cout << it->first << " => " << it->second << std::endl;
-            std::cout << "it first: " << it->first << std::endl;
-            return it->first;
-        }
-    }
+    std::string sMapDays = sMapDate.substr(8, 2);
+    
+    if (sDays == sMapDays)
+        return sMapDays;
     return "";
 }
 

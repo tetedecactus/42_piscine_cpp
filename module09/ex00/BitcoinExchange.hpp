@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 01:13:50 by olabrecq          #+#    #+#             */
-/*   Updated: 2023/10/26 11:02:47 by olabrecq         ###   ########.fr       */
+/*   Updated: 2023/10/27 20:38:54 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,9 @@ class   BitcoinExchange  {
 		static bool isValidArgs( int argc );
 		float extractFloatData( const std::string& dbLine );
 		int isValidLine( const std::string& currentLine );
-
+		
+		std::string searchClosestYear( const std::string& sMapDate, const std::string& sDate);
+		std::string searchClosestMonth( const std::string& sMapDate, const std::string& sDate);
+		std::string searchClosestDay( const std::string& sMapDate, const std::string& sDate);
 
 };
