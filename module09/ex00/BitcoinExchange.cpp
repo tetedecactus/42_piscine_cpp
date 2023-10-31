@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 17:58:55 by olabrecq          #+#    #+#             */
-/*   Updated: 2023/10/27 20:39:39 by olabrecq         ###   ########.fr       */
+/*   Updated: 2023/10/30 22:15:40 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,68 +100,101 @@ void BitcoinExchange::searchStackDate(const std::string &sDate, float fValue) {
         if (it->first == sDate) {
             
             std::cout << it->first << " => " << fValue << " => " << std::fixed << std::setprecision(2) << it->second * fValue << std::endl;
-            // return; // Sortir de la fonction dès que la date est trouvée
+            return; // Sortir de la fonction dès que la date est trouvée
         }
 
-        if (it->first != sDate) {
-            std::string sClosestDate = searchClosestDate(it->first, sDate, fValue);
-        }
     }
+    std::string sClosestDate = searchClosestDate(maLine, sDate);
+    std::cout << sClosestDate << " => " << fValue << " => " << std::fixed << std::setprecision(2) << maLine[sClosestDate] * fValue << std::endl;
 
 }
 
 
-std::string BitcoinExchange::searchClosestDate( const std::string& SMapDate, const std::string& sDate, float fValue) {
-    //search closet date by compare month and days,
-    (void)fValue;
+std::string BitcoinExchange::searchClosestDate( const std::map< std::string, float >& DB, const std::string& sDate ) {
     
     std::string outputYear;
     std::string outputMonth;
     std::string outputDays;
     
-    // std::map<std::string, float>::iterator it;
-    // for (it = maLine.begin(); it != maLine.end(); ++it) {
+    outputYear =  searchClosestYear(DB, sDate);
+    outputMonth = searchClosestMonth(DB, sDate);
+    outputDays = searchClosestDay(DB, sDate);
         
-    outputYear =  searchClosestYear(SMapDate, sDate);
-    outputMonth = searchClosestMonth(SMapDate, sDate);
-    outputDays = searchClosestDay(SMapDate, sDate);
-        
-            
-        
-        // if (sYear == sMapYear && sMonth == sMapMonth && sMapDays < sDays) {
-        //     std::cout << it->first << " => " << it->second << std::endl;
-        //     std::cout << "it first: " << it->first << std::endl;
-        //     return it->first;
-        // }
-    // }
-    return "";
+    return (outputYear + "-" + outputMonth + "-" + outputDays);    
+    
 }
 
 
-std::string BitcoinExchange::searchClosestYear( const std::string& sMapDate, const std::string& sDate) {
+std::string BitcoinExchange::searchClosestYear( const std::map< std::string, float >& DB, const std::string& sDate) {
     std::string sYear = sDate.substr(0, 4);
-    std::string sMapYear = sMapDate.substr(0, 4);
+    std::string sMapYear;
+    (void)DB;
     
-    if (sYear == sMapYear)
-        return sMapYear;
+    int iYear;
+    int iMapYear;
+    
+    std::map<std::string, float>::iterator it;
+    for (it = maLine.begin(); it != maLine.end(); ++it) {
+        
+        sMapYear = it->first.substr(0, 4);
+
+        iYear = std::atoi(sYear.c_str());
+        iMapYear = std::atoi(sMapYear.c_str());
+        
+        if (iYear < iMapYear) {
+            --it;
+            return it->first;
+        }
+    }
+    
     return "";
 }
 
-std::string BitcoinExchange::searchClosestMonth( const std::string& sMapDate, const std::string& sDate) {
+std::string BitcoinExchange::searchClosestMonth( const std::map< std::string, float >& DB, const std::string& sDate) {
     std::string sMonth = sDate.substr(5, 2);
-    std::string sMapMonth = sMapDate.substr(5, 2);
+    std::string sMapMonth;
+    (void)DB;
+    int iMonth;
+    int iMapMonth;
     
-    if (sMonth == sMapMonth)
-        return sMapMonth;
+    std::map<std::string, float>::iterator it;
+    for (it = maLine.begin(); it != maLine.end(); ++it) {
+        
+        sMapMonth = it->first.substr(5, 2);
+        
+        iMonth = std::atoi(sMonth.c_str());
+        iMapMonth = std::atoi(sMapMonth.c_str());
+        
+        if (iMonth < iMapMonth) {
+            --it;
+            return it->first;
+        }
+    }
+   
     return "";
 }
 
-std::string BitcoinExchange::searchClosestDay(const std::string& sMapDate, const std::string& sDate) {
+std::string BitcoinExchange::searchClosestDay(const std::map< std::string, float >& DB, const std::string& sDate) {
     std::string sDays = sDate.substr(8, 2);
-    std::string sMapDays = sMapDate.substr(8, 2);
+    std::string sMapDays;
+    (void)DB;
     
-    if (sDays == sMapDays)
-        return sMapDays;
+    int iDays;
+    int iMapDays;
+    
+    std::map<std::string, float>::iterator it;
+    for (it = maLine.begin(); it != maLine.end(); ++it) {
+        
+        sMapDays = it->first.substr(8, 2);
+        
+        iDays = std::atoi(sDays.c_str());
+        iMapDays = std::atoi(sMapDays.c_str());
+        
+        if (iDays < iMapDays) {
+            --it;
+            return it->first;
+        }
+    }
     return "";
 }
 

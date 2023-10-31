@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 17:19:52 by olabrecq          #+#    #+#             */
-/*   Updated: 2023/10/27 20:29:12 by olabrecq         ###   ########.fr       */
+/*   Updated: 2023/10/30 21:19:42 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ int main(int argc, const char **argv) {
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
-	
 	
 	return (0);	
 }

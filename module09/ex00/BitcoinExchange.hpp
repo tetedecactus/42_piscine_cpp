@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 01:13:50 by olabrecq          #+#    #+#             */
-/*   Updated: 2023/10/28 07:30:51 by olabrecq         ###   ########.fr       */
+/*   Updated: 2023/10/30 22:09:58 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ class   BitcoinExchange  {
 		void parseInputFile( const char* fileName );
 		
 		void searchStackDate( const std::string & sDate, float fValue );
-		std::string searchClosestDate( const std::string& sMapDate, const std::string & sDate, float fValue );
+		std::string searchClosestDate( const std::map< std::string, float >& DB, const std::string & sDate);
 		
 		void stackData( const std::string& sDate, float fValue );
 		void parseDB( const char* dataBaseFile );
@@ -60,8 +60,8 @@ class   BitcoinExchange  {
 		float extractFloatData( const std::string& dbLine );
 		int isValidLine( const std::string& currentLine );
 		
-		std::string searchClosestYear( const std::string& sMapDate, const std::string& sDate);
-		std::string searchClosestMonth( const std::string& sMapDate, const std::string& sDate);
-		std::string searchClosestDay( const std::string& sMapDate, const std::string& sDate);
+		std::string searchClosestYear( const std::map< std::string, float >& DB, const std::string& sDate);
+		std::string searchClosestMonth( const std::map< std::string, float >& DB, const std::string& sDate);
+		std::string searchClosestDay( const std::map< std::string, float >& DB, const std::string& sDate);
 
 };
