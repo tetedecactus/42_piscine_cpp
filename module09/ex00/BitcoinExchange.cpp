@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 17:58:55 by olabrecq          #+#    #+#             */
-/*   Updated: 2023/10/30 22:15:40 by olabrecq         ###   ########.fr       */
+/*   Updated: 2023/10/31 18:52:58 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,32 +104,34 @@ void BitcoinExchange::searchStackDate(const std::string &sDate, float fValue) {
         }
 
     }
-    std::string sClosestDate = searchClosestDate(maLine, sDate);
+    std::string sClosestDate = searchClosestDate(sDate);
     std::cout << sClosestDate << " => " << fValue << " => " << std::fixed << std::setprecision(2) << maLine[sClosestDate] * fValue << std::endl;
 
 }
 
 
-std::string BitcoinExchange::searchClosestDate( const std::map< std::string, float >& DB, const std::string& sDate ) {
+std::string BitcoinExchange::searchClosestDate( const std::string& sDate ) {
     
     std::string outputYear;
     std::string outputMonth;
     std::string outputDays;
     
-    outputYear =  searchClosestYear(DB, sDate);
-    outputMonth = searchClosestMonth(DB, sDate);
-    outputDays = searchClosestDay(DB, sDate);
+
+    
+    outputYear =  searchClosestYear(sDate);
+    outputMonth = searchClosestMonth(sDate, outputYear);
+    outputDays = searchClosestDay(sDate, outputYear, outputMonth);
+
         
     return (outputYear + "-" + outputMonth + "-" + outputDays);    
     
 }
 
 
-std::string BitcoinExchange::searchClosestYear( const std::map< std::string, float >& DB, const std::string& sDate) {
+std::string BitcoinExchange::searchClosestYear( const std::string& sDate) {
     std::string sYear = sDate.substr(0, 4);
     std::string sMapYear;
-    (void)DB;
-    
+
     int iYear;
     int iMapYear;
     
@@ -141,19 +143,18 @@ std::string BitcoinExchange::searchClosestYear( const std::map< std::string, flo
         iYear = std::atoi(sYear.c_str());
         iMapYear = std::atoi(sMapYear.c_str());
         
-        if (iYear < iMapYear) {
-            --it;
-            return it->first;
+        if (iYear == iMapYear) {
+            // --it;
+            return it->first.substr(0, 4);
         }
     }
     
     return "";
 }
 
-std::string BitcoinExchange::searchClosestMonth( const std::map< std::string, float >& DB, const std::string& sDate) {
+std::string BitcoinExchange::searchClosestMonth( const std::string& sDate, std::string sYear) {
     std::string sMonth = sDate.substr(5, 2);
     std::string sMapMonth;
-    (void)DB;
     int iMonth;
     int iMapMonth;
     
@@ -165,19 +166,18 @@ std::string BitcoinExchange::searchClosestMonth( const std::map< std::string, fl
         iMonth = std::atoi(sMonth.c_str());
         iMapMonth = std::atoi(sMapMonth.c_str());
         
-        if (iMonth < iMapMonth) {
-            --it;
-            return it->first;
+        if (iMonth == iMapMonth && it->first.substr(0, 4) == sYear) {
+            // --it;
+            return it->first.substr(5, 2);
         }
     }
    
     return "";
 }
 
-std::string BitcoinExchange::searchClosestDay(const std::map< std::string, float >& DB, const std::string& sDate) {
+std::string BitcoinExchange::searchClosestDay( const std::string& sDate, std::string sYear, std::string sMonth) {
     std::string sDays = sDate.substr(8, 2);
     std::string sMapDays;
-    (void)DB;
     
     int iDays;
     int iMapDays;
@@ -190,9 +190,9 @@ std::string BitcoinExchange::searchClosestDay(const std::map< std::string, float
         iDays = std::atoi(sDays.c_str());
         iMapDays = std::atoi(sMapDays.c_str());
         
-        if (iDays < iMapDays) {
+        if (iDays <= iMapDays && it->first.substr(0, 4) == sYear && it->first.substr(5, 2) == sMonth) {
             --it;
-            return it->first;
+            return it->first.substr(8, 2);
         }
     }
     return "";
