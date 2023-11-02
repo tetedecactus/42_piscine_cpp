@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:04:08 by olabrecq          #+#    #+#             */
-/*   Updated: 2023/10/26 21:40:34 by olabrecq         ###   ########.fr       */
+/*   Updated: 2023/11/02 18:58:01 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,12 @@ public:
     
     void vectorFordJohnsonSort(std::vector<int> &v);
     void listFordJohnsonSort(std::list<int> &l);
+
+
+
 };
 
 
 // https://en.wikipedia.org/wiki/Merge-insertion_sort
 // https://www.youtube.com/watch?v=9pMqIA2ehtE
+// https://www.youtube.com/watch?v=3j0SWDX4AtU
