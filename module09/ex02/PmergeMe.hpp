@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:04:08 by olabrecq          #+#    #+#             */
-/*   Updated: 2023/11/02 18:58:01 by olabrecq         ###   ########.fr       */
+/*   Updated: 2023/11/02 21:30:37 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,29 +33,42 @@ public:
     PmergeMe(int argc, char const *argv[]);
     ~PmergeMe();
     
-    void setInput(std::string input);
-    std::string getInput() const;
-    
-    bool checkInput(int argc);
-    void paseInput(char const *argv[]);
-
-    std::vector<int> stockVectorInput(char const *argv[]);
-    std::list<int> stockListInput(char const *argv[]);
-    
+    // Getter
     std::vector<int> getVector() const;
     std::list<int> getList() const;
-
+    std::string getInput() const;
+    
+    // Setter
     void setVector(std::vector<int> v);
     void setList(std::list<int> l);
+    void setInput(std::string input);
     
-    void vectorFordJohnsonSort(std::vector<int> &v);
-    void listFordJohnsonSort(std::list<int> &l);
-
-
-
+    // Parse input
+    bool checkInput(int argc);
+    void paseInput(char const *argv[]);
+    
+    // Stock input into vector
+    std::vector<int> stockVectorInput(char const *argv[]);
+    
+    // Stock input into list
+    std::list<int> stockListInput(char const *argv[]);
+    
+    // Ford-Johnson sort vector
+    void insertion(std::vector<int> &v);
+    void merge(std::vector<int> &v, int left, int middle, int right);
+    void sort(std::vector<int> &v, int left, int right);
+    
+    // Ford-Johnson sort list
+    void insertion(std::list<int> &l);
+    void merge(std::list<int> &l, int left, int middle, int right);
+    void sort(std::list<int> &l, int left, int right);
+   
 };
 
 
 // https://en.wikipedia.org/wiki/Merge-insertion_sort
 // https://www.youtube.com/watch?v=9pMqIA2ehtE
 // https://www.youtube.com/watch?v=3j0SWDX4AtU
+// https://iq.opengenus.org/merge-insertion-sort/
+// https://www.codingninjas.com/studio/library/sorting-by-combining-insertion-sort-and-merge-sort-algorithms
+// https://www.geeksforgeeks.org/sorting-by-combining-insertion-sort-and-merge-sort-algorithms/
