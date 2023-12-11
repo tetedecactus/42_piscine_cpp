@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:05:35 by olabrecq          #+#    #+#             */
-/*   Updated: 2023/11/02 21:41:49 by olabrecq         ###   ########.fr       */
+/*   Updated: 2023/12/10 20:16:09 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,21 @@ PmergeMe::PmergeMe(int argc, char const *argv[])
     paseInput(argv);
     setVector(stockVectorInput(argv));
     setList(stockListInput(argv));
+}
+PmergeMe::PmergeMe(PmergeMe const & src)
+{
+    *this = src;
+}
+
+PmergeMe& PmergeMe::operator=(PmergeMe const & rhs)
+{
+    if (this != &rhs)
+    {
+        _v = rhs._v;
+        _l = rhs._l;
+        _input = rhs._input;
+    }
+    return *this;
 }
 
 PmergeMe::~PmergeMe()

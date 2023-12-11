@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 17:58:55 by olabrecq          #+#    #+#             */
-/*   Updated: 2023/11/02 10:15:48 by olabrecq         ###   ########.fr       */
+/*   Updated: 2023/12/10 20:16:29 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,18 @@ BitcoinExchange::BitcoinExchange( int argc ) {
         // parseFile(argv[1]);
     }
     return ;
+}
+
+BitcoinExchange::BitcoinExchange( BitcoinExchange const & src ) {
+    *this = src;
+    return ;
+}
+
+BitcoinExchange& BitcoinExchange::operator=( BitcoinExchange const & rhs ) {
+    if ( this != &rhs ) {
+        maLine = rhs.maLine;
+    }
+    return *this;
 }
 
 BitcoinExchange::~BitcoinExchange( void ) {

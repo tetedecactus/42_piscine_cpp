@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 01:13:50 by olabrecq          #+#    #+#             */
-/*   Updated: 2023/10/31 18:38:50 by olabrecq         ###   ########.fr       */
+/*   Updated: 2023/12/10 20:15:04 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,10 @@ class   BitcoinExchange  {
     public:
 
 		BitcoinExchange( int argc );
+		BitcoinExchange( BitcoinExchange const & src );
+		BitcoinExchange& operator=( BitcoinExchange const & rhs );
 		~BitcoinExchange( void );
-
+		
 		const std::map< std::string, float>& getMaLine( void ) const;
 		void setMaLine( const std::map< std::string, float >& newMapLine );
 		

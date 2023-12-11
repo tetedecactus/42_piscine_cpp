@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 10:29:19 by olabrecq          #+#    #+#             */
-/*   Updated: 2023/10/26 22:23:00 by olabrecq         ###   ########.fr       */
+/*   Updated: 2023/12/10 20:16:46 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,22 @@ RPN::RPN(int argc, char const *argv[])
     if (checkInput(argv[1]) == false)
         throw std::runtime_error("Error: Invalid input");
     _input = argv[1];
+}
+
+RPN::RPN(RPN const & src)
+{
+    *this = src;
+}
+
+RPN& RPN::operator=(RPN const & rhs)
+{
+    if (this != &rhs)
+    {
+        _result = rhs._result;
+        _input = rhs._input;
+        _operands = rhs._operands;
+    }
+    return *this;
 }
 
 RPN::~RPN()

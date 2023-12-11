@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:04:08 by olabrecq          #+#    #+#             */
-/*   Updated: 2023/11/02 21:30:37 by olabrecq         ###   ########.fr       */
+/*   Updated: 2023/12/10 20:15:21 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ public:
 
     PmergeMe(int argc, char const *argv[]);
     ~PmergeMe();
+    PmergeMe(PmergeMe const & src);
+    PmergeMe& operator=(PmergeMe const & rhs);
     
     // Getter
     std::vector<int> getVector() const;
