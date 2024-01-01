@@ -6,11 +6,13 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 10:29:19 by olabrecq          #+#    #+#             */
-/*   Updated: 2023/12/10 20:16:46 by olabrecq         ###   ########.fr       */
+/*   Updated: 2024/01/01 12:26:52 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
+
+RPN::RPN( void ) {}
 
 RPN::RPN(int argc, char const *argv[])
 {

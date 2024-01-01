@@ -6,14 +6,13 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 10:39:12 by olabrecq          #+#    #+#             */
-/*   Updated: 2023/10/26 11:36:07 by olabrecq         ###   ########.fr       */
+/*   Updated: 2024/01/01 12:09:57 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
 int main(int argc, char const *argv[]) {
-    
     try
     {
         RPN equation(argc, argv);

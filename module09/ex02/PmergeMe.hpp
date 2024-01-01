@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:04:08 by olabrecq          #+#    #+#             */
-/*   Updated: 2023/12/10 20:15:21 by olabrecq         ###   ########.fr       */
+/*   Updated: 2024/01/01 12:27:40 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ private:
     std::string _input; 
     
 public:
-
+    
+    PmergeMe(void);
     PmergeMe(int argc, char const *argv[]);
     ~PmergeMe();
     PmergeMe(PmergeMe const & src);

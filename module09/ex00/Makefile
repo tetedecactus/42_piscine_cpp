@@ -40,5 +40,3 @@ fclean: clean
 	@echo "$(END)"
 
 re: fclean all
-
-.PHONY: all re clean fclean

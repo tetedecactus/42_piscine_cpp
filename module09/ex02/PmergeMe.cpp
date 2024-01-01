@@ -6,11 +6,13 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:05:35 by olabrecq          #+#    #+#             */
-/*   Updated: 2023/12/10 20:16:09 by olabrecq         ###   ########.fr       */
+/*   Updated: 2024/01/01 12:27:58 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+
+PmergeMe::PmergeMe(void) {}
 
 PmergeMe::PmergeMe(int argc, char const *argv[])
 {
