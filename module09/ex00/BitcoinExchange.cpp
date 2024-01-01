@@ -6,16 +6,17 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 17:58:55 by olabrecq          #+#    #+#             */
-/*   Updated: 2023/12/10 20:16:29 by olabrecq         ###   ########.fr       */
+/*   Updated: 2024/01/01 12:31:01 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
+BitcoinExchange::BitcoinExchange( void ) {}
+
 BitcoinExchange::BitcoinExchange( int argc ) {
 	if ( isValidArgs( argc ) ) {
         parseDB("data.csv");
-        // parseFile(argv[1]);
     }
     return ;
 }

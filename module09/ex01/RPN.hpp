@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 10:29:47 by olabrecq          #+#    #+#             */
-/*   Updated: 2023/12/10 20:15:34 by olabrecq         ###   ########.fr       */
+/*   Updated: 2024/01/01 12:27:07 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ private:
     
 public:
 
+    RPN(void);
     RPN(int argc, char const *argv[]);
     RPN(RPN const & src);
     RPN& operator=(RPN const & rhs);

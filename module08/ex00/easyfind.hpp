@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 13:55:11 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/08/04 20:44:23 by marvin           ###   ########.fr       */
+/*   Updated: 2024/01/01 12:20:16 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+# pragma once
 
 #include <iostream>
 #include <vector>
