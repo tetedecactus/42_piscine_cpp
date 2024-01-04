@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:04:08 by olabrecq          #+#    #+#             */
-/*   Updated: 2024/01/01 17:36:58 by olabrecq         ###   ########.fr       */
+/*   Updated: 2024/01/03 21:24:59 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 #include <stdexcept>
 #include <cstdlib>
 #include <vector>
-#include <list>
+#include <deque>
 
 class PmergeMe
 {
 private:
     
     std::vector<int> _v;
-    std::list<int> _l;
+    std::deque<int> _d;
     
     std::string _input; 
     
@@ -38,12 +38,12 @@ public:
     
     // Getter
     std::vector<int> getVector() const;
-    std::list<int> getList() const;
+    std::deque<int> getDeque() const;
     std::string getInput() const;
     
     // Setter
     void setVector(std::vector<int> v);
-    void setList(std::list<int> l);
+    void setDeque(std::deque<int> l);
     void setInput(std::string input);
     
     // Parse input
@@ -53,18 +53,18 @@ public:
     // Stock input into vector
     std::vector<int> stockVectorInput(char const *argv[]);
     
-    // Stock input into list
-    std::list<int> stockListInput(char const *argv[]);
+    // Stock input into deque
+    std::deque<int> stockDequeInput(char const *argv[]);
     
     // Ford-Johnson sort vector
     void insertion(std::vector<int> &v);
     void merge(std::vector<int> &v, int left, int middle, int right);
     void sort(std::vector<int> &v, int left, int right);
     
-    // Ford-Johnson sort list
-    void insertion(std::list<int> &l);
-    void merge(std::list<int> &l, int left, int middle, int right);
-    void sort(std::list<int> &l, int left, int right);
+    // Ford-Johnson sort deque
+    void insertion(std::deque<int> &l);
+    void merge(std::deque<int> &l, int left, int middle, int right);
+    void sort(std::deque<int> &l, int left, int right);
    
 };
 
