@@ -6,11 +6,13 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:05:35 by olabrecq          #+#    #+#             */
-/*   Updated: 2024/01/03 21:28:22 by olabrecq         ###   ########.fr       */
+/*   Updated: 2024/01/11 13:54:48 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+
+// Constructor, Destructor, Copy Constructor, Assignation Operator
 
 PmergeMe::PmergeMe(void) {}
 
@@ -41,12 +43,37 @@ PmergeMe& PmergeMe::operator=(PmergeMe const & rhs)
 PmergeMe::~PmergeMe()
 {
 }
+// -------------------------------------------------------------------------- //
 
-//  getter and setter
+// Output
 
-void PmergeMe::setInput(std::string input) {
-    _input = input;
+void PmergeMe::printUnsortedInput() const {
+    std::cout << "Unsorted input: " << getInput() << std::endl;
 }
+
+void PmergeMe::printSortedInput() const {
+    std::cout << "Sorted input: " << std::endl;
+    std::cout << "Vector: ";
+    for (std::vector<int>::const_iterator i = _v.begin(); i != _v.end(); ++i)
+        std::cout << *i << ' ';
+    std::cout << std::endl;
+    std::cout << "Deque: ";
+    for (std::deque<int>::const_iterator i = _d.begin(); i != _d.end(); ++i)
+        std::cout << *i << ' ';
+    std::cout << std::endl;
+}
+
+void PmergeMe::printTimeToSortVector() const {
+    std::cout << "Time to sort vector: " << std::endl;
+}
+
+void PmergeMe::printTimeToSortDeque() const {
+    std::cout << "Time to sort deque: " << std::endl;
+}
+
+// -------------------------------------------------------------------------- //
+
+// Getter
 
 std::string PmergeMe::getInput() const {
     return _input;
@@ -60,6 +87,31 @@ std::deque<int> PmergeMe::getDeque() const {
     return _d;
 }
 
+std::time_t PmergeMe::getVectorTimeStart() const {
+    return _v_time_start;
+}
+
+std::time_t PmergeMe::getVectorTimeEnd() const {
+    return _v_time_end;
+}
+
+std::time_t PmergeMe::getDequeTimeStart() const {
+    return _d_time_start;
+}
+
+std::time_t PmergeMe::getDequeTimeEnd() const {
+    return _d_time_end;
+}
+
+// -------------------------------------------------------------------------- //
+
+// Setter
+
+void PmergeMe::setInput(std::string input) {
+    _input = input;
+}
+
+
 void PmergeMe::setVector(std::vector<int> v) {
     _v = v;
 }
@@ -67,6 +119,24 @@ void PmergeMe::setVector(std::vector<int> v) {
 void PmergeMe::setDeque(std::deque<int> l) {
     _d = l;
 }
+
+void PmergeMe::setVectorTimeStart(std::time_t v_time_start) {
+    _v_time_start = v_time_start;
+}
+
+void PmergeMe::setVectorTimeEnd(std::time_t v_time_end) {
+    _v_time_end = v_time_end;
+}
+
+void PmergeMe::setDequeTimeStart(std::time_t d_time_start) {
+    _d_time_start = d_time_start;
+}
+
+void PmergeMe::setDequeTimeEnd(std::time_t d_time_end) {
+    _d_time_end = d_time_end;
+}
+
+// -------------------------------------------------------------------------- //
 
 // Parse input
 
