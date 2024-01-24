@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 20:21:33 by olabrecq          #+#    #+#             */
-/*   Updated: 2024/01/11 13:29:30 by olabrecq         ###   ########.fr       */
+/*   Updated: 2024/01/24 08:38:27 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,3 +52,50 @@ int main(int argc, char const *argv[])
 // Cette stratégie est souvent utilisée pour améliorer les performances des 
 // algorithmes de tri en prenant avantage des meilleures caractéristiques de 
 // différents algorithmes pour des ensembles de données de tailles différentes.
+
+
+// 1.
+// Random Number Generation The function generate_random_numbers 
+// produces a vector of random integers within a specified range.
+
+// 2.
+// Sorting Inside Pairs The function sort_inside_pairs sorts 
+// the elements inside pairs. It iterates through the array 
+// and swaps elements if they are out of order within their 
+// respective pairs.
+
+// 3.
+// Pair Array Merging The function merge_pair_arrays merges 
+// pair arrays during the sorting process. It combines two 
+// sub-arrays into a single sorted array.
+
+// 4.
+// Merge Sort Pairs The function merge_sort_pairs performs a 
+// merge sort algorithm on the pairs in the array.
+
+// 5.
+// Creating Main Chain and Pend Elements Functions create_main_chain 
+// and create_pend_elements extract the main chain (larger elements 
+//     of pairs) and pend elements (smaller elements of pairs) from 
+//     the sorted array.
+
+// 6.
+// Jacobsthal Number Calculation The function jacobsthal calculates 
+// the nth Jacobsthal number using a mathematical formula.
+
+// 7.
+// Binary Insertion The function binary_insert inserts an element 
+// into a sorted array using a binary insertion algorithm.
+
+// 8.
+// Merge Insertion Sort The function merge_insertion_sort combines 
+// the sorting steps outlined above to implement the custom 
+// merge-insertion sort algorithm.
+
+// 9.
+// Main Function In the main function, a usage message is 
+// printed if the program is not provided the correct 
+// command-line arguments. It then generates a set of 
+// random numbers, sorts them using the custom merge-insertion 
+// sort, and prints the sorted array along with a confirmation 
+// of whether it is sorted.
