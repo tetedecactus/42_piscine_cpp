@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 20:21:33 by olabrecq          #+#    #+#             */
-/*   Updated: 2024/01/24 08:38:27 by olabrecq         ###   ########.fr       */
+/*   Updated: 2024/01/24 09:08:26 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,3 +99,5 @@ int main(int argc, char const *argv[])
 // random numbers, sorts them using the custom merge-insertion 
 // sort, and prints the sorted array along with a confirmation 
 // of whether it is sorted.
+
+// https://github.com/Mikastiv/FordJohnsonSort/blob/main/main.cpp
