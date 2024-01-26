@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:05:35 by olabrecq          #+#    #+#             */
-/*   Updated: 2024/01/24 08:35:48 by olabrecq         ###   ########.fr       */
+/*   Updated: 2024/01/26 15:13:35 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,10 @@
 
 PmergeMe::PmergeMe(void) {}
 
-PmergeMe::PmergeMe(int argc, char const *argv[])
+PmergeMe::PmergeMe(char const *argv[])
 {
-    if (!checkInput(argc))
-        throw std::invalid_argument("Error: Invalid input, must be between 0 and 3000 digits.");
-    paseInput(argv);
-    setVector(stockVectorInput(argv));
-    setDeque(stockDequeInput(argv));
+    set_input(parse_input(argv));
+    set_deque(stock_deque_input(argv));
 }
 PmergeMe::PmergeMe(PmergeMe const & src)
 {
@@ -47,11 +44,11 @@ PmergeMe::~PmergeMe()
 
 // Output
 
-void PmergeMe::printUnsortedInput() const {
-    std::cout << "Unsorted input: " << getInput() << std::endl;
+void PmergeMe::print_unsorted_input() const {
+    std::cout << "Before: " << get_input() << std::endl;
 }
 
-void PmergeMe::printSortedInput() const {
+void PmergeMe::print_sorted_input() const {
     std::cout << "Sorted input: " << std::endl;
     std::cout << "Vector: ";
     for (std::vector<int>::const_iterator i = _v.begin(); i != _v.end(); ++i)
@@ -75,31 +72,31 @@ void PmergeMe::printTimeToSortDeque() const {
 
 // Getter
 
-std::string PmergeMe::getInput() const {
+std::string PmergeMe::get_input() const {
     return _input;
 }
 
-std::vector<int> PmergeMe::getVector() const {
+std::vector<int> PmergeMe::get_vector() const {
     return _v;
 }
 
-std::deque<int> PmergeMe::getDeque() const {
+std::deque<int> PmergeMe::get_deque() const {
     return _d;
 }
 
-std::time_t PmergeMe::getVectorTimeStart() const {
+std::time_t PmergeMe::get_vector_time_start() const {
     return _v_time_start;
 }
 
-std::time_t PmergeMe::getVectorTimeEnd() const {
+std::time_t PmergeMe::get_vector_time_end() const {
     return _v_time_end;
 }
 
-std::time_t PmergeMe::getDequeTimeStart() const {
+std::time_t PmergeMe::get_deque_time_start() const {
     return _d_time_start;
 }
 
-std::time_t PmergeMe::getDequeTimeEnd() const {
+std::time_t PmergeMe::get_deque_time_end() const {
     return _d_time_end;
 }
 
@@ -107,32 +104,35 @@ std::time_t PmergeMe::getDequeTimeEnd() const {
 
 // Setter
 
-void PmergeMe::setInput(std::string input) {
+void PmergeMe::set_input(std::string input) {
     _input = input;
 }
 
+void PmergeMe::set_output(std::string output) {
+    _output = output;
+}
 
-void PmergeMe::setVector(std::vector<int> v) {
+void PmergeMe::set_vector(std::vector<int> v) {
     _v = v;
 }
 
-void PmergeMe::setDeque(std::deque<int> l) {
+void PmergeMe::set_deque(std::deque<int> l) {
     _d = l;
 }
 
-void PmergeMe::setVectorTimeStart(std::time_t v_time_start) {
+void PmergeMe::set_vector_time_start(std::time_t v_time_start) {
     _v_time_start = v_time_start;
 }
 
-void PmergeMe::setVectorTimeEnd(std::time_t v_time_end) {
+void PmergeMe::set_vector_time_end(std::time_t v_time_end) {
     _v_time_end = v_time_end;
 }
 
-void PmergeMe::setDequeTimeStart(std::time_t d_time_start) {
+void PmergeMe::set_deque_time_start(std::time_t d_time_start) {
     _d_time_start = d_time_start;
 }
 
-void PmergeMe::setDequeTimeEnd(std::time_t d_time_end) {
+void PmergeMe::set_deque_time_end(std::time_t d_time_end) {
     _d_time_end = d_time_end;
 }
 
@@ -140,39 +140,89 @@ void PmergeMe::setDequeTimeEnd(std::time_t d_time_end) {
 
 // Parse input
 
-bool PmergeMe::checkInput(int argc) {
-    if (argc < 2 || argc > 3001)
-        return false;
-    else
-        return true;
-}
-
-void PmergeMe::paseInput(char const *argv[]) {
-    argv++;
-    int i = 0;
-    while (argv[i]) {
-        if (!std::isdigit(*argv[i])) {
-            throw std::invalid_argument("Error: Invalid input, must only be positive numbers.");
+std::string PmergeMe::parse_input(char const *argv[]) {
+    
+    std::string input;
+    
+    for (size_t i = 1; argv[i]; i++) {
+        for (size_t j = 0; argv[i][j]; j++)
+        {
+            if (!std::isdigit(argv[i][j])) {
+                throw std::invalid_argument("Error: Invalid input, must only be positive numbers.");
+            }
+            input.append(1, argv[i][j]);
         }
-        i++;
+        input.append(1, ' ');
     }
+    return input;
 }
 
 // Stock input into vector and deque
 
-std::vector<int> PmergeMe::stockVectorInput(char const *argv[]) {
+std::vector<int> PmergeMe::stock_vector_input(char const *argv[]) {
     std::vector<int> v;
-    for (int i = 1; argv[i]; i++) {
+    for (size_t i = 1; argv[i]; ++i) {
         v.push_back(std::atoi(argv[i]));
     }
+    
     return v;
 }
 
-std::deque<int> PmergeMe::stockDequeInput(char const *argv[]) {
-    std::deque<int> l;
+std::deque<int> PmergeMe::stock_deque_input(char const *argv[]) {
+    std::deque<int> d;
     for (int i = 1; argv[i]; i++) {
-        l.push_back(std::atoi(argv[i]));
+        d.push_back(std::atoi(argv[i]));
     }
-    return l;
+    return d;
 }
 
+
+// -------------------------------------------------------------------------- //
+
+// Sort Algo
+
+template<typename Container>
+void PmergeMe::sort_pair(Container &container) {
+    if (container.size() < 2)
+        return;
+    for (size_t i = 0; i < container.size() - 1; i += 2) {
+        if (container[i] > container[i + 1])
+            std::swap(container[i], container[i + 1]);
+    }
+}
+
+template<typename Container>
+Container PmergeMe::small_elements(Container &container) {
+    Container small;
+
+    if (is_vector<Container>::value)
+        small.reserve(container.size() / 2);
+    
+    for (size_t i = 0; i < container.size(); i+= PAIR) {
+        small.push_back(container[i]);
+    }
+    return small;
+}
+
+template<typename Container>
+Container PmergeMe::large_elements(Container &container) {
+    Container large;
+
+    if (is_vector<Container>::value)
+        large.reserve(container.size() / 2);
+        
+    
+    for (size_t i = 1; i < container.size(); i+= PAIR) {
+        large.push_back(container[i]);
+    }
+    return large;
+}
+
+template<typename Container>
+void PmergeMe::merge_insert_sort(Container &container) {
+    if (container.size() < 2)
+        return;
+    sort_pair(container);
+    
+}
+// -------------------------------------------------------------------------- //
