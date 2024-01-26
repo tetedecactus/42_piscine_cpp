@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:05:35 by olabrecq          #+#    #+#             */
-/*   Updated: 2024/01/26 15:13:35 by olabrecq         ###   ########.fr       */
+/*   Updated: 2024/01/26 16:03:27 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,53 +176,3 @@ std::deque<int> PmergeMe::stock_deque_input(char const *argv[]) {
     return d;
 }
 
-
-// -------------------------------------------------------------------------- //
-
-// Sort Algo
-
-template<typename Container>
-void PmergeMe::sort_pair(Container &container) {
-    if (container.size() < 2)
-        return;
-    for (size_t i = 0; i < container.size() - 1; i += 2) {
-        if (container[i] > container[i + 1])
-            std::swap(container[i], container[i + 1]);
-    }
-}
-
-template<typename Container>
-Container PmergeMe::small_elements(Container &container) {
-    Container small;
-
-    if (is_vector<Container>::value)
-        small.reserve(container.size() / 2);
-    
-    for (size_t i = 0; i < container.size(); i+= PAIR) {
-        small.push_back(container[i]);
-    }
-    return small;
-}
-
-template<typename Container>
-Container PmergeMe::large_elements(Container &container) {
-    Container large;
-
-    if (is_vector<Container>::value)
-        large.reserve(container.size() / 2);
-        
-    
-    for (size_t i = 1; i < container.size(); i+= PAIR) {
-        large.push_back(container[i]);
-    }
-    return large;
-}
-
-template<typename Container>
-void PmergeMe::merge_insert_sort(Container &container) {
-    if (container.size() < 2)
-        return;
-    sort_pair(container);
-    
-}
-// -------------------------------------------------------------------------- //
