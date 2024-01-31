@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:05:35 by olabrecq          #+#    #+#             */
-/*   Updated: 2024/01/26 16:03:27 by olabrecq         ###   ########.fr       */
+/*   Updated: 2024/01/30 10:17:05 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,11 +141,9 @@ void PmergeMe::set_deque_time_end(std::time_t d_time_end) {
 // Parse input
 
 std::string PmergeMe::parse_input(char const *argv[]) {
-    
     std::string input;
-    
-    for (size_t i = 1; argv[i]; i++) {
-        for (size_t j = 0; argv[i][j]; j++)
+    for (size_t i = 1; argv[i]; ++i) {
+        for (size_t j = 0; argv[i][j]; ++j)
         {
             if (!std::isdigit(argv[i][j])) {
                 throw std::invalid_argument("Error: Invalid input, must only be positive numbers.");
@@ -164,7 +162,6 @@ std::vector<int> PmergeMe::stock_vector_input(char const *argv[]) {
     for (size_t i = 1; argv[i]; ++i) {
         v.push_back(std::atoi(argv[i]));
     }
-    
     return v;
 }
 
@@ -176,3 +173,48 @@ std::deque<int> PmergeMe::stock_deque_input(char const *argv[]) {
     return d;
 }
 
+// Ford-johnson algorithm Vector
+
+// std::vector<int> PmergeMe::v_create_main_elements(std::vector<int> &v) {
+//     std::vector<int> v_main_container_elements; 
+//     v_main_container_elements.reserve(v.size() / PAIR);
+    
+//     for (size_t i = 0; i < v.size(); i += PAIR) {
+//         v_main_container_elements.push_back(v[i]);
+//     }
+//     return v_main_container_elements;
+// }
+
+
+// std::vector<int> PmergeMe::v_create_pend_elements(std::vector<int> &v) {
+//     std::vector<int> v_pend_container_elements;
+//     v_pend_container_elements.reserve(v.size() / PAIR);
+    
+//     for (size_t i = 1; i < v.size(); i += PAIR) {
+//         v_pend_container_elements.push_back(v[i]);
+//     }
+//     return v_pend_container_elements;
+// }
+
+
+// // Ford-johnson algorithm Deque
+
+// std::deque<int> PmergeMe::d_create_main_elements(std::deque<int> &d) {
+//     std::deque<int>& d_main_container_elements = *new std::deque<int>;
+//     d_main_container_elements.resize(d.size() / PAIR) ;
+    
+//     for (size_t i = 0; i < d.size(); i += PAIR) {
+//         d_main_container_elements.push_back(d[i]);
+//     }
+//     return d_main_container_elements;
+// }
+
+// std::deque<int> PmergeMe::d_create_pend_elements(std::deque<int> &d) {
+//     std::deque<int>& d_pend_container_elements = *new std::deque<int>;
+//     d_pend_container_elements.resize(d.size() / PAIR);
+    
+//     for (size_t i = 1; i < d.size(); i += PAIR) {
+//         d_pend_container_elements.push_back(d[i]);
+//     }
+//     return d_pend_container_elements;
+// }

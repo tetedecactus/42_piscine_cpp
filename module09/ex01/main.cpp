@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 10:39:12 by olabrecq          #+#    #+#             */
-/*   Updated: 2024/01/26 16:27:24 by olabrecq         ###   ########.fr       */
+/*   Updated: 2024/01/26 16:30:13 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int main(int argc, char const *argv[]) {
 
     {
         std::cout << "Constructors with no Args" << std::endl;
+        std::cout << "-----------------------------------------" << std::endl;
+        
         // Constructors 1
             try 
         {
@@ -36,6 +38,8 @@ int main(int argc, char const *argv[]) {
     
     {
         std::cout << "Constructors with Args" << std::endl;
+        std::cout << "-----------------------------------------" << std::endl;
+        
         // Constructors 2
         try
         {
@@ -54,6 +58,8 @@ int main(int argc, char const *argv[]) {
 
     {
         std::cout << "Copy Constructor" << std::endl;
+        std::cout << "-----------------------------------------" << std::endl;
+
         // Constructors 3
         try
         {
@@ -75,6 +81,8 @@ int main(int argc, char const *argv[]) {
 
     {
         std::cout << "Assignation Operator" << std::endl;
+        std::cout << "-----------------------------------------" << std::endl;
+
         // Operators equals
         try
         {

@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 17:19:52 by olabrecq          #+#    #+#             */
-/*   Updated: 2024/01/26 16:27:46 by olabrecq         ###   ########.fr       */
+/*   Updated: 2024/01/26 16:29:42 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int main(int argc, const char **argv) {
 	
 	{
 		std::cout << "Constructors with no Args" << std::endl;
+		std::cout << "-----------------------------------------" << std::endl;
+		
 		// Constructors 1
 		try 
 		{
@@ -37,6 +39,8 @@ int main(int argc, const char **argv) {
 
 	{
 		std::cout << "Constructors with Args" << std::endl;
+		std::cout << "-----------------------------------------" << std::endl;
+
 		//Constructors 2
 		try 
 		{
@@ -54,6 +58,8 @@ int main(int argc, const char **argv) {
 	{
 		// Constructors 3
 		std::cout << "Copy Constructor" << std::endl;
+		std::cout << "-----------------------------------------" << std::endl;
+	
 		try
 		{
 			BitcoinExchange src;
@@ -77,6 +83,8 @@ int main(int argc, const char **argv) {
 		
 		// Operateur d'affectation
 		std::cout << "Assignation Operator" << std::endl;
+		std::cout << "-----------------------------------------" << std::endl;
+
 		try
 		{
 			BitcoinExchange src;
