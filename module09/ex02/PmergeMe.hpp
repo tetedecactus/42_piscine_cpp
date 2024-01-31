@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:04:08 by olabrecq          #+#    #+#             */
-/*   Updated: 2024/01/30 10:31:11 by olabrecq         ###   ########.fr       */
+/*   Updated: 2024/01/31 15:23:42 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 #include <cassert>
 #include <cmath>
 
-int const MAX_ARRAY_SIZE = 4096;
+int const MAX_ARRAY_SIZE = 3000;
 int const PAIR = 2;
 
 #define ARRAY_SIZE (std::rand() % (3000 - 2 + 1) + 2)
@@ -115,7 +115,7 @@ public:
     std::string parse_input(char const *argv[]);
     
     // Stock input into vector
-    std::vector<int> stock_vector_input(char const *argv[1]);
+    std::vector<int> stock_vector_input(char const *argv[]);
     
     // Stock input into deque
     std::deque<int> stock_deque_input(char const *argv[]);
@@ -311,7 +311,7 @@ void merge(Container &container, const typename Container::size_type left,
     typename Container::size_type i = 0;
     typename Container::size_type j = 0;
 
-    for (typename Container::iterator k = container.begin() + l; k < container.begin() + r; k += PAIR) {
+    for (typename Container::iterator k = container.begin() + l; k < container.begin() + r + 1; k += PAIR) {
         if (i < left_length && (j >= right_length || tmp_left[i + 1] < tmp_right[j + 1])) {
             // copy pair from left
             *k = tmp_left[i];
