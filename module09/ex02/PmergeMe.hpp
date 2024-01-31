@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:04:08 by olabrecq          #+#    #+#             */
-/*   Updated: 2024/01/31 15:23:42 by olabrecq         ###   ########.fr       */
+/*   Updated: 2024/01/31 16:16:44 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -347,8 +347,17 @@ void merge_sort_recursive(Container &container, const typename Container::size_t
     const typename Container::size_type middle = left + (right - left) / 2;
 
     merge_sort_recursive(container, left, middle);
+    std::cout << "Afther Recursive Merge Sort 1 : " << std::endl;
+    print_array(container.begin(), container.end());
+    std::cout << std::endl;
     merge_sort_recursive(container, middle + 1, right);
+    std::cout << "Afther Recursive Merge Sort 2 : " << std::endl;
+    print_array(container.begin(), container.end());
+    std::cout << std::endl;
     merge(container, left, middle, right);
+    std::cout << "Afther Merge : " << std::endl;
+    print_array(container.begin(), container.end());
+    std::cout << std::endl;
 }
     
 template<typename Container>
