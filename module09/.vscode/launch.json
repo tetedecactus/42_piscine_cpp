@@ -1,46 +1,16 @@
-// {
-//     // Use IntelliSense to learn about possible attributes.
-//     // Hover to view descriptions of existing attributes.
-//     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-//     "version": "0.2.0",
-//     "configurations": [
-//         {
-//             "type": "lldb",
-//             "request": "launch",
-//             "name": "Debug",
-//             "program": "/home/tetedecactus/Projects/42/42_piscine_cpp/module09/ex02/PmergeMe",
-//             "args":"73 742 5 2 666 53 5",
-//             "cwd": "/home/tetedecactus/Projects/42/42_piscine_cpp/module09/ex02"
-//         }
-//     ]
-// }
-
 {
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "lldb",
+            "request": "launch",
             "name": "Debug",
-            "type": "cppdbg",
-            "request": "launch -g",
             "program": "/home/tetedecactus/Projects/42/42_piscine_cpp/module09/ex02/PmergeMe",
-            "args": ["73", "742", "5", "2", "666", "53", "5"],
-            "stopAtEntry": true,
-            "cwd": "/home/tetedecactus/Projects/42/42_piscine_cpp/module09/ex02",
-            "environment": [],
-            "externalConsole": false,
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                },
-                {
-                    "description": "Set Disassembly Flavor to Intel",
-                    "text": "-gdb-set disassembly-flavor intel",
-                    "ignoreFailures": true
-                }
-            ],
-            "preLaunchTask": "build" // Si vous utilisez une tâche pour la compilation
+            "args": ["23", "10", "10", "97", "42", "32", "40", "84", "29", "26", "66", "96", "57", "13", "46", "30", "91", "48", "11"],
+            "cwd": "${workspaceFolder}"
         }
     ]
 }
