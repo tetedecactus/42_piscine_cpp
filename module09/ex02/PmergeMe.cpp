@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:05:35 by olabrecq          #+#    #+#             */
-/*   Updated: 2024/02/04 21:27:52 by olabrecq         ###   ########.fr       */
+/*   Updated: 2024/02/05 10:55:36 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ PmergeMe::PmergeMe(void) {}
 PmergeMe::PmergeMe(char const *argv[])
 {
     set_input(parse_input(argv));
+    set_vector(stock_vector_input(argv));
     set_deque(stock_deque_input(argv));
 }
 PmergeMe::PmergeMe(PmergeMe const & src)
