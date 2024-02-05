@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:04:08 by olabrecq          #+#    #+#             */
-/*   Updated: 2024/02/02 17:19:51 by olabrecq         ###   ########.fr       */
+/*   Updated: 2024/02/04 21:25:42 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,15 +73,11 @@ class PmergeMe
 private:
     
     std::vector<int> _v;
-    std::time_t _v_time_start;
-    std::time_t _v_time_end;
     
     std::deque<int> _d;
-    std::time_t _d_time_start;
-    std::time_t _d_time_end;
     
-    std::string _input; // Argument -> Digit(s) to sort
-    std::string _output; // Sorted digit(s)
+    std::string _input;
+    std::string _output;
 
     
 public:
@@ -92,39 +88,23 @@ public:
     PmergeMe& operator=(PmergeMe const & rhs);
     ~PmergeMe();
     
-    // Output
-    void print_unsorted_input() const; // Print unsorted input
-    void print_sorted_input() const; // Print sorted input
-    void printTimeToSortVector() const; // Print time to sort vector
-    void printTimeToSortDeque() const; // Print time to sort deque
+    void print_unsorted_input() const; 
+    void print_sorted_input() const; 
     
-    // Getter
     std::vector<int> get_vector() const;
     std::deque<int> get_deque() const;
     std::string get_input() const;
     std::string get_output() const;
-    std::time_t get_vector_time_start() const;
-    std::time_t get_vector_time_end() const;
-    std::time_t get_deque_time_start() const;
-    std::time_t get_deque_time_end() const;
     
-    // Setter
     void set_vector(std::vector<int> v);
     void set_deque(std::deque<int> l);
     void set_input(std::string input);
     void set_output(std::string output);
-    void set_vector_time_start(std::time_t v_time_start);
-    void set_vector_time_end(std::time_t v_time_end);
-    void set_deque_time_start(std::time_t d_time_start);
-    void set_deque_time_end(std::time_t d_time_end);
     
-    // Parse input
     std::string parse_input(char const *argv[]);
     
-    // Stock input into vector
     std::vector<int> stock_vector_input(char const *argv[]);
     
-    // Stock input into deque
     std::deque<int> stock_deque_input(char const *argv[]);
 
 
@@ -151,7 +131,6 @@ std::vector<int>& v_create_pend_elements(Container &container)  {
     return pend;
 }
 
-
 template <typename Container>
 std::deque<int>& d_create_main_elements(Container &container)  {
     std::deque<int>& main = *new std::deque<int>();
@@ -161,7 +140,6 @@ std::deque<int>& d_create_main_elements(Container &container)  {
     }
     return main;
 }
-
 
 template <typename Container>
 std::deque<int>& d_create_pend_elements(Container &container)  {
@@ -220,12 +198,10 @@ void merge(Container &container, const typename Container::size_type left,
 
     for (typename Container::iterator k = container.begin() + l; k < container.begin() + r + 1; k += PAIR) {
         if (i < left_length && (j >= right_length || tmp_left[i + 1] < tmp_right[j + 1])) {
-            // copy pair from left
             *k = tmp_left[i];
             *(k + 1) = tmp_left[i + 1];
             i += PAIR;
         } else {
-            // copy pair from right
             *k = tmp_right[j];
             *(k + 1) = tmp_right[j + 1];
             j += PAIR;
@@ -309,42 +285,38 @@ template<typename Container>
  * 
  * @param container The container to be sorted.
  */
-void f_sort(Container &c_main, Container &c_pend) {
+Container f_sort(Container &c_main, Container &c_pend) {
     
     c_main.insert(c_main.begin(), c_pend.front());
 
-    typename Container::size_type insertion_counter = 1; // how many c_pend elements have been inserted (for right offset during binary inserts)
-    typename Container::size_type i = 0;                 // index in c_pend
-    typename Container::size_type jacobsthal_idx = 1;    // current jacobsthal number
+    typename Container::size_type insertion_counter = 1; 
+    typename Container::size_type i = 0;                
+    typename Container::size_type jacobsthal_idx = 1;   
     while (true) {
         const int distance_forward = 2 * jacobsthal(jacobsthal_idx);
-        if (i + distance_forward >= c_pend.size()) break; // break if move forward is out of bounds
+        if (i + distance_forward >= c_pend.size()) break;
 
         const typename Container::size_type start = i;
-        i += distance_forward; // move forward
-        // iterate backwards until we reach start
+        i += distance_forward; 
         while (i > start) {
             binary_insert(c_main, 0, i + insertion_counter - 1, c_pend[i]);
             ++insertion_counter;
             --i;
         }
-        i += distance_forward; // move back to i's starting point for the next iteration
+        i += distance_forward; 
         ++jacobsthal_idx;
     }
 
-    // insert rest of c_pend if any
     const typename Container::size_type start = i;
     i = c_pend.size() - 1;
     while (i > start) {
-        // binary insert into the complete main chain's range (no slicing)
+        
         binary_insert(c_main, 0, c_main.size() - 1, c_pend[i]);
         --i;
     }
     Container container;
     container = c_main;
-    std::cout << "Final Sorted Container: " << std::endl;
-    print_array(container.begin(), container.end());
-    std::cout << std::endl;
+    return container;
 }
 
 template<typename Container>
@@ -357,29 +329,17 @@ void merge_insert_sort(Container &container, char type) {
     if (type == 'v') {
         std::vector<int> v_main = v_create_main_elements(container);
         std::vector<int> v_pend = v_create_pend_elements(container);
-        f_sort( v_main, v_pend);
+        std::vector<int> v_sorted = f_sort(v_main, v_pend);
+        set_vector(v_sorted);
     }
     if (type == 'd') {
         std::deque<int> d_main = d_create_main_elements(container);
         std::deque<int> d_pend = d_create_pend_elements(container);
-        f_sort( d_main, d_pend);
+        std::deque<int> d_sorted = f_sort( d_main, d_pend);
+        set_deque(d_sorted);
     }
-    
-    
-    
-   
 }
 
 };
 
-
-    
 #endif
-
-
-// https://en.wikipedia.org/wiki/Merge-insertion_sort
-// https://www.youtube.com/watch?v=9pMqIA2ehtE
-// https://www.youtube.com/watch?v=3j0SWDX4AtU
-// https://iq.opengenus.org/merge-insertion-sort/
-// https://www.codingninjas.com/studio/library/sorting-by-combining-insertion-sort-and-merge-sort-algorithms
-// https://www.geeksforgeeks.org/sorting-by-combining-insertion-sort-and-merge-sort-algorithms/

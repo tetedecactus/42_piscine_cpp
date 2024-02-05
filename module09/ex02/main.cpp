@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 20:21:33 by olabrecq          #+#    #+#             */
-/*   Updated: 2024/02/02 15:34:11 by olabrecq         ###   ########.fr       */
+/*   Updated: 2024/02/04 21:12:53 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,27 +21,25 @@ int main(int argc, char const *argv[])
         PmergeMe p;
         p.set_input(p.parse_input(argv));
         
-        std::cout << "Input: " << p.get_input() << std::endl;
-        
         p.set_vector(p.stock_vector_input(argv));
         p.set_deque(p.stock_deque_input(argv));
         std::vector<int> v_array = p.get_vector();
         std::deque<int> d_array = p.get_deque();
         
-        std::cout << "Before Vector: ";
-        print_array(v_array.begin(), v_array.end());
-        std::cout << std::endl;
-        std::cout << "Before Deque: ";
-        print_array(d_array.begin(), d_array.end());
-        std::cout << std::endl;
-
         p.print_unsorted_input();
         
-        std::cout << "---------------VECTOR-----------------" <<std::endl;
+        std::clock_t v_start = std::clock();
         p.merge_insert_sort(v_array, 'v');
+        std::clock_t v_end = std::clock();
         
-        std::cout << "---------------DEQUE-----------------" <<std::endl;
+        std::clock_t d_start = std::clock();
         p.merge_insert_sort(d_array, 'd');
+        std::clock_t d_end = std::clock();
+        
+        p.print_sorted_input();
+        
+        std::cout << "Time to process a range of " << argc - 1 << " elements with std::vector " << (v_end - v_start) / (double) CLOCKS_PER_SEC << "s" << std::endl;
+        std::cout << "Time to process a range of " << argc - 1 << " elements with std::deque " << (d_end - d_start) / (double) CLOCKS_PER_SEC << "s" << std::endl;
         
 
         
