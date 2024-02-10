@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 10:39:12 by olabrecq          #+#    #+#             */
-/*   Updated: 2024/01/26 16:30:13 by olabrecq         ###   ########.fr       */
+/*   Updated: 2024/02/05 18:36:56 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int main(int argc, char const *argv[]) {
         // Constructors 1
             try 
         {
+            if (argc != 2)
+                throw std::runtime_error("Wrong number of arguments");
             RPN equation;
             equation.setInput(argv[1]);
             if (equation.checkInput(argv[1]) == false)
@@ -63,6 +65,8 @@ int main(int argc, char const *argv[]) {
         // Constructors 3
         try
         {
+            if (argc != 2)
+                throw std::runtime_error("Wrong number of arguments");
             RPN src;
             RPN equation(src);
             equation.setInput(argv[1]);
@@ -86,6 +90,8 @@ int main(int argc, char const *argv[]) {
         // Operators equals
         try
         {
+            if (argc != 2)
+                throw std::runtime_error("Wrong number of arguments");
             RPN equation;
             equation.setInput(argv[1]);
             if (equation.checkInput(argv[1]) == false)

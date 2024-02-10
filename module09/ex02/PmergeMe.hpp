@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 12:04:08 by olabrecq          #+#    #+#             */
-/*   Updated: 2024/02/04 21:25:42 by olabrecq         ###   ########.fr       */
+/*   Updated: 2024/02/10 16:29:10 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,49 +107,89 @@ public:
     
     std::deque<int> stock_deque_input(char const *argv[]);
 
-
-
-template <typename Container>
-std::vector<int>& v_create_main_elements(Container &container)  {
-    std::vector<int>& main = *new std::vector<int>();
-    main.reserve(container.size() / PAIR);
-
-    for (size_t i = 1; i < container.size(); i += PAIR) {
-        main.push_back(container[i]);
+    template <typename Container>
+    std::vector<int> v_create_main_elements(Container &container)  {
+        std::vector<int> main;
+        main.reserve(container.size() / PAIR);
+    
+        for (size_t i = 1; i < container.size(); i += PAIR) {
+            main.push_back(container[i]);
+        }
+        return main;
     }
-    return main;
-}
-
-template <typename Container>
-std::vector<int>& v_create_pend_elements(Container &container)  {
-    std::vector<int>& pend = *new std::vector<int>();
-    pend.reserve(container.size() / PAIR);
-
-    for (size_t i = 0; i < container.size(); i += PAIR) {
-        pend.push_back(container[i]);
+    
+    template <typename Container>
+    std::vector<int> v_create_pend_elements(Container &container)  {
+        std::vector<int> pend;
+        pend.reserve(container.size() / PAIR);
+    
+        for (size_t i = 0; i < container.size(); i += PAIR) {
+            pend.push_back(container[i]);
+        }
+        return pend;
     }
-    return pend;
-}
-
-template <typename Container>
-std::deque<int>& d_create_main_elements(Container &container)  {
-    std::deque<int>& main = *new std::deque<int>();
-
-    for (size_t i = 1; i < container.size(); i += PAIR) {
-        main.push_back(container[i]);
+    
+    template <typename Container>
+    std::deque<int> d_create_main_elements(Container &container)  {
+        std::deque<int> main;
+    
+        for (size_t i = 1; i < container.size(); i += PAIR) {
+            main.push_back(container[i]);
+        }
+        return main;
     }
-    return main;
-}
-
-template <typename Container>
-std::deque<int>& d_create_pend_elements(Container &container)  {
-    std::deque<int>& pend = *new std::deque<int>();
-
-    for (size_t i = 0; i < container.size(); i += PAIR) {
-        pend.push_back(container[i]);
+    
+    template <typename Container>
+    std::deque<int> d_create_pend_elements(Container &container)  {
+        std::deque<int> pend;
+    
+        for (size_t i = 0; i < container.size(); i += PAIR) {
+            pend.push_back(container[i]);
+        }
+        return pend;
     }
-    return pend;
-}
+
+// template <typename Container>
+// std::vector<int>& v_create_main_elements(Container &container)  {
+//     std::vector<int>& main = *new std::vector<int>();
+//     main.reserve(container.size() / PAIR);
+
+//     for (size_t i = 1; i < container.size(); i += PAIR) {
+//         main.push_back(container[i]);
+//     }
+//     return main;
+// }
+
+// template <typename Container>
+// std::vector<int>& v_create_pend_elements(Container &container)  {
+//     std::vector<int>& pend = *new std::vector<int>();
+//     pend.reserve(container.size() / PAIR);
+
+//     for (size_t i = 0; i < container.size(); i += PAIR) {
+//         pend.push_back(container[i]);
+//     }
+//     return pend;
+// }
+
+// template <typename Container>
+// std::deque<int>& d_create_main_elements(Container &container)  {
+//     std::deque<int>& main = *new std::deque<int>();
+
+//     for (size_t i = 1; i < container.size(); i += PAIR) {
+//         main.push_back(container[i]);
+//     }
+//     return main;
+// }
+
+// template <typename Container>
+// std::deque<int>& d_create_pend_elements(Container &container)  {
+//     std::deque<int>& pend = *new std::deque<int>();
+
+//     for (size_t i = 0; i < container.size(); i += PAIR) {
+//         pend.push_back(container[i]);
+//     }
+//     return pend;
+// }
 
 template<typename Container>
 /**
@@ -331,12 +371,14 @@ void merge_insert_sort(Container &container, char type) {
         std::vector<int> v_pend = v_create_pend_elements(container);
         std::vector<int> v_sorted = f_sort(v_main, v_pend);
         set_vector(v_sorted);
+      
     }
     if (type == 'd') {
         std::deque<int> d_main = d_create_main_elements(container);
         std::deque<int> d_pend = d_create_pend_elements(container);
         std::deque<int> d_sorted = f_sort( d_main, d_pend);
         set_deque(d_sorted);
+        
     }
 }
 
