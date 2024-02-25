@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 10:29:47 by olabrecq          #+#    #+#             */
-/*   Updated: 2024/01/01 12:27:07 by olabrecq         ###   ########.fr       */
+/*   Updated: 2024/02/23 11:09:38 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <stack>
 #include <string>
 #include <stdexcept>
+#include <cstring>
 
 class RPN
 {
@@ -29,7 +30,7 @@ private:
 public:
 
     RPN(void);
-    RPN(int argc, char const *argv[]);
+    RPN(const char *equation);
     RPN(RPN const & src);
     RPN& operator=(RPN const & rhs);
     ~RPN();
@@ -37,6 +38,7 @@ public:
     
     double calculateRPN(const std::string& input);
     bool checkInput(const std::string& input);
+    bool parseInpute(const std::string&  inpute);
     
     void setOperands(std::stack<double> operands);
     void setResult(double result);
@@ -45,6 +47,7 @@ public:
     double getResult() const;
     std::string getInput() const;
     std::stack<double> getOperands() const;
+    bool isoperator(char c);
 
 };
 

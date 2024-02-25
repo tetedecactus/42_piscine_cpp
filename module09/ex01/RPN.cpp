@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 10:29:19 by olabrecq          #+#    #+#             */
-/*   Updated: 2024/02/05 18:33:25 by olabrecq         ###   ########.fr       */
+/*   Updated: 2024/02/23 11:09:37 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,9 @@
 
 RPN::RPN( void ) {}
 
-RPN::RPN(int argc, char const *argv[])
+RPN::RPN(const char* arg)
 {
-    if (argc != 2)
-        throw std::runtime_error("Wrong number of arguments");
-    if (checkInput(argv[1]) == false)
-        throw std::runtime_error("Error: Invalid input");
-    _input = argv[1];
+    _input = arg;
 }
 
 RPN::RPN(RPN const & src)
@@ -85,19 +81,19 @@ double RPN::calculateRPN(const std::string& input) {
 
             switch (c) {
                 case '+':
-                    // std::cout << op1 << " + " << op2 << " = " << op1 + op2 << std::endl;
+                    std::cout << op1 << " + " << op2 << " = " << op1 + op2 << std::endl;
                     _operands.push(op1 + op2);
                     break;
                 case '-':
-                    // std::cout << op1 << " - " << op2 << " = " << op1 - op2 << std::endl;
+                    std::cout << op1 << " - " << op2 << " = " << op1 - op2 << std::endl;
                     _operands.push(op1 - op2);
                     break;
                 case '*':
-                    // std::cout << op1 << " * " << op2 << " = " << op1 * op2 << std::endl;
+                    std::cout << op1 << " * " << op2 << " = " << op1 * op2 << std::endl;
                     _operands.push(op1 * op2);
                     break;
                 case '/':
-                    // std::cout << op1 << " / " << op2 << " = " << op1 / op2 << std::endl;
+                    std::cout << op1 << " / " << op2 << " = " << op1 / op2 << std::endl;
                     _operands.push(op1 / op2);
                     break;
             }
@@ -114,11 +110,11 @@ double RPN::calculateRPN(const std::string& input) {
 
 bool RPN::checkInput(const std::string& input) {
     int count = 0;
-    
+    std::cout << "input  = " << input << std::endl;
     for (size_t i = 0; i < input.length(); i++) {
         
         char c = input[i];
-        if (isdigit(c) && isdigit(input[i + 1]))
+        if ((isdigit(c) && isdigit(input[i + 1])) || (isoperator(c) && isoperator(input[i + 1])))
             throw std::runtime_error("Error: Invalid decimal number ( >= 10 )");
         else if (isdigit(c))
             count++;
@@ -127,7 +123,24 @@ bool RPN::checkInput(const std::string& input) {
         else if (c == ' ')
             continue;
         else
-            return false;
+            throw std::runtime_error("Error: Invalid character");
     }
-    return true;
+    return count == 1;
 }
+
+bool RPN::parseInpute(const std::string& inpute){
+    std::string tmp_intput[inpute.length()];
+    
+    int i = 0;
+    while(inpute.length()) {
+        tmp_intput[i] = inpute[i];
+        i++;
+    }
+    
+    
+}
+
+bool RPN::isoperator(char c) {
+    return ( c == '+' || c == '-' || c == '*' || c == '/');
+}
+
