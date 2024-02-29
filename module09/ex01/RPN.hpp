@@ -17,6 +17,10 @@
 #include <string>
 #include <stdexcept>
 #include <cstring>
+#include <cctype>
+#include <sstream>
+#include <limits>
+
 
 class RPN
 {
@@ -35,7 +39,9 @@ public:
     RPN& operator=(RPN const & rhs);
     ~RPN();
     
-    
+    inline bool isDigit(char c);
+    inline bool isOperator(char c);
+    double parseDouble(const std::string& str);
     double calculateRPN(const std::string& input);
     bool checkInput(const std::string& input);
     bool parseInpute(const std::string&  inpute);

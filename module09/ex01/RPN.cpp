@@ -108,13 +108,32 @@ double RPN::calculateRPN(const std::string& input) {
     return getResult();
 }
 
+inline bool RPN::isDigit(char c) {
+    return std::isdigit(c);
+}
+
+inline bool RPN::isOperator(char c) {
+    return (c == '+' || c == '-' || c == '*' || c == '/');
+}
+
+// Function to parse a double from a string
+double RPN::parseDouble(const std::string& str) {
+    double value;
+    std::istringstream ss(str);
+    if (!(ss >> value)) {
+        throw std::runtime_error("Error: Invalid decimal number");
+    }
+    return value;
+}
+
+
 bool RPN::checkInput(const std::string& input) {
     int count = 0;
     std::cout << "input  = " << input << std::endl;
     for (size_t i = 0; i < input.length(); i++) {
         
         char c = input[i];
-        if ((isdigit(c) && isdigit(input[i + 1])) || (isoperator(c) && isoperator(input[i + 1])))
+        if (isdigit(c) && isdigit(input[i + 1]))
             throw std::runtime_error("Error: Invalid decimal number ( >= 10 )");
         else if (isdigit(c))
             count++;
@@ -125,22 +144,7 @@ bool RPN::checkInput(const std::string& input) {
         else
             throw std::runtime_error("Error: Invalid character");
     }
+    if (count > 2 || count < 0)
+        throw std::runtime_error("Error: Invalid RPN euqation");
     return count == 1;
 }
-
-bool RPN::parseInpute(const std::string& inpute){
-    std::string tmp_intput[inpute.length()];
-    
-    int i = 0;
-    while(inpute.length()) {
-        tmp_intput[i] = inpute[i];
-        i++;
-    }
-    
-    
-}
-
-bool RPN::isoperator(char c) {
-    return ( c == '+' || c == '-' || c == '*' || c == '/');
-}
-

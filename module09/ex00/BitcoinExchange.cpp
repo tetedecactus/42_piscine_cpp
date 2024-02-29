@@ -129,15 +129,11 @@ std::string BitcoinExchange::searchClosestDate( const std::string& sDate ) {
     std::string outputMonth;
     std::string outputDays;
     
-
-    
     outputYear =  searchClosestYear(sDate);
     outputMonth = searchClosestMonth(sDate, outputYear);
     outputDays = searchClosestDay(sDate, outputYear, outputMonth);
 
-        
     return (outputYear + "-" + outputMonth + "-" + outputDays);    
-    
 }
 
 
@@ -192,8 +188,16 @@ std::string BitcoinExchange::searchClosestDay( const std::string& sDate, std::st
     std::string sDays = sDate.substr(8, 2);
     std::string sMapDays;
     
-    int iDays;
-    int iMapDays;
+    std::cout << "SDAYS = " << sDays << std::endl;
+    
+    int iDays = 0;
+    int iMapDays = 0;
+
+    if (isBisex(std::atoi(sYear.c_str())) && sMonth == "02") {
+        iDays = std::atoi(sDays.c_str());
+        iDays--;
+        std::cout << "DAYS = " << iDays << std::endl;
+    }
     
     std::map<std::string, float>::iterator it;
     for (it = maLine.begin(); it != maLine.end(); ++it) {
@@ -330,6 +334,17 @@ bool BitcoinExchange::checkValidDate( const std::string& currentLine ) {
          return false;
 	
 	return true;
+}
+
+inline bool BitcoinExchange::isBisex(int year) {
+  switch (year % 400) {
+    case 0:
+      return true;
+    case 100:
+      return false;
+    default:
+      return year % 4 == 0;
+  }
 }
 
 bool BitcoinExchange::checkNegatif( const std::string& currentLine ) {

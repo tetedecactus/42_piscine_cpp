@@ -52,6 +52,7 @@ class   BitcoinExchange  {
 		
 		std::string extractDateData( const std::string& dvLine );
 		
+		inline bool isBisex(int year);
 		static bool checkPipe( const std::string& currentLine );
 		static bool checkSize( const std::string& currentLine );
 		static bool checkNegatif( const std::string& currentLine );
