@@ -65,47 +65,36 @@ std::stack<double> RPN::getOperands() const {
 
 
 double RPN::calculateRPN(const std::string& input) {
-    for (size_t i = 0; i < input.length(); i++) {
-        char c = input[i];
-        double op2;
-        double op1;
-        
-        
-        if (isdigit(c)) {
-            _operands.push(c - '0');
-        } else if ((c == '+' || c == '-' || c == '*' || c == '/') && !_operands.empty()) {
-            op2 = _operands.top();
-            _operands.pop();
-            op1 = _operands.top();
-            _operands.pop();
+    std::stack<double> p;
+    double n1, n2;
+    std::string values[input.size()];
 
-            switch (c) {
-                case '+':
-                    std::cout << op1 << " + " << op2 << " = " << op1 + op2 << std::endl;
-                    _operands.push(op1 + op2);
-                    break;
-                case '-':
-                    std::cout << op1 << " - " << op2 << " = " << op1 - op2 << std::endl;
-                    _operands.push(op1 - op2);
-                    break;
-                case '*':
-                    std::cout << op1 << " * " << op2 << " = " << op1 * op2 << std::endl;
-                    _operands.push(op1 * op2);
-                    break;
-                case '/':
-                    std::cout << op1 << " / " << op2 << " = " << op1 / op2 << std::endl;
-                    _operands.push(op1 / op2);
-                    break;
+    for (size_t i = 0; i < input.size(); i++)
+    {
+        if (isOperator(input.at(i))) {
+            if(p.size() < 2) {
+                throw std::invalid_argument("Invalid RPN expression: not enough operands.");
             }
+            n1 = p.top(); p.pop();
+            n2 = p.top(); p.pop();
+            switch (input.at(i)){
+                case '+': p.push(n1 + n2); break;
+                case '-': p.push(n2 - n1); break;
+                case '*': p.push(n1 * n2); break;
+                case '/':
+                    if (n1 == 0) {
+                        throw std::invalid_argument("Invalid RPN expression: division by zero.");
+                    }
+                    p.push(n2 / n1); break;
+            }
+        } else if(isdigit(input.at(i))) {
+            p.push(input.at(i) - '0');
         }
-        else if (c == ' ')
-            continue;
-        else
-            throw std::runtime_error("Error: Invalid character");
     }
-
-    setResult(_operands.top());
-    return getResult();
+    if(p.size() != 1) {
+        throw std::invalid_argument("Invalid RPN expression: too many operands");
+    }
+    return p.top();
 }
 
 inline bool RPN::isDigit(char c) {
@@ -129,12 +118,12 @@ double RPN::parseDouble(const std::string& str) {
 
 bool RPN::checkInput(const std::string& input) {
     int count = 0;
-    std::cout << "input  = " << input << std::endl;
-    for (size_t i = 0; i < input.length(); i++) {
+
+    for (size_t i = 0; i < input.size(); i++) {
         
         char c = input[i];
         if (isdigit(c) && isdigit(input[i + 1]))
-            throw std::runtime_error("Error: Invalid decimal number ( >= 10 )");
+            throw std::invalid_argument("Invalid number: numbers should be less than 10");
         else if (isdigit(c))
             count++;
         else if (c == '+' || c == '-' || c == '*' || c == '/')
@@ -144,7 +133,6 @@ bool RPN::checkInput(const std::string& input) {
         else
             throw std::runtime_error("Error: Invalid character");
     }
-    if (count > 2 || count < 0)
-        throw std::runtime_error("Error: Invalid RPN euqation");
-    return count == 1;
+    
+    return true;
 }

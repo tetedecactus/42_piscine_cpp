@@ -5,7 +5,7 @@ END 	= \033[0m
 
 NAME = PmergeMe
 
-CC = clang++
+CC = c++
 
 # add this flags forxxx evaluation: -std=c++98 -Wall -Wextra -Werror
 CFLAGS =  -Werror -Wextra -Wall -std=c++98 -g -fno-limit-debug-info
