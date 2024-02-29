@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 17:58:55 by olabrecq          #+#    #+#             */
-/*   Updated: 2024/01/03 20:51:31 by olabrecq         ###   ########.fr       */
+/*   Updated: 2024/02/29 12:26:36 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,7 +188,6 @@ std::string BitcoinExchange::searchClosestDay( const std::string& sDate, std::st
     std::string sDays = sDate.substr(8, 2);
     std::string sMapDays;
     
-    std::cout << "SDAYS = " << sDays << std::endl;
     
     int iDays = 0;
     int iMapDays = 0;
@@ -196,23 +195,26 @@ std::string BitcoinExchange::searchClosestDay( const std::string& sDate, std::st
     if (isBisex(std::atoi(sYear.c_str())) && sMonth == "02") {
         iDays = std::atoi(sDays.c_str());
         iDays--;
-        std::cout << "DAYS = " << iDays << std::endl;
     }
-    
-    std::map<std::string, float>::iterator it;
-    for (it = maLine.begin(); it != maLine.end(); ++it) {
-        
-        sMapDays = it->first.substr(8, 2);
-        
-        iDays = std::atoi(sDays.c_str());
-        iMapDays = std::atoi(sMapDays.c_str());
-        
-        if (iDays <= iMapDays && it->first.substr(0, 4) == sYear && it->first.substr(5, 2) == sMonth) {
-            --it;
-            return it->first.substr(8, 2);
+    else {
+        std::map<std::string, float>::iterator it;
+        for (it = maLine.begin(); it != maLine.end(); ++it) {
+            
+            sMapDays = it->first.substr(8, 2);
+            
+            iDays = std::atoi(sDays.c_str());
+            iMapDays = std::atoi(sMapDays.c_str());
+            
+            if (iDays <= iMapDays && it->first.substr(0, 4) == sYear && it->first.substr(5, 2) == sMonth) {
+                --it;
+                return it->first.substr(8, 2);
+            }
         }
     }
-    return "";
+    if (iDays == 28)
+        return "28";
+    else
+        return NULL;
 }
 
 
